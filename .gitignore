@@ -8,12 +8,8 @@
 *~
 
 # Log files and directories
-/logs/
-*.log
 
 # Cache and temp directories
-/cache/
-/temp/
 
 # Local configuration files (if any, ensure database.php is handled correctly)
 # If config/database.php contains sensitive credentials, uncomment the line below
