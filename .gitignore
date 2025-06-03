@@ -1,5 +1,7 @@
 # Composer dependencies
 /vendor/
+composer.phar
+composer.phar.*
 
 # IDE specific files
 .idea/

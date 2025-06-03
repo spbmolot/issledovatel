@@ -3,8 +3,6 @@
 
 namespace ResearcherAI;
 
-require_once 'FineProxyManager.php';
-
 
 
 class OpenAIClient {
@@ -314,4 +312,3 @@ class OpenAIClient {
 }
 
 ?>
-

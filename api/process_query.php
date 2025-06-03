@@ -5,17 +5,19 @@ error_reporting(E_ALL); // Устанавливаем максимальный �
 ini_set('log_errors', 1); // Включаем логирование ошибок
 ini_set('error_log', __DIR__ . '/../logs/php_errors.log'); // Указываем PHP писать свои ошибки в наш файл!
 
+// Подключаем автозагрузчик Composer
+require_once __DIR__ . '/../vendor/autoload.php';
+
 // Принудительно устанавливаем UTF-8
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../classes/AIProvider.php';
-require_once __DIR__ . '/../classes/YandexDiskClient.php';
-require_once __DIR__ . '/../classes/FileParser.php'; 
-require_once __DIR__ . '/../classes/Logger.php'; // Добавляем Logger
 
-use ResearcherAI\Logger; // Используем наш Logger
+use ResearcherAI\Logger;
+use ResearcherAI\AIProvider;
+use ResearcherAI\YandexDiskClient;
+use ResearcherAI\FileParser;
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -121,7 +123,7 @@ try {
 
     $yandexDisk = new YandexDiskClient($settings['yandex_token']);
 
-    $fileParser = new \ResearcherAI\FileParser(); 
+    $fileParser = new FileParser(); 
     
     // Извлекаем ключевые слова
 

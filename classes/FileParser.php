@@ -2,8 +2,6 @@
 
 namespace ResearcherAI;
 
-require_once __DIR__ . '/../vendor/autoload.php'; // For PhpSpreadsheet
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\Exception as ReaderException;
 
