@@ -1,18 +1,24 @@
 <?php
 namespace ResearcherAI;
+
+use Exception;
+use ResearcherAI\CacheManager;
+
 // Классы будут загружены через autoload
 
 class PriceAnalyzer {
     private $openAI;
     private $yandexDisk;
     private $fileParser;
+    private $cacheManager;
     private $maxFilesToAnalyze = 10;
     private $maxFileSize = 5 * 1024 * 1024; // 5MB
     
-    public function __construct($openAI, $yandexDisk) {
+    public function __construct($openAI, $yandexDisk, CacheManager $cacheManager) {
         $this->openAI = $openAI;
         $this->yandexDisk = $yandexDisk;
         $this->fileParser = new FileParser();
+        $this->cacheManager = $cacheManager;
     }
     
     public function processQuery($query, $folderPath = '/Прайсы') {
@@ -36,7 +42,7 @@ class PriceAnalyzer {
                 ];
             }
             
-            // Step 3: Download and parse relevant files
+            // Step 3: Download and parse relevant files, using cache
             $priceData = [];
             $sources = [];
             $processedFiles = 0;
@@ -49,13 +55,40 @@ class PriceAnalyzer {
                 if ($file['size'] > $this->maxFileSize) {
                     continue; // Skip large files
                 }
-                
-                $content = $this->yandexDisk->downloadFile($file['path']);
-                if ($content === null) {
-                    continue;
+
+                $yandexDiskPath = $file['path'];
+                $yandexDiskModified = $file['modified'];
+                $yandexDiskMd5 = $file['md5'] ?? null; // Если YandexDiskClient будет возвращать md5
+
+                $parsedData = null;
+                $cachedContent = $this->cacheManager->getCachedContent($yandexDiskPath, $yandexDiskModified, $yandexDiskMd5);
+
+                if ($cachedContent !== false) {
+                    $decodedData = json_decode($cachedContent, true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $parsedData = $decodedData;
+                    } else {
+                        $this->cacheManager->deleteCacheEntry($yandexDiskPath); // Удаляем поврежденный кэш
+                    }
+                }
+
+                if ($parsedData === null) { // Cache miss or failed to decode
+                    $content = $this->yandexDisk->downloadFile($yandexDiskPath);
+                    if ($content === null) {
+                        continue;
+                    }
+                    
+                    $parsedDataArray = $this->fileParser->parse($content, $file['name'], $file['mime_type']);
+                    
+                    if (!empty($parsedDataArray)) {
+                        if ($this->cacheManager->setCache($yandexDiskPath, $yandexDiskModified, $yandexDiskMd5, json_encode($parsedDataArray))) {
+                        }
+                        $parsedData = $parsedDataArray;
+                    } else {
+                        $parsedData = []; // Устанавливаем пустой массив, чтобы не было ошибок дальше
+                    }
                 }
                 
-                $parsedData = $this->fileParser->parse($content, $file['name'], $file['mime_type']);
                 if (!empty($parsedData)) {
                     $relevantData = $this->filterRelevantData($parsedData, $keywords);
                     if (!empty($relevantData)) {
@@ -74,7 +107,7 @@ class PriceAnalyzer {
             if (empty($priceData)) {
                 return [
                     'response' => 'Найдены файлы, но в них не обнаружено данных, релевантных вашему запросу "' . $query . '". Попробуйте уточнить запрос или проверьте содержимое прайс-листов.',
-                    'sources' => $sources,
+                    'sources' => $sources, // Возвращаем источники, даже если данные не найдены, для информации
                     'processing_time' => microtime(true) - $startTime
                 ];
             }
