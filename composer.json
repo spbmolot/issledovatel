@@ -1,0 +1,38 @@
+{
+    "name": "researcher-ai/price-analyzer",
+    "description": "AI-powered price list analyzer for Bitrix24",
+    "type": "project",
+    "require": {
+        "php": "^7.4|^8.0",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*",
+        "ext-zip": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ResearcherAI\\": "classes/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "install-deps": [
+            "composer install --no-dev --optimize-autoloader"
+        ],
+        "setup": [
+            "php install/setup.php"
+        ]
+    },
+    "repositories": {
+    }
+}

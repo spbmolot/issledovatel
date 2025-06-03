@@ -1,25 +1,39 @@
-# CakePHP 3
+# Composer dependencies
+/vendor/
 
-/vendor/*
-/config/app.php
+# IDE specific files
+.idea/
+*.swp
+*.swo
+*~
 
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
+# Log files and directories
+/logs/
+*.log
 
-/logs/*
-!/logs/empty
+# Cache and temp directories
+/cache/
+/temp/
 
-# CakePHP 2
+# Local configuration files (if any, ensure database.php is handled correctly)
+# If config/database.php contains sensitive credentials, uncomment the line below
+# /config/database.php
 
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.backup
+*.broken
+
+# Test script generated locally
+local_test_api_status.sh
+
+# Build artifacts or compiled files (if any)
+
+# Environment files
+.env
+.env.local
+.env.*
+!.env.example
