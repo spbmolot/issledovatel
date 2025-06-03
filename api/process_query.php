@@ -15,6 +15,8 @@ require_once __DIR__ . '/../classes/AIProvider.php';
 
 require_once __DIR__ . '/../classes/YandexDiskClient.php';
 
+require_once __DIR__ . '/../classes/FileParser.php'; 
+
 
 
 header('Content-Type: application/json; charset=utf-8');
@@ -121,8 +123,8 @@ try {
 
     $yandexDisk = new YandexDiskClient($settings['yandex_token']);
 
+    $fileParser = new \ResearcherAI\FileParser(); 
     
-
     // Извлекаем ключевые слова
 
     $keywords = $ai->extractKeywords($query);
@@ -133,62 +135,158 @@ try {
 
     $folder = $settings['yandex_folder'] ?? '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
 
-    $files = [];
-
+    $allFoundFiles = []; 
     
-
     try {
 
-        $allFiles = $yandexDisk->listFiles($folder);
+        $allFoundFiles = $yandexDisk->listFiles($folder);
 
-        error_log("Found " . count($allFiles) . " files in folder: $folder");
-
+        error_log("Found " . count($allFoundFiles) . " files in folder: $folder");
         
-
-        // Берем первые 3 файла для демонстрации
-
-        $files = array_slice($allFiles, 0, 3);
+        // $files = array_slice($allFiles, 0, 3); // Убираем ограничение на 3 файла
 
     } catch (Exception $e) {
 
-        error_log('Yandex Disk error: ' . $e->getMessage());
+        error_log('Yandex Disk error listing files: ' . $e->getMessage());
 
     }
-
     
+    $realPriceData = [];
 
-    // Создаем демо-данные на основе реальных файлов
+    $processedFilesForResponse = []; // Для хранения информации о реально обработанных файлах
 
-    $priceData = [];
+    $maxTotalCharsForAI = 50000; // Примерный лимит символов для контекста AI (можно настроить)
 
-    if (!empty($files)) {
+    $currentCharCount = 0;
 
-        foreach ($files as $file) {
+    if (!empty($allFoundFiles)) {
 
-            $priceData[$file['name']] = "Образец данных из файла {$file['name']}\nРазмер: " . round($file['size']/1024, 2) . " KB\nФормат: PDF прайс-лист\n\nПример товаров:\n- Ламинат различных коллекций\n- Напольные покрытия\n- Цены от 500 до 3000 руб/м²";
+        error_log("Starting to process " . count($allFoundFiles) . " files.");
+
+        foreach ($allFoundFiles as $fileMeta) {
+
+            if ($currentCharCount >= $maxTotalCharsForAI) {
+
+                error_log("Reached max character limit for AI context ($maxTotalCharsForAI chars). Skipping remaining files.");
+
+                break;
+
+            }
+            
+            $fileName = $fileMeta['name'];
+
+            $filePath = $fileMeta['path'];
+
+            error_log("Processing file: $fileName (Path: $filePath)");
+
+            try {
+
+                $fileContent = $yandexDisk->downloadFile($filePath);
+
+                if ($fileContent === null) {
+
+                    error_log("Failed to download file: $fileName. Skipping.");
+
+                    continue;
+
+                }
+
+                // Опционально: $fileParser->validateFile($fileContent, $fileName);
+
+                $parsedRows = $fileParser->parse($fileContent, $fileName);
+                
+                if (empty($parsedRows)) {
+
+                    error_log("File $fileName was parsed into empty data. Skipping.");
+
+                    continue;
+
+                }
+
+                $fileTextContent = "";
+
+                foreach ($parsedRows as $row) {
+
+                    // Очищаем каждую ячейку перед объединением
+
+                    $cleanedRow = array_map(function($cell) {
+
+                        return trim(str_replace(["\r", "\n"], ' ', (string)$cell));
+
+                    }, $row);
+
+                    $fileTextContent .= implode("\t", array_filter($cleanedRow)) . "\n";
+
+                }
+
+                $fileTextContent = trim($fileTextContent);
+
+                if (!empty($fileTextContent)) {
+
+                    $contentLength = mb_strlen($fileTextContent, 'UTF-8');
+
+                    if (($currentCharCount + $contentLength) > $maxTotalCharsForAI) {
+
+                        $charsToTake = $maxTotalCharsForAI - $currentCharCount;
+
+                        $fileTextContent = mb_substr($fileTextContent, 0, $charsToTake, 'UTF-8') . "... (содержимое файла было усечено)";
+
+                        $currentCharCount = $maxTotalCharsForAI; // Помечаем, что лимит достигнут
+
+                    } else {
+
+                        $currentCharCount += $contentLength;
+
+                    }
+
+                    $realPriceData[$fileName] = $fileTextContent;
+
+                    $processedFilesForResponse[] = $fileMeta; 
+
+                    error_log("Successfully processed and added data from: $fileName. Total AI context chars: $currentCharCount");
+
+                } else {
+
+                    error_log("No text content extracted from $fileName after parsing. Skipping.");
+
+                }
+
+            } catch (Exception $e) {
+
+                error_log("Error processing file $fileName: " . $e->getMessage() . " Skipping.");
+
+            }
 
         }
 
     } else {
 
-        $priceData['demo.txt'] = "Демо-данные для запроса: $query\n\nПример товаров:\n- Ламинат кроно - от 800 руб/м²\n- Ламинат Quick Step - от 1200 руб/м²\n- Виниловая плитка - от 600 руб/м²";
+        error_log("No files found in Yandex Disk folder '$folder' or an error occurred while listing files.");
 
     }
-
     
+    // Если после обработки всех файлов нет данных, используем демо-данные
 
+    if (empty($realPriceData)) {
+
+        error_log("No data could be extracted from any files. Using fallback demo data for AI query.");
+
+        $realPriceData['demo_fallback.txt'] = "Не удалось извлечь данные из прайс-листов. Информация для запроса '$query':\n- Товар А: 100 руб.\n- Товар Б: 200 руб.";
+
+        // В этом случае в sources можно ничего не добавлять или добавить информацию о fallback
+
+        $processedFilesForResponse = [['name' => 'Файлы не найдены или не обработаны', 'path' => '']];
+
+    }
+    
     // Анализируем запрос
 
-    $result = $ai->analyzeQuery($query, $priceData);
-
+    $result = $ai->analyzeQuery($query, $realPriceData); // Передаем реальные или демо-данные
     
-
     // Логируем запрос
 
-    error_log("Query processed: $query by $aiProvider, files: " . count($files));
-
+    error_log("Query processed: $query by $aiProvider, files used for AI context: " . count($realPriceData) . ", files listed in response: " . count($processedFilesForResponse));
     
-
     $response = [
 
         'text' => $result['text'],
@@ -197,11 +295,11 @@ try {
 
             return ['name' => $file['name'], 'path' => $file['path']];
 
-        }, $files),
+        }, $processedFilesForResponse), // Используем список успешно обработанных файлов
 
         'provider' => $aiProvider,
 
-        'files_found' => count($files),
+        'files_found' => count($realPriceData),
 
         'keywords' => $keywords
 
@@ -224,4 +322,3 @@ try {
 }
 
 ?>
-

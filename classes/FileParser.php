@@ -175,29 +175,84 @@ class FileParser {
     }
     
     private function parsePdf($content) {
-        // Basic PDF text extraction (requires additional libraries for full functionality)
-        // This is a simplified version - for production, use libraries like PDF parser
-        
+        $tempFile = null;
         try {
-            // Try to extract text using basic method
-            $text = '';
+            // Create temporary file for PDF content
+            $tempFile = tempnam(sys_get_temp_dir(), 'pdf_');
+            if ($tempFile === false) {
+                throw new Exception('Failed to create temporary file for PDF.');
+            }
+            // It's important to add the .pdf extension, as some versions of pdftotext require it
+            $tempPdfFile = $tempFile . '.pdf';
+            rename($tempFile, $tempPdfFile); // Rename to have the correct extension
+            $tempFile = $tempPdfFile; // Update the temporary file name
+
+            if (file_put_contents($tempFile, $content) === false) {
+                throw new Exception('Failed to write PDF content to temporary file.');
+            }
+
+            // Form the command for pdftotext
+            // -enc UTF-8: for UTF-8 output
+            // -layout: tries to preserve the original text layout, which can be useful
+            // - (dash): output to stdout
+            // escapeshellarg: for safe passing of the file name
+            $command = 'pdftotext -enc UTF-8 -layout ' . escapeshellarg($tempFile) . ' -';
             
-            // Simple PDF text extraction pattern
+            // Execute the command
+            // Suppress possible errors from shell_exec if pdftotext outputs something to stderr
+            $extractedText = @shell_exec($command);
+
+            if ($extractedText === null) {
+                // shell_exec might be disabled or an error occurred that it couldn't handle
+                // Try without -layout if the previous command failed
+                $command_simple = 'pdftotext -enc UTF-8 ' . escapeshellarg($tempFile) . ' -';
+                $extractedText = @shell_exec($command_simple);
+                if ($extractedText === null) {
+                    throw new Exception('Failed to execute pdftotext. It might not be installed, not in PATH, or shell_exec is disabled.');
+                }
+            }
+
+            if (empty(trim($extractedText))) {
+                // pdftotext might not have extracted anything (e.g., PDF with only images)
+                // or an error occurred but shell_exec didn't return null
+                // Try the old method as a fallback
+                return $this->parsePdfFallback($content);
+            }
+            
+            return $this->parseText($extractedText);
+
+        } catch (Exception $e) {
+            error_log("PDF parsing error (pdftotext): " . $e->getMessage());
+            // Try to use the old method in case of any error with pdftotext
+            return $this->parsePdfFallback($content);
+        } finally {
+            // Delete the temporary file if it was created
+            if ($tempFile && file_exists($tempFile)) {
+                unlink($tempFile);
+            }
+            // If the original tempnam file without .pdf remains (in case of rename error)
+            $originalTempFile = str_replace('.pdf', '', $tempFile ?? '');
+            if ($originalTempFile && file_exists($originalTempFile)) {
+                 unlink($originalTempFile);
+            }
+        }
+    }
+
+    // Old PDF parsing method as a fallback
+    private function parsePdfFallback($content) {
+        try {
+            $text = '';
             if (preg_match_all('/\((.*?)\)/', $content, $matches)) {
                 $text = implode(' ', $matches[1]);
             }
-            
             if (empty($text)) {
-                // Fallback: look for readable text patterns
                 if (preg_match_all('/[A-Za-zА-Яа-я0-9\s\.,;:!?\-]+/', $content, $matches)) {
                     $text = implode(' ', $matches[0]);
                 }
             }
-            
             return $this->parseText($text);
-            
         } catch (Exception $e) {
-            error_log("PDF parsing error: " . $e->getMessage());
+            error_log("PDF parsing error (fallback): " . $e->getMessage());
             return [];
         }
     }
