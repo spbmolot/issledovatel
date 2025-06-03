@@ -1,7 +1,7 @@
 
 <?php
 
-
+namespace ResearcherAI;
 
 abstract class AIProvider {
 

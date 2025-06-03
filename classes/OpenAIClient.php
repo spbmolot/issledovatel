@@ -1,7 +1,7 @@
 
 <?php
 
-
+namespace ResearcherAI;
 
 require_once 'FineProxyManager.php';
 
