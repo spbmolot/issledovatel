@@ -288,27 +288,30 @@ class YandexDiskClient {
         curl_close($ch);
 
         if ($error) {
-
+            Logger::error("[YandexDiskClient] cURL Error for URL '" . (isset($url) ? $url : 'N/A') . "': " . $error, new Exception($error));
             throw new Exception("cURL Error: " . $error);
-
         }
 
         if ($httpCode < 200 || $httpCode >= 300) {
-
             $errorData = json_decode($response, true);
+            $jsonLastError = json_last_error(); // Проверяем, был ли JSON в ответе об ошибке
+            
+            $apiMessageDetail = "HTTP Error " . $httpCode;
+            if ($jsonLastError === JSON_ERROR_NONE && $errorData) {
+                $apiMessageDetail = isset($errorData['message']) ? $errorData['message'] : $apiMessageDetail;
+                if (isset($errorData['description'])) $apiMessageDetail .= " - " . $errorData['description'];
+                if (isset($errorData['error'])) $apiMessageDetail .= " (Yandex Code: " . $errorData['error'] . ")";
+            }
 
-            $errorMessage = isset($errorData['message']) ? $errorData['message'] : "HTTP Error " . $httpCode;
-
-            throw new Exception("Yandex Disk API Error: " . $errorMessage);
-
+            $logMessage = "[YandexDiskClient] Yandex Disk API Error for URL '" . (isset($url) ? $url : 'N/A') . "'. HTTP Code: {$httpCode}. Message: {$apiMessageDetail}. Raw Response: {$response}";
+            Logger::error($logMessage);
+            throw new Exception("Yandex Disk API Error: " . $apiMessageDetail);
         }
 
         $decodedResponse = json_decode($response, true);
-
         if (json_last_error() !== JSON_ERROR_NONE) {
-
-            throw new Exception('Invalid JSON response from Yandex Disk');
-
+            Logger::error("[YandexDiskClient] Invalid JSON response from Yandex Disk (after successful HTTP code) for URL '" . (isset($url) ? $url : 'N/A') . "'. Error: " . json_last_error_msg() . ". Raw Response: " . $response);
+            throw new Exception('Invalid JSON response from Yandex Disk: ' . json_last_error_msg());
         }
 
         return $decodedResponse;
