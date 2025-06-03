@@ -1,6 +1,4 @@
-
 <?php
-
 namespace ResearcherAI;
 
 class YandexDiskClient {
@@ -9,15 +7,11 @@ class YandexDiskClient {
 
     private $baseUrl = 'https://cloud-api.yandex.net/v1/disk';
 
-    
-
     public function __construct($oauthToken) {
 
         $this->oauthToken = $oauthToken;
 
     }
-
-    
 
     public function testConnection() {
 
@@ -35,8 +29,6 @@ class YandexDiskClient {
 
     }
 
-    
-
     public function listFiles($path = '/', $recursive = true) {
 
         $files = array();
@@ -47,8 +39,6 @@ class YandexDiskClient {
 
     }
 
-    
-
     private function listFilesRecursive($path, &$files, $recursive = true) {
 
         try {
@@ -57,15 +47,11 @@ class YandexDiskClient {
 
             $response = $this->sendRequest($url);
 
-            
-
             if (!isset($response['_embedded']['items'])) {
 
                 return;
 
             }
-
-            
 
             foreach ($response['_embedded']['items'] as $item) {
 
@@ -107,8 +93,6 @@ class YandexDiskClient {
 
     }
 
-    
-
     public function downloadFile($path) {
 
         try {
@@ -117,15 +101,11 @@ class YandexDiskClient {
 
             $response = $this->sendRequest($url);
 
-            
-
             if (!isset($response['href'])) {
 
                 throw new Exception('No download URL provided');
 
             }
-
-            
 
             $ch = curl_init();
 
@@ -141,8 +121,6 @@ class YandexDiskClient {
 
             ));
 
-            
-
             $content = curl_exec($ch);
 
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -151,23 +129,17 @@ class YandexDiskClient {
 
             curl_close($ch);
 
-            
-
             if ($error) {
 
                 throw new Exception("Download error: " . $error);
 
             }
 
-            
-
             if ($httpCode !== 200) {
 
                 throw new Exception("Download failed with HTTP code: " . $httpCode);
 
             }
-
-            
 
             return $content;
 
@@ -181,15 +153,11 @@ class YandexDiskClient {
 
     }
 
-    
-
     public function searchFiles($keywords, $folderPath = '/') {
 
         $allFiles = $this->listFiles($folderPath);
 
         $relevantFiles = array();
-
-        
 
         foreach ($allFiles as $file) {
 
@@ -205,21 +173,15 @@ class YandexDiskClient {
 
         }
 
-        
-
         usort($relevantFiles, function($a, $b) {
 
             return $b['relevance_score'] - $a['relevance_score'];
 
         });
 
-        
-
         return $relevantFiles;
 
     }
-
-    
 
     private function calculateRelevance($file, $keywords) {
 
@@ -227,23 +189,17 @@ class YandexDiskClient {
 
         $fileName = strtolower($file['name']);
 
-        
-
         foreach ($keywords as $keyword) {
 
             $keyword = strtolower(trim($keyword));
 
             if (empty($keyword)) continue;
 
-            
-
             if (strpos($fileName, $keyword) !== false) {
 
                 $score += 10;
 
             }
-
-            
 
             similar_text($fileName, $keyword, $similarity);
 
@@ -255,19 +211,13 @@ class YandexDiskClient {
 
         }
 
-        
-
         return $score;
 
     }
 
-    
-
     private function isPriceFile($filename) {
 
         $filename = strtolower($filename);
-
-        
 
         $patterns = array(
 
@@ -279,8 +229,6 @@ class YandexDiskClient {
 
         );
 
-        
-
         foreach ($patterns as $pattern) {
 
             if (strpos($filename, $pattern) !== false) {
@@ -291,19 +239,13 @@ class YandexDiskClient {
 
         }
 
-        
-
         $allowedExtensions = array('xlsx', 'xls', 'csv', 'txt', 'pdf', 'docx', 'doc');
 
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        
-
         return in_array(strtolower($extension), $allowedExtensions);
 
     }
-
-    
 
     private function sendRequest($url, $method = 'GET') {
 
@@ -314,8 +256,6 @@ class YandexDiskClient {
             'Content-Type: application/json'
 
         );
-
-        
 
         $ch = curl_init();
 
@@ -333,15 +273,11 @@ class YandexDiskClient {
 
         ));
 
-        
-
         if ($method !== 'GET') {
 
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 
         }
-
-        
 
         $response = curl_exec($ch);
 
@@ -351,15 +287,11 @@ class YandexDiskClient {
 
         curl_close($ch);
 
-        
-
         if ($error) {
 
             throw new Exception("cURL Error: " . $error);
 
         }
-
-        
 
         if ($httpCode < 200 || $httpCode >= 300) {
 
@@ -371,8 +303,6 @@ class YandexDiskClient {
 
         }
 
-        
-
         $decodedResponse = json_decode($response, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -381,13 +311,8 @@ class YandexDiskClient {
 
         }
 
-        
-
         return $decodedResponse;
 
     }
 
 }
-
-?>
-
