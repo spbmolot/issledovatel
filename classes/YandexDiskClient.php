@@ -87,7 +87,7 @@ class YandexDiskClient {
 
         } catch (Exception $e) {
 
-            error_log("Error listing files in " . $path . ": " . $e->getMessage());
+            Logger::error("[YandexDiskClient] Error listing files in " . $path, $e);
 
         }
 
@@ -145,7 +145,7 @@ class YandexDiskClient {
 
         } catch (Exception $e) {
 
-            error_log("Error downloading file " . $path . ": " . $e->getMessage());
+            Logger::error("[YandexDiskClient] Error downloading file " . $path, $e);
 
             return null;
 

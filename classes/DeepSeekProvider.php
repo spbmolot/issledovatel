@@ -15,7 +15,7 @@ class DeepSeekProvider extends AIProvider {
             $response = $this->sendRequest('models', array(), 'GET'); // DeepSeek /models может быть GET
             return isset($response['data']) && is_array($response['data']);
         } catch (\Exception $e) { // Уточнено \Exception
-            error_log('DeepSeek Test Connection Error: ' . $e->getMessage());
+            Logger::error('DeepSeek Test Connection Error', $e);
             return false;
         }
     }
@@ -99,6 +99,7 @@ class DeepSeekProvider extends AIProvider {
         if (curl_errno($ch)) {
             $error = curl_error($ch);
             curl_close($ch);
+            Logger::error("[DeepSeekProvider] DeepSeek cURL Error: " . $error . " for URL: " . $url);
             throw new \Exception("Ошибка cURL (DeepSeek): " . $error);
         }
 
@@ -110,10 +111,12 @@ class DeepSeekProvider extends AIProvider {
             if (isset($decodedResponse['error']['message'])) {
                 $errorMessage .= ': ' . $decodedResponse['error']['message'];
             }
+            Logger::error("[DeepSeekProvider] DeepSeek API Error (HTTP " . $httpCode . "): " . $errorMessage . " for URL: " . $url);
             throw new \Exception($errorMessage . " (HTTP Код: " . $httpCode . ")");
         }
         
         if (json_last_error() !== JSON_ERROR_NONE) {
+            Logger::error("[DeepSeekProvider] DeepSeek JSON Decode Error: " . json_last_error_msg() . " for URL: " . $url . " Response: " . $response);
             throw new \Exception("Ошибка декодирования JSON ответа от DeepSeek: " . json_last_error_msg());
         }
 

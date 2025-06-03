@@ -4,18 +4,17 @@ namespace ResearcherAI;
 
 use PDO;
 use PDOException;
+// Logger будет использоваться статически: Logger::info(), Logger::error()
 
 class CacheManager {
     private $pdo;
     private $dbDirectory;
     private $parsedTextsDirectory;
     private $sqliteFile = 'cache.sqlite';
-    private $logger;
 
-    public function __construct($dbBaseDir, Logger $logger = null) {
+    public function __construct($dbBaseDir) {
         $this->dbDirectory = rtrim($dbBaseDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         $this->parsedTextsDirectory = $this->dbDirectory . 'parsed_texts' . DIRECTORY_SEPARATOR;
-        $this->logger = $logger ?? new Logger(false); // Используем существующий логгер или создаем заглушку
 
         $this->_initializeStorage();
         $this->_connectDb();
@@ -25,17 +24,17 @@ class CacheManager {
     private function _initializeStorage() {
         if (!is_dir($this->dbDirectory)) {
             if (!mkdir($this->dbDirectory, 0777, true)) {
-                $this->log('error', 'Failed to create DB directory: ' . $this->dbDirectory);
+                Logger::error('[CacheManager] Failed to create DB directory: ' . $this->dbDirectory);
                 throw new \RuntimeException('Failed to create DB directory: ' . $this->dbDirectory);
             }
-            $this->log('info', 'Created DB directory: ' . $this->dbDirectory);
+            Logger::info('[CacheManager] Created DB directory: ' . $this->dbDirectory);
         }
         if (!is_dir($this->parsedTextsDirectory)) {
             if (!mkdir($this->parsedTextsDirectory, 0777, true)) {
-                $this->log('error', 'Failed to create parsed_texts directory: ' . $this->parsedTextsDirectory);
+                Logger::error('[CacheManager] Failed to create parsed_texts directory: ' . $this->parsedTextsDirectory);
                 throw new \RuntimeException('Failed to create parsed_texts directory: ' . $this->parsedTextsDirectory);
             }
-            $this->log('info', 'Created parsed_texts directory: ' . $this->parsedTextsDirectory);
+            Logger::info('[CacheManager] Created parsed_texts directory: ' . $this->parsedTextsDirectory);
         }
     }
 
@@ -45,9 +44,9 @@ class CacheManager {
             $this->pdo = new PDO($dsn);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            $this->log('info', 'Successfully connected to SQLite DB: ' . $this->dbDirectory . $this->sqliteFile);
+            Logger::info('[CacheManager] Successfully connected to SQLite DB: ' . $this->dbDirectory . $this->sqliteFile);
         } catch (PDOException $e) {
-            $this->log('error', 'SQLite Connection Error: ' . $e->getMessage());
+            Logger::error('[CacheManager] SQLite Connection Error: ' . $e->getMessage(), $e);
             throw $e;
         }
     }
@@ -63,21 +62,13 @@ class CacheManager {
                 );";
         try {
             $this->pdo->exec($sql);
-            $this->log('info', 'Cache table `cache_metadata` is ready.');
+            Logger::info('[CacheManager] Cache table `cache_metadata` is ready.');
         } catch (PDOException $e) {
-            $this->log('error', 'SQLite Create Table Error: ' . $e->getMessage());
+            Logger::error('[CacheManager] SQLite Create Table Error: ' . $e->getMessage(), $e);
             throw $e;
         }
     }
 
-    /**
-     * Пытается получить распарсенный текст из кэша.
-     *
-     * @param string $yandexDiskPath Путь к файлу на Яндекс.Диске.
-     * @param string $yandexDiskModified Дата модификации файла на Яндекс.Диске.
-     * @param string|null $yandexDiskMd5 MD5 хэш файла (если есть).
-     * @return string|false Распарсенный текст, если кэш актуален, иначе false.
-     */
     public function getCachedContent($yandexDiskPath, $yandexDiskModified, $yandexDiskMd5 = null) {
         $stmt = $this->pdo->prepare("SELECT parsed_text_filename, yandex_disk_modified, yandex_disk_md5 
                                       FROM cache_metadata 
@@ -86,42 +77,31 @@ class CacheManager {
         $row = $stmt->fetch();
 
         if ($row) {
-            // Проверяем актуальность кэша
-            // Основной критерий - дата модификации. MD5 - дополнительный, если есть.
             if ($row['yandex_disk_modified'] === $yandexDiskModified && 
                 ($yandexDiskMd5 === null || $row['yandex_disk_md5'] === null || $row['yandex_disk_md5'] === $yandexDiskMd5)) {
                 
                 $cachedFilePath = $this->parsedTextsDirectory . $row['parsed_text_filename'];
                 if (file_exists($cachedFilePath)) {
-                    $this->log('info', "Cache hit for '{$yandexDiskPath}'. Using cached file: {$row['parsed_text_filename']}");
+                    Logger::info("[CacheManager] Cache hit for '{$yandexDiskPath}'. Using cached file: {$row['parsed_text_filename']}");
                     return file_get_contents($cachedFilePath);
                 }
-                $this->log('warning', "Cache metadata found for '{$yandexDiskPath}', but text file '{$cachedFilePath}' is missing. Invalidating.");
-                $this->deleteCacheEntry($yandexDiskPath); // Удаляем невалидную запись
+                Logger::warning("[CacheManager] Cache metadata found for '{$yandexDiskPath}', but text file '{$cachedFilePath}' is missing. Invalidating.");
+                $this->deleteCacheEntry($yandexDiskPath); 
             } else {
-                $this->log('info', "Cache stale for '{$yandexDiskPath}'. DB: mod={$row['yandex_disk_modified']}, md5={$row['yandex_disk_md5']}. YD: mod={$yandexDiskModified}, md5={$yandexDiskMd5}");
+                Logger::info("[CacheManager] Cache stale for '{$yandexDiskPath}'. DB: mod={$row['yandex_disk_modified']}, md5={$row['yandex_disk_md5']}. YD: mod={$yandexDiskModified}, md5={$yandexDiskMd5}");
             }
         }
-        $this->log('info', "Cache miss for '{$yandexDiskPath}'.");
+        Logger::info("[CacheManager] Cache miss for '{$yandexDiskPath}'.");
         return false;
     }
 
-    /**
-     * Сохраняет распарсенный текст в кэш.
-     *
-     * @param string $yandexDiskPath Путь к файлу на Яндекс.Диске.
-     * @param string $yandexDiskModified Дата модификации файла на Яндекс.Диске.
-     * @param string|null $yandexDiskMd5 MD5 хэш файла (если есть).
-     * @param string $parsedContent Распарсенный текст.
-     * @return bool True в случае успеха, false в случае ошибки.
-     */
     public function setCache($yandexDiskPath, $yandexDiskModified, $yandexDiskMd5, $parsedContent) {
         $parsedTextFilename = md5($yandexDiskPath) . '.txt';
         $cachedFilePath = $this->parsedTextsDirectory . $parsedTextFilename;
 
         try {
             if (file_put_contents($cachedFilePath, $parsedContent) === false) {
-                $this->log('error', "Failed to write parsed content to cache file: {$cachedFilePath}");
+                Logger::error("[CacheManager] Failed to write parsed content to cache file: {$cachedFilePath}");
                 return false;
             }
 
@@ -141,17 +121,16 @@ class CacheManager {
                 ':filename' => $parsedTextFilename,
                 ':cached_at' => date('Y-m-d H:i:s')
             ]);
-            $this->log('info', "Successfully cached content for '{$yandexDiskPath}' to file '{$parsedTextFilename}'.");
+            Logger::info("[CacheManager] Successfully cached content for '{$yandexDiskPath}' to file '{$parsedTextFilename}'.");
             return true;
         } catch (PDOException $e) {
-            $this->log('error', "SQLite Set Cache Error for '{$yandexDiskPath}': " . $e->getMessage());
-            // Попытка удалить текстовый файл, если запись в БД не удалась
+            Logger::error("[CacheManager] SQLite Set Cache Error for '{$yandexDiskPath}': " . $e->getMessage(), $e);
             if (file_exists($cachedFilePath)) {
                 unlink($cachedFilePath);
             }
             return false;
         } catch (\Exception $e) {
-            $this->log('error', "General Set Cache Error for '{$yandexDiskPath}': " . $e->getMessage());
+            Logger::error("[CacheManager] General Set Cache Error for '{$yandexDiskPath}': " . $e->getMessage(), $e);
             if (file_exists($cachedFilePath)) {
                 unlink($cachedFilePath);
             }
@@ -159,12 +138,6 @@ class CacheManager {
         }
     }
 
-    /**
-     * Удаляет запись из кэша (метаданные и текстовый файл).
-     *
-     * @param string $yandexDiskPath Путь к файлу на Яндекс.Диске.
-     * @return bool True в случае успеха, false в случае ошибки.
-     */
     public function deleteCacheEntry($yandexDiskPath) {
         try {
             $stmt = $this->pdo->prepare("SELECT parsed_text_filename FROM cache_metadata WHERE yandex_disk_path = :path");
@@ -175,30 +148,18 @@ class CacheManager {
                 $cachedFilePath = $this->parsedTextsDirectory . $row['parsed_text_filename'];
                 if (file_exists($cachedFilePath)) {
                     if (!unlink($cachedFilePath)) {
-                        $this->log('warning', "Failed to delete cached text file: {$cachedFilePath}");
+                        Logger::warning("[CacheManager] Failed to delete cached text file: {$cachedFilePath}");
                     }
                 }
             }
 
             $deleteStmt = $this->pdo->prepare("DELETE FROM cache_metadata WHERE yandex_disk_path = :path");
             $deleteStmt->execute([':path' => $yandexDiskPath]);
-            $this->log('info', "Deleted cache entry for '{$yandexDiskPath}'.");
+            Logger::info("[CacheManager] Deleted cache entry for '{$yandexDiskPath}'.");
             return true;
         } catch (PDOException $e) {
-            $this->log('error', "SQLite Delete Cache Entry Error for '{$yandexDiskPath}': " . $e->getMessage());
+            Logger::error("[CacheManager] SQLite Delete Cache Entry Error for '{$yandexDiskPath}': " . $e->getMessage(), $e);
             return false;
-        }
-    }
-
-    private function log($level, $message) {
-        if ($this->logger) {
-            // Адаптируем под ваш метод логирования, если он отличается
-            // Например, $this->logger->log($level, $message) или $this->logger->info($message) и т.д.
-            if (method_exists($this->logger, $level)) {
-                $this->logger->$level("[CacheManager] " . $message);
-            } else {
-                $this->logger->log("[CacheManager] [{$level}] " . $message); // Общий метод log, если есть
-            }
         }
     }
 }

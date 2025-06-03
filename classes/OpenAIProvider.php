@@ -31,7 +31,7 @@ class OpenAIProvider extends AIProvider {
             $response = $this->sendRequest('models', array());
             return isset($response['data']) && is_array($response['data']);
         } catch (\Exception $e) { // Уточнено \Exception
-            error_log('OpenAI Test Connection Error: ' . $e->getMessage());
+            Logger::error('OpenAI Test Connection Error', $e);
             return false;
         }
     }
@@ -105,8 +105,7 @@ class OpenAIProvider extends AIProvider {
 
         if ($currentProxy) {
             curl_setopt($ch, CURLOPT_PROXY, $currentProxy);
-            // Логирование используемого прокси
-            // error_log("Using proxy for OpenAI: " . $currentProxy);
+            Logger::info("[OpenAIProvider] Using proxy for OpenAI: " . $currentProxy);
         }
 
         $response = curl_exec($ch);
@@ -115,7 +114,7 @@ class OpenAIProvider extends AIProvider {
         if (curl_errno($ch)) {
             $error = curl_error($ch);
             curl_close($ch);
-            // error_log("OpenAI cURL Error: " . $error . " for URL: " . $url . " with proxy: " . $currentProxy);
+            Logger::error("[OpenAIProvider] OpenAI cURL Error: " . $error . " for URL: " . $url . " with proxy: " . $currentProxy);
             throw new \Exception("Ошибка cURL (OpenAI): " . $error);
         }
 
@@ -128,12 +127,12 @@ class OpenAIProvider extends AIProvider {
             if (isset($decodedResponse['error']['message'])) {
                 $errorMessage .= ': ' . $decodedResponse['error']['message'];
             }
-            // error_log("OpenAI API Error (HTTP " . $httpCode . "): " . $errorMessage . " for URL: " . $url . " with proxy: " . $currentProxy);
+            Logger::error("[OpenAIProvider] OpenAI API Error (HTTP " . $httpCode . "): " . $errorMessage . " for URL: " . $url . " with proxy: " . $currentProxy);
             throw new \Exception($errorMessage . " (HTTP Код: " . $httpCode . ")");
         }
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            // error_log("OpenAI JSON Decode Error: " . json_last_error_msg() . " for URL: " . $url . " with proxy: " . $currentProxy . " Response: " . $response);
+            Logger::error("[OpenAIProvider] OpenAI JSON Decode Error: " . json_last_error_msg() . " for URL: " . $url . " with proxy: " . $currentProxy . " Response: " . $response);
             throw new \Exception("Ошибка декодирования JSON ответа от OpenAI: " . json_last_error_msg());
         }
         

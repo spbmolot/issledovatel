@@ -122,7 +122,7 @@ class PriceAnalyzer {
             ];
             
         } catch (Exception $e) {
-            error_log('Price Analyzer Error: ' . $e->getMessage());
+            Logger::error('Price Analyzer Error', $e); // Используем статический Logger
             return [
                 'response' => 'Произошла ошибка при анализе прайс-листов: ' . $e->getMessage(),
                 'sources' => [],
