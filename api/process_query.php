@@ -16,6 +16,7 @@ require_once __DIR__ . '/../config/database.php';
 
 use ResearcherAI\Logger;
 use ResearcherAI\AIProvider;
+use ResearcherAI\AIProviderFactory;
 use ResearcherAI\YandexDiskClient;
 use ResearcherAI\FileParser;
 
