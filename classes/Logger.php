@@ -15,10 +15,9 @@ class Logger {
         self::$logDir = __DIR__ . '/../logs';
 
         if (!is_dir(self::$logDir)) {
-            // Пытаемся создать директорию, если ее нет
-            // @ подавляет ошибку, если mkdir не удается (например, из-за прав)
             if (!@mkdir(self::$logDir, 0775, true) && !is_dir(self::$logDir)) {
-                error_log("Logger Error: Failed to create log directory: " . self::$logDir . ". Falling back to system error_log.");
+                // Используем error_log(), который теперь должен писать в logs/php_errors.log из-за настроек в process_query.php
+                error_log("Logger Setup Error: Failed to create log directory: " . self::$logDir . ". Falling back to system error_log mechanism.");
                 self::$fallbackToSystemLog = true;
                 self::$initialized = true;
                 return;
@@ -26,10 +25,21 @@ class Logger {
         }
 
         if (!is_writable(self::$logDir)) {
-            error_log("Logger Error: Log directory " . self::$logDir . " is not writable. Falling back to system error_log.");
+            error_log("Logger Setup Error: Log directory " . self::$logDir . " is not writable. Falling back to system error_log mechanism.");
             self::$fallbackToSystemLog = true;
         } else {
             self::$logFile = self::$logDir . '/application_' . date('Y-m-d') . '.log';
+            // Попытка тестовой записи при инициализации
+            $initMessage = "[" . date('Y-m-d H:i:s') . "] [DEBUG] Logger initialized. Custom log file target: " . self::$logFile . PHP_EOL;
+            if (file_put_contents(self::$logFile, $initMessage, FILE_APPEND | LOCK_EX) === false) {
+                $errorDetails = error_get_last();
+                $fallbackMessage = "Logger Setup Error: Failed initial write to custom log file " . self::$logFile;
+                if ($errorDetails) {
+                    $fallbackMessage .= " | PHP Error: " . $errorDetails['message'];
+                }
+                error_log($fallbackMessage . " Switching to fallback.");
+                self::$fallbackToSystemLog = true; // Переключаемся на fallback, если даже инициализационная запись не удалась
+            }
         }
         self::$initialized = true;
     }
@@ -56,17 +66,20 @@ class Logger {
     private static function write($level, $message) {
         self::initialize();
 
-        $formattedMessage = "[" . date('Y-m-d H:i:s') . "] [" . $level . "] " . trim((string)$message) . PHP_EOL . PHP_EOL; // Добавим пустую строку для читаемости
+        $formattedMessage = "[" . date('Y-m-d H:i:s') . "] [" . $level . "] " . trim((string)$message) . PHP_EOL . PHP_EOL;
 
         if (self::$fallbackToSystemLog || self::$logFile === null) {
-            error_log(trim($formattedMessage)); // Используем системный логгер
+            error_log(trim($formattedMessage)); 
             return;
         }
 
-        // Пытаемся записать в наш файл
-        if (@file_put_contents(self::$logFile, $formattedMessage, FILE_APPEND | LOCK_EX) === false) {
-            // Если не удалось записать в наш файл, пишем в системный лог
-            error_log("Logger Fallback: Failed to write to custom log file " . self::$logFile . ". Message: " . trim($formattedMessage));
+        if (file_put_contents(self::$logFile, $formattedMessage, FILE_APPEND | LOCK_EX) === false) {
+            $errorDetails = error_get_last();
+            $fallbackMessage = "Logger Fallback: Failed to write to custom log file " . self::$logFile . ". Original Message: [" . $level . "] " . trim((string)$message);
+            if ($errorDetails) {
+                $fallbackMessage .= " | PHP Error: " . $errorDetails['message'] . " in " . $errorDetails['file'] . " on line " . $errorDetails['line'];
+            }
+            error_log($fallbackMessage);
         }
     }
 }

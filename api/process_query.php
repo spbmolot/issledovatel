@@ -1,5 +1,9 @@
-
 <?php
+ini_set('display_errors', 1); // Временно показываем ошибки (осторожно на продакшене)
+ini_set('display_startup_errors', 1); // Показываем ошибки старта PHP
+error_reporting(E_ALL); // Устанавливаем максимальный уровень ошибок
+ini_set('log_errors', 1); // Включаем логирование ошибок
+ini_set('error_log', __DIR__ . '/../logs/php_errors.log'); // Указываем PHP писать свои ошибки в наш файл!
 
 // Принудительно устанавливаем UTF-8
 mb_internal_encoding('UTF-8');
