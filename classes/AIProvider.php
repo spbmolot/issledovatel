@@ -511,31 +511,4 @@ class DeepSeekProvider extends AIProvider {
 
 }
 
-
-
-class AIProviderFactory {
-
-    public static function create($provider, $apiKey, $proxyUrl = null) {
-
-        switch ($provider) {
-
-            case 'openai':
-
-                return new OpenAIProvider($apiKey, $proxyUrl);
-
-            case 'deepseek':
-
-                return new DeepSeekProvider($apiKey);
-
-            default:
-
-                throw new Exception("Неподдерживаемый провайдер: $provider");
-
-        }
-
-    }
-
-}
-
 ?>
-
