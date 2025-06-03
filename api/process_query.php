@@ -2,22 +2,16 @@
 <?php
 
 // Принудительно устанавливаем UTF-8
-
 mb_internal_encoding('UTF-8');
-
 mb_http_output('UTF-8');
 
-
-
 require_once __DIR__ . '/../config/database.php';
-
 require_once __DIR__ . '/../classes/AIProvider.php';
-
 require_once __DIR__ . '/../classes/YandexDiskClient.php';
-
 require_once __DIR__ . '/../classes/FileParser.php'; 
+require_once __DIR__ . '/../classes/Logger.php'; // Добавляем Logger
 
-
+use ResearcherAI\Logger; // Используем наш Logger
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -141,13 +135,13 @@ try {
 
         $allFoundFiles = $yandexDisk->listFiles($folder);
 
-        error_log("Found " . count($allFoundFiles) . " files in folder: $folder");
+        Logger::info("Found " . count($allFoundFiles) . " files in Yandex Disk folder: $folder");
         
         // $files = array_slice($allFiles, 0, 3); // Убираем ограничение на 3 файла
 
     } catch (Exception $e) {
 
-        error_log('Yandex Disk error listing files: ' . $e->getMessage());
+        Logger::error('Yandex Disk error listing files', $e);
 
     }
     
@@ -161,13 +155,13 @@ try {
 
     if (!empty($allFoundFiles)) {
 
-        error_log("Starting to process " . count($allFoundFiles) . " files.");
+        Logger::info("Starting to process " . count($allFoundFiles) . " files.");
 
         foreach ($allFoundFiles as $fileMeta) {
 
             if ($currentCharCount >= $maxTotalCharsForAI) {
 
-                error_log("Reached max character limit for AI context ($maxTotalCharsForAI chars). Skipping remaining files.");
+                Logger::info("Reached max character limit for AI context ($maxTotalCharsForAI chars). Skipping remaining files.");
 
                 break;
 
@@ -177,7 +171,7 @@ try {
 
             $filePath = $fileMeta['path'];
 
-            error_log("Processing file: $fileName (Path: $filePath)");
+            Logger::info("Processing file: $fileName (Path: $filePath)");
 
             try {
 
@@ -185,7 +179,7 @@ try {
 
                 if ($fileContent === null) {
 
-                    error_log("Failed to download file: $fileName. Skipping.");
+                    Logger::warning("Failed to download file: $fileName. Skipping.");
 
                     continue;
 
@@ -197,7 +191,7 @@ try {
                 
                 if (empty($parsedRows)) {
 
-                    error_log("File $fileName was parsed into empty data. Skipping.");
+                    Logger::info("File $fileName was parsed into empty data. Skipping.");
 
                     continue;
 
@@ -243,17 +237,17 @@ try {
 
                     $processedFilesForResponse[] = $fileMeta; 
 
-                    error_log("Successfully processed and added data from: $fileName. Total AI context chars: $currentCharCount");
+                    Logger::info("Successfully processed and added data from: $fileName. Total AI context chars: $currentCharCount");
 
                 } else {
 
-                    error_log("No text content extracted from $fileName after parsing. Skipping.");
+                    Logger::info("No text content extracted from $fileName after parsing. Skipping.");
 
                 }
 
             } catch (Exception $e) {
 
-                error_log("Error processing file $fileName: " . $e->getMessage() . " Skipping.");
+                Logger::error("Error processing file $fileName", $e);
 
             }
 
@@ -261,7 +255,7 @@ try {
 
     } else {
 
-        error_log("No files found in Yandex Disk folder '$folder' or an error occurred while listing files.");
+        Logger::info("No files found in Yandex Disk folder '$folder' or an error occurred while listing files.");
 
     }
     
@@ -269,7 +263,7 @@ try {
 
     if (empty($realPriceData)) {
 
-        error_log("No data could be extracted from any files. Using fallback demo data for AI query.");
+        Logger::warning("No data could be extracted from any files. Using fallback demo data for AI query.");
 
         $realPriceData['demo_fallback.txt'] = "Не удалось извлечь данные из прайс-листов. Информация для запроса '$query':\n- Товар А: 100 руб.\n- Товар Б: 200 руб.";
 
@@ -285,7 +279,7 @@ try {
     
     // Логируем запрос
 
-    error_log("Query processed: $query by $aiProvider, files used for AI context: " . count($realPriceData) . ", files listed in response: " . count($processedFilesForResponse));
+    Logger::info("Query processed: $query by $aiProvider, files used for AI context: " . count($realPriceData) . ", files listed in response: " . count($processedFilesForResponse));
     
     $response = [
 
@@ -313,11 +307,11 @@ try {
 
 } catch (Exception $e) {
 
-    error_log('Process query error: ' . $e->getMessage());
+    Logger::error('General error in process_query.php', $e); // Используем наш логгер
 
     http_response_code(500);
 
-    echo json_encode(['error' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['error' => 'Извините, произошла ошибка. Проверьте логи для деталей.', 'details' => $e->getMessage()], JSON_UNESCAPED_UNICODE); // Изменили сообщение для пользователя
 
 }
 
