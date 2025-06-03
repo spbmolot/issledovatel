@@ -1,0 +1,122 @@
+[03-Jun-2025 14:48:46 Europe/Moscow] PHP Warning:  require_once(/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:48:46 Europe/Moscow] PHP Fatal error:  Uncaught Error: Failed opening required '/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php' (include_path='.:/opt/php81/share/pear') in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php:5
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(15): require_once()
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:48:54 Europe/Moscow] PHP Warning:  require_once(/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:48:54 Europe/Moscow] PHP Fatal error:  Uncaught Error: Failed opening required '/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php' (include_path='.:/opt/php81/share/pear') in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php:5
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(15): require_once()
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:49:30 Europe/Moscow] PHP Warning:  require_once(/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:49:30 Europe/Moscow] PHP Fatal error:  Uncaught Error: Failed opening required '/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php' (include_path='.:/opt/php81/share/pear') in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php:5
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(15): require_once()
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:49:32 Europe/Moscow] PHP Warning:  require_once(/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 14:49:32 Europe/Moscow] PHP Fatal error:  Uncaught Error: Failed opening required '/home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../vendor/autoload.php' (include_path='.:/opt/php81/share/pear') in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php:5
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(15): require_once()
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/FileParser.php on line 5
+[03-Jun-2025 15:27:54 Europe/Moscow] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.22. in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vendor/composer/platform_check.php on line 28
+[03-Jun-2025 15:28:02 Europe/Moscow] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.22. in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vendor/composer/platform_check.php on line 28
+[03-Jun-2025 15:28:12 Europe/Moscow] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.22. in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vendor/composer/platform_check.php on line 28
+[03-Jun-2025 15:28:17 Europe/Moscow] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.22. in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vendor/composer/platform_check.php on line 28
+[03-Jun-2025 15:29:46 Europe/Moscow] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.22. in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vendor/composer/platform_check.php on line 28
+[03-Jun-2025 16:22:08 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "AIProviderFactory" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 104
+[03-Jun-2025 16:22:17 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "AIProviderFactory" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 104
+[03-Jun-2025 16:22:19 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "AIProviderFactory" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 104
+[03-Jun-2025 16:29:57 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "AIProviderFactory" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 104
+[03-Jun-2025 16:30:02 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "AIProviderFactory" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:104
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 104
+[03-Jun-2025 16:32:54 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\DeepSeekProvider" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php:14
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(105): ResearcherAI\AIProviderFactory::create('deepseek', 'sk-774bc16ea49e...')
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php on line 14
+[03-Jun-2025 16:32:57 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\DeepSeekProvider" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php:14
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(105): ResearcherAI\AIProviderFactory::create('deepseek', 'sk-774bc16ea49e...')
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php on line 14
+[03-Jun-2025 16:33:00 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\DeepSeekProvider" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php:14
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(105): ResearcherAI\AIProviderFactory::create('deepseek', 'sk-774bc16ea49e...')
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php on line 14
+[03-Jun-2025 16:33:05 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\DeepSeekProvider" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php:14
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(105): ResearcherAI\AIProviderFactory::create('deepseek', 'sk-774bc16ea49e...')
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php on line 14
+[03-Jun-2025 16:33:07 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\DeepSeekProvider" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php:14
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(105): ResearcherAI\AIProviderFactory::create('deepseek', 'sk-774bc16ea49e...')
+#1 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProviderFactory.php on line 14
+[03-Jun-2025 16:37:51 Europe/Moscow] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProvider.php on line 4
+[03-Jun-2025 16:37:55 Europe/Moscow] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/AIProvider.php on line 4
+[03-Jun-2025 16:41:33 Europe/Moscow] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 4
+[03-Jun-2025 16:41:51 Europe/Moscow] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 4
+[03-Jun-2025 17:42:39 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to undefined method ResearcherAI\Logger::getInstance() in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 26
+[03-Jun-2025 17:42:56 Europe/Moscow] PHP Fatal error:  Uncaught Error: Call to undefined method ResearcherAI\Logger::getInstance() in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php on line 26
+[03-Jun-2025 17:48:54 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:302
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('\xD0\x9B\xD0\xB0\xD0\xBC\xD0\xB8\xD0\xBD\xD0\xB0\xD1\x82 ...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 302
+[03-Jun-2025 17:48:58 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:302
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('\xD0\x9B\xD0\xB0\xD0\xBC\xD0\xB8\xD0\xBD\xD0\xB0\xD1\x82 ...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 302
+[03-Jun-2025 18:32:25 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('Tarkett Lounge ...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 308
+[03-Jun-2025 18:32:35 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('Tarkett Lounge ...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 308
