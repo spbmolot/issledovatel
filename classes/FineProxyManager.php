@@ -1,6 +1,4 @@
-
 <?php
-
 namespace ResearcherAI;
 
 class FineProxyManager {
@@ -198,4 +196,3 @@ class FineProxyManager {
 }
 
 ?>
-

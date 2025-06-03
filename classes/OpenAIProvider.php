@@ -1,7 +1,5 @@
 <?php
-
 namespace ResearcherAI;
-
 // Если Exception используется, его нужно либо полностью указать (\Exception),
 // либо добавить use Exception; если он в глобальном пространстве имен.
 

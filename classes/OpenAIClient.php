@@ -1,9 +1,5 @@
-
 <?php
-
 namespace ResearcherAI;
-
-
 
 class OpenAIClient {
 

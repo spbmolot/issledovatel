@@ -1,5 +1,4 @@
 <?php
-
 namespace ResearcherAI;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;

@@ -1,9 +1,6 @@
 <?php
-
 namespace ResearcherAI;
-
 // Классы будут загружены через autoload
-
 
 class PriceAnalyzer {
     private $openAI;
