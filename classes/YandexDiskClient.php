@@ -21,7 +21,7 @@ class YandexDiskClient {
 
             return isset($response['total_space']);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             return false;
 
@@ -85,7 +85,7 @@ class YandexDiskClient {
 
             }
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             Logger::error("[YandexDiskClient] Error listing files in " . $path, $e);
 
@@ -103,7 +103,7 @@ class YandexDiskClient {
 
             if (!isset($response['href'])) {
 
-                throw new Exception('No download URL provided');
+                throw new \Exception('No download URL provided');
 
             }
 
@@ -131,19 +131,19 @@ class YandexDiskClient {
 
             if ($error) {
 
-                throw new Exception("Download error: " . $error);
+                throw new \Exception("Download error: " . $error);
 
             }
 
             if ($httpCode !== 200) {
 
-                throw new Exception("Download failed with HTTP code: " . $httpCode);
+                throw new \Exception("Download failed with HTTP code: " . $httpCode);
 
             }
 
             return $content;
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             Logger::error("[YandexDiskClient] Error downloading file " . $path, $e);
 
@@ -288,8 +288,8 @@ class YandexDiskClient {
         curl_close($ch);
 
         if ($error) {
-            Logger::error("[YandexDiskClient] cURL Error for URL '" . (isset($url) ? $url : 'N/A') . "': " . $error, new Exception($error));
-            throw new Exception("cURL Error: " . $error);
+            Logger::error("[YandexDiskClient] cURL Error for URL '" . (isset($url) ? $url : 'N/A') . "': " . $error, new \Exception($error));
+            throw new \Exception("cURL Error: " . $error);
         }
 
         if ($httpCode < 200 || $httpCode >= 300) {
@@ -305,13 +305,13 @@ class YandexDiskClient {
 
             $logMessage = "[YandexDiskClient] Yandex Disk API Error for URL '" . (isset($url) ? $url : 'N/A') . "'. HTTP Code: {$httpCode}. Message: {$apiMessageDetail}. Raw Response: {$response}";
             Logger::error($logMessage);
-            throw new Exception("Yandex Disk API Error: " . $apiMessageDetail);
+            throw new \Exception("Yandex Disk API Error: " . $apiMessageDetail);
         }
 
         $decodedResponse = json_decode($response, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
             Logger::error("[YandexDiskClient] Invalid JSON response from Yandex Disk (after successful HTTP code) for URL '" . (isset($url) ? $url : 'N/A') . "'. Error: " . json_last_error_msg() . ". Raw Response: " . $response);
-            throw new Exception('Invalid JSON response from Yandex Disk: ' . json_last_error_msg());
+            throw new \Exception('Invalid JSON response from Yandex Disk: ' . json_last_error_msg());
         }
 
         return $decodedResponse;
