@@ -535,7 +535,7 @@ $settings = $stmt->fetch();
 
     transition: all 0.2s;
 
-)
+}
 
 
 
@@ -585,7 +585,7 @@ $settings = $stmt->fetch();
 
     gap: 1rem;
 
-)
+}
 
 
 
@@ -617,7 +617,7 @@ $settings = $stmt->fetch();
 
     flex-shrink: 0;
 
-)
+}
 
 
 
@@ -643,7 +643,7 @@ $settings = $stmt->fetch();
 
     max-width: 70%;
 
-)
+}
 
 
 
@@ -669,7 +669,7 @@ $settings = $stmt->fetch();
 
     border: none;
 
-)
+}
 
 
 
@@ -681,7 +681,7 @@ $settings = $stmt->fetch();
 
     color: #6c757d;
 
-)
+}
 
 
 
@@ -695,7 +695,7 @@ $settings = $stmt->fetch();
 
     text-decoration: none;
 
-)
+}
 
 
 
@@ -703,7 +703,7 @@ $settings = $stmt->fetch();
 
     text-decoration: underline;
 
-)
+}
 
 
 
@@ -717,7 +717,7 @@ $settings = $stmt->fetch();
 
     text-align: right;
 
-)
+}
 
 
 
@@ -1765,7 +1765,7 @@ class ResearcherAI {
 
     }
 
-)
+}
 
 
 
@@ -1850,3 +1850,4 @@ echo "</div>";
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
 
 ?>
+
