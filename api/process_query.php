@@ -53,7 +53,7 @@ try {
     $selectedAiProviderName = $settings['ai_provider'] ?? 'openai';
     $yandexToken = $settings['yandex_token'] ?? '';
     $proxyUrl = !empty($settings['proxy_enabled']) && !empty($settings['proxy_url']) ? $settings['proxy_url'] : null;
-    $yandexFolderPath = $settings['yandex_folder_path'] ?? '/Прайсы'; 
+    $yandexFolderPath = $settings['yandex_folder'] ?? '/Прайсы'; 
 
     if ($selectedAiProviderName === 'deepseek' && empty($settings['deepseek_key'])) {
         throw new Exception('DeepSeek API ключ не настроен');
