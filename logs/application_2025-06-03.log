@@ -1,0 +1,125 @@
+[2025-06-03 16:49:06] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-03.log
+[2025-06-03 16:49:06] [INFO] Found 130 files in Yandex Disk folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-03 16:49:06] [INFO] Starting to process 130 files.
+
+[2025-06-03 16:49:06] [INFO] Processing file: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Aquafloor/Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx)
+
+[2025-06-03 16:49:08] [INFO] Successfully processed and added data from: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx. Total AI context chars: 4079
+
+[2025-06-03 16:49:08] [INFO] Processing file: Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Damy Floor/Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx)
+
+[2025-06-03 16:49:08] [INFO] Successfully processed and added data from: Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx. Total AI context chars: 4459
+
+[2025-06-03 16:49:08] [INFO] Processing file: Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Damy Floor/Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx)
+
+[2025-06-03 16:49:10] [INFO] Successfully processed and added data from: Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx. Total AI context chars: 4802
+
+[2025-06-03 16:49:10] [INFO] Processing file: 3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Peli/3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls)
+
+[2025-06-03 16:49:11] [INFO] Successfully processed and added data from: 3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls. Total AI context chars: 9630
+
+[2025-06-03 16:49:11] [INFO] Processing file: Прайс Паркетная доска.xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/АРВ/Прайс Паркетная доска.xlsx)
+
+[2025-06-03 16:49:13] [INFO] Successfully processed and added data from: Прайс Паркетная доска.xlsx. Total AI context chars: 10120
+
+[2025-06-03 16:49:13] [INFO] Processing file: Прайс-листы СПБ 06.10.2023 (1).xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/АРВ/Прайс-листы СПБ 06.10.2023 (1).xlsx)
+
+[2025-06-03 16:49:14] [INFO] Successfully processed and added data from: Прайс-листы СПБ 06.10.2023 (1).xlsx. Total AI context chars: 11724
+
+[2025-06-03 16:49:14] [INFO] Processing file: Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Альпина/Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx)
+
+[2025-06-03 16:49:15] [INFO] Successfully processed and added data from: Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx. Total AI context chars: 29773
+
+[2025-06-03 16:49:15] [INFO] Processing file: Прайс Москва NEW (15).xlsx (Path: disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/БЛ/Прайс Москва NEW (15).xlsx)
+
+[2025-06-03 16:49:16] [INFO] Successfully processed and added data from: Прайс Москва NEW (15).xlsx. Total AI context chars: 50000
+
+[2025-06-03 16:49:16] [INFO] Reached max character limit for AI context (50000 chars). Skipping remaining files.
+
+[2025-06-03 16:49:42] [INFO] Query processed: Ламинат Kronospan Variostep Classic 832 8199 Дуб Пустынный by deepseek, files used for AI context: 8, files listed in response: 8
+
+[2025-06-03 17:48:53] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-03.log
+[2025-06-03 17:48:53] [INFO] [process_query] Received query: Ламинат Kronospan
+
+[2025-06-03 17:48:53] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-03 17:48:53] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-03 17:48:53] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-03 17:48:53] [INFO] [CacheManager] Created DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/
+
+[2025-06-03 17:48:53] [INFO] [CacheManager] Created parsed_texts directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/parsed_texts/
+
+[2025-06-03 17:48:53] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-03 17:48:53] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-03 17:48:53] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-03 17:48:53] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-03 17:48:53] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-03 17:48:57] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-03.log
+[2025-06-03 17:48:57] [INFO] [process_query] Received query: Ламинат Kronospan
+
+[2025-06-03 17:48:57] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-03 17:48:57] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-03 17:48:57] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-03 17:48:57] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-03 17:48:57] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-03 17:48:57] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-03 17:48:57] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-03 17:48:57] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-03 18:32:25] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-03.log
+[2025-06-03 18:32:25] [INFO] [process_query] Received query: Tarkett Lounge Ramon
+
+[2025-06-03 18:32:25] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-03 18:32:25] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-03 18:32:25] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-03 18:32:25] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-03 18:32:25] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-03 18:32:25] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-03 18:32:25] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-03 18:32:25] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-03 18:32:25] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=%2F%D0%9F%D1%80%D0%B0%D0%B9%D1%81%D1%8B&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-03 18:32:34] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-03.log
+[2025-06-03 18:32:34] [INFO] [process_query] Received query: Tarkett Lounge Ramon
+
+[2025-06-03 18:32:34] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-03 18:32:34] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-03 18:32:34] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-03 18:32:34] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-03 18:32:34] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-03 18:32:34] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-03 18:32:34] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-03 18:32:34] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-03 18:32:35] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=%2F%D0%9F%D1%80%D0%B0%D0%B9%D1%81%D1%8B&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
