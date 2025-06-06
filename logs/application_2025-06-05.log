@@ -1,0 +1,151 @@
+[2025-06-05 16:04:36] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 16:04:36] [INFO] [process_query] Received query: отправить запрос
+
+[2025-06-05 16:04:36] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-05 16:04:36] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-05 16:04:36] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-05 16:04:36] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-05 16:04:36] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 16:04:36] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-05 16:04:36] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-05 16:04:36] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-05 16:04:37] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=%2F%D0%9F%D1%80%D0%B0%D0%B9%D1%81%D1%8B&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-05 16:05:21] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 16:05:21] [INFO] [process_query] Received query: ламинат
+
+[2025-06-05 16:05:21] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-05 16:05:21] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-05 16:05:21] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-05 16:05:21] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-05 16:05:21] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 16:05:21] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-05 16:05:21] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-05 16:05:21] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-05 16:05:21] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=%2F%D0%9F%D1%80%D0%B0%D0%B9%D1%81%D1%8B&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-05 16:29:18] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 16:29:18] [INFO] [process_query] Received query: Ламинат
+
+[2025-06-05 16:29:18] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /Прайсы
+
+[2025-06-05 16:29:18] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-05 16:29:18] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-05 16:29:18] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-05 16:29:18] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 16:29:18] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-05 16:29:18] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-05 16:29:18] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /Прайсы
+
+[2025-06-05 16:29:19] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=%2F%D0%9F%D1%80%D0%B0%D0%B9%D1%81%D1%8B&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-05 16:29:19] [ERROR] [YandexDiskClient] Error listing files in /Прайсы
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('\xD0\x9B\xD0\xB0\xD0\xBC\xD0\xB8\xD0\xBD\xD0\xB0\xD1\x82', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+
+[2025-06-05 16:29:19] [INFO] [process_query] Query processed by PriceAnalyzer. Result: {"response":"К сожалению, не удалось найти релевантные прайс-листы для вашего запроса. Проверьте, что файлы загружены в папку \"\/Прайсы\" на Яндекс.Диске.","sources":[],"processing_time":0.5356161594390869}
+
+[2025-06-05 16:38:05] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 16:38:05] [INFO] [process_query] Received query: ламинат
+
+[2025-06-05 16:38:05] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-05 16:38:05] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-05 16:38:05] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-05 16:38:05] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-05 16:38:05] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 16:38:05] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-05 16:38:05] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-05 16:38:05] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-05 16:38:28] [INFO] [CacheManager] Cache miss for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xls'.
+
+[2025-06-05 16:38:31] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xls' to file '20a0f64117421be14eab2842d16dfcf9.txt'.
+
+[2025-06-05 16:38:31] [INFO] [CacheManager] Cache miss for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xlsx'.
+
+[2025-06-05 16:38:32] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xlsx' to file '8674fce97d82c3d6ed391ff57ab5a137.txt'.
+
+[2025-06-05 16:38:32] [INFO] [CacheManager] Cache miss for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx'.
+
+[2025-06-05 16:38:33] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx' to file 'e3d26fe35a3039728caa57cba4a59bab.txt'.
+
+[2025-06-05 16:38:51] [INFO] [process_query] Query processed by PriceAnalyzer. Result: {"response":"### Краткий ответ:\nВ предоставленных прайс-листах отсутствуют конкретные данные о товарах (ламинате). Файлы содержат только шаблоны таблиц с заголовками, но без заполненных строк с информацией о коллекциях, ценах и характеристиках.\n\n### Рекомендации:\n1. Запросите у поставщиков актуальные прайс-листы с заполненными данными\n2. Уточните, какие именно параметры ламината вас интересуют:\n   - Класс износостойкости (31-34)\n   - Толщина доски\n   - Тип замкового соединения\n   - Дизайн (имитация дерева, камня и т.д.)\n\n### Источники данных:\n1. Прайс-лист ламинат 12.05.25.xls (пустой шаблон)\n2. Прайс-лист ламинат 12.05.25.xlsx (пустой шаблон)\n3. Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx (пустой шаблон)\n\nДля получения точной аналитики по ламинату необходимо предоставить заполненные прайс-листы с конкретными позициями товаров.","sources":[{"name":"Прайс-лист ламинат 12.05.25.xls","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист ламинат 12.05.25.xls","size":64512,"modified":"2025-05-15T13:06:42+00:00"},{"name":"Прайс-лист ламинат 12.05.25.xlsx","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист ламинат 12.05.25.xlsx","size":21008,"modified":"2025-05-26T12:32:06+00:00"},{"name":"Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx","size":14660,"modified":"2025-04-28T09:57:04+00:00"}],"processing_time":45.03000807762146}
+
+[2025-06-05 16:55:31] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 16:55:31] [INFO] [process_query] Received query: Ламинат
+
+[2025-06-05 16:55:31] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-05 16:55:31] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-05 16:55:31] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-05 16:55:31] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-05 16:55:31] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 16:55:31] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-05 16:55:31] [INFO] [process_query] PriceAnalyzer created.
+
+[2025-06-05 16:55:31] [INFO] [process_query] Calling PriceAnalyzer->processQuery for folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-05 16:55:53] [INFO] [CacheManager] Cache hit for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xls'. Using cached file: 20a0f64117421be14eab2842d16dfcf9.txt
+
+[2025-06-05 16:55:53] [INFO] [CacheManager] Cache hit for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xlsx'. Using cached file: 8674fce97d82c3d6ed391ff57ab5a137.txt
+
+[2025-06-05 16:55:53] [INFO] [CacheManager] Cache hit for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx'. Using cached file: e3d26fe35a3039728caa57cba4a59bab.txt
+
+[2025-06-05 16:56:15] [INFO] [process_query] Query processed by PriceAnalyzer. Result: {"response":"1. **Краткий ответ:**  \nВ предоставленных прайс-листах отсутствуют конкретные данные о товарах (ламинате) — указаны только заголовки столбцов без цен или характеристик. Для анализа необходимо загрузить полные файлы с перечнем позиций.\n\n---\n\n2. **Детальная информация:**  \nИз структуры прайсов видно, что в них должны быть следующие данные:  \n- Коллекция ламината  \n- Класс износостойкости  \n- Производитель  \n- Размеры (длина\/ширина\/толщина)  \n- Цена за пачку и оптовая стоимость  \n\nНо сами товары и цены не перечислены.\n\n---\n\n3. **Рекомендации:**  \n- Уточните запрос, указав конкретные параметры (например, класс ламината 32\/33, бренд или бюджет).  \n- Проверьте загруженные файлы — возможно, они не содержат данных или повреждены.  \n- Для сравнения цен можно запросить образцы прайсов у поставщиков с актуальными позициями.  \n\n---\n\n4. **Источники данных:**  \n- *Прайс-лист ламинат 12.05.25.xls* (пустой)  \n- *Прайс-лист ламинат 12.05.25.xlsx* (пустой)  \n- *Прайс-лист сопутка для ламината... 22.04.25.xlsx* (только заголовки)  \n\nЕсли у вас есть другие файлы с данными, загрузите их для анализа.","sources":[{"name":"Прайс-лист ламинат 12.05.25.xls","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист ламинат 12.05.25.xls","size":64512,"modified":"2025-05-15T13:06:42+00:00"},{"name":"Прайс-лист ламинат 12.05.25.xlsx","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист ламинат 12.05.25.xlsx","size":21008,"modified":"2025-05-26T12:32:06+00:00"},{"name":"Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx","path":"disk:\/2 АКТУАЛЬНЫЕ ПРАЙСЫ\/Олимп\/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx","size":14660,"modified":"2025-04-28T09:57:04+00:00"}],"processing_time":44.16345500946045}
+
+[2025-06-05 17:25:38] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 17:25:38] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-05 17:25:38] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 17:35:06] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 17:35:06] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-05 17:35:06] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-05 17:36:02] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-05.log
+[2025-06-05 17:36:02] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-05 17:36:02] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+

@@ -1,0 +1,78 @@
+[2025-06-06 11:13:26] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:13:26] [INFO] [process_query] Received query: Ламинат кастамону
+
+[2025-06-06 11:13:26] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:13:26] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-06 11:13:26] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-06 11:13:26] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-06 11:13:26] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 11:13:26] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-06 11:13:26] [INFO] [process_query] VectorPriceAnalyzer created.
+
+[2025-06-06 11:13:26] [INFO] [process_query] Calling VectorPriceAnalyzer->processQuery for folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:13:49] [INFO] [process_query] Query processed by VectorPriceAnalyzer. Method: traditional
+
+[2025-06-06 11:14:12] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:14:12] [INFO] [process_query] Received query: ламинат
+
+[2025-06-06 11:14:12] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:14:12] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-06 11:14:12] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-06 11:14:12] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-06 11:14:12] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 11:14:12] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-06 11:14:12] [INFO] [process_query] VectorPriceAnalyzer created.
+
+[2025-06-06 11:14:12] [INFO] [process_query] Calling VectorPriceAnalyzer->processQuery for folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:14:36] [INFO] [process_query] Query processed by VectorPriceAnalyzer. Method: traditional
+
+[2025-06-06 11:14:56] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:14:56] [INFO] [process_query] Received query: ламинат
+
+[2025-06-06 11:14:56] [INFO] [process_query] Settings loaded. AI Provider: deepseek, Yandex Folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:14:56] [INFO] [process_query] AIProvider created: deepseek
+
+[2025-06-06 11:14:56] [INFO] [process_query] YandexDiskClient created.
+
+[2025-06-06 11:14:56] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db/cache.sqlite
+
+[2025-06-06 11:14:56] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 11:14:56] [INFO] [process_query] CacheManager created. DB directory: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/../db
+
+[2025-06-06 11:14:56] [INFO] [process_query] VectorPriceAnalyzer created.
+
+[2025-06-06 11:14:56] [INFO] [process_query] Calling VectorPriceAnalyzer->processQuery for folder: /2 АКТУАЛЬНЫЕ ПРАЙСЫ
+
+[2025-06-06 11:15:22] [INFO] [process_query] Query processed by VectorPriceAnalyzer. Method: traditional
+
+[2025-06-06 11:19:24] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:19:24] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 11:19:24] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 11:21:18] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:21:18] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 11:21:18] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 11:21:22] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 11:21:22] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 11:21:22] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+

@@ -139,3 +139,40 @@ class OpenAIProvider extends AIProvider {
         return $decodedResponse;
     }
 }
+
+
+
+    public function getEmbedding($text) {
+
+        try {
+
+            $response = $this->sendRequest('embeddings', array(
+
+                'model' => 'text-embedding-ada-002',
+
+                'input' => $text
+
+            ));
+
+            
+
+            if (isset($response['data'][0]['embedding'])) {
+
+                return $response['data'][0]['embedding'];
+
+            }
+
+            
+
+            throw new \Exception('Invalid embedding response format');
+
+        } catch (\Exception $e) {
+
+            Logger::error("[OpenAIProvider] Embedding error: " . $e->getMessage());
+
+            throw $e;
+
+        }
+
+    }
+

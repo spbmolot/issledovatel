@@ -120,3 +120,22 @@ Stack trace:
 #4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('Tarkett Lounge ...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
 #5 {main}
   thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 308
+[05-Jun-2025 16:04:37 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('\xD0\xBE\xD1\x82\xD0\xBF\xD1\x80\xD0\xB0\xD0\xB2\xD0\xB8\xD1...', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 308
+[05-Jun-2025 16:05:21 Europe/Moscow] PHP Fatal error:  Uncaught Error: Class "ResearcherAI\Exception" not found in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Stack trace:
+#0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/PriceAnalyzer.php(35): ResearcherAI\YandexDiskClient->searchFiles(Array, '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#4 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/api/process_query.php(94): ResearcherAI\PriceAnalyzer->processQuery('\xD0\xBB\xD0\xB0\xD0\xBC\xD0\xB8\xD0\xBD\xD0\xB0\xD1\x82', '/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B')
+#5 {main}
+  thrown in /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php on line 308
+  ===================================================================================
