@@ -359,6 +359,10 @@ class YandexDiskClient {
 
     public function downloadFile($downloadUrl, $localFilePath) {
         try {
+            echo "   [DEBUG] Начинаем загрузку файла...\n";
+            echo "   [DEBUG] URL: " . substr($downloadUrl, 0, 60) . "...\n";
+            echo "   [DEBUG] Путь: {$localFilePath}\n";
+            
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $downloadUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
@@ -366,23 +370,34 @@ class YandexDiskClient {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_TIMEOUT, 300); // 5 минут таймаут
             
+            echo "   [DEBUG] Пытаемся открыть файл для записи...\n";
             $fileHandle = fopen($localFilePath, 'w');
             if (!$fileHandle) {
+                echo "   [DEBUG] ❌ Не удалось открыть файл для записи\n";
                 Logger::error("[YandexDiskClient] Cannot create local file: {$localFilePath}");
                 curl_close($ch);
                 return false;
             }
+            echo "   [DEBUG] ✅ Файл открыт для записи\n";
             
             curl_setopt($ch, CURLOPT_FILE, $fileHandle);
             
+            echo "   [DEBUG] Выполняем CURL запрос...\n";
             $result = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             $error = curl_error($ch);
+            
+            echo "   [DEBUG] CURL результат: " . ($result ? "SUCCESS" : "FAILED") . "\n";
+            echo "   [DEBUG] HTTP код: {$httpCode}\n";
+            if ($error) {
+                echo "   [DEBUG] CURL ошибка: {$error}\n";
+            }
             
             curl_close($ch);
             fclose($fileHandle);
             
             if ($error) {
+                echo "   [DEBUG] ❌ Обнаружена CURL ошибка\n";
                 Logger::error("[YandexDiskClient] Download cURL Error: " . $error);
                 if (file_exists($localFilePath)) {
                     unlink($localFilePath);
@@ -391,6 +406,7 @@ class YandexDiskClient {
             }
             
             if ($httpCode < 200 || $httpCode >= 300) {
+                echo "   [DEBUG] ❌ Неверный HTTP код: {$httpCode}\n";
                 Logger::error("[YandexDiskClient] Download HTTP Error: " . $httpCode);
                 if (file_exists($localFilePath)) {
                     unlink($localFilePath);
@@ -398,18 +414,29 @@ class YandexDiskClient {
                 return false;
             }
             
-            if (!file_exists($localFilePath) || filesize($localFilePath) == 0) {
-                Logger::error("[YandexDiskClient] Downloaded file is empty or not created");
-                if (file_exists($localFilePath)) {
-                    unlink($localFilePath);
-                }
+            echo "   [DEBUG] Проверяем загруженный файл...\n";
+            if (!file_exists($localFilePath)) {
+                echo "   [DEBUG] ❌ Файл не создан\n";
+                Logger::error("[YandexDiskClient] Downloaded file not created");
                 return false;
             }
             
-            Logger::info("[YandexDiskClient] File downloaded successfully: " . basename($localFilePath) . " (" . filesize($localFilePath) . " bytes)");
+            $fileSize = filesize($localFilePath);
+            echo "   [DEBUG] Размер загруженного файла: {$fileSize} байт\n";
+            
+            if ($fileSize == 0) {
+                echo "   [DEBUG] ❌ Файл пустой\n";
+                Logger::error("[YandexDiskClient] Downloaded file is empty");
+                unlink($localFilePath);
+                return false;
+            }
+            
+            echo "   [DEBUG] ✅ Файл успешно загружен\n";
+            Logger::info("[YandexDiskClient] File downloaded successfully: " . basename($localFilePath) . " ({$fileSize} bytes)");
             return true;
             
         } catch (Exception $e) {
+            echo "   [DEBUG] ❌ Исключение: " . $e->getMessage() . "\n";
             Logger::error("[YandexDiskClient] Download exception: " . $e->getMessage());
             if (file_exists($localFilePath)) {
                 unlink($localFilePath);
