@@ -84,12 +84,13 @@ echo "\n🚀 Запускаем векторизацию с debug-логиров
 
 try {
     // Инициализация компонентов  
-    $cacheManager = new CacheManager();
+    $dbBaseDir = __DIR__ . '/db';
+    $cacheManager = new CacheManager($dbBaseDir);
     $fileParser = new FileParser();
     $yandexClient = new YandexDiskClient();
     
     // Создаем debug версию VectorCacheManager
-    $vectorCacheManager = new DebugVectorCacheManager();
+    $vectorCacheManager = new DebugVectorCacheManager($dbBaseDir);
     
     // Создаем VectorPriceAnalyzer с debug менеджером
     $vectorAnalyzer = new VectorPriceAnalyzer($vectorCacheManager);
