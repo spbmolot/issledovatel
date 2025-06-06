@@ -338,4 +338,65 @@ class YandexDiskClient {
 
     }
 
+    public function downloadFile($downloadUrl, $localFilePath) {
+        try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $downloadUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 300); // 5 минут таймаут
+            
+            $fileHandle = fopen($localFilePath, 'w');
+            if (!$fileHandle) {
+                Logger::error("[YandexDiskClient] Cannot create local file: {$localFilePath}");
+                curl_close($ch);
+                return false;
+            }
+            
+            curl_setopt($ch, CURLOPT_FILE, $fileHandle);
+            
+            $result = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error = curl_error($ch);
+            
+            curl_close($ch);
+            fclose($fileHandle);
+            
+            if ($error) {
+                Logger::error("[YandexDiskClient] Download cURL Error: " . $error);
+                if (file_exists($localFilePath)) {
+                    unlink($localFilePath);
+                }
+                return false;
+            }
+            
+            if ($httpCode < 200 || $httpCode >= 300) {
+                Logger::error("[YandexDiskClient] Download HTTP Error: " . $httpCode);
+                if (file_exists($localFilePath)) {
+                    unlink($localFilePath);
+                }
+                return false;
+            }
+            
+            if (!file_exists($localFilePath) || filesize($localFilePath) == 0) {
+                Logger::error("[YandexDiskClient] Downloaded file is empty or not created");
+                if (file_exists($localFilePath)) {
+                    unlink($localFilePath);
+                }
+                return false;
+            }
+            
+            Logger::info("[YandexDiskClient] File downloaded successfully: " . basename($localFilePath) . " (" . filesize($localFilePath) . " bytes)");
+            return true;
+            
+        } catch (Exception $e) {
+            Logger::error("[YandexDiskClient] Download exception: " . $e->getMessage());
+            if (file_exists($localFilePath)) {
+                unlink($localFilePath);
+            }
+            return false;
+        }
+    }
+
 }

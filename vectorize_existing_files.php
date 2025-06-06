@@ -86,8 +86,32 @@ try {
                 echo "   📋 Используем кэшированный текст\n";
                 $content = $cachedText;
             } else {
-                echo "   ❌ Кэшированный текст не найден, пропускаем файл\n";
-                continue;
+                echo "   📥 Загружаем файл с Яндекс.Диска...\n";
+                
+                // Загружаем файл с Яндекс.Диска
+                $tempFilePath = sys_get_temp_dir() . '/' . basename($file['name']);
+                $downloadSuccess = $yandexDiskClient->downloadFile($file['download_url'], $tempFilePath);
+                
+                if (!$downloadSuccess) {
+                    echo "   ❌ Не удалось загрузить файл\n";
+                    continue;
+                }
+                
+                echo "   📊 Извлекаем текст из Excel файла...\n";
+                $content = $vectorAnalyzer->extractTextFromFile($tempFilePath);
+                
+                // Удаляем временный файл
+                if (file_exists($tempFilePath)) {
+                    unlink($tempFilePath);
+                }
+                
+                if (empty($content)) {
+                    echo "   ❌ Не удалось извлечь текст из файла\n";
+                    continue;
+                }
+                
+                echo "   💾 Сохраняем текст в кэш...\n";
+                $cacheManager->setCache($file['path'], $file['modified'] ?? '', '', $content);
             }
             
             // Разбиваем на чанки
