@@ -112,7 +112,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         $maxChunks = 3;
         
         for ($i = 0; $i < min($maxChunks, count($chunks)); $i++) {
-            $texts[] = $chunks[$i]['chunk_text'];
+            $texts[] = $chunks[$i]['content'];
         }
         
         return implode("\n\n", $texts);
