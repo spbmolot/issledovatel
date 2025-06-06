@@ -76,3 +76,262 @@
 
 [2025-06-06 11:21:22] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
 
+[2025-06-06 12:49:57] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 12:49:57] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:49:57] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:54:56] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 12:54:56] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:54:56] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:54:56] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:54:56] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:54:56] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 12:54:56] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 12:58:16] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 12:58:16] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:58:16] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:59:16] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 12:59:16] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:59:16] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:59:16] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 12:59:16] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 12:59:16] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 12:59:16] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 12:59:16] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 12:59:16] [ERROR] [VectorCacheManager] PDO connection not available
+
+[2025-06-06 13:00:42] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:00:42] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:00:42] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:00:42] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:00:42] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:00:42] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 13:00:42] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 13:00:42] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 13:00:42] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.xlsx&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:00:42] [ERROR] [YandexDiskClient] Error listing files in .xlsx
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.xlsx', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.xlsx')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(78): ResearcherAI\YandexDiskClient->searchFiles('/\xD0\x9F\xD1\x80\xD0\xB0\xD0\xB9\xD1\x81\xD1\x8B', '.xlsx')
+#4 {main}
+
+[2025-06-06 13:04:07] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:04:07] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:04:07] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:04:07] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:04:07] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:04:07] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 13:04:07] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 13:04:07] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 13:04:07] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.xlsx&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:04:07] [ERROR] [YandexDiskClient] Error listing files in .xlsx
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.xlsx', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.xlsx')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(41): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.xlsx')
+#4 {main}
+
+[2025-06-06 13:04:08] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.xls&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:04:08] [ERROR] [YandexDiskClient] Error listing files in .xls
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.xls', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.xls')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.xls')
+#4 {main}
+
+[2025-06-06 13:04:09] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.csv&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:04:09] [ERROR] [YandexDiskClient] Error listing files in .csv
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.csv', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.csv')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.csv')
+#4 {main}
+
+[2025-06-06 13:04:09] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.txt&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:04:09] [ERROR] [YandexDiskClient] Error listing files in .txt
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.txt', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.txt')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.txt')
+#4 {main}
+
+[2025-06-06 13:06:09] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:06:09] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:06:09] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:06:09] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:06:09] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:06:09] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 13:06:09] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 13:06:09] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 13:06:10] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.xlsx&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:06:10] [ERROR] [YandexDiskClient] Error listing files in .xlsx
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.xlsx', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.xlsx')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(41): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.xlsx')
+#4 {main}
+
+[2025-06-06 13:06:11] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.xls&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:06:11] [ERROR] [YandexDiskClient] Error listing files in .xls
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.xls', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.xls')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.xls')
+#4 {main}
+
+[2025-06-06 13:06:11] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.csv&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:06:11] [ERROR] [YandexDiskClient] Error listing files in .csv
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.csv', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.csv')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.csv')
+#4 {main}
+
+[2025-06-06 13:06:12] [ERROR] [YandexDiskClient] Yandex Disk API Error for URL 'https://cloud-api.yandex.net/v1/disk/resources?path=.txt&limit=1000'. HTTP Code: 404. Message: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError). Raw Response: {"error":"DiskNotFoundError","description":"Resource not found.","message":"Не удалось найти запрошенный ресурс."}
+
+[2025-06-06 13:06:12] [ERROR] [YandexDiskClient] Error listing files in .txt
+Exception Type: Exception
+Message: Yandex Disk API Error: Не удалось найти запрошенный ресурс. - Resource not found. (Yandex Code: DiskNotFoundError)
+File: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php:308
+Trace: #0 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(48): ResearcherAI\YandexDiskClient->sendRequest('https://cloud-a...')
+#1 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(36): ResearcherAI\YandexDiskClient->listFilesRecursive('.txt', Array, true)
+#2 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/YandexDiskClient.php(158): ResearcherAI\YandexDiskClient->listFiles('.txt')
+#3 /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/vectorize_existing_files.php(49): ResearcherAI\YandexDiskClient->searchFiles('/2 \xD0\x90\xD0\x9A\xD0\xA2\xD0\xA3\xD0\x90\xD0\x9B...', '.txt')
+#4 {main}
+
+[2025-06-06 13:08:26] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:08:26] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:08:26] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:08:26] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:08:26] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:08:26] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 13:08:26] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 13:08:26] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 13:10:10] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:10:10] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:10:10] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:10:10] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:10:10] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:10:10] [INFO] [VectorCacheManager] Initialized vector cache manager
+
+[2025-06-06 13:10:10] [INFO] [VectorCacheManager] EmbeddingManager initialized
+
+[2025-06-06 13:10:10] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-06 13:12:21] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:12:21] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:12:21] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:12:21] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:12:21] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:14:09] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:14:09] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:14:09] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:14:09] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:14:09] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:14:09] [ERROR] [VectorCacheManager] Ошибка создания таблиц: PDO подключение не инициализировано
+
+[2025-06-06 13:16:32] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:16:32] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:16:32] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:16:37] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-06.log
+[2025-06-06 13:16:37] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:16:37] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:16:37] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-06 13:16:37] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-06 13:16:37] [ERROR] [VectorCacheManager] PDO не инициализирован после parent::__construct()
+
