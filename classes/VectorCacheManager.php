@@ -34,7 +34,7 @@ class VectorCacheManager extends CacheManager {
     }
     
     public function initializeEmbeddingManager($aiProvider) {
-        $this->embeddingManager = new EmbeddingManager($aiProvider);
+        $this->embeddingManager = new EmbeddingManager($aiProvider, $this->pdo);
         Logger::info("[VectorCacheManager] EmbeddingManager инициализирован");
     }
     
