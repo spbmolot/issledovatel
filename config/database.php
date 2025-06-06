@@ -398,4 +398,3 @@ function cleanOldData($pdo, $daysToKeep = 90) {
 }
 
 ?>
-
