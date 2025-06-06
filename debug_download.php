@@ -72,34 +72,92 @@ try {
     echo "   URL: " . substr($downloadUrl, 0, 80) . "...\n\n";
     
     // Пробуем загрузить файл
-    echo "📥 Пробуем загрузить файл...\n";
-    $tempFilePath = sys_get_temp_dir() . '/' . basename($testFile['name']);
-    echo "   Временный файл: {$tempFilePath}\n";
+    echo "⬇️ Пробуем загрузить файл...\n";
+    $tempPath = "/tmp/" . $testFile['name'];
+    echo "   Временный файл: {$tempPath}\n";
     
-    $success = $yandexDiskClient->downloadFile($downloadUrl, $tempFilePath);
+    $result = $yandexDiskClient->downloadFile($downloadUrl, $tempPath);
     
-    if ($success && file_exists($tempFilePath)) {
-        $fileSize = filesize($tempFilePath);
+    if ($result) {
         echo "✅ Файл успешно загружен!\n";
-        echo "   Размер: {$fileSize} байт\n";
+        echo "   Размер загруженного файла: " . filesize($tempPath) . " байт\n";
         
-        // Удаляем тестовый файл
-        unlink($tempFilePath);
-        echo "   Временный файл удален\n";
+        // Удаляем временный файл
+        if (file_exists($tempPath)) {
+            unlink($tempPath);
+            echo "   Временный файл удален\n";
+        }
     } else {
         echo "❌ Ошибка загрузки файла\n";
-        echo "   Проверьте логи для подробностей\n";
         
-        if (file_exists($tempFilePath)) {
-            echo "   Файл создан, но возможно пустой: " . filesize($tempFilePath) . " байт\n";
-            unlink($tempFilePath);
+        // Дополнительная диагностика
+        echo "\n🔍 ДЕТАЛЬНАЯ ДИАГНОСТИКА ОШИБКИ:\n";
+        
+        // Проверяем доступность URL напрямую
+        echo "🌐 Тестируем download URL напрямую...\n";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $downloadUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_NOBODY, true); // Только заголовки
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        
+        $headers = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $error = curl_error($ch);
+        curl_close($ch);
+        
+        echo "   HTTP код: {$httpCode}\n";
+        if ($error) {
+            echo "   CURL ошибка: {$error}\n";
+        }
+        
+        if ($httpCode === 200) {
+            echo "   ✅ URL доступен для загрузки\n";
+        } else {
+            echo "   ❌ URL недоступен или ошибка: {$httpCode}\n";
+            echo "   Заголовки ответа:\n";
+            echo "   " . str_replace("\n", "\n   ", trim($headers)) . "\n";
+        }
+        
+        // Проверяем права записи в /tmp
+        echo "\n📂 Проверяем права записи...\n";
+        if (is_writable('/tmp')) {
+            echo "   ✅ Папка /tmp доступна для записи\n";
+        } else {
+            echo "   ❌ Папка /tmp недоступна для записи\n";
+        }
+        
+        // Пробуем создать тестовый файл
+        $testWrite = file_put_contents('/tmp/test_write.txt', 'test');
+        if ($testWrite) {
+            echo "   ✅ Можем создавать файлы в /tmp\n";
+            unlink('/tmp/test_write.txt');
+        } else {
+            echo "   ❌ Не можем создавать файлы в /tmp\n";
         }
     }
     
 } catch (Exception $e) {
-    echo "❌ ОШИБКА: " . $e->getMessage() . "\n";
-    echo "   Файл: " . $e->getFile() . "\n";
-    echo "   Строка: " . $e->getLine() . "\n";
+    echo "❌ ОБЩАЯ ОШИБКА: " . $e->getMessage() . "\n";
+}
+
+// Выводим последние логи для диагностики
+echo "\n📋 ПОСЛЕДНИЕ ЛОГИ СИСТЕМЫ:\n";
+if (file_exists('logs/app.log')) {
+    $logs = file_get_contents('logs/app.log');
+    $logLines = explode("\n", $logs);
+    $recentLogs = array_slice($logLines, -10); // Последние 10 строк
+    
+    foreach ($recentLogs as $line) {
+        if (!empty(trim($line))) {
+            echo "   " . $line . "\n";
+        }
+    }
+} else {
+    echo "   ⚠️ Файл логов не найден (logs/app.log)\n";
 }
 
 echo "\n🏁 Диагностика завершена!\n";
