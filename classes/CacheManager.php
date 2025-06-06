@@ -7,7 +7,7 @@ use PDOException;
 // Logger будет использоваться статически: Logger::info(), Logger::error()
 
 class CacheManager {
-    private $pdo;
+    protected $pdo;
     private $dbDirectory;
     private $parsedTextsDirectory;
     private $sqliteFile = 'cache.sqlite';
