@@ -13,6 +13,22 @@ use ResearcherAI\VectorCacheManager;
 use ResearcherAI\FileParser;
 use ResearcherAI\CacheManager;
 
+// Функция для отображения прогресс-бара в SSH
+function showProgressBar($current, $total, $prefix = '', $width = 50) {
+    $percent = round(($current / $total) * 100);
+    $filled = round(($width * $current) / $total);
+    $empty = $width - $filled;
+    
+    $bar = str_repeat('█', $filled) . str_repeat('░', $empty);
+    $info = sprintf("%s [%s] %d%% (%d/%d)", $prefix, $bar, $percent, $current, $total);
+    
+    // Очищаем строку и выводим новую
+    echo "\r" . str_pad($info, 100, ' ') . "\r";
+    if ($current == $total) {
+        echo "\n"; // Новая строка в конце
+    }
+}
+
 // Временно включаем debug-режим для классов
 class DebugVectorCacheManager extends VectorCacheManager {
     public function storeVectorData($filePath, $chunks) {
@@ -108,16 +124,27 @@ try {
         exit(1);
     }
 
-    // Обрабатываем первые 3 файла для теста
+    // Фильтруем только Excel файлы
+    $excelFiles = array_filter($files, function($file) {
+        return strpos($file['name'], '.xlsx') !== false;
+    });
+
+    echo "🔍 Найдено Excel файлов: " . count($excelFiles) . " из " . count($files) . " общих файлов\n\n";
+    
+    if (empty($excelFiles)) {
+        echo "❌ Excel файлы не найдены\n";
+        exit(1);
+    }
+
+    // Обрабатываем все Excel файлы
     $processedFiles = 0;
     $successfulVectorizations = 0;
     $failedVectorizations = 0;
     $totalChunks = 0;
+    $startTime = time();
 
-    foreach (array_slice($files, 0, 3) as $file) {
-        if (strpos($file['name'], '.xlsx') === false) continue;
-        
-        echo "🔄 Обрабатываем: " . $file['name'] . "\n";
+    foreach ($excelFiles as $index => $file) {
+        echo "\n📄 [{$index+1}/" . count($excelFiles) . "] " . $file['name'] . "\n";
         
         try {
             // Загружаем файл
@@ -150,15 +177,6 @@ try {
             $chunks = [$text]; // Упрощенное разбиение на чанки
             echo "   [DEBUG] ✅ Приступаем к векторизации " . count($chunks) . " чанков...\n";
             
-            // Проверяем EmbeddingManager
-            if ($vectorCacheManager->isEmbeddingManagerInitialized()) {
-                echo "   [DEBUG] ✅ EmbeddingManager инициализирован\n";
-            } else {
-                echo "   [DEBUG] ❌ EmbeddingManager НЕ инициализирован\n";
-                $failedVectorizations++;
-                continue;
-            }
-            
             // Показываем содержимое чанка
             foreach ($chunks as $i => $chunk) {
                 echo "   [DEBUG] Чанк #" . ($i + 1) . ": " . substr($chunk, 0, 50) . "...\n";
@@ -178,6 +196,12 @@ try {
             unlink($tempFile);
             $processedFiles++;
             
+            // Показываем прогресс-бар
+            $elapsedTime = time() - $startTime;
+            $eta = $elapsedTime / ($processedFiles + 1) * (count($excelFiles) - $processedFiles);
+            $etaStr = gmdate("H:i:s", $eta);
+            showProgressBar($processedFiles, count($excelFiles), "Обработка файлов (ETA: {$etaStr})", 50);
+            
         } catch (Exception $e) {
             echo "   ❌ Ошибка обработки файла: " . $e->getMessage() . "\n";
             $failedVectorizations++;
@@ -189,14 +213,18 @@ try {
         echo "\n";
     }
 
-    // Статистика
-    echo "\n🎯 Результаты debug векторизации:\n";
-    echo "   - Обработано файлов: {$processedFiles}\n";
-    echo "   - Векторизировано файлов: {$successfulVectorizations}\n";
-    echo "   - Неудачно векторизировано файлов: {$failedVectorizations}\n";
-    echo "   - Всего векторизированных чанков: {$totalChunks}\n\n";
+    // Статистика с временем выполнения
+    $totalTime = time() - $startTime;
+    $timeStr = gmdate("H:i:s", $totalTime);
+    
+    echo "\n\n🎯 Результаты векторизации:\n";
+    echo "   ⏱️  Время выполнения: {$timeStr}\n";
+    echo "   📄 Обработано файлов: {$processedFiles} из " . count($excelFiles) . "\n";
+    echo "   ✅ Векторизировано файлов: {$successfulVectorizations}\n";
+    echo "   ❌ Неудачно векторизировано файлов: {$failedVectorizations}\n";
+    echo "   📊 Всего векторизированных чанков: {$totalChunks}\n\n";
 
-    // Финальная статистика
+    // Финальная статистика из БД
     $stats = $vectorCacheManager->getVectorizationStats();
     echo "📊 Статистика в БД:\n";
     echo "   - Векторизованных файлов: " . $stats['vectorized_files_count'] . "\n\n";
