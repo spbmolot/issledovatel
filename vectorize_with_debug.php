@@ -103,7 +103,15 @@ try {
     $dbBaseDir = __DIR__ . '/db';
     $cacheManager = new CacheManager($dbBaseDir);
     $fileParser = new FileParser();
-    $yandexClient = new YandexDiskClient();
+    
+    // Загружаем настройки для Yandex токена
+    $settings = $cacheManager->getSettings();
+    if (!isset($settings['yandex_token'])) {
+        echo "❌ Ошибка: Yandex токен не настроен в системе\n";
+        exit(1);
+    }
+    
+    $yandexClient = new YandexDiskClient($settings['yandex_token']);
     
     // Создаем debug версию VectorCacheManager
     $vectorCacheManager = new DebugVectorCacheManager($dbBaseDir);
