@@ -23,7 +23,7 @@ try {
     echo "✅ VectorCacheManager инициализирован\n\n";
     
     // Получаем embedding запроса
-    $queryEmbedding = $vectorCacheManager->embeddingManager->getEmbedding($query);
+    $queryEmbedding = $vectorCacheManager->getQueryEmbedding($query);
     echo "📊 Embedding запроса:\n";
     echo "- Размер: " . count($queryEmbedding) . " измерений\n";
     echo "- Первые 10 значений: " . implode(', ', array_slice($queryEmbedding, 0, 10)) . "\n\n";

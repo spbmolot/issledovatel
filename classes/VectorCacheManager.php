@@ -49,6 +49,15 @@ class VectorCacheManager extends CacheManager {
         return $this->embeddingManager !== null;
     }
     
+    public function getQueryEmbedding($text) {
+        if ($this->embeddingManager === null) {
+            Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован для получения embedding");
+            return null;
+        }
+        
+        return $this->embeddingManager->getEmbedding($text);
+    }
+    
     public function storeVectorData($filePath, $chunks) {
         if (!$this->isEmbeddingManagerInitialized()) {
             Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован");
