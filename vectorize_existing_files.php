@@ -38,7 +38,7 @@ try {
     $folderPath = $settings['yandex_folder'] ?? '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
     echo "📁 Получаем список файлов из папки (из настроек): {$folderPath}\n";
     
-    $files = $yandexDiskClient->searchFiles($folderPath, '.xlsx');
+    $files = $yandexDiskClient->searchFilesByExtension($folderPath, '.xlsx');
     
     if (empty($files)) {
         echo "⚠️ Excel файлы не найдены, пробуем другие форматы...\n";
@@ -46,7 +46,7 @@ try {
         // Пробуем разные расширения
         $extensions = array('.xls', '.csv', '.txt');
         foreach ($extensions as $ext) {
-            $files = $yandexDiskClient->searchFiles($folderPath, $ext);
+            $files = $yandexDiskClient->searchFilesByExtension($folderPath, $ext);
             if (!empty($files)) {
                 echo "✅ Найдены файлы с расширением {$ext}: " . count($files) . "\n";
                 break;

@@ -153,6 +153,26 @@ class YandexDiskClient {
 
     }
 
+    public function searchFilesByExtension($folderPath, $extension) {
+        $allFiles = $this->listFiles($folderPath);
+        $filteredFiles = array();
+        
+        $extension = strtolower(ltrim($extension, '.'));
+        
+        foreach ($allFiles as $file) {
+            if (isset($file['name'])) {
+                $fileName = strtolower($file['name']);
+                $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+                
+                if ($fileExtension === $extension) {
+                    $filteredFiles[] = $file;
+                }
+            }
+        }
+        
+        return $filteredFiles;
+    }
+
     public function searchFiles($keywords, $folderPath = '/') {
 
         $allFiles = $this->listFiles($folderPath);
