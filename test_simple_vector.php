@@ -64,27 +64,46 @@ try {
     // Проверяем таблицу напрямую
     echo "\n🔍 Проверяем таблицу vector_embeddings напрямую...\n";
     try {
-        // Сначала проверим, существует ли таблица
-        $checkTable = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='vector_embeddings'");
-        $tableExists = $checkTable->fetch();
+        // Получаем SQLite PDO из VectorCacheManager через рефлексию
+        $reflection = new ReflectionClass($vectorCacheManager);
+        $pdoProperty = $reflection->getProperty('pdo');
+        $pdoProperty->setAccessible(true);
+        $sqlitePdo = $pdoProperty->getValue($vectorCacheManager);
         
-        if ($tableExists) {
-            echo "✅ Таблица vector_embeddings существует\n";
+        if ($sqlitePdo) {
+            echo "✅ Получен SQLite PDO из VectorCacheManager\n";
             
-            // Считаем записи
-            $countStmt = $pdo->query("SELECT COUNT(*) as count FROM vector_embeddings");
-            $count = $countStmt->fetch();
-            echo "📊 Количество записей: " . $count['count'] . "\n";
+            // Сначала проверим, существует ли таблица
+            $checkTable = $sqlitePdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='vector_embeddings'");
+            $tableExists = $checkTable->fetch();
             
-            // Показываем последние записи
-            if ($count['count'] > 0) {
-                $selectStmt = $pdo->query("SELECT file_path, substr(chunk_text, 1, 50) as chunk_preview FROM vector_embeddings ORDER BY id DESC LIMIT 3");
-                while ($row = $selectStmt->fetch()) {
-                    echo "   📄 " . $row['file_path'] . ": " . $row['chunk_preview'] . "...\n";
+            if ($tableExists) {
+                echo "✅ Таблица vector_embeddings существует\n";
+                
+                // Считаем записи
+                $countStmt = $sqlitePdo->query("SELECT COUNT(*) as count FROM vector_embeddings");
+                $count = $countStmt->fetch();
+                echo "📊 Количество записей: " . $count['count'] . "\n";
+                
+                // Показываем последние записи
+                if ($count['count'] > 0) {
+                    $selectStmt = $sqlitePdo->query("SELECT file_path, substr(chunk_text, 1, 50) as chunk_preview FROM vector_embeddings ORDER BY id DESC LIMIT 3");
+                    while ($row = $selectStmt->fetch()) {
+                        echo "   📄 " . $row['file_path'] . ": " . $row['chunk_preview'] . "...\n";
+                    }
+                }
+            } else {
+                echo "❌ Таблица vector_embeddings НЕ существует!\n";
+                
+                // Показываем все таблицы
+                echo "🔍 Существующие таблицы в SQLite:\n";
+                $tables = $sqlitePdo->query("SELECT name FROM sqlite_master WHERE type='table'");
+                while ($table = $tables->fetch()) {
+                    echo "   - " . $table['name'] . "\n";
                 }
             }
         } else {
-            echo "❌ Таблица vector_embeddings НЕ существует!\n";
+            echo "❌ Не удалось получить SQLite PDO\n";
         }
     } catch (Exception $e) {
         echo "❌ Ошибка проверки таблицы: " . $e->getMessage() . "\n";
