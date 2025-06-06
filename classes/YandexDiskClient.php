@@ -338,6 +338,25 @@ class YandexDiskClient {
 
     }
 
+    public function getDownloadUrl($filePath) {
+        try {
+            $url = $this->baseUrl . '/resources/download?path=' . urlencode($filePath);
+            $response = $this->sendRequest($url);
+            
+            if (isset($response['href'])) {
+                Logger::info("[YandexDiskClient] Download URL получен для: " . basename($filePath));
+                return $response['href'];
+            }
+            
+            Logger::error("[YandexDiskClient] Download URL не найден в ответе API");
+            return false;
+            
+        } catch (Exception $e) {
+            Logger::error("[YandexDiskClient] Ошибка получения Download URL: " . $e->getMessage());
+            return false;
+        }
+    }
+
     public function downloadFile($downloadUrl, $localFilePath) {
         try {
             $ch = curl_init();

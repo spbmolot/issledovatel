@@ -88,9 +88,16 @@ try {
             } else {
                 echo "   📥 Загружаем файл с Яндекс.Диска...\n";
                 
+                // Получаем download URL через API
+                $downloadUrl = $yandexDiskClient->getDownloadUrl($file['path']);
+                if (!$downloadUrl) {
+                    echo "   ❌ Не удалось получить ссылку для загрузки\n";
+                    continue;
+                }
+                
                 // Загружаем файл с Яндекс.Диска
                 $tempFilePath = sys_get_temp_dir() . '/' . basename($file['name']);
-                $downloadSuccess = $yandexDiskClient->downloadFile($file['download_url'], $tempFilePath);
+                $downloadSuccess = $yandexDiskClient->downloadFile($downloadUrl, $tempFilePath);
                 
                 if (!$downloadSuccess) {
                     echo "   ❌ Не удалось загрузить файл\n";
