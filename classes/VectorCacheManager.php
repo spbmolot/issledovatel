@@ -6,12 +6,10 @@ class VectorCacheManager extends CacheManager {
     
     public function __construct($dbBaseDir) {
         parent::__construct($dbBaseDir);
-        
         if ($this->pdo === null) {
             Logger::error("[VectorCacheManager] PDO не инициализирован после parent::__construct()");
             throw new \Exception("PDO подключение не может быть инициализировано");
         }
-        
         Logger::info("[VectorCacheManager] PDO подключение успешно инициализировано");
         $this->createVectorTables();
         Logger::info("[VectorCacheManager] Инициализация завершена");
@@ -19,16 +17,24 @@ class VectorCacheManager extends CacheManager {
     
     private function createVectorTables() {
         try {
-            $this->pdo->exec("CREATE TABLE IF NOT EXISTS vector_embeddings (
+            $sql = "CREATE TABLE IF NOT EXISTS vector_embeddings (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 file_path TEXT NOT NULL,
                 chunk_text TEXT NOT NULL,
                 embedding TEXT NOT NULL,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )");
-            Logger::info("[VectorCacheManager] Таблица vector_embeddings готова");
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )";
+            
+            $this->pdo->exec($sql);
+            Logger::info("[VectorCacheManager] Таблица vector_embeddings создана");
+            
+            // Создаем индекс для быстрого поиска по файлам
+            $indexSql = "CREATE INDEX IF NOT EXISTS idx_vector_file_path ON vector_embeddings(file_path)";
+            $this->pdo->exec($indexSql);
+            Logger::info("[VectorCacheManager] Индекс для vector_embeddings создан");
+            
         } catch (\Exception $e) {
-            Logger::error("[VectorCacheManager] Ошибка создания таблиц: " . $e->getMessage());
+            Logger::error("[VectorCacheManager] Ошибка создания таблицы: " . $e->getMessage());
             throw $e;
         }
     }
@@ -40,24 +46,35 @@ class VectorCacheManager extends CacheManager {
     
     public function storeVectorData($filePath, $chunks) {
         try {
+            Logger::info("[VectorCacheManager] Начинаем сохранение векторных данных для: {$filePath}");
+            
             if ($this->embeddingManager === null) {
                 Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован");
                 return false;
             }
             
+            Logger::info("[VectorCacheManager] Подготавливаем SQL запрос");
             $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding) VALUES (?, ?, ?)");
             
             $stored = 0;
-            foreach ($chunks as $chunk) {
+            foreach ($chunks as $index => $chunk) {
                 try {
+                    Logger::info("[VectorCacheManager] Обрабатываем чанк #" . ($index + 1) . ": " . substr($chunk, 0, 50) . "...");
+                    
                     $embedding = $this->embeddingManager->getEmbedding($chunk);
                     if ($embedding) {
+                        Logger::info("[VectorCacheManager] Embedding получен, размер: " . count($embedding));
+                        
                         $embeddingJson = json_encode($embedding);
                         $stmt->execute([$filePath, $chunk, $embeddingJson]);
                         $stored++;
+                        
+                        Logger::info("[VectorCacheManager] Чанк #" . ($index + 1) . " сохранен");
+                    } else {
+                        Logger::error("[VectorCacheManager] Не удалось получить embedding для чанка #" . ($index + 1));
                     }
                 } catch (\Exception $e) {
-                    Logger::error("[VectorCacheManager] Ошибка векторизации: " . $e->getMessage());
+                    Logger::error("[VectorCacheManager] Ошибка векторизации чанка #" . ($index + 1) . ": " . $e->getMessage());
                 }
             }
             
