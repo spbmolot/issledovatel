@@ -3,16 +3,26 @@
 require_once 'vendor/autoload.php';
 
 use ResearcherAI\YandexDiskClient;
-use ResearcherAI\SettingsManager;
 use ResearcherAI\Logger;
 
 echo "🔍 Диагностика загрузки файлов с Яндекс.Диска...\n\n";
 
 try {
-    // Получаем настройки
-    $settingsManager = new SettingsManager();
-    $token = $settingsManager->get('yandex_disk_token');
-    $folderPath = $settingsManager->get('yandex_disk_folder');
+    // Подключение к базе данных
+    $pdo = new PDO('sqlite:' . __DIR__ . '/researcher.db');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Получаем настройки из базы данных
+    $stmt = $pdo->prepare("SELECT * FROM researcher_settings WHERE id = 1");
+    $stmt->execute();
+    $settings = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$settings) {
+        die("❌ Настройки не найдены в базе данных!\n");
+    }
+    
+    $token = $settings['yandex_disk_token'];
+    $folderPath = $settings['yandex_disk_folder'];
     
     echo "📋 Настройки:\n";
     echo "   - Токен: " . (empty($token) ? "НЕТ" : "ЕСТЬ (" . strlen($token) . " символов)") . "\n";
