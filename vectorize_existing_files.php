@@ -34,9 +34,9 @@ try {
     $vectorAnalyzer = new VectorPriceAnalyzer($aiProvider, $yandexDiskClient, $cacheManager);
     echo "✅ VectorPriceAnalyzer готов\n\n";
     
-    // Получаем список файлов с Яндекс.Диска из правильной папки
-    $folderPath = '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
-    echo "📁 Получаем список файлов из папки: {$folderPath}\n";
+    // Получаем список файлов с Яндекс.Диска из настроек
+    $folderPath = $settings['yandex_folder'] ?? '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
+    echo "📁 Получаем список файлов из папки (из настроек): {$folderPath}\n";
     
     $files = $yandexDiskClient->searchFiles($folderPath, '.xlsx');
     
