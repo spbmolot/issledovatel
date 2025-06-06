@@ -44,6 +44,10 @@ class VectorCacheManager extends CacheManager {
         Logger::info("[VectorCacheManager] EmbeddingManager инициализирован");
     }
     
+    public function isEmbeddingManagerInitialized() {
+        return $this->embeddingManager !== null;
+    }
+    
     public function storeVectorData($filePath, $chunks) {
         try {
             Logger::info("[VectorCacheManager] Начинаем сохранение векторных данных для: {$filePath}");
@@ -122,6 +126,23 @@ class VectorCacheManager extends CacheManager {
             return $stmt->fetchAll(\PDO::FETCH_COLUMN);
         } catch (\Exception $e) {
             return array();
+        }
+    }
+    
+    public function getVectorizationStats() {
+        try {
+            $stmt = $this->pdo->prepare("SELECT COUNT(DISTINCT file_path) as vectorized_files_count FROM vector_embeddings");
+            $stmt->execute();
+            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+            
+            return array(
+                'vectorized_files_count' => $result['vectorized_files_count'] ?? 0
+            );
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] Ошибка получения статистики: " . $e->getMessage());
+            return array(
+                'vectorized_files_count' => 0
+            );
         }
     }
 }

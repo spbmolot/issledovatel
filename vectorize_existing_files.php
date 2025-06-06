@@ -74,6 +74,9 @@ try {
     
     $processed = 0;
     $errors = 0;
+    $vectorizedFiles = 0;
+    $failedFiles = 0;
+    $totalChunks = 0;
     
     foreach ($files as $file) {
         echo "🔄 Обрабатываем: " . $file['name'] . "\n";
@@ -161,17 +164,33 @@ try {
                 continue;
             }
             
-            echo "   🧠 Векторизируем " . count($chunks) . " чанков...\n";
+            echo "   [DEBUG] ✅ Приступаем к векторизации " . count($chunks) . " чанков...\n";
             
-            // Сохраняем векторные данные
-            $result = $vectorAnalyzer->vectorCacheManager->storeVectorData($file['path'], $chunks);
-            
-            if ($result) {
-                echo "   ✅ Векторизировано чанков: " . count($chunks) . "\n";
-                $processed++;
+            // Добавляем детальную диагностику EmbeddingManager 
+            if (!$vectorAnalyzer->vectorCacheManager->isEmbeddingManagerInitialized()) {
+                echo "   [DEBUG] ❌ EmbeddingManager не инициализирован!\n";
+                continue;
             } else {
-                echo "   ❌ Ошибка при сохранении векторных данных\n";
-                $errors++;
+                echo "   [DEBUG] ✅ EmbeddingManager инициализирован\n";
+            }
+            
+            // Проверяем каждый чанк перед векторизацией
+            foreach ($chunks as $index => $chunk) {
+                echo "   [DEBUG] Чанк #" . ($index + 1) . ": " . substr($chunk, 0, 50) . "...\n";
+                if (empty(trim($chunk))) {
+                    echo "   [DEBUG] ⚠️ Пустой чанк пропущен\n";
+                }
+            }
+            
+            $vectorResult = $vectorAnalyzer->vectorCacheManager->storeVectorData($file['path'], $chunks);
+            
+            if ($vectorResult) {
+                echo "   [DEBUG] ✅ Векторизация успешна: " . count($chunks) . " чанков\n";
+                $vectorizedFiles++;
+                $totalChunks += count($chunks);
+            } else {
+                echo "   [DEBUG] ❌ Векторизация провалилась\n";
+                $failedFiles++;
             }
             
             echo "\n";
@@ -185,6 +204,9 @@ try {
     echo "\n🎯 Результаты векторизации:\n";
     echo "   - Обработано файлов: {$processed}\n";
     echo "   - Ошибок: {$errors}\n";
+    echo "   - Векторизировано файлов: {$vectorizedFiles}\n";
+    echo "   - Неудачно векторизировано файлов: {$failedFiles}\n";
+    echo "   - Всего векторизированных чанков: {$totalChunks}\n";
     
     // Показываем статистику
     $stats = $vectorAnalyzer->vectorCacheManager->getVectorizationStats();
