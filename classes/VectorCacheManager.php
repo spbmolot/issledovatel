@@ -51,41 +51,66 @@ class VectorCacheManager extends CacheManager {
     public function storeVectorData($filePath, $chunks) {
         try {
             Logger::info("[VectorCacheManager] Начинаем сохранение векторных данных для: {$filePath}");
+            echo "   [DEBUG] storeVectorData() вызван для: {$filePath}\n";
+            echo "   [DEBUG] Количество чанков: " . count($chunks) . "\n";
             
             if ($this->embeddingManager === null) {
                 Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован");
+                echo "   [DEBUG] ❌ EmbeddingManager is null\n";
                 return false;
             }
+            echo "   [DEBUG] ✅ EmbeddingManager проверен\n";
             
             Logger::info("[VectorCacheManager] Подготавливаем SQL запрос");
-            $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding) VALUES (?, ?, ?)");
+            echo "   [DEBUG] Подготавливаем SQL statement...\n";
+            
+            try {
+                $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding) VALUES (?, ?, ?)");
+                echo "   [DEBUG] ✅ SQL statement подготовлен\n";
+            } catch (\Exception $e) {
+                echo "   [DEBUG] ❌ Ошибка подготовки SQL: " . $e->getMessage() . "\n";
+                Logger::error("[VectorCacheManager] Ошибка подготовки SQL: " . $e->getMessage());
+                return false;
+            }
             
             $stored = 0;
             foreach ($chunks as $index => $chunk) {
                 try {
+                    echo "   [DEBUG] Обрабатываем чанк #" . ($index + 1) . "\n";
                     Logger::info("[VectorCacheManager] Обрабатываем чанк #" . ($index + 1) . ": " . substr($chunk, 0, 50) . "...");
                     
+                    echo "   [DEBUG] Вызываем getEmbedding()...\n";
                     $embedding = $this->embeddingManager->getEmbedding($chunk);
+                    
                     if ($embedding) {
+                        echo "   [DEBUG] ✅ Embedding получен, размер: " . count($embedding) . "\n";
                         Logger::info("[VectorCacheManager] Embedding получен, размер: " . count($embedding));
                         
                         $embeddingJson = json_encode($embedding);
+                        echo "   [DEBUG] JSON размер: " . strlen($embeddingJson) . " символов\n";
+                        
+                        echo "   [DEBUG] Выполняем SQL INSERT...\n";
                         $stmt->execute([$filePath, $chunk, $embeddingJson]);
                         $stored++;
                         
+                        echo "   [DEBUG] ✅ Чанк #" . ($index + 1) . " сохранен в БД\n";
                         Logger::info("[VectorCacheManager] Чанк #" . ($index + 1) . " сохранен");
                     } else {
+                        echo "   [DEBUG] ❌ Embedding = null для чанка #" . ($index + 1) . "\n";
                         Logger::error("[VectorCacheManager] Не удалось получить embedding для чанка #" . ($index + 1));
                     }
                 } catch (\Exception $e) {
+                    echo "   [DEBUG] ❌ Исключение в чанке #" . ($index + 1) . ": " . $e->getMessage() . "\n";
                     Logger::error("[VectorCacheManager] Ошибка векторизации чанка #" . ($index + 1) . ": " . $e->getMessage());
                 }
             }
             
+            echo "   [DEBUG] Сохранено векторов: {$stored} из " . count($chunks) . "\n";
             Logger::info("[VectorCacheManager] Сохранено векторов: {$stored}");
             return $stored > 0;
             
         } catch (\Exception $e) {
+            echo "   [DEBUG] ❌ Общее исключение: " . $e->getMessage() . "\n";
             Logger::error("[VectorCacheManager] Ошибка storeVectorData: " . $e->getMessage());
             return false;
         }
