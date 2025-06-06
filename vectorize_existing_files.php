@@ -60,7 +60,8 @@ try {
         $allFiles = $yandexDiskClient->listFiles($folderPath);
         if (!empty($allFiles)) {
             foreach ($allFiles as $file) {
-                echo "   " . ($file['type'] === 'dir' ? '📁' : '📄') . " " . $file['name'] . "\n";
+                $fileType = isset($file['type']) ? $file['type'] : 'file';
+                echo "   " . ($fileType === 'dir' ? '📁' : '📄') . " " . $file['name'] . "\n";
             }
         } else {
             echo "   Папка пуста или недоступна\n";
