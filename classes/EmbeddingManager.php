@@ -12,22 +12,14 @@ class EmbeddingManager {
     
     public function getEmbedding($text) {
         try {
-            echo "       [DEBUG-EM] Вызван getEmbedding(), длина текста: " . strlen($text) . "\n";
-            echo "       [DEBUG-EM] AI Provider класс: " . get_class($this->aiProvider) . "\n";
-            
             $result = $this->aiProvider->getEmbedding($text);
-            
             if ($result === null) {
-                echo "       [DEBUG-EM] ❌ AI Provider вернул null\n";
-            } elseif (is_array($result)) {
-                echo "       [DEBUG-EM] ✅ AI Provider вернул массив размером: " . count($result) . "\n";
-            } else {
-                echo "       [DEBUG-EM] ⚠️ AI Provider вернул не массив: " . gettype($result) . "\n";
+                Logger::error("[EmbeddingManager] AI Provider вернул null");
+            } elseif (!is_array($result)) {
+                Logger::error("[EmbeddingManager] AI Provider вернул не массив: " . gettype($result));
             }
-            
             return $result;
         } catch (\Exception $e) {
-            echo "       [DEBUG-EM] ❌ Исключение в getEmbedding(): " . $e->getMessage() . "\n";
             Logger::error("[EmbeddingManager] Ошибка получения embedding: " . $e->getMessage());
             return null;
         }
