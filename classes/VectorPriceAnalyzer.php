@@ -4,10 +4,12 @@ namespace ResearcherAI;
 class VectorPriceAnalyzer extends PriceAnalyzer {
     public $vectorCacheManager;
     private $useVectorSearch = true;
+    private $aiProvider;
     
     public function __construct($aiProvider, $yandexDisk, $cacheManager) {
         parent::__construct($aiProvider, $yandexDisk, $cacheManager);
         
+        $this->aiProvider = $aiProvider;
         $dbBaseDir = dirname(__DIR__) . '/db';
         $this->vectorCacheManager = new VectorCacheManager($dbBaseDir);
         $this->vectorCacheManager->initializeEmbeddingManager($aiProvider);
@@ -75,7 +77,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
             );
         }
         
-        $analysis = $this->openAI->analyzeQuery($query, $priceData);
+        $analysis = $this->aiProvider->analyzeQuery($query, $priceData);
         
         Logger::info("[VectorPriceAnalyzer] Vector search completed successfully");
         
