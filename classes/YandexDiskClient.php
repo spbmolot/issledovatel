@@ -93,7 +93,7 @@ class YandexDiskClient {
 
     }
 
-    public function downloadFile($path) {
+    public function downloadFileContent($path) {
 
         try {
 
