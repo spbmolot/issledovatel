@@ -104,10 +104,21 @@ try {
     $cacheManager = new CacheManager($dbBaseDir);
     $fileParser = new FileParser();
     
-    // Загружаем настройки для Yandex токена
-    $settings = $cacheManager->getSettings();
-    if (!isset($settings['yandex_token'])) {
+    // Загружаем настройки напрямую из БД SQLite
+    $dbPath = $dbBaseDir . '/cache.sqlite';
+    if (!file_exists($dbPath)) {
+        echo "❌ Ошибка: База данных не найдена: {$dbPath}\n";
+        exit(1);
+    }
+    
+    $pdo = new PDO('sqlite:' . $dbPath);
+    $stmt = $pdo->prepare("SELECT yandex_token FROM researcher_settings WHERE id = 1");
+    $stmt->execute();
+    $settings = $stmt->fetch();
+    
+    if (!$settings || empty($settings['yandex_token'])) {
         echo "❌ Ошибка: Yandex токен не настроен в системе\n";
+        echo "   Настройте токен через веб-интерфейс\n";
         exit(1);
     }
     
