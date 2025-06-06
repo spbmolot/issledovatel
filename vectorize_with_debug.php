@@ -144,7 +144,7 @@ try {
     $startTime = time();
 
     foreach ($excelFiles as $index => $file) {
-        echo "\n📄 [{$index+1}/" . count($excelFiles) . "] " . $file['name'] . "\n";
+        echo "\n📄 [" . ($index+1) . "/" . count($excelFiles) . "] " . $file['name'] . "\n";
         
         try {
             // Загружаем файл
