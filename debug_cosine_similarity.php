@@ -100,10 +100,49 @@ try {
     
     foreach ($sample_vectors as $i => $row) {
         $vector = json_decode($row['embedding'], true);
+        if ($vector === null) {
+            echo "Вектор #" . ($i + 1) . ": ОШИБКА декодирования JSON\n";
+            continue;
+        }
+        
         echo "Вектор #" . ($i + 1) . " (файл: " . basename($row['file_path']) . "):\n";
+        echo "  Размер: " . count($vector) . "\n";
         echo "  Первые 10: " . implode(', ', array_slice($vector, 0, 10)) . "\n";
         echo "  Сумма: " . round(array_sum($vector), 4) . "\n";
-        echo "  Стандартное отклонение: " . round(sqrt(array_sum(array_map(function($x) { return pow($x - array_sum($vector)/count($vector), 2); }, $vector)) / count($vector)), 4) . "\n";
+        
+        // Проверяем уникальность значений
+        $unique_values = array_unique($vector);
+        echo "  Уникальных значений: " . count($unique_values) . " из " . count($vector) . "\n";
+        
+        // Проверяем на старые заглушки (все 0.1)
+        $all_same = count($unique_values) === 1 && abs($vector[0] - 0.1) < 0.001;
+        if ($all_same) {
+            echo "  ⚠️  СТАРЫЙ ВЕКТОР-ЗАГЛУШКА (все значения 0.1)!\n";
+        }
+        
+        // Вычисляем стандартное отклонение правильно
+        $mean = array_sum($vector) / count($vector);
+        $variance = array_sum(array_map(function($x) use ($mean) { 
+            return pow($x - $mean, 2); 
+        }, $vector)) / count($vector);
+        $std_dev = sqrt($variance);
+        echo "  Стандартное отклонение: " . round($std_dev, 4) . "\n\n";
+    }
+    
+    // Проверяем сколько старых векторов в базе
+    echo "🔍 ПРОВЕРКА СТАРЫХ ВЕКТОРОВ:\n";
+    $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM vector_embeddings WHERE embedding LIKE '%0.1,0.1,0.1%'");
+    $stmt->execute();
+    $old_vectors_count = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+    echo "Старых векторов (заглушек): $old_vectors_count\n";
+    
+    $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM vector_embeddings");
+    $stmt->execute();
+    $total_vectors = $stmt->fetch(PDO::FETCH_ASSOC)['count'];
+    echo "Всего векторов: $total_vectors\n\n";
+    
+    if ($old_vectors_count > 0) {
+        echo "⚠️  В базе есть старые векторы-заглушки! Нужна ревекторизация.\n\n";
     }
     
 } catch (Exception $e) {
