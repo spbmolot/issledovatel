@@ -110,6 +110,11 @@ class VectorCacheManager extends CacheManager {
         }
     }
     
+    public function searchSimilar($query, $limit = 5) {
+        // Псевдоним для findSimilarContent для совместимости
+        return $this->findSimilarContent($query, $limit);
+    }
+    
     public function getVectorizedFilesPaths() {
         try {
             $stmt = $this->pdo->prepare("SELECT DISTINCT file_path FROM vector_embeddings");
