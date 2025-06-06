@@ -162,6 +162,31 @@ class CacheManager {
             return false;
         }
     }
+
+    public function getCachedText($cacheKey) {
+        // Ищем кэшированный текст по ключу (MD5 пути файла)
+        try {
+            $stmt = $this->pdo->prepare("SELECT parsed_text_filename FROM cache_metadata WHERE MD5(yandex_disk_path) = ?");
+            $stmt->execute([$cacheKey]);
+            $row = $stmt->fetch();
+            
+            if ($row) {
+                $cachedFilePath = $this->parsedTextsDirectory . $row['parsed_text_filename'];
+                if (file_exists($cachedFilePath)) {
+                    Logger::info("[CacheManager] Found cached text for key: {$cacheKey}");
+                    return file_get_contents($cachedFilePath);
+                } else {
+                    Logger::warning("[CacheManager] Cached text file missing: {$cachedFilePath}");
+                }
+            }
+            
+            Logger::info("[CacheManager] No cached text found for key: {$cacheKey}");
+            return false;
+        } catch (PDOException $e) {
+            Logger::error("[CacheManager] Error getting cached text for key '{$cacheKey}': " . $e->getMessage());
+            return false;
+        }
+    }
 }
 
 ?>
