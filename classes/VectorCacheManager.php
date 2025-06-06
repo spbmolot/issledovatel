@@ -22,6 +22,7 @@ class VectorCacheManager extends CacheManager {
                 file_path TEXT NOT NULL,
                 chunk_text TEXT NOT NULL,
                 embedding TEXT NOT NULL,
+                chunk_index INTEGER NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )";
             
@@ -65,7 +66,7 @@ class VectorCacheManager extends CacheManager {
             echo "   [DEBUG] Подготавливаем SQL statement...\n";
             
             try {
-                $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding) VALUES (?, ?, ?)");
+                $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding, chunk_index) VALUES (?, ?, ?, ?)");
                 echo "   [DEBUG] ✅ SQL statement подготовлен\n";
             } catch (\Exception $e) {
                 echo "   [DEBUG] ❌ Ошибка подготовки SQL: " . $e->getMessage() . "\n";
@@ -90,7 +91,7 @@ class VectorCacheManager extends CacheManager {
                         echo "   [DEBUG] JSON размер: " . strlen($embeddingJson) . " символов\n";
                         
                         echo "   [DEBUG] Выполняем SQL INSERT...\n";
-                        $stmt->execute([$filePath, $chunk, $embeddingJson]);
+                        $stmt->execute([$filePath, $chunk, $embeddingJson, $index]);
                         $stored++;
                         
                         echo "   [DEBUG] ✅ Чанк #" . ($index + 1) . " сохранен в БД\n";
