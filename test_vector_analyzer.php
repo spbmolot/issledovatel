@@ -11,8 +11,12 @@ require_once __DIR__ . '/config/database.php';
 use ResearcherAI\VectorPriceAnalyzer;
 
 try {
-    // Создание экземпляра анализатора
-    $analyzer = new VectorPriceAnalyzer($pdo);
+    // Создание экземпляра анализатора с правильными аргументами
+    $aiProvider = new \ResearcherAI\DeepSeekProvider('test-key');
+    $yandexDisk = new \ResearcherAI\YandexDiskClient('test-token');
+    $cacheManager = new \ResearcherAI\CacheManager(__DIR__);
+    
+    $analyzer = new VectorPriceAnalyzer($aiProvider, $yandexDisk, $cacheManager);
     
     echo json_encode([
         'status' => 'success',

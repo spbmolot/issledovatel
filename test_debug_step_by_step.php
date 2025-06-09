@@ -49,7 +49,13 @@ try {
     
     // Шаг 7: Создание VectorPriceAnalyzer
     $results["step_$step"] = "Создание VectorPriceAnalyzer";
-    $analyzer = new VectorPriceAnalyzer($pdo);
+    
+    // Создаём необходимые зависимости
+    $aiProvider = new \ResearcherAI\DeepSeekProvider('test-key');
+    $yandexDisk = new \ResearcherAI\YandexDiskClient('test-token');
+    $cacheManager = new \ResearcherAI\CacheManager(__DIR__);
+    
+    $analyzer = new VectorPriceAnalyzer($aiProvider, $yandexDisk, $cacheManager);
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
