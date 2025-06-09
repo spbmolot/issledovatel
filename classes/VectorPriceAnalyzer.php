@@ -233,7 +233,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
                 if (strlen($keyword) < 3) continue; // Игнорируем короткие слова
                 
                 $stmt = $pdo->prepare("
-                    SELECT file_name, chunk_text, chunk_index 
+                    SELECT file_path, chunk_text, chunk_index 
                     FROM vector_embeddings 
                     WHERE chunk_text LIKE ? 
                     LIMIT 20
@@ -242,10 +242,10 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                 foreach ($results as $result) {
-                    $chunkKey = $result['file_name'] . '_' . $result['chunk_index'];
+                    $chunkKey = $result['file_path'] . '_' . $result['chunk_index'];
                     if (!isset($chunks[$chunkKey])) {
                         $chunks[$chunkKey] = array(
-                            'file_name' => $result['file_name'],
+                            'file_path' => $result['file_path'],
                             'chunk_text' => $result['chunk_text'],
                             'chunk_index' => $result['chunk_index'],
                             'similarity' => 0.9, // Высокий приоритет для точных совпадений
@@ -291,7 +291,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         
         // Добавляем результаты текстового поиска с высоким приоритетом
         foreach ($textChunks as $chunk) {
-            $key = $chunk['file_name'] . '_' . $chunk['chunk_index'];
+            $key = $chunk['file_path'] . '_' . $chunk['chunk_index'];
             if (!isset($seen[$key])) {
                 $merged[] = $chunk;
                 $seen[$key] = true;
@@ -300,7 +300,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         
         // Добавляем результаты векторного поиска
         foreach ($vectorChunks as $chunk) {
-            $key = $chunk['file_name'] . '_' . $chunk['chunk_index'];
+            $key = $chunk['file_path'] . '_' . $chunk['chunk_index'];
             if (!isset($seen[$key])) {
                 $chunk['search_type'] = 'vector';
                 $merged[] = $chunk;
