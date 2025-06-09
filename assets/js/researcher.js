@@ -503,20 +503,26 @@ class ResearcherAI {
         
         try {
             console.log('📤 Отправляем запрос на удаление...');
-            const response = await fetch('api/delete_chat.php', {
+            fetch('api/delete_chat.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    chat_id: chatId
-                })
-            });
-
-            console.log(`📥 Получен ответ: ${response.status} ${response.statusText}`);
-            
-            if (response.ok) {
-                const result = await response.json();
+                body: JSON.stringify({ chat_id: chatId })
+            })
+            .then(async response => {
+                console.log(`📥 Получен ответ: ${response.status}`);
+                
+                if (!response.ok) {
+                    // Получаем текст ошибки для статуса 500
+                    const errorText = await response.text();
+                    console.log(`❌ Ошибка ${response.status}: ${errorText}`);
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+                
+                return response.json();
+            })
+            .then(result => {
                 console.log('✅ Ответ от сервера:', result);
                 
                 if (this.currentChatId === chatId) {
@@ -537,11 +543,11 @@ class ResearcherAI {
                 this.loadChatHistory();
                 this.showNotification('Чат удален', 'success');
                 console.log('✅ Удаление завершено успешно');
-            } else {
-                const errorText = await response.text();
-                console.error('❌ Ошибка сервера:', response.status, errorText);
-                throw new Error(`Ошибка удаления: ${response.status}`);
-            }
+            })
+            .catch(error => {
+                console.error('❌ Ошибка удаления чата:', error);
+                this.showNotification('Ошибка удаления чата', 'error');
+            });
         } catch (error) {
             console.error('❌ Ошибка удаления чата:', error);
             this.showNotification('Ошибка удаления чата', 'error');
