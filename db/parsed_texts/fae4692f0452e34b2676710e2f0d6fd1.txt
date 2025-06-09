@@ -1,0 +1,197 @@
+с 04 сентября 2023 года | RUB | RUB | RUB
+Артикул | SAP Code | SAP Code NEW | Артикул Cork Campaign | Старый артикул | Старый артикул | EAN код NEW | Торговая марка | Коллекция | Укладка | Размеры, мм | Толщина, мм | Покрытие | Коммерческое наименование | Фаска | Водостойкость | Гарантия | Класс | Кол-во в коробке | Кол-во в пачке | Опт | Наценка | РРЦ
+"WOOD Parquet" ПАРКЕТНАЯ ДОСКА
+1 | RW04359A | Wicanders | WOOD Parquet | Loc&Fold | 1900 x 190 | 15 | Натуральное масло | Нью Хэмпшир | 4V | 2.888 | 6693 | 3007 | 9700
+2 | RW04386A | Wicanders | WOOD Parquet | Loc&Fold | 2200 x 260 | 15 | Белое масло | Дуб Девон | 4V | 3.432 | 6385.09 | 2914.91 | 9300
+3 | RW04446A | Wicanders | WOOD Parquet | Loc&Fold | 1860 x 189 | 14 | Суперматовый лак | Дуб Кеппель | 2V | 2.8123 | 5063.74 | 2236.26 | 7300
+4 | RW04452 | Wicanders | WOOD Parquet | Loc&Fold | 1900 x 190 | 14 | Суперматовый лак | Дуб Стенли | 2V | 2.888 | 5643.34 | 2556.66 | 8200
+5 | RW04453 | Wicanders | WOOD Parquet | Loc&Fold | 1900 x 190 | 14 | Суперматовый лак | Дуб Храмовый | 2V | 2.888 | 5931.41 | 2668.59 | 8600
+6 | RW04206A | Wicanders | WOOD Parquet | Loc&Fold | 1900 x 190 | 14 | Натуральное масло | Дуб Абингтон | 2V | 2.888 | 5368.2 | 2431.8 | 7800
+7 | RW04357 | Wicanders | WOOD Parquet | Loc&Fold | 1860 x 189 | 14 | Белое масло | Дуб Лиссабон | 4V | 2.8123 | 4606.61 | 2093.39 | 6700
+8 | RW04402 | Wicanders | WOOD Parquet | Loc&Fold | 1860 x 189 | 14 | Натуральное масло | Дуб Рига | 4V | 2.8123 | 4606.61 | 2093.39 | 6700
+9 | RW04360A | Wicanders | WOOD Parquet | Loc&Fold | 1830 x 189 | 15 | Натуральное масло | Дуб Вермонт 2S | 4V | 2.767 | 6573.98 | 2926.02 | 9500
+10 | RW04255C | Wicanders | WOOD Parquet | Loc&Fold | 1900 x 190 | 15 | Белое масло | Дуб Стальной | 4V | 2.888 | 6362.66 | 2837.34 | 9200
+11 | RW04481 | Wicanders | WOOD Parquet | Loc&Fold | 2200 x 260 | 15 | Масло с твердым воском | Дуб Кейптаун | 4V | 3.432 | 6316.09 | 2883.91 | 9200
+"WOOD RESIST ECO" 33 класс!!! ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ С ДИЗАЙНОМ ДЕРЕВА
+12 | FDYA001 | 80001615 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Mountain Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+13 | FDYB001 | 80001616 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Sprucewood | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+14 | FDYD001 | 80001617 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Royal Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+15 | FDYE001 | 80001618 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Manor Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+16 | FDYF001 | 80001619 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Ocean Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+17 | FDYG001 | 80001620 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Field Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+18 | FDYI001 | 80001621 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Diamond Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+19 | FDYK001 | 80001622 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Dark Onyx Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+20 | FDYL001 | 80001623 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Mocca Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+21 | FDYM001 | 80001624 | Wicanders | Wood Resist Eco | LOC 2G | 1220x185 | 10.5 | 0,25mm PP | Quartz Oak | 4 Micro | 25 лет | 33 | 1.806 | 4317.3 | 1882.7 | 6200
+"WISE CORK INSPIRE 700 HRT" - FLOATING ЗАМКОВОЕ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ЛИСТАХ
+22 | AA8M001 | 80000097 | AA8M001 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Fashionable Grafite | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+23 | AA2N001 | 80000079 | AA2N001 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Identity Moonlight | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+24 | AA2L001 | 80000078 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Identity Nightshade | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+25 | AA8H001 | 80000092 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Lane Antracite | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+26 | AA8I001 | 80000093 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Lane Camel | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600 | Цена со скидкой
+27 | AA8E001 | 80000089 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Originals Shell | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+28 | AA8C001 | 80000087 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Shell Jasmim | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600 | -0.5
+29 | AA8D001 | 80000088 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Shell Marfim | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+30 | AA5R001 | 80000083 | AA5R001 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Traces Chestnut | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+31 | AA8A001 | 80000085 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Traces Marfim | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+32 | AA8B001 | 80000086 | AA8B001 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Traces Natural | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+33 | AA4M001 | 80000081 | AA4M001 | AMORIM WISE | Cork Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Traces Tea | 4x1mm | да | Пожизненная | 33 | 1.862 | 2500 | 1100 | 3600
+34 | "WISE WOOD INSPIRE 700 SRT" - FLOATING PRINTED FILM ЗАМКОВОЕ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ЛИСТАХ С ДИЗАЙНАМИ ДЕРЕВА И ДОПОЛНИТЕЛЬНЫМ ЗАЩИТНЫМ СЛОЕМ
+35 | AEUW001 | 80000165 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Barnwood | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+36 | AEUB001 | 80000153 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Contempo Copper | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+37 | AEUD001 | 80000155 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Contempo Ivory | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+38 | AEUQ001 | 80000159 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Farmhouse | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+39 | AEUK001 | 80000156 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Natural Dark Oak | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+40 | AEUM001 | 80000157 | AMORIM WISE | Wood Inspire 700 SRT | LOC 2G | 1225x190 | 7.3 | SRT | Natural Light Oak | 4x1mm | да | Пожизненная | 33 | 1.862 | 5074.2 | 2325.8 | 7400
+41 | "WISE WOOD INSPIRE 700 HRT" "WISE STONE INSPIRE 700 HRT" - FLOATING DIGITAL PRINT ЗАМКОВОЕ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ЛИСТАХ С ЦИФРОВОЙ ПЕЧАТЬЮ ДИЗАЙНОВ ДЕРЕВА И КАМНЯ
+42 | ADK1001 | 80000137 | AMORIM WISE | Wood Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | American Walnut | 4x1mm | да | Пожизненная | 33 | 1.862 | 3042.74 | 1357.26 | 4400 | Цена со скидкой
+43 | ADJ8001 | 80000134 | AMORIM WISE | Wood Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Beachwood | 4x1mm | да | Пожизненная | 33 | 1.862 | 3042.74 | 1357.26 | 4400 | -0.3
+44 | ADH7001 | 80000126 | AMORIM WISE | Wood Inspire 700 HRT | LOC 2G | 1225x190 | 7 | HRT | Classic Walnut | 4x1mm | да | Пожизненная | 33 | 1.862 | 3042.74 | 1357.26 | 4400
+"CORK PURE" - GLUE DOWN КЛЕЕВОЕ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ЛИСТАХ
+45 | AJ8F004 | 80000298 | 80002950 | DN11004 | 5602190105630 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | DN11004 Originals IDENTITY (Originals Harmony) AJ8F004 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+46 | AJAJ004 | 80000345 | 80002935 | DN20003 | 5602190105890 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | DN20003 Originals SYMPHONY AJAJ004 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+47 | AJ9Z002 | 80000332 | 80002934 | DN17003 | 5602190105906 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | DN17003 Originals ACCENT AJ9Z002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+48 | AJ2Z003 | 80000246 | 80002929 | DN13003 | 5602190105968 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | DN13003 Originals PERSONALITY (Originals Dawn) AJ2Z003 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+49 | AJ2N002 | 80000231 | 80002906 | I901002 | 5602190106484 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I901002 Identity Moonlight AJ2N002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+50 | AJ2M001 | 80000229 | 80002907 | I902002 | 5602190106460 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I902002 Identity Timide AJ2M001 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+51 | AJ2Y001 | 80000243 | 80002927 | I903002 | 5602190106002 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I903002 Identity Silver AJ2Y001 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+52 | AJ2O002 | 80000233 | 80002925 | I905002 | 5602190106040 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I905002 Identity Champagne AJ2O002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+53 | AJ2P001 | 80000234 | 80002908 | I906002 | 5602190106446 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I906002 Identity Eden AJ2P001 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+54 | AJ2R002 | 80000237 | 80002926 | I910002 | 5602190106026 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I910002 Identity Tea AJ2R002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+55 | AJ3G002 | 80000256 | 80003241 | I932002 | 5602190101861 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | I932002 Identity Chestnut AJ3G002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 4170.94 | 1629.06 | 5800
+56 | AJ4H003 | 80000268 | 80002909 | P901003 | 5602190106422 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | P901003 Personality Moonlight AJ4H003 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 3872.46 | 1427.54 | 5300
+57 | AJ3J002 | 80000258 | 80002910 | P902003 | 5602190106408 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | P902003 Personality Timide AJ3J002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 3872.46 | 1427.54 | 5300
+58 | AJ3K002 | 80000260 | 80002932 | P905003 | 5602190105920 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | P905003 Personality Champagne AJ3K002 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 3872.46 | 1427.54 | 5300
+59 | AJ5T004 | 80000284 | 80002933 | P910003 | 5602190105913 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 6 | NEW! PU finished 4 Bv. | P910003 Personality Tea AJ5T004 | 4x1mm | да | 10 лет | 5.4 | 1.8 | 3872.46 | 1427.54 | 5300
+60 | AJ8L001 | 80000303 | 80003399 | 5602190095504 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 4 | NEW! PU finished 4 Bv. | Fashionable Cement | 4x1mm | да | 10 лет | 7.92 | 1.98 | 3667.5 | 1532.5 | 5200
+61 | AJ8M001 | 80000306 | C95M001 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 4 | PU Pre-finished 4 Bv. | AJ8M001 Fashionable Grafite C95M001 | 4x1mm | да | 10 лет | 7.92 | 1.98 | 3667.5 | 1532.5 | 5200
+62 | AJ8K001 | 80000302 | 80003398 | AJ8K001 | 5602190095528 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 4 | NEW! PU finished 4 Bv. | Fashionable Antique White | 4x1mm | да | 10 лет | 7.92 | 1.98 | 3667.5 | 1532.5 | 5200
+63 | AJ8O001 | 80000308 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 4 | PU Pre-finished 4 Bv. | Fashionable Camel | 4x1mm | да | 10 лет | 7.92 | 1.98 | 3667.5 | 1532.5 | 5200
+64 | AJ8Q001 | 80000311 | AMORIM WISE | Cork Pure | GLUE DOWN | 600x300 | 4 | PU Pre-finished 4 Bv. | Fashionable Antracite | 4x1mm | да | 10 лет | 7.92 | 1.98 | 3667.5 | 1532.5 | 5200
+"DEKWALL" - CORK WALL TILES ПРОБКОВОЕ НАСТЕННОЕ ПОКРЫТИЕ В ЛИСТАХ
+65 | RY40001 | 81000071 | 81000361 | 5602190095498 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | MELVILLE | 10.8 | 1.8 | 1943.28 | 756.72 | 2700
+66 | RY43001 | 81000073 | 81000326 | 5602190105753 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | TENERIFE NATURAL | 10.8 | 1.8 | 1943.28 | 756.72 | 2700
+67 | RY41001 | 81000072 | 81000320 | 5602190105760 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | TENERIFE BLACK | 10.8 | 1.8 | 1943.28 | 756.72 | 2700
+68 | RY39002 | 81000070 | 81000325 | 5602190105562 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | TENERIFE RED | 10.8 | 1.8 | 1943.28 | 756.72 | 2700
+69 | RY75001 | 81000085 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI BROWN | 5.94 | 1.98 | 1545.3 | 554.7 | 2100
+70 | RY76001 | 81000086 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI GREEN | 5.94 | 1.98 | 1545.3 | 554.7 | 2100
+71 | RY67001 | 81000083 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI RED | 5.94 | 1.98 | 1545.3 | 554.7 | 2100
+72 | RY77002 | 81000088 | 81000352 | 5602190101823 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI WHITE | 10.8 | 1.8 | 2243.03 | 856.97 | 3100
+73 | TA24001 | 81000106 | 81000311 | 5602190106347 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Varnished | Stone Art Platinum | 10.8 | 1.8 | 2841.26 | 1058.74 | 3900
+74 | RY1F001 | 81000062 | 81000323 | 5602190105593 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | Hawai Black Pearl | 10.8 | 1.8 | 2243.03 | 856.97 | 3100
+75 | RY1G001 | 81000063 | 81000301 | 5602190105586 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | Hawai Black Oyster | 10.8 | 1.8 | 2243.03 | 856.97 | 3100
+76 | RY1L001 | 81000066 | 81000353 | 5602190101847 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | Malta Chestnut | 10.8 | 1.8 | 2542.79 | 957.21 | 3500
+77 | RY1M001 | 81000067 | 81000324 | 5602190105579 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | Malta Champagne | 10.8 | 1.8 | 2542.79 | 957.21 | 3500
+78 | RY07001 | 81000056 | 81000312 | 5602190106323 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | FLORES WHITE | 10.8 | 1.8 | 2841.26 | 1058.74 | 3900
+79 | RY11001 | 81000057 | 81000313 | 5602190106309 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI NATURAL | 10.8 | 1.8 | 1943.28 | 756.72 | 2700
+80 | RY19002 | 81000061 | 81000314 | 5602190106286 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | FIORD EXCLUSIVE | 10.8 | 1.8 | 2841.26 | 1058.74 | 3900
+81 | RY1N001 | 81000001 | 81000315 | 5602190106262 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | MALTA MOONLIGHT | 10.8 | 1.8 | 2542.79 | 957.21 | 3500
+82 | RY48001 | 81000074 | 81000316 | 5602190106248 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | BALI | 10.8 | 1.8 | 2342.95 | 857.05 | 3200
+83 | RY77001 | 81000087 | 81000317 | 5602190106224 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Waxed | HAWAI EXCLUSIVE | 10.8 | 1.8 | 2342.95 | 857.05 | 3200
+84 | TA22001 | 81000102 | 81000318 | 5602190106200 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Varnished | STONE ART OYSTER | 10.8 | 1.8 | 2841.26 | 1058.74 | 3900
+85 | TA23001 | 81000104 | 81000319 | 5602190106187 | AMORIM WISE | Dekwall | GLUE-DOWN | 600x300 | 3 | Varnished | STONE ART PEARL | 10.8 | 1.8 | 2841.26 | 1058.74 | 3900
+86 | RY4U001 | 81000076 | Wicanders | BRICK | GLUE-DOWN | 900x300 | 3.0 | Varnished | Steel Brick | 8.64 | 2.16 | 1305 | 495 | 1800 | Цена со скидкой
+88 | RY4V001 | 81000077 | Wicanders | BRICK | GLUE-DOWN | 900x300 | 3.0 | Varnished | Apricot Brick | 8.64 | 2.16 | 1305 | 495 | 1800 | -0.5
+88 | RY4W001 | 81000078 | Wicanders | BRICK | GLUE-DOWN | 900x300 | 3.0 | Varnished | Rusty Grey Brick | 8.64 | 2.16 | 1827 | 673 | 2500 | Цена со скидкой -30%
+"WICANDERS GO" - КЛЕЕВОЙ ПОЛ КЛЕЕВОЕ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ЛИСТАХ
+89 | C95H001 | 80001369 | 80003401 | 5602190095450 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Charm | да | 10 лет | 7.92 | 1.98 | 3452.3 | 1247.7 | 4700
+90 | C97W001 | 80001390 | 80003242 | 5602190101908 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Addict | да | 10 лет | 7.92 | 1.98 | 3452.3 | 1247.7 | 4700
+91 | C95I001 | 80001370 | 80002951 | 5602190105623 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Allure | да | 10 лет | 7.92 | 1.98 | 3452.3 | 1247.7 | 4700
+92 | C97Y001 | 80001391 | 80002936 | 5602190105883 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Serenity | да | 10 лет | 7.92 | 1.98 | 3452.3 | 1247.7 | 4700
+93 | C9D2001 | 80001402 | 80003243 | 5602190101885 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Blase | да | 10 лет | 7.92 | 1.98 | 3452.3 | 1247.7 | 4700
+94 | C921001 | 80001313 | 80003244 | 5602190101922 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | NEW! PU finished | Originals Harmony | 4 BV | да | 10 лет | 7.92 | 1.98 | 3750.77 | 1349.23 | 5100
+95 | AJ8E002 | 80000294 | Wicanders | Cork Pure GO | GLUE DOWN | 600x300 | 4 | PU Pre-finished 4 Bv. | Originals Shell | да | 10 лет | 7.92 | 1.98 | 3750.77 | 1349.23 | 5100
+96 | VC74158 | White Box | Cork Pure GO | GLUE DOWN | 600x300 | 4 | PU Pre-finished 4 Bv. | Orfeo | да | 10 лет | 7.92 | 1.98 | 1679.25 | - | -
+"CORK ESSENCE" - ЗАМКОВЫЙ ПОЛ ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ В ПАНЕЛЯХ НА ОСНОВЕ HDF
+97 | O830003 | 80002241 | 80002921 | O830003 | 5602190106088 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | Originals SYMPHONY | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+98 | O841002 | 80002243 | 80002922 | O841002 | 5602190106071 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | Originals ACCENT | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+99 | O849003 | 80002244 | 80002923 | O849003 | 5602190106064 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | Originals DAWN | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+100 | I801002 | 80001650 | 80002944 | I801002 | 5602190105678 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I801 Identity Moonlight | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+101 | I802002 | 80001651 | 80002920 | 5602190106095 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I802 Identity Timide | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+102 | I803002 | 80001652 | 80002946 | 5602190105661 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I803 Identity Silver | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+103 | I805002 | 80001653 | 80002947 | I805002 | 5602190105654 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I805 Identity Champagne | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+104 | I810002 | 80001657 | 80002949 | 5602190105647 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I810 Identity Tea | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+105 | I832002 | 80001662 | 80003251 | 5602190101991 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | I832 Identity Chestnut | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+106 | P801002 | 80002260 | 80003252 | 5602190102004 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | P801 Personality Moonlight | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+107 | P802002 | 80002262 | 80003253 | 5602190102011 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | P802 Personality Timide | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+108 | P805002 | 80002263 | 80002924 | 5602190106057 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | P805 Personality Champagne | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+109 | P810002 | 80002266 | 80003254 | 5602190102028 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | P810 Personality Tea | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+110 | P832002 | 80002268 | 80003255 | 5602190102035 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | P832 Personality Chestnut | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 2161.91 | 7300
+111 | C85L001 | 80001246 | C85L001 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | XtraMatt+ | Fashionable Cement | 2.136 | 5431.44 | 2368.56 | 7800
+112 | C85M001 | 80001247 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | XtraMatt+ | Fashionable Grafite | 2.136 | 5431.44 | 2368.56 | 7800
+113 | C88K001 | 80001288 | 80003400 | 5602190095474 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | Class 33 | Fashionable Antique White | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5431.44 | 2368.56 | 7800
+114 | C88O001 | 80001290 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | XtraMatt+ | Fashionable Camel | 2.136 | 5431.44 | 2368.56 | 7800
+115 | C88Q001 | 80001292 | Wicanders | Cork Essence | LOC 2G | 905x295 | 10.5 | XtraMatt+ | Fashionable Antracite | 2.136 | 5431.44 | 2368.56 | 7800
+116 | C86I001 | Wicanders | Originals | LOC 2G | 905x295 | 10.5 | WRT | Tweedy Wood Coffe | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800
+117 | C8G1001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Brick Natural | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800 | Цена со скидкой
+118 | C8G2001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Edge Natural | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800
+119 | C86S001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Brick Drill | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800 | -0.15
+120 | C86R001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Brick Taffeta | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800
+121 | C86U001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Edge Burlap | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800
+122 | C86V001 | Wicanders | Novel Symetries | LOC 2G | 905x295 | 10.5 | WRT | Novel Edge Drill | 15 лет | 2.136 | 3343.82 | 1456.18 | 4800
+123 | GA01002 | 80001631 | O801007 | BJ03027 | BJ03006 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | XtraMatt | GA01002 Moment (Narva, Standart 01) O801007, BJ03027, BJ03006 | 2.136 | 4240.11 | 1559.89 | 5800
+124 | MF01003 | 80002131 | 80002912 | BLB0002 | BLB0003 | 5602190106378 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | MF01003 Earth Tones Grit (Kolva, Origins Grit) BLB0002, BLB0003 | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 4738.42 | 1661.58 | 6400
+125 | MF02002 | 80002133 | 80002911 | BL1W002 | BL1W003 | 5602190106385 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | MF02002 Earth Tones Sand (Dvina, Origins Sand) BL1W002, BL1W003 | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 4738.42 | 1661.58 | 6400
+126 | MF03003 | 80002135 | BL72005 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | XtraMatt | MF03003 Earth Tones Mud (Origins Mud) BL72005 | 2.136 | 2098.95 | 701.05 | 2800 | Цена со скидкой
+127 | MF04003 | 80002137 | BLA8003 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | XtraMatt | MF04003 Earth Tones Concrete (Origins Concrete) BLA8003 | 2.136 | 2098.95 | 701.05 | 2800 | -0.3
+128 | C8D2001 | 80001298 | 80002919 | O822002 | O822002 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | C8D2001 Blase (Originals Character) O822002 | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+129 | GB01003 | 80001636 | 80003248 | 5602190101953 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Charm | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+130 | C87W001 | 80001284 | 80002918 | 5602190106118 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Addict | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+131 | C87Y001 | 80001286 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | XtraMatt | Serenity | 2.136 | 5138.09 | 1761.91 | 6900
+132 | C87V001 | 80001283 | 80003246 | 5602190102059 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Affection | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+133 | C87X001 | 80001285 | 80002943 | 5602190105685 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Gloomy | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+134 | GB02002 | 80001638 | 80003249 | 5602190101977 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Allure | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+135 | C824001 | 80001219 | 80003245 | O824003 | 5602190102042 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Captivation (Originals Shell, Orig Personality) | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 4738.42 | 1661.58 | 6400
+136 | GA21003 | 80001633 | 80003247 | O821005 | O821005 | 5602190101946 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | GA21003 Desire (Originals Harmony, Orig Identity) O821005 | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 5138.09 | 1761.91 | 6900
+137 | GB06002 | 80001643 | 80003250 | 5602190101984 | Wicanders | Cork GO | LOC 2G | 905x295 | 10.5 | Class 33 | Ambition | 25 лет | 10 лет | NEW! Class 33 | 2.136 | 4738.42 | 1661.58 | 6400
+"WOOD ESSENCE" - ЗАМКОВЫЙ ПОЛ С ПРЯМОЙ ПЕЧАТЬЮ НА ПРОБКЕ ДЛИННАЯ ПЛАНКА 183 см, "деревянные декоры"
+138 | D8F2001 | 80001472 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Coal Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+139 | D8F4001 | 80001477 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Classic Prime Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800 | Цена со скидкой
+140 | D8F5001 | 80001481 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Prime Desert Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+141 | D8F6001 | 80001484 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Prime Arctic Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+142 | D8G1001 | 80001498 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Washed Arcaine Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800 | -0.3
+143 | D8G3001 | 80001503 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Washed Highland Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+144 | D8F7001 | 80001487 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Golden Prime Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+145 | D886003 | 80001446 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Platinum Chalk Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+146 | D8H7001 | 80001510 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Classic Walnut | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+147 | D8G2001 | 80001501 | Wicanders | Wood Essence | LOC 2G | 1830x185 | 11.5 | NPC 4 BV | Washed Haze Oak | 4 BV | 20 лет | 32 | 2.031 | 3358.53 | 1441.47 | 4800
+148 | D8F4002 | 80001478 | Wicanders | Wood Essence | LOC 2G | 1220x185 | 10.5 | NPC | D8F4002 CLASSIC PRIME OAK | 20 лет | 32 | 1.806 | 3233 | 1367 | 4600
+149 | D8F7002 | 80001488 | Wicanders | Wood Essence | LOC 2G | 1220x185 | 10.5 | NPC | D8F7002 GOLDEN PRIME OAK | 20 лет | 32 | 1.806 | 3233 | 1367 | 4600 | Цена со скидкой
+150 | D8G1002 | 80001499 | Wicanders | Wood Essence | LOC 2G | 1220x185 | 10.5 | NPC | D8G1002 WASHED ARCAINE OAK | 20 лет | 32 | 1.806 | 3233 | 1367 | 4600 | -0.25
+151 | D8G3002 | 80001504 | Wicanders | Wood Essence | LOC 2G | 1220x185 | 10.5 | NPC | D8G3002 WASHED HIGHLAND OAK | 20 лет | 32 | 1.806 | 3233 | 1367 | 4600
+WOOD GO ВИНИЛОВЫЙ ЛАМИНАТ
+152 | LJUX001 | 80002055 | Wicanders | Wood GO | LOC 2G | 1220x185 | 10.5 | 0,2 mm | Oak Light Gris | 15 лет | 32 | 1.806 | 2417.42 | 882.58 | 3300 | Цена со скидкой
+153 | LJVZ001 | 80002090 | Wicanders | Wood GO | LOC 2G | 1220x185 | 10.5 | 0,2 mm | Oak Modern Gris | 15 лет | 32 | 1.806 | 2417.42 | 882.58 | 3300
+154 | LJUY001 | 80002057 | Wicanders | Wood GO | LOC 2G | 1220x185 | 10.5 | 0,2 mm | Oak Light Nature | 15 лет | 32 | 1.806 | 2417.42 | 882.58 | 3300 | -0.3
+155 | LJUZ001 | 80002059 | Wicanders | Wood GO | LOC 2G | 1220x185 | 10.5 | 0,2 mm | Oak Nature | 15 лет | 32 | 1.806 | 2417.42 | 882.58 | 3300
+156 | LJY6001 | 80002109 | Wicanders | Wood GO | LOC 2G | 1220x185 | 10.5 | 0,2 mm | Oak Rustic | 15 лет | 32 | 1.806 | 2417.42 | 882.58 | 3300
+"WOOD Start LVT" ВИНИЛОВЫЙ ЛАМИНАТ
+157 | B1S0001 | 80000595 | Wicanders | Start LVT | LOC 2G | 1220x185 | 9 | 0,3mm | Fall Pine | 15 лет | 32 | 2,031 | 1586.57 | 513.43 | 2100
+158 | B1S1001 | 80000596 | Wicanders | Start LVT | LOC 2G | 1220x185 | 9 | 0,3mm | Highland Pine | 15 лет | 32 | 2,031 | 1586.57 | 513.43 | 2100 | Цена со скидкой
+159 | B1R9001 | 80000594 | Wicanders | Start LVT | LOC 2G | 1220x185 | 9 | 0,3mm | Polar Nature Oak | 15 лет | 32 | 2,031 | 1586.57 | 513.43 | 2100 | -0.5
+169 | B1Y6001 | 80000599 | Wicanders | Start LVT | LOC 2G | 1220x185 | 9 | 0,3mm | Rustic Canyon Oak | 15 лет | 32 | 2,031 | 1586.57 | 513.43 | 2100
+"WOOD Start SPC" КВАРЦ ВИНИЛ
+161 | B4YP001 | 80000611 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | OAK RENAINSSANCE LIGHT | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+162 | B4YQ001 | 80000612 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | CONTEMPORARY OAK DARK | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100 | Цена со скидкой
+163 | B4YR001 | 80000613 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | CONTEMPORARY OAK MEDIUM | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+164 | B4YS001 | 80000614 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | CONTEMPORARY OAK LIGHT | да | 25 лет | 32 | 1,629 | 2292.44 | 707.56 | 3000
+165 | B4YT001 | 80000615 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | CONTEMPORARY OAK BRIGHT | да | 25 лет | 32 | 1,629 | 2292.44 | 707.56 | 3000 | -0.3
+166 | 80002585 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | SCANDIC OAK - DARK | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+167 | 80002586 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | SCANDIC OAK - LIGHT | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+168 | 80002587 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | COTTAGE OAK | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+169 | 80002588 | Wicanders | Start SPC | 1225x190 | 5.2 | 0,3mm | SCANDIC OAK - MEDIUM | да | 25 лет | 32 | 1,629 | 2292.44 | 807.56 | 3100
+Sanded ПРОБКОВОЕ НАПОЛЬНОЕ ПОКРЫТИЕ
+170 | EN16005 | 80001602 | 80002914 | 5602190106163 | 600x300 | 6 | Sanded | PLAZA | да | 5,4 | 1,8 | 3695.69 | -
+171 | NA39033 | 80002193 | 80002915 | 5602190106149 | 900x150 | 6 | Sanded | PLAZA | 2 BV | да | 2,97 | 3695.69 | -
+172 | NAA0002 | 80002206 | 80002917 | 5602190106132 | 600x300 | 6 | Sanded | A0 Rock | да | 5,4 | 1,8 | 3146.14 | -
+РАСПРОДАЖА ЗАМКОВЫЙ ПОЛ
+173 | C81N002 | Wicanders | 905x295 | 10,5 | LINN MOON | 2.136 | 2600 | -
+174 | MJ22006 | 905x295 | 10,5 | SANDED (Шлифованный Character) | 2,136 | 1500 | -
+175 | C81L001 | Wicanders | замок 5G | 605x445 | 10,5 | WRT | Linn Cioccolato | 2,154 | 900 | -
+176 | BLZ4001 | 1220х140 | 10,5 | WRT | CUBIS NATURA | 4 BV | 1,366 | 900 | -
+177 | C87G001 | Wicanders | 1220x185 | 10,5 | HRV | Cronos Fusion | 1,806 | 900 | -
+178 | C81Y001 | Wicanders | 1220x140 | 10,5 | WRT | Flock Champagne | 4 BV | 1,366 | 2200 | -
+179 | C83S001 | Wicanders | 1220x140 | 10,5 | WRT | Lane Chestnut | 4 BV | 1,366 | 2200 | -
+180 | I808002 | Wicanders | LOC 2G | 905x295 | 10,5 | XtraMatt | Identity Spice | 2,136 | 900 | -
+181 | C83S001 | Wicanders | 1220x140 | 10,5 | WRT | Lane Chestnut | 4 BV | 1,366 | 2200 | -
+182 | I808002 | Wicanders | LOC 2G | 905x295 | 10,5 | XtraMatt | Identity Spice | 2,136 | 900 | -

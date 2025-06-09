@@ -1,0 +1,17 @@
+# | Фото | Наименование модели | Артикул | Размер доски, ДхШ, мм | Количество в упаковке, шт | Квадратура, м2 | Класс износостойкости | Замковое соединение | Наличие фаски | Коллекция | ЦЕНА опт | ЦЕНА розница | СТОП ЦЕНА розница
+1 | Contemporary | DC 1210 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+2 | Brand | DC 0805 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+3 | Kitsch | DC 0804 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+4 | Shabby chic | DC 1213 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+5 | Jeans | DC 0803 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+6 | Gipsy | DC 1211 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+7 | Retro | DC 0802 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+8 | Eclecticism | DC 1216 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+9 | Coffee | DC 1217 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+10 | Eiffel | DC 1218 | 1215*195*12 | 8 | 1.8954 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+11 | Hand-made | DC 0801 | 1215*167*12 | 8 | 1.6232 | 34 | Uniclic | V-фаска 4-х | Design Collection | 1870 | 2569 | 2530
+12 | Oak vanilla | V 1221 | 1217*197*12 | 8 | 1.918 | 34 | BIG CLICK | U-фаска 4-х | Village | 1650 | 2310 | 2200
+13 | Oak natural | V 1222 | 1217*197*12 | 8 | 1.918 | 34 | BIG CLICK | U-фаска 4-х | Village | 1650 | 2310 | 2200
+14 | Oak chocolate | V 1223 | 1217*197*12 | 8 | 1.918 | 34 | BIG CLICK | U-фаска 4-х | Village | 1650 | 2310 | 2200
+15 | Oak classic | V 1202 | 1212*303*12 | 6 | 2.203 | 34 | BIG CLICK | U-фаска 4-х | Village | 1650 | 2310 | 2200
+16 | Walnut | V 1201 | 1212*303*12 | 6 | 2.203 | 34 | BIG CLICK | U-фаска 4-х | Village | 1650 | 2310 | 2200

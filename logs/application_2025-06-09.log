@@ -1,0 +1,1556 @@
+[2025-06-09 13:04:47] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 13:04:47] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:04:47] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:04:47] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:04:47] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:04:47] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 13:04:47] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 13:04:47] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 13:04:47] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 13:40:28] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 13:40:28] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:40:28] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:43:29] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 13:43:29] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:43:29] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:51:13] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 13:51:13] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:51:13] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:51:13] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:51:13] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 13:51:13] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 13:51:13] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 13:51:13] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 13:51:13] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-09 13:51:37] [INFO] [YandexDiskClient] Download URL получен для: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx
+
+[2025-06-09 13:51:37] [INFO] [YandexDiskClient] File downloaded successfully: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx (143294 bytes)
+
+[2025-06-09 14:23:15] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 14:23:15] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:23:15] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:23:15] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:23:15] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 14:23:15] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:23:15] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 14:23:15] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 14:23:15] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-09 14:23:46] [INFO] [YandexDiskClient] Download URL получен для: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx
+
+[2025-06-09 14:23:46] [INFO] [YandexDiskClient] File downloaded successfully: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx (143294 bytes)
+
+[2025-06-09 14:41:43] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 14:41:43] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:41:43] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:55:45] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 14:55:45] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:55:45] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:55:45] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:55:45] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 14:55:45] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:55:45] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 14:55:45] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 14:55:45] [INFO] [VectorPriceAnalyzer] Initialized with vector search capabilities
+
+[2025-06-09 14:56:12] [ERROR] [CacheManager] Error getting cached text for key '3a9e00c2ca18ba19c7f4b7e0f58cfe29': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:12] [INFO] [YandexDiskClient] Download URL получен для: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx
+
+[2025-06-09 14:56:13] [INFO] [YandexDiskClient] File downloaded successfully: Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx (143294 bytes)
+
+[2025-06-09 14:56:13] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Aquafloor/Прайс_лист_AQUAFLOOR_ _BELFLOOR_РУБЛЕВЫИ _от_1_Июля_2024_года_Регионы_Категория_1.xlsx' to file '3a9e00c2ca18ba19c7f4b7e0f58cfe29.txt'.
+
+[2025-06-09 14:56:13] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:13] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:13] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:13] [ERROR] [CacheManager] Error getting cached text for key 'f55c88bc48a8b309a4ae3ccb55484b5d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:13] [INFO] [YandexDiskClient] Download URL получен для: Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx
+
+[2025-06-09 14:56:13] [INFO] [YandexDiskClient] File downloaded successfully: Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx (143122 bytes)
+
+[2025-06-09 14:56:14] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Damy Floor/Прайс для КЛИЕНТОВ DAMY FLOOR  с 01.06.25.xlsx' to file 'f55c88bc48a8b309a4ae3ccb55484b5d.txt'.
+
+[2025-06-09 14:56:14] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:14] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:14] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:14] [ERROR] [CacheManager] Error getting cached text for key '43326567d1c7bec0bfb723c36768f577': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:15] [INFO] [YandexDiskClient] Download URL получен для: Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx
+
+[2025-06-09 14:56:15] [INFO] [YandexDiskClient] File downloaded successfully: Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx (131658 bytes)
+
+[2025-06-09 14:56:15] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Damy Floor/Прайс для КЛИЕНТОВ DAMY FLOOR  с 05.04.25.xlsx' to file '43326567d1c7bec0bfb723c36768f577.txt'.
+
+[2025-06-09 14:56:15] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:15] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:15] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:15] [ERROR] [CacheManager] Error getting cached text for key '4bdaaf01cdce7ada55ab9108f7d4e3a1': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:16] [INFO] [YandexDiskClient] Download URL получен для: 3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls
+
+[2025-06-09 14:56:16] [INFO] [YandexDiskClient] File downloaded successfully: 3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls (3968512 bytes)
+
+[2025-06-09 14:56:16] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Peli/3_Прайс-лист LINDERWOOD - 14.10.2024 (СЗФО, ПФО, ЮФО (кроме Крым и новые территории) (1).xls' to file '4bdaaf01cdce7ada55ab9108f7d4e3a1.txt'.
+
+[2025-06-09 14:56:16] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:16] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:16] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:16] [ERROR] [CacheManager] Error getting cached text for key '7d39aa6c2b9136127cd1c5d140dc6ec9': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:17] [INFO] [YandexDiskClient] Download URL получен для: Прайс Паркетная доска.xlsx
+
+[2025-06-09 14:56:17] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Паркетная доска.xlsx (9029 bytes)
+
+[2025-06-09 14:56:17] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/АРВ/Прайс Паркетная доска.xlsx' to file '7d39aa6c2b9136127cd1c5d140dc6ec9.txt'.
+
+[2025-06-09 14:56:17] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:17] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:17] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:17] [ERROR] [CacheManager] Error getting cached text for key '8590764080fba5c5d0c5d3b24029e063': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:18] [INFO] [YandexDiskClient] Download URL получен для: Прайс-листы СПБ 06.10.2023 (1).xlsx
+
+[2025-06-09 14:56:20] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-листы СПБ 06.10.2023 (1).xlsx (818435 bytes)
+
+[2025-06-09 14:56:21] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/АРВ/Прайс-листы СПБ 06.10.2023 (1).xlsx' to file '8590764080fba5c5d0c5d3b24029e063.txt'.
+
+[2025-06-09 14:56:21] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:21] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:21] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:21] [ERROR] [CacheManager] Error getting cached text for key 'a74dcf60bf3bd6d73cd40eba0997a8b2': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:22] [INFO] [YandexDiskClient] Download URL получен для: Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx
+
+[2025-06-09 14:56:22] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx (257972 bytes)
+
+[2025-06-09 14:56:22] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Альпина/Прайс Alpine Floor с 21.05.2025 до 30.06.2025.xlsx' to file 'a74dcf60bf3bd6d73cd40eba0997a8b2.txt'.
+
+[2025-06-09 14:56:22] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:22] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:22] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:22] [ERROR] [CacheManager] Error getting cached text for key 'd43a3d6dd4eaa7dee2232f79e324c593': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:23] [INFO] [YandexDiskClient] Download URL получен для: Прайс Москва NEW (16).xlsx
+
+[2025-06-09 14:56:23] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Москва NEW (16).xlsx (211512 bytes)
+
+[2025-06-09 14:56:23] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/БЛ/Прайс Москва NEW (16).xlsx' to file 'd43a3d6dd4eaa7dee2232f79e324c593.txt'.
+
+[2025-06-09 14:56:23] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:23] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:23] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:23] [ERROR] [CacheManager] Error getting cached text for key '2ea1c4c92bba1cecbc595dbd97f839d7': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:24] [INFO] [YandexDiskClient] Download URL получен для: Копия ПРАЙС Ковровые покрытия 02.05.2024.xlsx
+
+[2025-06-09 14:56:24] [INFO] [YandexDiskClient] File downloaded successfully: Копия ПРАЙС Ковровые покрытия 02.05.2024.xlsx (4373586 bytes)
+
+[2025-06-09 14:56:24] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Копия ПРАЙС Ковровые покрытия 02.05.2024.xlsx' to file '2ea1c4c92bba1cecbc595dbd97f839d7.txt'.
+
+[2025-06-09 14:56:24] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:24] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:24] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:24] [ERROR] [CacheManager] Error getting cached text for key '9617389c8b45a19e4f5ebc8f40328daf': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:25] [INFO] [YandexDiskClient] Download URL получен для: ПРАЙС c 19.03.2025 Паркет СОММЕР Классика_новинки..xlsx
+
+[2025-06-09 14:56:25] [INFO] [YandexDiskClient] File downloaded successfully: ПРАЙС c 19.03.2025 Паркет СОММЕР Классика_новинки..xlsx (134243 bytes)
+
+[2025-06-09 14:56:25] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/ПРАЙС c 19.03.2025 Паркет СОММЕР Классика_новинки..xlsx' to file '9617389c8b45a19e4f5ebc8f40328daf.txt'.
+
+[2025-06-09 14:56:25] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:25] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:25] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:25] [ERROR] [CacheManager] Error getting cached text for key '8a994e256f501c08ecd2e81ba6ff18a8': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:27] [INFO] [YandexDiskClient] Download URL получен для: ПРАЙС ААА c 19.03.2025 Паркет СПОРТ MULTIFLEX M.xlsx
+
+[2025-06-09 14:56:27] [INFO] [YandexDiskClient] File downloaded successfully: ПРАЙС ААА c 19.03.2025 Паркет СПОРТ MULTIFLEX M.xlsx (72819 bytes)
+
+[2025-06-09 14:56:27] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/ПРАЙС ААА c 19.03.2025 Паркет СПОРТ MULTIFLEX M.xlsx' to file '8a994e256f501c08ecd2e81ba6ff18a8.txt'.
+
+[2025-06-09 14:56:27] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:27] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:27] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:27] [ERROR] [CacheManager] Error getting cached text for key 'e85e8ce5346095346f91a469fdc6574d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:27] [INFO] [YandexDiskClient] Download URL получен для: ПРАЙС АКЦИЯ c 01.09.2023 Паркет СПОРТ MULTIFLEX M.xlsx
+
+[2025-06-09 14:56:28] [INFO] [YandexDiskClient] File downloaded successfully: ПРАЙС АКЦИЯ c 01.09.2023 Паркет СПОРТ MULTIFLEX M.xlsx (73297 bytes)
+
+[2025-06-09 14:56:28] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/ПРАЙС АКЦИЯ c 01.09.2023 Паркет СПОРТ MULTIFLEX M.xlsx' to file 'e85e8ce5346095346f91a469fdc6574d.txt'.
+
+[2025-06-09 14:56:28] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:28] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:28] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:28] [ERROR] [CacheManager] Error getting cached text for key '22eebfa82b93196a7430a78a8e852906': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:29] [INFO] [YandexDiskClient] Download URL получен для: ПРАЙС ДКК ПАРКЕТ c 19.03.2025.xlsx
+
+[2025-06-09 14:56:29] [INFO] [YandexDiskClient] File downloaded successfully: ПРАЙС ДКК ПАРКЕТ c 19.03.2025.xlsx (162252 bytes)
+
+[2025-06-09 14:56:29] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/ПРАЙС ДКК ПАРКЕТ c 19.03.2025.xlsx' to file '22eebfa82b93196a7430a78a8e852906.txt'.
+
+[2025-06-09 14:56:29] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:29] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:29] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:29] [ERROR] [CacheManager] Error getting cached text for key 'fdf0c3250bd5e1079ce6b0becf007bd1': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:30] [INFO] [YandexDiskClient] Download URL получен для: ПРАЙС Ковровые покрытия 27.05.2024.xlsx
+
+[2025-06-09 14:56:30] [INFO] [YandexDiskClient] File downloaded successfully: ПРАЙС Ковровые покрытия 27.05.2024.xlsx (475603 bytes)
+
+[2025-06-09 14:56:30] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/ПРАЙС Ковровые покрытия 27.05.2024.xlsx' to file 'fdf0c3250bd5e1079ce6b0becf007bd1.txt'.
+
+[2025-06-09 14:56:30] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:30] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:30] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:30] [ERROR] [CacheManager] Error getting cached text for key 'c1903d032a8c54a7f16d5fe4b5cbf766': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:31] [INFO] [YandexDiskClient] Download URL получен для: Плинтуса с 15.01.2025 xls (1).xlsx
+
+[2025-06-09 14:56:31] [INFO] [YandexDiskClient] File downloaded successfully: Плинтуса с 15.01.2025 xls (1).xlsx (899911 bytes)
+
+[2025-06-09 14:56:31] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Плинтуса с 15.01.2025 xls (1).xlsx' to file 'c1903d032a8c54a7f16d5fe4b5cbf766.txt'.
+
+[2025-06-09 14:56:31] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:31] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:31] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:31] [ERROR] [CacheManager] Error getting cached text for key '5f4ae404fbd4a994ee26d8c1eba862c9': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:32] [INFO] [YandexDiskClient] Download URL получен для: Прайс SPC, LVT, с 01.10.24  -  ДЛЯ УЧАСТНИКОВ ФОКУС ГРУППЫ.xlsx
+
+[2025-06-09 14:56:32] [INFO] [YandexDiskClient] File downloaded successfully: Прайс SPC, LVT, с 01.10.24  -  ДЛЯ УЧАСТНИКОВ ФОКУС ГРУППЫ.xlsx (35492 bytes)
+
+[2025-06-09 14:56:32] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс SPC, LVT, с 01.10.24  -  ДЛЯ УЧАСТНИКОВ ФОКУС ГРУППЫ.xlsx' to file '5f4ae404fbd4a994ee26d8c1eba862c9.txt'.
+
+[2025-06-09 14:56:32] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:32] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:32] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:32] [ERROR] [CacheManager] Error getting cached text for key 'e00ed6336997e76707af27b206e640b5': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:33] [INFO] [YandexDiskClient] Download URL получен для: Прайс SPC, LVT, с 28.02.25.xlsx
+
+[2025-06-09 14:56:33] [INFO] [YandexDiskClient] File downloaded successfully: Прайс SPC, LVT, с 28.02.25.xlsx (49931 bytes)
+
+[2025-06-09 14:56:33] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс SPC, LVT, с 28.02.25.xlsx' to file 'e00ed6336997e76707af27b206e640b5.txt'.
+
+[2025-06-09 14:56:33] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:33] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:33] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:33] [ERROR] [CacheManager] Error getting cached text for key 'ff836464559ba7e46bbb90ada71fc312': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:34] [INFO] [YandexDiskClient] Download URL получен для: Прайс Ламинат, Стеновые панели,Подложка с 16.05.25.xlsx
+
+[2025-06-09 14:56:34] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Ламинат, Стеновые панели,Подложка с 16.05.25.xlsx (50920 bytes)
+
+[2025-06-09 14:56:34] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Ламинат, Стеновые панели,Подложка с 16.05.25.xlsx' to file 'ff836464559ba7e46bbb90ada71fc312.txt'.
+
+[2025-06-09 14:56:34] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:34] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:34] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:34] [ERROR] [CacheManager] Error getting cached text for key 'fb63b138a3a8597b19f0422719e31a9f': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:35] [INFO] [YandexDiskClient] Download URL получен для: Прайс Линолеум, с 09.12.2024.xlsx
+
+[2025-06-09 14:56:35] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Линолеум, с 09.12.2024.xlsx (593390 bytes)
+
+[2025-06-09 14:56:35] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Линолеум, с 09.12.2024.xlsx' to file 'fb63b138a3a8597b19f0422719e31a9f.txt'.
+
+[2025-06-09 14:56:35] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:35] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:35] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:35] [ERROR] [CacheManager] Error getting cached text for key '52d9203a23c18d1c71b6b8b85a522e43': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:36] [INFO] [YandexDiskClient] Download URL получен для: Прайс Модульное каучуковое покрытие, с 24.08.22.xlsx
+
+[2025-06-09 14:56:37] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Модульное каучуковое покрытие, с 24.08.22.xlsx (15258 bytes)
+
+[2025-06-09 14:56:37] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Модульное каучуковое покрытие, с 24.08.22.xlsx' to file '52d9203a23c18d1c71b6b8b85a522e43.txt'.
+
+[2025-06-09 14:56:37] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:37] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:37] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:37] [ERROR] [CacheManager] Error getting cached text for key 'ea5e7820f671409b06cd48d410b745db': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:37] [INFO] [YandexDiskClient] Download URL получен для: Прайс Паркетная доска c 15.01.2024 Паркет СОММЕР Классика.xlsx
+
+[2025-06-09 14:56:38] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Паркетная доска c 15.01.2024 Паркет СОММЕР Классика.xlsx (93672 bytes)
+
+[2025-06-09 14:56:38] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Паркетная доска c 15.01.2024 Паркет СОММЕР Классика.xlsx' to file 'ea5e7820f671409b06cd48d410b745db.txt'.
+
+[2025-06-09 14:56:38] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:38] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:38] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:38] [ERROR] [CacheManager] Error getting cached text for key 'fae4692f0452e34b2676710e2f0d6fd1': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:39] [INFO] [YandexDiskClient] Download URL получен для: Прайс Пробковые покрытия 2023.08.04.09 (1).xlsx
+
+[2025-06-09 14:56:39] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Пробковые покрытия 2023.08.04.09 (1).xlsx (67165 bytes)
+
+[2025-06-09 14:56:39] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Пробковые покрытия 2023.08.04.09 (1).xlsx' to file 'fae4692f0452e34b2676710e2f0d6fd1.txt'.
+
+[2025-06-09 14:56:39] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:39] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:39] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:39] [ERROR] [CacheManager] Error getting cached text for key '060be9670958a889d0cf8d3cd90ba462': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:40] [INFO] [YandexDiskClient] Download URL получен для: Прайс Террасная доска 26.02.25.xlsx
+
+[2025-06-09 14:56:40] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Террасная доска 26.02.25.xlsx (23625 bytes)
+
+[2025-06-09 14:56:40] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Террасная доска 26.02.25.xlsx' to file '060be9670958a889d0cf8d3cd90ba462.txt'.
+
+[2025-06-09 14:56:40] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:40] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:40] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:40] [ERROR] [CacheManager] Error getting cached text for key '77d69769d68bd00176a8d0f609a0a5ce': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:41] [INFO] [YandexDiskClient] Download URL получен для: Прайс Химия с 14.04..2025.xlsx
+
+[2025-06-09 14:56:41] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Химия с 14.04..2025.xlsx (1537081 bytes)
+
+[2025-06-09 14:56:41] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс Химия с 14.04..2025.xlsx' to file '77d69769d68bd00176a8d0f609a0a5ce.txt'.
+
+[2025-06-09 14:56:41] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:41] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:41] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:41] [ERROR] [CacheManager] Error getting cached text for key '1c77a9e9b98188f3d9d73309cebd353c': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:42] [INFO] [YandexDiskClient] Download URL получен для: Прайс лист Salag 09.12.2024 .xlsx
+
+[2025-06-09 14:56:42] [INFO] [YandexDiskClient] File downloaded successfully: Прайс лист Salag 09.12.2024 .xlsx (1595698 bytes)
+
+[2025-06-09 14:56:42] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс лист Salag 09.12.2024 .xlsx' to file '1c77a9e9b98188f3d9d73309cebd353c.txt'.
+
+[2025-06-09 14:56:42] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:42] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:42] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:42] [ERROR] [CacheManager] Error getting cached text for key 'b6812b328e93ccdf95ca00e5079a4c4e': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:43] [INFO] [YandexDiskClient] Download URL получен для: Прайс лист Линолеум новинки Таркетт Шоу.xlsx
+
+[2025-06-09 14:56:43] [INFO] [YandexDiskClient] File downloaded successfully: Прайс лист Линолеум новинки Таркетт Шоу.xlsx (33286 bytes)
+
+[2025-06-09 14:56:43] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бобров/Прайс лист Линолеум новинки Таркетт Шоу.xlsx' to file 'b6812b328e93ccdf95ca00e5079a4c4e.txt'.
+
+[2025-06-09 14:56:43] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:43] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:43] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:43] [ERROR] [CacheManager] Error getting cached text for key '2b4ecd21a555b4a356b34a1926955f5f': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:44] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист Bohofloor 15.08.2023.xlsx
+
+[2025-06-09 14:56:44] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист Bohofloor 15.08.2023.xlsx (6720898 bytes)
+
+[2025-06-09 14:56:44] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Бохо/Прайс-лист Bohofloor 15.08.2023.xlsx' to file '2b4ecd21a555b4a356b34a1926955f5f.txt'.
+
+[2025-06-09 14:56:44] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:44] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:44] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:44] [ERROR] [CacheManager] Error getting cached text for key 'c13cff63917e953c06f38c7ca593c20b': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:45] [INFO] [YandexDiskClient] Download URL получен для: WONDERFUL 25.09.2023 (СПБ-МСК-ЕКБ).xlsx
+
+[2025-06-09 14:56:45] [INFO] [YandexDiskClient] File downloaded successfully: WONDERFUL 25.09.2023 (СПБ-МСК-ЕКБ).xlsx (73486 bytes)
+
+[2025-06-09 14:56:45] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Вандерфул/WONDERFUL 25.09.2023 (СПБ-МСК-ЕКБ).xlsx' to file 'c13cff63917e953c06f38c7ca593c20b.txt'.
+
+[2025-06-09 14:56:45] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:45] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:45] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:45] [ERROR] [CacheManager] Error getting cached text for key 'f41c248e45c7bf6d79a3b28c66bfae2e': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:46] [INFO] [YandexDiskClient] Download URL получен для: Прайс VINILAM ИЮНЬ 2025.xlsx
+
+[2025-06-09 14:56:46] [INFO] [YandexDiskClient] File downloaded successfully: Прайс VINILAM ИЮНЬ 2025.xlsx (12423675 bytes)
+
+[2025-06-09 14:56:48] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Винилам/Прайс VINILAM ИЮНЬ 2025.xlsx' to file 'f41c248e45c7bf6d79a3b28c66bfae2e.txt'.
+
+[2025-06-09 14:56:48] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:48] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:48] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:48] [ERROR] [CacheManager] Error getting cached text for key '700900aaad4027b8bb0d8fc1a9f36822': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:48] [INFO] [YandexDiskClient] Download URL получен для: Saint Petersburg_price 28.02.24.xls
+
+[2025-06-09 14:56:48] [INFO] [YandexDiskClient] File downloaded successfully: Saint Petersburg_price 28.02.24.xls (71168 bytes)
+
+[2025-06-09 14:56:48] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Дом ТМ/Saint Petersburg_price 28.02.24.xls' to file '700900aaad4027b8bb0d8fc1a9f36822.txt'.
+
+[2025-06-09 14:56:48] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:48] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:48] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:48] [ERROR] [CacheManager] Error getting cached text for key '7d698150462bdd01d9ead641c139af89': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:49] [INFO] [YandexDiskClient] Download URL получен для: Прайс Август 2024.xlsx
+
+[2025-06-09 14:56:49] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Август 2024.xlsx (17393 bytes)
+
+[2025-06-09 14:56:49] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Идеал ГК/Прайс Август 2024.xlsx' to file '7d698150462bdd01d9ead641c139af89.txt'.
+
+[2025-06-09 14:56:49] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:49] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:49] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:49] [ERROR] [CacheManager] Error getting cached text for key '23c4d825d8c4065f5104ab1633c56da0': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:50] [INFO] [YandexDiskClient] Download URL получен для: Прайс Монарх Логистик ОПТ 28.05.xlsx
+
+[2025-06-09 14:56:50] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Монарх Логистик ОПТ 28.05.xlsx (211662 bytes)
+
+[2025-06-09 14:56:50] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Монарх/Прайс Монарх Логистик ОПТ 28.05.xlsx' to file '23c4d825d8c4065f5104ab1633c56da0.txt'.
+
+[2025-06-09 14:56:50] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:50] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:50] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:50] [ERROR] [CacheManager] Error getting cached text for key '7bd0edb6a180647286a9f0d15eeb46b5': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:51] [INFO] [YandexDiskClient] Download URL получен для: Прайс рулонка март.xlsx
+
+[2025-06-09 14:56:51] [INFO] [YandexDiskClient] File downloaded successfully: Прайс рулонка март.xlsx (58663 bytes)
+
+[2025-06-09 14:56:51] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Монарх/Прайс рулонка март.xlsx' to file '7bd0edb6a180647286a9f0d15eeb46b5.txt'.
+
+[2025-06-09 14:56:51] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:51] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:51] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:51] [ERROR] [CacheManager] Error getting cached text for key '849b9ac250bb56d32a3e9cd0b0c2dba9': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:53] [INFO] [YandexDiskClient] Download URL получен для: прайс ковровый Логистик  25.03. 25.03.2025.xlsx
+
+[2025-06-09 14:56:54] [INFO] [YandexDiskClient] File downloaded successfully: прайс ковровый Логистик  25.03. 25.03.2025.xlsx (80902 bytes)
+
+[2025-06-09 14:56:54] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Монарх/прайс ковровый Логистик  25.03. 25.03.2025.xlsx' to file '849b9ac250bb56d32a3e9cd0b0c2dba9.txt'.
+
+[2025-06-09 14:56:54] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:54] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:54] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:54] [ERROR] [CacheManager] Error getting cached text for key 'ea328e9b28f84c293b4002c7d507b6c0': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:54] [INFO] [YandexDiskClient] Download URL получен для: 2025_06_03 Прайс ОПУС ТД СПБ.xlsx
+
+[2025-06-09 14:56:55] [INFO] [YandexDiskClient] File downloaded successfully: 2025_06_03 Прайс ОПУС ТД СПБ.xlsx (928888 bytes)
+
+[2025-06-09 14:56:55] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/ОПУС/2025_06_03 Прайс ОПУС ТД СПБ.xlsx' to file 'ea328e9b28f84c293b4002c7d507b6c0.txt'.
+
+[2025-06-09 14:56:55] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:55] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:55] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:55] [ERROR] [CacheManager] Error getting cached text for key 'fa705ca86f40dd6eb743865c31424a6b': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:56] [INFO] [YandexDiskClient] Download URL получен для: 01-01-25-karelia-price-b.xlsx
+
+[2025-06-09 14:56:56] [INFO] [YandexDiskClient] File downloaded successfully: 01-01-25-karelia-price-b.xlsx (82184 bytes)
+
+[2025-06-09 14:56:56] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/01-01-25-karelia-price-b.xlsx' to file 'fa705ca86f40dd6eb743865c31424a6b.txt'.
+
+[2025-06-09 14:56:56] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:56] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:56] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:56] [ERROR] [CacheManager] Error getting cached text for key '6b596817acb4864162a524c5ed2394a3': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:57] [INFO] [YandexDiskClient] Download URL получен для: 01-01-25-polarwood-price-b.xlsx
+
+[2025-06-09 14:56:57] [INFO] [YandexDiskClient] File downloaded successfully: 01-01-25-polarwood-price-b.xlsx (16675 bytes)
+
+[2025-06-09 14:56:57] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/01-01-25-polarwood-price-b.xlsx' to file '6b596817acb4864162a524c5ed2394a3.txt'.
+
+[2025-06-09 14:56:57] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:57] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:57] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:57] [ERROR] [CacheManager] Error getting cached text for key '3d5bf78c3ba69d4d8837789f6272f4d4': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:58] [INFO] [YandexDiskClient] Download URL получен для: 1-07-24-karelia-duo-price.xls
+
+[2025-06-09 14:56:58] [INFO] [YandexDiskClient] File downloaded successfully: 1-07-24-karelia-duo-price.xls (268288 bytes)
+
+[2025-06-09 14:56:58] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/1-07-24-karelia-duo-price.xls' to file '3d5bf78c3ba69d4d8837789f6272f4d4.txt'.
+
+[2025-06-09 14:56:58] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:58] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:58] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:58] [ERROR] [CacheManager] Error getting cached text for key '844ba19c96c889bfb57ffd86f8022382': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:56:59] [INFO] [YandexDiskClient] Download URL получен для: 1-07-24-polarwood-duo-price.xls
+
+[2025-06-09 14:56:59] [INFO] [YandexDiskClient] File downloaded successfully: 1-07-24-polarwood-duo-price.xls (67072 bytes)
+
+[2025-06-09 14:56:59] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/1-07-24-polarwood-duo-price.xls' to file '844ba19c96c889bfb57ffd86f8022382.txt'.
+
+[2025-06-09 14:56:59] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:56:59] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:56:59] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:56:59] [ERROR] [CacheManager] Error getting cached text for key '92e404310b5c004718ef23f91441f3f6': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:00] [INFO] [YandexDiskClient] Download URL получен для: 16-08-23-barlinek-price-euro (1).xlsx
+
+[2025-06-09 14:57:00] [INFO] [YandexDiskClient] File downloaded successfully: 16-08-23-barlinek-price-euro (1).xlsx (50912 bytes)
+
+[2025-06-09 14:57:00] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/16-08-23-barlinek-price-euro (1).xlsx' to file '92e404310b5c004718ef23f91441f3f6.txt'.
+
+[2025-06-09 14:57:00] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:00] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:00] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:00] [ERROR] [CacheManager] Error getting cached text for key '2ebd809471a0c3f464737356cf812d09': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:01] [INFO] [YandexDiskClient] Download URL получен для: 23-01-22-price-podlojka.xls
+
+[2025-06-09 14:57:01] [INFO] [YandexDiskClient] File downloaded successfully: 23-01-22-price-podlojka.xls (55808 bytes)
+
+[2025-06-09 14:57:01] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/23-01-22-price-podlojka.xls' to file '2ebd809471a0c3f464737356cf812d09.txt'.
+
+[2025-06-09 14:57:01] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:01] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:01] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:01] [ERROR] [CacheManager] Error getting cached text for key 'b6f967b0f4b6128bb674a87a455106b0': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:02] [INFO] [YandexDiskClient] Download URL получен для: barlinek-28-11-23-price (1).xls
+
+[2025-06-09 14:57:02] [INFO] [YandexDiskClient] File downloaded successfully: barlinek-28-11-23-price (1).xls (120320 bytes)
+
+[2025-06-09 14:57:02] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/barlinek-28-11-23-price (1).xls' to file 'b6f967b0f4b6128bb674a87a455106b0.txt'.
+
+[2025-06-09 14:57:02] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:02] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:02] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:02] [ERROR] [CacheManager] Error getting cached text for key 'c9df4f29113ecaede1c1428b2edfc004': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:03] [INFO] [YandexDiskClient] Download URL получен для: barlinek-28-11-23-price (1).xlsx
+
+[2025-06-09 14:57:03] [INFO] [YandexDiskClient] File downloaded successfully: barlinek-28-11-23-price (1).xlsx (50938 bytes)
+
+[2025-06-09 14:57:03] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/barlinek-28-11-23-price (1).xlsx' to file 'c9df4f29113ecaede1c1428b2edfc004.txt'.
+
+[2025-06-09 14:57:03] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:03] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:03] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:03] [ERROR] [CacheManager] Error getting cached text for key '163ac536afcacf14fd4b630136935ff8': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:04] [INFO] [YandexDiskClient] Download URL получен для: esta-price-06-02-25.xls
+
+[2025-06-09 14:57:05] [INFO] [YandexDiskClient] File downloaded successfully: esta-price-06-02-25.xls (25786368 bytes)
+
+[2025-06-09 14:57:05] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/esta-price-06-02-25.xls' to file '163ac536afcacf14fd4b630136935ff8.txt'.
+
+[2025-06-09 14:57:05] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:05] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:05] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:05] [ERROR] [CacheManager] Error getting cached text for key '420107b84b333575ac54da5a7c722fc7': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:05] [INFO] [YandexDiskClient] Download URL получен для: pedros-15-12-23.xls
+
+[2025-06-09 14:57:06] [INFO] [YandexDiskClient] File downloaded successfully: pedros-15-12-23.xls (404992 bytes)
+
+[2025-06-09 14:57:06] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/pedros-15-12-23.xls' to file '420107b84b333575ac54da5a7c722fc7.txt'.
+
+[2025-06-09 14:57:06] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:06] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:06] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:06] [ERROR] [CacheManager] Error getting cached text for key 'c13387548c5d54e4a3ff4c59a06d4d77': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:07] [INFO] [YandexDiskClient] Download URL получен для: pedros-15-12-23.xlsx
+
+[2025-06-09 14:57:07] [INFO] [YandexDiskClient] File downloaded successfully: pedros-15-12-23.xlsx (109999 bytes)
+
+[2025-06-09 14:57:07] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/pedros-15-12-23.xlsx' to file 'c13387548c5d54e4a3ff4c59a06d4d77.txt'.
+
+[2025-06-09 14:57:07] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:07] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:07] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:07] [ERROR] [CacheManager] Error getting cached text for key '4622399fa07e6e9ce366be6fa838779c': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:07] [INFO] [YandexDiskClient] Download URL получен для: price_ELLETT_17-08-15.xlsx
+
+[2025-06-09 14:57:08] [INFO] [YandexDiskClient] File downloaded successfully: price_ELLETT_17-08-15.xlsx (606926 bytes)
+
+[2025-06-09 14:57:08] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/price_ELLETT_17-08-15.xlsx' to file '4622399fa07e6e9ce366be6fa838779c.txt'.
+
+[2025-06-09 14:57:08] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:08] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:08] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:08] [ERROR] [CacheManager] Error getting cached text for key '3e7790e70e7a02bbbb6d35d5d15e69ea': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:09] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood Глянец Прайм 05.02.2025.xls
+
+[2025-06-09 14:57:09] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood Глянец Прайм 05.02.2025.xls (728576 bytes)
+
+[2025-06-09 14:57:09] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood Глянец Прайм 05.02.2025.xls' to file '3e7790e70e7a02bbbb6d35d5d15e69ea.txt'.
+
+[2025-06-09 14:57:09] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:09] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:09] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:09] [ERROR] [CacheManager] Error getting cached text for key 'e57c16a4e6bce22672ec31897c463bfd': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:09] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood белый 05.02.2025.xls
+
+[2025-06-09 14:57:10] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood белый 05.02.2025.xls (1672192 bytes)
+
+[2025-06-09 14:57:10] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood белый 05.02.2025.xls' to file 'e57c16a4e6bce22672ec31897c463bfd.txt'.
+
+[2025-06-09 14:57:10] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:10] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:10] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:10] [ERROR] [CacheManager] Error getting cached text for key '5f5d31dc7036018667c592099cd2a998': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:11] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood белый 05.02.2025.xlsx
+
+[2025-06-09 14:57:11] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood белый 05.02.2025.xlsx (1604607 bytes)
+
+[2025-06-09 14:57:11] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood белый 05.02.2025.xlsx' to file '5f5d31dc7036018667c592099cd2a998.txt'.
+
+[2025-06-09 14:57:11] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:11] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:11] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:11] [ERROR] [CacheManager] Error getting cached text for key '7ce3af5f044ad37bf3c454bff6b97b7d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:11] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood цветной  100х16 05.02.2025 (1).xls
+
+[2025-06-09 14:57:12] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood цветной  100х16 05.02.2025 (1).xls (1451520 bytes)
+
+[2025-06-09 14:57:12] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood цветной  100х16 05.02.2025 (1).xls' to file '7ce3af5f044ad37bf3c454bff6b97b7d.txt'.
+
+[2025-06-09 14:57:12] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:12] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:12] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:12] [ERROR] [CacheManager] Error getting cached text for key '9922cc3a8762d89d26454181868859d9': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:12] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood цветной  100х16 05.02.2025 (1).xlsx
+
+[2025-06-09 14:57:13] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood цветной  100х16 05.02.2025 (1).xlsx (1331754 bytes)
+
+[2025-06-09 14:57:13] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood цветной  100х16 05.02.2025 (1).xlsx' to file '9922cc3a8762d89d26454181868859d9.txt'.
+
+[2025-06-09 14:57:13] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:13] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:13] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:13] [ERROR] [CacheManager] Error getting cached text for key '112df666215a34d797aeda4655e039ca': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:13] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood цветной  75x16 05.02.2025 (1).xlsx
+
+[2025-06-09 14:57:14] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood цветной  75x16 05.02.2025 (1).xlsx (1083558 bytes)
+
+[2025-06-09 14:57:14] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood цветной  75x16 05.02.2025 (1).xlsx' to file '112df666215a34d797aeda4655e039ca.txt'.
+
+[2025-06-09 14:57:14] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:14] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:14] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:14] [ERROR] [CacheManager] Error getting cached text for key 'aad32888430bcd824f25a71181c5af9d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:14] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood цветной 80х10 05.02.2025 (1).xls
+
+[2025-06-09 14:57:15] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood цветной 80х10 05.02.2025 (1).xls (83968 bytes)
+
+[2025-06-09 14:57:15] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood цветной 80х10 05.02.2025 (1).xls' to file 'aad32888430bcd824f25a71181c5af9d.txt'.
+
+[2025-06-09 14:57:15] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:15] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:15] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:15] [ERROR] [CacheManager] Error getting cached text for key '0b25ee05050b043250eaa1a2ed7500dc': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:15] [INFO] [YandexDiskClient] Download URL получен для: Плинтус TeckWood цветной 80х10 05.02.2025 (1).xlsx
+
+[2025-06-09 14:57:16] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус TeckWood цветной 80х10 05.02.2025 (1).xlsx (27876 bytes)
+
+[2025-06-09 14:57:16] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус TeckWood цветной 80х10 05.02.2025 (1).xlsx' to file '0b25ee05050b043250eaa1a2ed7500dc.txt'.
+
+[2025-06-09 14:57:16] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:16] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:16] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:16] [ERROR] [CacheManager] Error getting cached text for key 'ab002a2ed2ef45ce2524338b195ebb6f': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:16] [INFO] [YandexDiskClient] Download URL получен для: Плинтус Teckwood ТИТАН 05.02.2025.xls
+
+[2025-06-09 14:57:17] [INFO] [YandexDiskClient] File downloaded successfully: Плинтус Teckwood ТИТАН 05.02.2025.xls (739328 bytes)
+
+[2025-06-09 14:57:17] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Плинтус Teckwood ТИТАН 05.02.2025.xls' to file 'ab002a2ed2ef45ce2524338b195ebb6f.txt'.
+
+[2025-06-09 14:57:17] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:17] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:17] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:17] [ERROR] [CacheManager] Error getting cached text for key '98fc82d578a8a98cddbe25cafbb99ca3': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:17] [INFO] [YandexDiskClient] Download URL получен для: Прайс Teckwood Дюрополимер 05.02.2025 (1).xlsx
+
+[2025-06-09 14:57:17] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Teckwood Дюрополимер 05.02.2025 (1).xlsx (67602 bytes)
+
+[2025-06-09 14:57:17] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Окли/Прайс Teckwood Дюрополимер 05.02.2025 (1).xlsx' to file '98fc82d578a8a98cddbe25cafbb99ca3.txt'.
+
+[2025-06-09 14:57:17] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:17] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:17] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:17] [ERROR] [CacheManager] Error getting cached text for key '189d5c942fc6ac0c56e73eb555ad7db2': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:18] [INFO] [YandexDiskClient] Download URL получен для: Керамин 22.05.24.xlsx
+
+[2025-06-09 14:57:18] [INFO] [YandexDiskClient] File downloaded successfully: Керамин 22.05.24.xlsx (2228475 bytes)
+
+[2025-06-09 14:57:18] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Керамин 22.05.24.xlsx' to file '189d5c942fc6ac0c56e73eb555ad7db2.txt'.
+
+[2025-06-09 14:57:18] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:18] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:18] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:18] [ERROR] [CacheManager] Error getting cached text for key '2bc62772e3437572bf51da9f47bb0fbb': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:19] [INFO] [YandexDiskClient] Download URL получен для: Матрица Нарезки ПВХ 02.06.2025г.xlsx
+
+[2025-06-09 14:57:19] [INFO] [YandexDiskClient] File downloaded successfully: Матрица Нарезки ПВХ 02.06.2025г.xlsx (26426 bytes)
+
+[2025-06-09 14:57:19] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Матрица Нарезки ПВХ 02.06.2025г.xlsx' to file '2bc62772e3437572bf51da9f47bb0fbb.txt'.
+
+[2025-06-09 14:57:19] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:19] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:19] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:19] [ERROR] [CacheManager] Error getting cached text for key 'bae8f96a1f3611ba197aa1ab99d71bb0': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:20] [INFO] [YandexDiskClient] Download URL получен для: Матрица ковролина июнь 2025.xls
+
+[2025-06-09 14:57:20] [INFO] [YandexDiskClient] File downloaded successfully: Матрица ковролина июнь 2025.xls (53760 bytes)
+
+[2025-06-09 14:57:20] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Матрица ковролина июнь 2025.xls' to file 'bae8f96a1f3611ba197aa1ab99d71bb0.txt'.
+
+[2025-06-09 14:57:20] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:20] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:20] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:20] [ERROR] [CacheManager] Error getting cached text for key 'a4f7fed2d92d7b76c8d2d3a3f639e7f7': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:21] [INFO] [YandexDiskClient] Download URL получен для: Прайс Москва NEW (16).xlsx
+
+[2025-06-09 14:57:21] [INFO] [YandexDiskClient] File downloaded successfully: Прайс Москва NEW (16).xlsx (211512 bytes)
+
+[2025-06-09 14:57:21] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс Москва NEW (16).xlsx' to file 'a4f7fed2d92d7b76c8d2d3a3f639e7f7.txt'.
+
+[2025-06-09 14:57:21] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:21] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:21] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:21] [ERROR] [CacheManager] Error getting cached text for key '6de51ca446ae7e5e56689837ca962832': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:22] [INFO] [YandexDiskClient] Download URL получен для: Прайс ковролин 03.02.25.xlsx
+
+[2025-06-09 14:57:22] [INFO] [YandexDiskClient] File downloaded successfully: Прайс ковролин 03.02.25.xlsx (26352 bytes)
+
+[2025-06-09 14:57:22] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс ковролин 03.02.25.xlsx' to file '6de51ca446ae7e5e56689837ca962832.txt'.
+
+[2025-06-09 14:57:22] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:22] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:22] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:22] [ERROR] [CacheManager] Error getting cached text for key 'ccfcc7e716e03e90bbc16a0d7d3e2695': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:23] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист LVT Tarkett 09.12.24.xlsx
+
+[2025-06-09 14:57:23] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист LVT Tarkett 09.12.24.xlsx (21055 bytes)
+
+[2025-06-09 14:57:23] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист LVT Tarkett 09.12.24.xlsx' to file 'ccfcc7e716e03e90bbc16a0d7d3e2695.txt'.
+
+[2025-06-09 14:57:23] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:23] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:23] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:23] [ERROR] [CacheManager] Error getting cached text for key '20a0f64117421be14eab2842d16dfcf9': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:24] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист ламинат 12.05.25.xls
+
+[2025-06-09 14:57:24] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист ламинат 12.05.25.xls (64512 bytes)
+
+[2025-06-09 14:57:24] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xls' to file '20a0f64117421be14eab2842d16dfcf9.txt'.
+
+[2025-06-09 14:57:24] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:24] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:24] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:24] [ERROR] [CacheManager] Error getting cached text for key '8674fce97d82c3d6ed391ff57ab5a137': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:25] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист ламинат 12.05.25.xlsx
+
+[2025-06-09 14:57:25] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист ламинат 12.05.25.xlsx (21008 bytes)
+
+[2025-06-09 14:57:25] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист ламинат 12.05.25.xlsx' to file '8674fce97d82c3d6ed391ff57ab5a137.txt'.
+
+[2025-06-09 14:57:25] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:25] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:25] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:25] [ERROR] [CacheManager] Error getting cached text for key '26796e73de37ebca55caae83d8ac7271': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:26] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист линолеум 23.01.25.xlsx
+
+[2025-06-09 14:57:26] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист линолеум 23.01.25.xlsx (44146 bytes)
+
+[2025-06-09 14:57:26] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист линолеум 23.01.25.xlsx' to file '26796e73de37ebca55caae83d8ac7271.txt'.
+
+[2025-06-09 14:57:26] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:26] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:26] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:26] [ERROR] [CacheManager] Error getting cached text for key '893c14925ea1a2e339504d8f98626067': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:27] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист паркет 01.11.24.xlsx
+
+[2025-06-09 14:57:27] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист паркет 01.11.24.xlsx (44752 bytes)
+
+[2025-06-09 14:57:27] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист паркет 01.11.24.xlsx' to file '893c14925ea1a2e339504d8f98626067.txt'.
+
+[2025-06-09 14:57:27] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:27] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:27] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:27] [ERROR] [CacheManager] Error getting cached text for key 'e3d26fe35a3039728caa57cba4a59bab': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:27] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx
+
+[2025-06-09 14:57:28] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx (14660 bytes)
+
+[2025-06-09 14:57:28] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка для ламината паркета и ковролина 22.04.25.xlsx' to file 'e3d26fe35a3039728caa57cba4a59bab.txt'.
+
+[2025-06-09 14:57:28] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:28] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:28] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:28] [ERROR] [CacheManager] Error getting cached text for key '4c47934b1fee76933a2f69a192556015': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:28] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист сопутка линолеума 16.05.25.xls
+
+[2025-06-09 14:57:29] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист сопутка линолеума 16.05.25.xls (102400 bytes)
+
+[2025-06-09 14:57:29] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка линолеума 16.05.25.xls' to file '4c47934b1fee76933a2f69a192556015.txt'.
+
+[2025-06-09 14:57:29] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:29] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:29] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:29] [ERROR] [CacheManager] Error getting cached text for key '69c60b26a51adaa85ede3a2fdd1b4562': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:29] [INFO] [YandexDiskClient] Download URL получен для: Прайс-лист сопутка линолеума 16.05.25.xlsx
+
+[2025-06-09 14:57:29] [INFO] [YandexDiskClient] File downloaded successfully: Прайс-лист сопутка линолеума 16.05.25.xlsx (35222 bytes)
+
+[2025-06-09 14:57:29] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Прайс-лист сопутка линолеума 16.05.25.xlsx' to file '69c60b26a51adaa85ede3a2fdd1b4562.txt'.
+
+[2025-06-09 14:57:29] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:29] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:29] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:29] [ERROR] [CacheManager] Error getting cached text for key 'a0157245618ba5379e89bf3882f07210': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:30] [INFO] [YandexDiskClient] Download URL получен для: Спец.условия работы списков клиентов 09.12.24 LVT.xlsx
+
+[2025-06-09 14:57:30] [INFO] [YandexDiskClient] File downloaded successfully: Спец.условия работы списков клиентов 09.12.24 LVT.xlsx (11720 bytes)
+
+[2025-06-09 14:57:30] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/Спец.условия работы списков клиентов 09.12.24 LVT.xlsx' to file 'a0157245618ba5379e89bf3882f07210.txt'.
+
+[2025-06-09 14:57:30] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:30] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:30] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:30] [ERROR] [CacheManager] Error getting cached text for key '6500e285355157becc712976cdf8a76d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:31] [INFO] [YandexDiskClient] Download URL получен для: кварц SPC.xlsx
+
+[2025-06-09 14:57:31] [INFO] [YandexDiskClient] File downloaded successfully: кварц SPC.xlsx (13762 bytes)
+
+[2025-06-09 14:57:31] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/кварц SPC.xlsx' to file '6500e285355157becc712976cdf8a76d.txt'.
+
+[2025-06-09 14:57:31] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:31] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:31] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:31] [ERROR] [CacheManager] Error getting cached text for key '4834a30099a4fb79d574f0a3f62d4c61': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:32] [INFO] [YandexDiskClient] Download URL получен для: ковры 05.06.24.xls
+
+[2025-06-09 14:57:32] [INFO] [YandexDiskClient] File downloaded successfully: ковры 05.06.24.xls (80896 bytes)
+
+[2025-06-09 14:57:32] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/ковры 05.06.24.xls' to file '4834a30099a4fb79d574f0a3f62d4c61.txt'.
+
+[2025-06-09 14:57:32] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:32] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:32] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:32] [ERROR] [CacheManager] Error getting cached text for key 'a70f63cac1d65370e20abd8c40197590': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:34] [INFO] [YandexDiskClient] Download URL получен для: паркет 07.09.23 TIMBER.xlsx
+
+[2025-06-09 14:57:34] [INFO] [YandexDiskClient] File downloaded successfully: паркет 07.09.23 TIMBER.xlsx (102199 bytes)
+
+[2025-06-09 14:57:34] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/паркет 07.09.23 TIMBER.xlsx' to file 'a70f63cac1d65370e20abd8c40197590.txt'.
+
+[2025-06-09 14:57:34] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:34] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:34] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:34] [ERROR] [CacheManager] Error getting cached text for key '1423404f09ad0cb62eee5c1224ae90cb': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:36] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист Матрица нарезки ковролина 02.06.25.xls
+
+[2025-06-09 14:57:36] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист Матрица нарезки ковролина 02.06.25.xls (100352 bytes)
+
+[2025-06-09 14:57:36] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист Матрица нарезки ковролина 02.06.25.xls' to file '1423404f09ad0cb62eee5c1224ae90cb.txt'.
+
+[2025-06-09 14:57:36] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:36] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:36] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:36] [ERROR] [CacheManager] Error getting cached text for key '541b58bdb4bd40d33e43b40cd5de016c': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:37] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xls
+
+[2025-06-09 14:57:37] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xls (143872 bytes)
+
+[2025-06-09 14:57:37] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xls' to file '541b58bdb4bd40d33e43b40cd5de016c.txt'.
+
+[2025-06-09 14:57:37] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:37] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:37] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:37] [ERROR] [CacheManager] Error getting cached text for key 'de0a3b0d2446996a5588a04c1e5a9030': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:38] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xlsx
+
+[2025-06-09 14:57:38] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xlsx (45750 bytes)
+
+[2025-06-09 14:57:39] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист ковровая плитка Bonkeel, AW 31.01.25.xlsx' to file 'de0a3b0d2446996a5588a04c1e5a9030.txt'.
+
+[2025-06-09 14:57:39] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:39] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:39] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:39] [ERROR] [CacheManager] Error getting cached text for key 'a383b080b377956594d299f8f6881ccf': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:39] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист ковровая плитка Tarkett Desso 28.05.24.xlsx
+
+[2025-06-09 14:57:39] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист ковровая плитка Tarkett Desso 28.05.24.xlsx (13440 bytes)
+
+[2025-06-09 14:57:39] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист ковровая плитка Tarkett Desso 28.05.24.xlsx' to file 'a383b080b377956594d299f8f6881ccf.txt'.
+
+[2025-06-09 14:57:39] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:39] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:39] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:39] [ERROR] [CacheManager] Error getting cached text for key 'e00f519b20ee37d9f842bac8dd5a3cf1': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:40] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист на коммерческий ковролин и ковровую плитку Китай, Турция  24.09.24.xlsx
+
+[2025-06-09 14:57:40] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист на коммерческий ковролин и ковровую плитку Китай, Турция  24.09.24.xlsx (13904 bytes)
+
+[2025-06-09 14:57:40] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист на коммерческий ковролин и ковровую плитку Китай, Турция  24.09.24.xlsx' to file 'e00f519b20ee37d9f842bac8dd5a3cf1.txt'.
+
+[2025-06-09 14:57:40] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:40] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:40] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:40] [ERROR] [CacheManager] Error getting cached text for key 'b4a95985d2c7a91a6aab09381a2e9388': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:41] [INFO] [YandexDiskClient] Download URL получен для: прайс-лист паркет 01.11.24( Concept store и Vip).xls
+
+[2025-06-09 14:57:41] [INFO] [YandexDiskClient] File downloaded successfully: прайс-лист паркет 01.11.24( Concept store и Vip).xls (73216 bytes)
+
+[2025-06-09 14:57:41] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Олимп/прайс-лист паркет 01.11.24( Concept store и Vip).xls' to file 'b4a95985d2c7a91a6aab09381a2e9388.txt'.
+
+[2025-06-09 14:57:41] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:41] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:41] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:41] [ERROR] [CacheManager] Error getting cached text for key '3b1ec8110783f0d98e614e0853e7c1b6': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:42] [INFO] [YandexDiskClient] Download URL получен для: ОСТАТКИ+ Прайс Parketoff Group 30.05.2025 НОВЫЙ.xlsx
+
+[2025-06-09 14:57:42] [INFO] [YandexDiskClient] File downloaded successfully: ОСТАТКИ+ Прайс Parketoff Group 30.05.2025 НОВЫЙ.xlsx (1018555 bytes)
+
+[2025-06-09 14:57:42] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Паркетофф/ОСТАТКИ+ Прайс Parketoff Group 30.05.2025 НОВЫЙ.xlsx' to file '3b1ec8110783f0d98e614e0853e7c1b6.txt'.
+
+[2025-06-09 14:57:42] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:42] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:42] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:42] [ERROR] [CacheManager] Error getting cached text for key '224af74a3b360fa140605325c4525e9d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:43] [INFO] [YandexDiskClient] Download URL получен для: 25.02.25 Прайс ПетроПол (1) (1).xlsx
+
+[2025-06-09 14:57:43] [INFO] [YandexDiskClient] File downloaded successfully: 25.02.25 Прайс ПетроПол (1) (1).xlsx (1299373 bytes)
+
+[2025-06-09 14:57:43] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Петропол/25.02.25 Прайс ПетроПол (1) (1).xlsx' to file '224af74a3b360fa140605325c4525e9d.txt'.
+
+[2025-06-09 14:57:43] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:43] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:43] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:43] [ERROR] [CacheManager] Error getting cached text for key '4f55c83c9de5e292706a36dc686e3e1e': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:44] [INFO] [YandexDiskClient] Download URL получен для: 25.02.25 Прайс ПетроПол (1).xls
+
+[2025-06-09 14:57:44] [INFO] [YandexDiskClient] File downloaded successfully: 25.02.25 Прайс ПетроПол (1).xls (1476608 bytes)
+
+[2025-06-09 14:57:44] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Петропол/25.02.25 Прайс ПетроПол (1).xls' to file '4f55c83c9de5e292706a36dc686e3e1e.txt'.
+
+[2025-06-09 14:57:44] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:44] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:44] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:44] [ERROR] [CacheManager] Error getting cached text for key 'cabecbbaae928952eef2d0122ca24071': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:45] [INFO] [YandexDiskClient] Download URL получен для: 25.02.25 Прайс ПетроПол (1).xlsx
+
+[2025-06-09 14:57:45] [INFO] [YandexDiskClient] File downloaded successfully: 25.02.25 Прайс ПетроПол (1).xlsx (1299373 bytes)
+
+[2025-06-09 14:57:45] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Петропол/25.02.25 Прайс ПетроПол (1).xlsx' to file 'cabecbbaae928952eef2d0122ca24071.txt'.
+
+[2025-06-09 14:57:45] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:45] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:45] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:45] [ERROR] [CacheManager] Error getting cached text for key '7ee6e53c9aa966df293a30a9bd36a340': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:46] [INFO] [YandexDiskClient] Download URL получен для: Прайс наполка (1).xlsx
+
+[2025-06-09 14:57:46] [INFO] [YandexDiskClient] File downloaded successfully: Прайс наполка (1).xlsx (15746 bytes)
+
+[2025-06-09 14:57:46] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Планкер АТН Холдинг /Прайс наполка (1).xlsx' to file '7ee6e53c9aa966df293a30a9bd36a340.txt'.
+
+[2025-06-09 14:57:46] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:46] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:46] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:46] [ERROR] [CacheManager] Error getting cached text for key 'c71bf7753ed1a4482a9a3e80ca96fe03': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:47] [INFO] [YandexDiskClient] Download URL получен для: Прайс подложка.xls
+
+[2025-06-09 14:57:47] [INFO] [YandexDiskClient] File downloaded successfully: Прайс подложка.xls (34816 bytes)
+
+[2025-06-09 14:57:47] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Планкер АТН Холдинг /Прайс подложка.xls' to file 'c71bf7753ed1a4482a9a3e80ca96fe03.txt'.
+
+[2025-06-09 14:57:47] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:47] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:47] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:47] [ERROR] [CacheManager] Error getting cached text for key 'fb1d0a39c56f054bb6f2789d5a157ef8': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:48] [INFO] [YandexDiskClient] Download URL получен для: прайс опт Dolce Flooring SPC .xlsx
+
+[2025-06-09 14:57:48] [INFO] [YandexDiskClient] File downloaded successfully: прайс опт Dolce Flooring SPC .xlsx (249449 bytes)
+
+[2025-06-09 14:57:48] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Потенциал/прайс опт Dolce Flooring SPC .xlsx' to file 'fb1d0a39c56f054bb6f2789d5a157ef8.txt'.
+
+[2025-06-09 14:57:48] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:48] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:48] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:48] [ERROR] [CacheManager] Error getting cached text for key 'c70dba42f09723107e1f89e607a4dffc': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:49] [INFO] [YandexDiskClient] Download URL получен для: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г (1).xlsx
+
+[2025-06-09 14:57:49] [INFO] [YandexDiskClient] File downloaded successfully: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г (1).xlsx (725840 bytes)
+
+[2025-06-09 14:57:49] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Потенциал/прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г (1).xlsx' to file 'c70dba42f09723107e1f89e607a4dffc.txt'.
+
+[2025-06-09 14:57:49] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:49] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:49] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:49] [ERROR] [CacheManager] Error getting cached text for key '716e8c6758485553bdac805f6d973955': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:50] [INFO] [YandexDiskClient] Download URL получен для: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xls
+
+[2025-06-09 14:57:50] [INFO] [YandexDiskClient] File downloaded successfully: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xls (843264 bytes)
+
+[2025-06-09 14:57:50] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Потенциал/прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xls' to file '716e8c6758485553bdac805f6d973955.txt'.
+
+[2025-06-09 14:57:50] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:50] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:50] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:50] [ERROR] [CacheManager] Error getting cached text for key 'b91212fbf6b774b128bf45f67525f33a': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:51] [INFO] [YandexDiskClient] Download URL получен для: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xlsx
+
+[2025-06-09 14:57:51] [INFO] [YandexDiskClient] File downloaded successfully: прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xlsx (725838 bytes)
+
+[2025-06-09 14:57:51] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Потенциал/прайс опт NEW COLLECTION 2023_EGGER_01.01.2025г.xlsx' to file 'b91212fbf6b774b128bf45f67525f33a.txt'.
+
+[2025-06-09 14:57:51] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:51] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:51] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:51] [ERROR] [CacheManager] Error getting cached text for key '7b41acd25120304b261f770fd256674c': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:52] [INFO] [YandexDiskClient] Download URL получен для: Прайс PRO Дизайн 20.06.24.xlsx
+
+[2025-06-09 14:57:52] [INFO] [YandexDiskClient] File downloaded successfully: Прайс PRO Дизайн 20.06.24.xlsx (428957 bytes)
+
+[2025-06-09 14:57:52] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Про Дизайн/Прайс PRO Дизайн 20.06.24.xlsx' to file '7b41acd25120304b261f770fd256674c.txt'.
+
+[2025-06-09 14:57:52] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:52] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:52] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:52] [ERROR] [CacheManager] Error getting cached text for key 'e4889105e24e66a6c6f3fcc4499a923e': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:53] [INFO] [YandexDiskClient] Download URL получен для: Kesto прайс-лист от  210823.xlsx
+
+[2025-06-09 14:57:53] [INFO] [YandexDiskClient] File downloaded successfully: Kesto прайс-лист от  210823.xlsx (14369 bytes)
+
+[2025-06-09 14:57:53] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/СТД СКС/Kesto прайс-лист от  210823.xlsx' to file 'e4889105e24e66a6c6f3fcc4499a923e.txt'.
+
+[2025-06-09 14:57:53] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:53] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:53] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:53] [ERROR] [CacheManager] Error getting cached text for key '833e5b59df2c1ef61c0e55596517da75': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:54] [INFO] [YandexDiskClient] Download URL получен для: Прайс new КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 23.4.25г.xlsx
+
+[2025-06-09 14:57:54] [INFO] [YandexDiskClient] File downloaded successfully: Прайс new КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 23.4.25г.xlsx (77377 bytes)
+
+[2025-06-09 14:57:54] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Спортфлоринг/Прайс new КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 23.4.25г.xlsx' to file '833e5b59df2c1ef61c0e55596517da75.txt'.
+
+[2025-06-09 14:57:54] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:54] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:54] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:54] [ERROR] [CacheManager] Error getting cached text for key '347a7fd5f106ad9971beac79b97de5d1': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:54] [INFO] [YandexDiskClient] Download URL получен для: Прайс КОММЕРЧЕСКОЕ ПВХ дилер-МРЦ-РРЦ от 1.3.25г.xlsx
+
+[2025-06-09 14:57:55] [INFO] [YandexDiskClient] File downloaded successfully: Прайс КОММЕРЧЕСКОЕ ПВХ дилер-МРЦ-РРЦ от 1.3.25г.xlsx (58464 bytes)
+
+[2025-06-09 14:57:55] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Спортфлоринг/Прайс КОММЕРЧЕСКОЕ ПВХ дилер-МРЦ-РРЦ от 1.3.25г.xlsx' to file '347a7fd5f106ad9971beac79b97de5d1.txt'.
+
+[2025-06-09 14:57:55] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:55] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:55] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:55] [ERROR] [CacheManager] Error getting cached text for key '71cbf3ecc037bf0d76bc33d3b48e95ff': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:55] [INFO] [YandexDiskClient] Download URL получен для: Прайс КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 21 марта 2025г.xls
+
+[2025-06-09 14:57:56] [INFO] [YandexDiskClient] File downloaded successfully: Прайс КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 21 марта 2025г.xls (361472 bytes)
+
+[2025-06-09 14:57:56] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Спортфлоринг/Прайс КОНТРАКТ ДИЛЕР-МРЦ-РРЦ в валюте от 21 марта 2025г.xls' to file '71cbf3ecc037bf0d76bc33d3b48e95ff.txt'.
+
+[2025-06-09 14:57:56] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:56] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:56] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:56] [ERROR] [CacheManager] Error getting cached text for key '7252f586f30ff13aaa89ce968915177d': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:56] [INFO] [YandexDiskClient] Download URL получен для: Прайс СПОРТ ДИЛЕР-ОПТ-МРЦ от 25.3.25г.xlsx
+
+[2025-06-09 14:57:56] [INFO] [YandexDiskClient] File downloaded successfully: Прайс СПОРТ ДИЛЕР-ОПТ-МРЦ от 25.3.25г.xlsx (99635 bytes)
+
+[2025-06-09 14:57:56] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Спортфлоринг/Прайс СПОРТ ДИЛЕР-ОПТ-МРЦ от 25.3.25г.xlsx' to file '7252f586f30ff13aaa89ce968915177d.txt'.
+
+[2025-06-09 14:57:56] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:56] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:56] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:57:56] [ERROR] [CacheManager] Error getting cached text for key '7875c86a867e95d6372c7cdbab97d19c': SQLSTATE[HY000]: General error: 1 no such function: MD5
+
+[2025-06-09 14:57:57] [INFO] [YandexDiskClient] Download URL получен для: КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ СПБ с 07.06.25.xlsx
+
+[2025-06-09 14:57:57] [INFO] [YandexDiskClient] File downloaded successfully: КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ СПБ с 07.06.25.xlsx (343300 bytes)
+
+[2025-06-09 14:57:58] [INFO] [CacheManager] Successfully cached content for 'disk:/2 АКТУАЛЬНЫЕ ПРАЙСЫ/Строй Сити/КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ СПБ с 07.06.25.xlsx' to file '7875c86a867e95d6372c7cdbab97d19c.txt'.
+
+[2025-06-09 14:57:58] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 14:57:58] [ERROR] [VectorCacheManager] Исключение в чанке #1: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: vector_embeddings.embedding_model
+
+[2025-06-09 14:57:58] [INFO] [VectorCacheManager] Сохранено векторов: 0 из 1
+
+[2025-06-09 14:59:39] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 14:59:39] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 14:59:39] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 14:59:39] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 14:59:39] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 14:59:39] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 14:59:39] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 14:59:39] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 14:59:39] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 15:02:05] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 15:02:05] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 15:02:05] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 15:02:05] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 15:02:05] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 15:02:05] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 15:02:05] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 15:02:05] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 15:02:05] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 15:03:54] [DEBUG] Logger initialized. Custom log file target: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/classes/../logs/application_2025-06-09.log
+[2025-06-09 15:03:54] [INFO] [CacheManager] Successfully connected to SQLite DB: /home/c/ch38922/bitrix_yl1dy/public_html/issledovatel/db/cache.sqlite
+
+[2025-06-09 15:03:54] [INFO] [CacheManager] Cache table `cache_metadata` is ready.
+
+[2025-06-09 15:03:54] [INFO] [VectorCacheManager] PDO подключение успешно инициализировано
+
+[2025-06-09 15:03:54] [INFO] [VectorCacheManager] Таблица vector_embeddings создана
+
+[2025-06-09 15:03:54] [INFO] [VectorCacheManager] Индекс для vector_embeddings создан
+
+[2025-06-09 15:03:54] [INFO] [VectorCacheManager] Инициализация завершена
+
+[2025-06-09 15:03:54] [INFO] [VectorCacheManager] EmbeddingManager инициализирован
+
+[2025-06-09 15:03:54] [INFO] [DeepSeekProvider] Generated hash-based embedding with 1536 dimensions
+
+[2025-06-09 15:03:54] [ERROR] [VectorCacheManager] Ошибка подготовки SQL: SQLSTATE[HY000]: General error: 1 table vector_embeddings has no column named embedding_model
+
