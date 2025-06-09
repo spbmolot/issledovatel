@@ -676,17 +676,13 @@ html, body {
 
     padding: 1.5rem;
 
-
-
-
+}
 
 .modal-body {
 
     padding: 2rem;
 
-
-
-
+}
 
 .modal-footer {
 
@@ -900,7 +896,7 @@ html, body {
 
     box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
 
-
+    }
 
 
 
@@ -911,7 +907,7 @@ html, body {
     border: none;
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
+    }
 
 
 
@@ -922,22 +918,18 @@ html, body {
 
     padding: 1.5rem;
 
+    }
 
-
-
-
-.modal-body {
+    .modal-body {
 
     padding: 2rem;
 
+    }
 
-
-
-
-.modal-footer {
+    .modal-footer {
 
     border-top: 1px solid #e9ecef;
 
     padding: 1.5rem;
 
-}
+    }
