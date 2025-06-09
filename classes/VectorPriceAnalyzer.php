@@ -156,7 +156,8 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         
         $totalChars = 0;
         for ($i = 0; $i < min($maxChunks, count($chunks)); $i++) {
-            $chunkText = $chunks[$i]['content'];
+            $chunkText = isset($chunks[$i]['content']) ? $chunks[$i]['content'] : 
+                        (isset($chunks[$i]['chunk_text']) ? $chunks[$i]['chunk_text'] : '');
             
             // Извлекаем ключевую информацию из чанка
             $processedChunk = $this->extractKeyInfo($chunkText, $maxCharsPerChunk);
@@ -180,6 +181,11 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
     }
     
     private function extractKeyInfo($text, $maxLength) {
+        // Защита от null
+        if (empty($text)) {
+            return '';
+        }
+        
         // Приоритизируем строки с ценами, артикулами, названиями товаров
         $lines = explode("\n", $text);
         $keyLines = array();
@@ -300,10 +306,21 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         
         // Добавляем результаты векторного поиска
         foreach ($vectorChunks as $chunk) {
-            $key = $chunk['file_path'] . '_' . $chunk['chunk_index'];
+            // Проверяем существование необходимых ключей
+            $filePath = isset($chunk['file_path']) ? $chunk['file_path'] : (isset($chunk['file_name']) ? $chunk['file_name'] : 'unknown');
+            $chunkIndex = isset($chunk['chunk_index']) ? $chunk['chunk_index'] : 0;
+            
+            $key = $filePath . '_' . $chunkIndex;
             if (!isset($seen[$key])) {
-                $chunk['search_type'] = 'vector';
-                $merged[] = $chunk;
+                // Нормализуем структуру векторного результата
+                $normalizedChunk = array(
+                    'file_path' => $filePath,
+                    'chunk_text' => isset($chunk['chunk_text']) ? $chunk['chunk_text'] : (isset($chunk['content']) ? $chunk['content'] : ''),
+                    'chunk_index' => $chunkIndex,
+                    'similarity' => isset($chunk['similarity']) ? $chunk['similarity'] : 0.5,
+                    'search_type' => 'vector'
+                );
+                $merged[] = $normalizedChunk;
                 $seen[$key] = true;
             }
         }
