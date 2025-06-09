@@ -1,18 +1,24 @@
-
 <?php
 
 require_once __DIR__ . '/../config/database.php';
-
-
 
 header('Content-Type: application/json; charset=utf-8');
 
 header('Access-Control-Allow-Origin: *');
 
+// Отключаем кэширование
 
+header('Cache-Control: no-cache, no-store, must-revalidate');
+
+header('Pragma: no-cache');
+
+header('Expires: 0');
 
 try {
 
+    error_log(" [get_chats] ");
+
+    
     $stmt = $pdo->prepare("
 
         SELECT c.*, 
@@ -39,13 +45,23 @@ try {
 
     $chats = $stmt->fetchAll();
 
+    $chatCount = count($chats);
+
+    error_log(" [get_chats] : $chatCount");
+    
+    // 
+
+    $chatIds = array_map(function($chat) { return $chat['id']; }, $chats);
+
+    error_log(" [get_chats] : " . implode(', ', $chatIds));
+    
     echo json_encode($chats);
 
     
 
 } catch (Exception $e) {
 
-    error_log('Get chats error: ' . $e->getMessage());
+    error_log(" [get_chats] : " . $e->getMessage());
 
     http_response_code(500);
 
@@ -54,4 +70,3 @@ try {
 }
 
 ?>
-
