@@ -12,7 +12,9 @@ class DeepSeekProvider extends AIProvider {
             $response = $this->sendRequest('/v1/models', array(), 'GET');
             return isset($response['data']) && is_array($response['data']);
         } catch (\Exception $e) {
-            Logger::error("[DeepSeekProvider] Connection test failed: " . $e->getMessage());
+            if (class_exists('Logger')) {
+                Logger::error("[DeepSeekProvider] Connection test failed: " . $e->getMessage());
+            }
             return false;
         }
     }
@@ -25,14 +27,19 @@ class DeepSeekProvider extends AIProvider {
         $maxLength = 50000; // Ограничиваем общий размер данных
         
         foreach ($priceData as $fileName => $data) {
-            // Очищаем данные от некорректных символов
-            $cleanData = mb_convert_encoding($data, 'UTF-8', 'UTF-8');
+            // Простая очистка данных от некорректных символов
+            $cleanData = $data;
+            if (function_exists('mb_convert_encoding')) {
+                $cleanData = mb_convert_encoding($data, 'UTF-8', 'UTF-8');
+            }
             $cleanData = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/', '', $cleanData);
             
             $fileSection = "\n=== Файл: " . $fileName . " ===\n" . $cleanData . "\n";
             
             if ($totalLength + strlen($fileSection) > $maxLength) {
-                Logger::warning("[DeepSeekProvider] Data truncated due to size limit");
+                if (class_exists('Logger')) {
+                    Logger::warning("[DeepSeekProvider] Data truncated due to size limit");
+                }
                 break;
             }
             
@@ -40,7 +47,9 @@ class DeepSeekProvider extends AIProvider {
             $totalLength += strlen($fileSection);
         }
         
-        Logger::debug("[DeepSeekProvider] Total prompt length: " . strlen($userPrompt) . " chars");
+        if (class_exists('Logger')) {
+            Logger::debug("[DeepSeekProvider] Total prompt length: " . strlen($userPrompt) . " chars");
+        }
         
         $messages = array(
             array('role' => 'system', 'content' => $systemPrompt),
@@ -68,7 +77,9 @@ class DeepSeekProvider extends AIProvider {
             return array('text' => $text, 'sources' => $sources);
             
         } catch (\Exception $e) {
-            Logger::error("[DeepSeekProvider] analyzeQuery error: " . $e->getMessage());
+            if (class_exists('Logger')) {
+                Logger::error("[DeepSeekProvider] analyzeQuery error: " . $e->getMessage());
+            }
             return array('text' => 'Ошибка при анализе запроса: ' . $e->getMessage(), 'sources' => array());
         }
     }
@@ -105,11 +116,15 @@ class DeepSeekProvider extends AIProvider {
                 $embedding[] = ($byte_value - 127.5) / 127.5; // Нормализуем в [-1, 1]
             }
             
-            Logger::info("[DeepSeekProvider] Generated hash-based embedding with " . count($embedding) . " dimensions");
+            if (class_exists('Logger')) {
+                Logger::info("[DeepSeekProvider] Generated hash-based embedding with " . count($embedding) . " dimensions");
+            }
             return $embedding;
             
         } catch (\Exception $e) {
-            Logger::error("[DeepSeekProvider] getEmbedding error: " . $e->getMessage());
+            if (class_exists('Logger')) {
+                Logger::error("[DeepSeekProvider] getEmbedding error: " . $e->getMessage());
+            }
             // Возвращаем случайный вектор как fallback
             return array_fill(0, 1536, 0.0);
         }
@@ -138,12 +153,16 @@ class DeepSeekProvider extends AIProvider {
             
             // Отладка JSON
             if (json_last_error() !== JSON_ERROR_NONE) {
-                Logger::error("[DeepSeekProvider] JSON encode error: " . json_last_error_msg());
-                Logger::error("[DeepSeekProvider] Data causing error: " . print_r($data, true));
+                if (class_exists('Logger')) {
+                    Logger::error("[DeepSeekProvider] JSON encode error: " . json_last_error_msg());
+                    Logger::error("[DeepSeekProvider] Data causing error: " . print_r($data, true));
+                }
                 throw new \Exception("JSON encode error: " . json_last_error_msg());
             }
             
-            Logger::debug("[DeepSeekProvider] Sending JSON length: " . strlen($jsonData) . " bytes");
+            if (class_exists('Logger')) {
+                Logger::debug("[DeepSeekProvider] Sending JSON length: " . strlen($jsonData) . " bytes");
+            }
             curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
         } elseif ($method === "GET") {
             curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -161,7 +180,9 @@ class DeepSeekProvider extends AIProvider {
         curl_close($ch);
         
         if ($httpCode !== 200) {
-            Logger::error("[DeepSeekProvider] HTTP Error {$httpCode}: " . $response);
+            if (class_exists('Logger')) {
+                Logger::error("[DeepSeekProvider] HTTP Error {$httpCode}: " . $response);
+            }
             throw new \Exception("HTTP Error: {$httpCode}");
         }
         
