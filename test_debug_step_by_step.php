@@ -32,7 +32,7 @@ try {
     
     // Шаг 4: Создание VectorCacheManager
     $results["step_$step"] = "Создание VectorCacheManager";
-    $vectorCacheManager = new VectorCacheManager(__DIR__);
+    $vectorCacheManager = new VectorCacheManager(__DIR__ . '/db');
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
@@ -53,7 +53,7 @@ try {
     // Создаём необходимые зависимости
     $aiProvider = new \ResearcherAI\DeepSeekProvider('test-key');
     $yandexDisk = new \ResearcherAI\YandexDiskClient('test-token');
-    $cacheManager = new \ResearcherAI\CacheManager(__DIR__);
+    $cacheManager = new \ResearcherAI\CacheManager(__DIR__ . '/db');
     
     $analyzer = new VectorPriceAnalyzer($aiProvider, $yandexDisk, $cacheManager);
     $results["step_$step"] .= " - ✅ УСПЕХ";

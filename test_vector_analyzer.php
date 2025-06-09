@@ -14,7 +14,7 @@ try {
     // Создание экземпляра анализатора с правильными аргументами
     $aiProvider = new \ResearcherAI\DeepSeekProvider('test-key');
     $yandexDisk = new \ResearcherAI\YandexDiskClient('test-token');
-    $cacheManager = new \ResearcherAI\CacheManager(__DIR__);
+    $cacheManager = new \ResearcherAI\CacheManager(__DIR__ . '/db');
     
     $analyzer = new VectorPriceAnalyzer($aiProvider, $yandexDisk, $cacheManager);
     

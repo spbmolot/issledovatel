@@ -9,7 +9,7 @@ use ResearcherAI\VectorCacheManager;
 use ResearcherAI\Logger;
 
 try {
-    $vectorCache = new VectorCacheManager(__DIR__);
+    $vectorCache = new VectorCacheManager(__DIR__ . '/db');
     
     // 1. Проверим общее количество чанков
     $pdo = $vectorCache->getPDO();
@@ -17,21 +17,21 @@ try {
     $totalChunks = $stmt->fetch()['total'];
     
     // 2. Поищем точные совпадения по "CronaFloor" или "NANO"
-    $stmt = $pdo->prepare("SELECT file_name, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ? OR chunk_text LIKE ?");
+    $stmt = $pdo->prepare("SELECT file_path, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ? OR chunk_text LIKE ?");
     $stmt->execute(['%CronaFloor%', '%NANO%']);
     $exactMatches = $stmt->fetchAll();
     
     // 3. Поищем по "Crona" (может быть сокращение)
-    $stmt = $pdo->prepare("SELECT file_name, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ?");
+    $stmt = $pdo->prepare("SELECT file_path, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ?");
     $stmt->execute(['%Crona%']);
     $cronaMatches = $stmt->fetchAll();
     
     // 4. Поищем все уникальные файлы
-    $stmt = $pdo->query("SELECT DISTINCT file_name FROM vector_embeddings ORDER BY file_name");
+    $stmt = $pdo->query("SELECT DISTINCT file_path FROM vector_embeddings ORDER BY file_path");
     $allFiles = $stmt->fetchAll(PDO::FETCH_COLUMN);
     
     // 5. Поищем по ключевым словам "floor", "покрытие"
-    $stmt = $pdo->prepare("SELECT file_name, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ? OR chunk_text LIKE ?");
+    $stmt = $pdo->prepare("SELECT file_path, chunk_text FROM vector_embeddings WHERE chunk_text LIKE ? OR chunk_text LIKE ?");
     $stmt->execute(['%floor%', '%покрытие%']);
     $floorMatches = $stmt->fetchAll();
     
