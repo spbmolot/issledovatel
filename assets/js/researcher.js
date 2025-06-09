@@ -662,34 +662,12 @@ class ResearcherAI {
 
         if (sources && sources.length > 0) {
 
-            const sourcesDiv = document.createElement('div');
+            const sourcesHtml = this.displaySources(sources);
 
-            sourcesDiv.className = 'message-sources';
-
-            sourcesDiv.innerHTML = '<strong>Источники:</strong><br>';
-
-            
-
-            sources.forEach(source => {
-
-                const sourceSpan = document.createElement('span');
-
-                sourceSpan.className = 'source-link me-2';
-
-                sourceSpan.textContent = source.name;
-
-                sourcesDiv.appendChild(sourceSpan);
-
-            });
-
-
-
-            content.appendChild(sourcesDiv);
+            content.innerHTML += sourcesHtml;
 
         }
-
-
-
+        
         const time = document.createElement('div');
 
         time.className = 'message-time';
@@ -698,17 +676,15 @@ class ResearcherAI {
 
         content.appendChild(time);
 
-
-
         messageDiv.appendChild(avatar);
 
         messageDiv.appendChild(content);
 
         messagesContainer.appendChild(messageDiv);
 
-
-
         this.saveMessageToChat(type, text, sources);
+
+        this.bindSourcesEventHandlers(messageDiv);
 
     }
 
@@ -963,29 +939,23 @@ class ResearcherAI {
 
         // Добавляем источники если есть
         if (sources && sources.length > 0) {
-            const sourcesDiv = document.createElement('div');
-            sourcesDiv.className = 'message-sources mt-2';
-            
-            // Правильно отображаем объекты источников
-            const sourceNames = sources.map(source => {
-                if (typeof source === 'object' && source.name) {
-                    return source.name;
-                } else if (typeof source === 'string') {
-                    return source;
-                } else {
-                    return 'Неизвестный источник';
-                }
-            });
-            
-            sourcesDiv.innerHTML = `<small class="text-muted">Источники: ${sourceNames.join(', ')}</small>`;
-            content.appendChild(sourcesDiv);
+            const sourcesHtml = this.displaySources(sources);
+            content.innerHTML += sourcesHtml;
         }
+        
+        const time = document.createElement('div');
 
+        time.className = 'message-time';
 
+        time.textContent = new Date().toLocaleTimeString();
+
+        content.appendChild(time);
 
         messageDiv.appendChild(content);
 
         messagesContainer.appendChild(messageDiv);
+
+        this.bindSourcesEventHandlers(messageDiv);
 
     }
 
@@ -1241,4 +1211,253 @@ class ResearcherAI {
 
     }
 
+    // Генерация ссылки на Яндекс.Диск для файла
+    generateYandexDiskUrl(fileName) {
+        try {
+            // Получаем базовую папку из настроек
+            const folderElement = document.getElementById('yandex-folder');
+            const folderPath = folderElement ? folderElement.value.trim() : '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
+            
+            // Кодируем имя файла и путь к папке для URL
+            const encodedFolder = encodeURIComponent(folderPath.replace(/^\/+/, ''));
+            const encodedFileName = encodeURIComponent(fileName);
+            
+            // Формируем базовый URL для открытия файла в Яндекс.Диске
+            // Используем публичную ссылку для просмотра файла
+            const yandexDiskBaseUrl = 'https://disk.yandex.ru/d/';
+            
+            // Для корректной работы нужно получить публичную ссылку через API
+            // Пока что создаем ссылку для поиска файла в папке
+            const searchUrl = `https://disk.yandex.ru/client/disk/${encodedFolder}?idApp=client&dialog=slider&idDialog=%2Fdisk%2F${encodedFolder}%2F${encodedFileName}`;
+            
+            return searchUrl;
+        } catch (error) {
+            console.error('Ошибка генерации URL для Яндекс.Диска:', error);
+            return '#';
+        }
+    }
+
+    // Отображение источников данных
+    displaySources(sources) {
+        if (!sources || sources.length === 0) {
+            return '';
+        }
+
+        const sourceCount = sources.length;
+        const maxVisibleSources = 5;
+        
+        let sourcesHtml = `
+            <div class="message-sources">
+                <div class="sources-header">
+                    <i class="fas fa-database"></i>
+                    Источники данных (${sourceCount}):
+                </div>
+                <div class="sources-container">
+        `;
+
+        // Отображаем первые 5 источников
+        const visibleSources = sources.slice(0, maxVisibleSources);
+        
+        visibleSources.forEach((source, index) => {
+            const fileName = source.name || source.file_name || 'Неизвестный файл';
+            const similarity = source.similarity ? Math.round(source.similarity * 100) : null;
+            
+            sourcesHtml += `
+                <div class="source-item">
+                    <a href="#" class="source-link" data-filename="${fileName}">
+                        <i class="fas fa-external-link-alt"></i>
+                        ${fileName}
+                    </a>
+                    ${similarity !== null ? `<span class="badge badge-info ms-2">${similarity}%</span>` : ''}
+                </div>
+            `;
+        });
+
+        sourcesHtml += '</div>';
+
+        // Добавляем кнопку "Показать еще", если источников больше 5
+        if (sourceCount > maxVisibleSources) {
+            const hiddenCount = sourceCount - maxVisibleSources;
+            sourcesHtml += `
+                <button class="btn btn-sm btn-outline-secondary mt-2 toggle-sources-btn" data-all-sources='${JSON.stringify(sources)}'>
+                    <i class="fas fa-chevron-down"></i>
+                    Показать еще ${hiddenCount} источников
+                </button>
+            `;
+        }
+
+        sourcesHtml += '</div>';
+        return sourcesHtml;
+    }
+
+    // Привязка обработчиков событий для источников
+    bindSourcesEventHandlers(messageElement) {
+        // Обработчики для ссылок на источники
+        const sourceLinks = messageElement.querySelectorAll('.source-link');
+        sourceLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const fileName = link.dataset.filename;
+                this.openYandexDiskFile(fileName);
+            });
+        });
+
+        // Обработчик для кнопки переключения источников
+        const toggleButton = messageElement.querySelector('.toggle-sources-btn');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', (e) => {
+                this.toggleAllSources(e);
+            });
+        }
+    }
+
+    // Переключение отображения всех источников
+    toggleAllSources(event) {
+        const button = event.target.closest('button');
+        const sourcesContainer = button.previousElementSibling;
+        const allSources = JSON.parse(button.dataset.allSources || '[]');
+        const maxVisibleSources = 5;
+        
+        if (button.dataset.expanded === 'true') {
+            // Скрыть дополнительные источники
+            const visibleSources = sourcesContainer.children;
+            for (let i = visibleSources.length - 1; i >= maxVisibleSources; i--) {
+                visibleSources[i].remove();
+            }
+            
+            const hiddenCount = allSources.length - maxVisibleSources;
+            button.innerHTML = `
+                <i class="fas fa-chevron-down"></i>
+                Показать еще ${hiddenCount} источников
+            `;
+            button.dataset.expanded = 'false';
+        } else {
+            // Показать все источники
+            const hiddenSources = allSources.slice(maxVisibleSources);
+            
+            hiddenSources.forEach(source => {
+                const fileName = source.name || source.file_name || 'Неизвестный файл';
+                const similarity = source.similarity ? Math.round(source.similarity * 100) : null;
+                
+                const sourceItem = document.createElement('div');
+                sourceItem.className = 'source-item';
+                sourceItem.innerHTML = `
+                    <a href="#" class="source-link" data-filename="${fileName}">
+                        <i class="fas fa-external-link-alt"></i>
+                        ${fileName}
+                    </a>
+                    ${similarity !== null ? `<span class="badge badge-info ms-2">${similarity}%</span>` : ''}
+                `;
+                
+                // Привязываем обработчик события для новой ссылки
+                const newLink = sourceItem.querySelector('.source-link');
+                newLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const fileName = newLink.dataset.filename;
+                    this.openYandexDiskFile(fileName);
+                });
+                
+                sourcesContainer.appendChild(sourceItem);
+            });
+            
+            button.innerHTML = `
+                <i class="fas fa-chevron-up"></i>
+                Скрыть дополнительные источники
+            `;
+            button.dataset.expanded = 'true';
+        }
+    }
+
+    // Показать уведомление
+    showToast(message, type = 'info') {
+        // Создаем элемент уведомления
+        const toast = document.createElement('div');
+        toast.className = `alert alert-${type === 'success' ? 'success' : type === 'warning' ? 'warning' : type === 'error' ? 'danger' : 'info'} position-fixed`;
+        toast.style.cssText = `
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            animation: slideInRight 0.3s ease-out;
+        `;
+        
+        toast.innerHTML = `
+            <div class="d-flex align-items-center">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : type === 'error' ? 'times-circle' : 'info-circle'} me-2"></i>
+                <span>${message}</span>
+                <button type="button" class="btn-close ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Автоматически скрыть через 3 секунды
+        setTimeout(() => {
+            if (toast.parentElement) {
+                toast.remove();
+            }
+        }, 3000);
+        
+        return toast;
+    }
+
+    // Открытие файла в Яндекс.Диске
+    async openYandexDiskFile(fileName) {
+        try {
+            // Показываем уведомление о загрузке
+            const loadingToast = this.showToast('Получение ссылки на файл...', 'info');
+            
+            // Вызываем API для получения публичной ссылки
+            const response = await fetch('/issledovatel/api/get_file_url.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    filename: fileName
+                })
+            });
+            
+            // Скрываем уведомление о загрузке
+            if (loadingToast.parentElement) {
+                loadingToast.remove();
+            }
+            
+            if (response.ok) {
+                const data = await response.json();
+                
+                if (data.success && data.url) {
+                    // Успешно получили ссылку
+                    this.showToast('Файл открывается в новой вкладке', 'success');
+                    window.open(data.url, '_blank');
+                    return;
+                }
+            }
+            
+            // Если API не вернул ссылку, используем fallback
+            this.showToast('Переход к поиску файла на Яндекс.Диске', 'warning');
+            
+            // Fallback - открываем страницу поиска
+            const folderPath = document.getElementById('yandex-folder-path') ? 
+                document.getElementById('yandex-folder-path').value : 
+                '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
+            
+            const searchUrl = `https://disk.yandex.ru/client/disk${folderPath}?search=${encodeURIComponent(fileName)}`;
+            window.open(searchUrl, '_blank');
+            
+        } catch (error) {
+            console.error('Ошибка при получении ссылки на файл:', error);
+            
+            // Показываем ошибку и используем fallback
+            this.showToast('Ошибка получения ссылки. Переход к поиску файла', 'error');
+            
+            // Fallback - открываем страницу поиска
+            const folderPath = document.getElementById('yandex-folder-path') ? 
+                document.getElementById('yandex-folder-path').value : 
+                '/2 АКТУАЛЬНЫЕ ПРАЙСЫ';
+            
+            const searchUrl = `https://disk.yandex.ru/client/disk${folderPath}?search=${encodeURIComponent(fileName)}`;
+            window.open(searchUrl, '_blank');
+        }
+    }
 }

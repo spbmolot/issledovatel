@@ -338,7 +338,69 @@ class YandexDiskClient {
 
     }
 
-    public function getDownloadUrl($filePath) {
+    /**
+     * Получение информации о файле
+     */
+    public function getFileInfo($path) {
+        try {
+            $url = $this->baseUrl . '/resources?path=' . urlencode($path);
+            $response = $this->sendRequest($url);
+            return $response;
+        } catch (\Exception $e) {
+            if (class_exists('Logger')) {
+                Logger::error("[YandexDiskClient] Error getting file info for " . $path, $e);
+            }
+            return null;
+        }
+    }
+
+    /**
+     * Публикация файла и получение публичной ссылки
+     */
+    public function publishFile($path) {
+        try {
+            // Сначала публикуем файл
+            $publishUrl = $this->baseUrl . '/resources/publish?path=' . urlencode($path);
+            $response = $this->sendRequest($publishUrl, 'PUT');
+            
+            // Получаем информацию о файле с публичной ссылкой
+            $fileInfo = $this->getFileInfo($path);
+            
+            if (isset($fileInfo['public_url'])) {
+                return $fileInfo['public_url'];
+            }
+            
+            return null;
+        } catch (\Exception $e) {
+            if (class_exists('Logger')) {
+                Logger::error("[YandexDiskClient] Error publishing file " . $path, $e);
+            }
+            return null;
+        }
+    }
+
+    /**
+     * Получение ссылки для скачивания файла
+     */
+    public function getDownloadUrl($path) {
+        try {
+            $url = $this->baseUrl . '/resources/download?path=' . urlencode($path);
+            $response = $this->sendRequest($url);
+            
+            if (isset($response['href'])) {
+                return $response['href'];
+            }
+            
+            return null;
+        } catch (\Exception $e) {
+            if (class_exists('Logger')) {
+                Logger::error("[YandexDiskClient] Error getting download URL for " . $path, $e);
+            }
+            return null;
+        }
+    }
+
+    public function getDownloadUrlOld($filePath) {
         try {
             $url = $this->baseUrl . '/resources/download?path=' . urlencode($filePath);
             $response = $this->sendRequest($url);

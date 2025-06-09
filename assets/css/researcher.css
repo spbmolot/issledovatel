@@ -561,77 +561,99 @@ html, body {
 
 .message-sources {
 
-    margin-top: 0.75rem;
-
-    padding: 0.75rem;
-
     background: #f8f9fa;
 
-    border-radius: 0.5rem;
+    border-left: 3px solid #007bff;
 
-    font-size: 0.9rem;
+    padding: 10px 15px;
 
-    border: 1px solid #e9ecef;
+    margin-top: 10px;
+
+    border-radius: 0 8px 8px 0;
 
 }
 
+.sources-header {
+    color: #495057;
+    font-weight: 600;
+}
 
+.sources-header i {
+    color: #007bff;
+    margin-right: 5px;
+}
+
+.sources-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.source-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.source-item:last-child {
+    border-bottom: none;
+}
 
 .source-link {
-
-    display: inline-block;
-
-    margin-right: 1rem;
-
-    margin-bottom: 0.5rem;
-
-    color: #007bff;
-
-    text-decoration: none;
-
-    padding: 0.25rem 0.5rem;
-
-    background: #e7f3ff;
-
-    border-radius: 0.25rem;
-
-    transition: all 0.2s;
-
+    color: #007bff !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
-
-
 
 .source-link:hover {
-
-    background: #cce7ff;
-
-    text-decoration: none;
-
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    transform: translateX(2px);
 }
 
-
-
-.message-time {
-
-    font-size: 0.8rem;
-
-    color: #6c757d;
-
-    margin-top: 0.5rem;
-
-    text-align: right;
-
+.source-link:visited {
+    color: #6f42c1 !important;
 }
 
-
-
-.message.user .message-time {
-
-    text-align: left;
-
+.source-item .badge {
+    font-size: 0.7em;
 }
 
+.source-item i.fas {
+    transition: transform 0.2s ease;
+}
 
+.source-item:hover i.fas {
+    transform: scale(1.1);
+}
+
+/* Анимация для появления источников */
+.source-item {
+    animation: fadeInSource 0.3s ease-in-out;
+}
+
+@keyframes fadeInSource {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для кнопки раскрытия источников */
+.sources-container + .btn {
+    font-size: 0.85em;
+    padding: 4px 8px;
+}
+
+.sources-container + .btn i {
+    transition: transform 0.2s ease;
+}
+
+.sources-container + .btn:hover i {
+    transform: rotate(180deg);
+}
 
 .chat-input-container {
 
@@ -962,3 +984,27 @@ html, body {
     padding: 1.5rem;
 
     }
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Общие стили для проекта */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
