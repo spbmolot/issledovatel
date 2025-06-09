@@ -65,7 +65,8 @@ class VectorCacheManager extends CacheManager {
         }
 
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding, chunk_index, embedding_model) VALUES (?, ?, ?, ?)");
+            // ИСПРАВЛЕНО: Убрана колонка embedding_model
+            $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding, chunk_index) VALUES (?, ?, ?, ?)");
         } catch (\Exception $e) {
             Logger::error("[VectorCacheManager] Ошибка подготовки SQL: " . $e->getMessage());
             return false;
@@ -86,7 +87,8 @@ class VectorCacheManager extends CacheManager {
                     continue;
                 }
 
-                $stmt->execute([$filePath, $chunk, $embeddingJson, $index, "deepseek-chat"]);
+                // ИСПРАВЛЕНО: Убран 5-й параметр "deepseek-chat"
+                $stmt->execute([$filePath, $chunk, $embeddingJson, $index]);
                 $stored++;
                 
             } catch (\Exception $e) {
