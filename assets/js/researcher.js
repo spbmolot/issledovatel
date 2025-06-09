@@ -482,7 +482,10 @@ class ResearcherAI {
 
                 <button class="btn btn-sm btn-outline-light delete-chat-btn ms-2" title="Удалить чат">
 
-                    <i class="fas fa-trash-alt"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                    </svg>
 
                 </button>
 
@@ -678,7 +681,7 @@ class ResearcherAI {
 
         messageDiv.className = `message ${type}`;
 
-
+        
 
         const avatar = document.createElement('div');
 
@@ -889,6 +892,108 @@ class ResearcherAI {
             console.error('❌ Ошибка сохранения сообщения:', error);
 
         }
+
+    }
+
+
+
+    async loadChat(chatId) {
+
+        try {
+
+            console.log('📖 Загрузка чата:', chatId);
+            
+            // Устанавливаем текущий чат
+            this.currentChatId = chatId;
+            
+            // Получаем данные чата и его сообщения
+            const response = await fetch(`api/get_chat.php?id=${chatId}`);
+            
+            if (!response.ok) {
+
+                throw new Error('Ошибка загрузки чата');
+
+            }
+            
+            const data = await response.json();
+
+            console.log('✅ Данные чата загружены:', data);
+            
+            // Очищаем контейнер сообщений
+            const messagesContainer = document.getElementById('chat-messages');
+
+            messagesContainer.innerHTML = '';
+            
+            // Отображаем сообщения
+            if (data.messages && data.messages.length > 0) {
+
+                data.messages.forEach(message => {
+
+                    const sources = message.sources ? JSON.parse(message.sources) : [];
+
+                    this.addMessageToUI(message.type, message.message, sources);
+
+                });
+
+            }
+            
+            // Скроллим вниз
+            this.scrollToBottom();
+            
+            // Скрываем приветственное сообщение
+            this.hideWelcomeMessage();
+            
+            console.log('✅ Чат загружен успешно');
+            
+        } catch (error) {
+
+            console.error('❌ Ошибка загрузки чата:', error);
+
+            this.showNotification('Ошибка загрузки чата', 'error');
+
+        }
+
+    }
+
+
+
+    addMessageToUI(type, text, sources = []) {
+
+        const messagesContainer = document.getElementById('chat-messages');
+
+        const messageDiv = document.createElement('div');
+
+        messageDiv.className = `message ${type}-message mb-3`;
+
+
+
+        const content = document.createElement('div');
+
+        content.className = 'message-content';
+
+        content.innerHTML = this.formatMessage(text);
+
+
+
+        // Добавляем источники если есть
+
+        if (sources && sources.length > 0) {
+
+            const sourcesDiv = document.createElement('div');
+
+            sourcesDiv.className = 'message-sources mt-2';
+
+            sourcesDiv.innerHTML = `<small class="text-muted">Источники: ${sources.join(', ')}</small>`;
+
+            content.appendChild(sourcesDiv);
+
+        }
+
+
+
+        messageDiv.appendChild(content);
+
+        messagesContainer.appendChild(messageDiv);
 
     }
 
