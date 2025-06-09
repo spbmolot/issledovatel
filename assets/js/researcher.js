@@ -415,106 +415,80 @@ class ResearcherAI {
 
 
     async loadChatHistory() {
-
+        console.log('🔄 Загружаем историю чатов...');
         try {
-
             const response = await fetch('api/get_chats.php');
-
+            console.log(`📥 Ответ get_chats.php: ${response.status} ${response.statusText}`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
             const chats = await response.json();
-
+            console.log(`📋 Получено чатов: ${chats.length}`, chats);
+            
             this.renderChatHistory(chats);
-
+            console.log('✅ История чатов обновлена в интерфейсе');
         } catch (error) {
-
             console.error('❌ Ошибка загрузки истории:', error);
-
         }
-
     }
 
 
 
     renderChatHistory(chats) {
-
-        const container = document.getElementById('chat-history');
-
-        if (!container) return;
-
+        console.log(`🎨 Рендерим ${chats.length} чатов в интерфейс`);
         
-
+        const container = document.getElementById('chat-history');
+        if (!container) {
+            console.error('❌ Контейнер chat-history не найден!');
+            return;
+        }
+        
+        console.log('🧹 Очищаем контейнер чатов');
         container.innerHTML = '';
 
-
-
         if (chats.length === 0) {
-
+            console.log('📝 Нет чатов для отображения');
             container.innerHTML = '<div class="text-center text-muted py-3"><small>Нет сохраненных чатов</small></div>';
-
             return;
-
         }
 
-
-
-        chats.forEach(chat => {
-
+        console.log('🔨 Создаем элементы чатов...');
+        chats.forEach((chat, index) => {
+            console.log(`  📝 Создаем чат ${index + 1}: ID=${chat.id}, title="${chat.title}"`);
+            
             const chatItem = document.createElement('div');
-
             chatItem.className = 'chat-item d-flex align-items-center mb-2';
-
             chatItem.dataset.chatId = chat.id;
-
-
 
             const shortTitle = chat.title.length > 25 ? chat.title.substring(0, 25) + '...' : chat.title;
 
-
-
             chatItem.innerHTML = `
-
                 <div class="flex-grow-1 chat-item-content" style="cursor: pointer;">
-
                     <div class="chat-item-title" title="${this.escapeHtml(chat.title)}">${this.escapeHtml(shortTitle)}</div>
-
                     <div class="chat-item-date">${new Date(chat.created_at).toLocaleDateString('ru-RU')}</div>
-
                 </div>
-
                 <button class="btn btn-sm btn-outline-light delete-chat-btn ms-2" title="Удалить чат">
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                     </svg>
-
                 </button>
-
             `;
 
-
-
             chatItem.querySelector('.chat-item-content').addEventListener('click', () => this.loadChat(chat.id));
-
             
-
             chatItem.querySelector('.delete-chat-btn').addEventListener('click', (e) => {
-
                 e.stopPropagation();
-
                 this.deleteChat(chat.id);
-
             });
 
-
-
             container.appendChild(chatItem);
-
         });
-
         
-
-        console.log('✅ История чатов отрендерена: ' + chats.length + ' чатов');
-
+        console.log(`✅ История чатов отрендерена: ${chats.length} чатов добавлено в DOM`);
+        console.log('📊 Текущее содержимое контейнера:', container.children.length, 'элементов');
     }
 
 
