@@ -918,3 +918,79 @@ html, body {
     padding: 1.5rem;
 
 }
+
+/* API Status Colors */
+.status-icon.text-success {
+    color: #28a745 !important;
+}
+
+.status-icon.text-warning {
+    color: #ffc107 !important;
+}
+
+.status-icon.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Progress Steps */
+.progress-steps {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease forwards;
+}
+
+.progress-step i {
+    color: #28a745;
+    margin-right: 0.5rem;
+    width: 16px;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Status Animation */
+.status-icon.text-warning {
+    animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
