@@ -1,4 +1,3 @@
-
 <?php 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php"); 
@@ -255,6 +254,24 @@ $settings = $stmt->fetch();
 
                         </div>
 
+                        <!-- Loading Overlay with Progress -->
+                        <div id="loading-overlay" class="loading-overlay d-none">
+                            <div class="loading-content">
+                                <div class="text-center mb-4">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Загрузка...</span>
+                                    </div>
+                                    <h5 class="mt-3 text-primary">Анализ прайс-листов</h5>
+                                    <p class="text-muted">Пожалуйста, подождите...</p>
+                                </div>
+                                
+                                <!-- Progress Steps -->
+                                <div id="progress-steps" class="progress-steps">
+                                    <!-- Progress items will be dynamically added here -->
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -505,7 +522,7 @@ $settings = $stmt->fetch();
 
     border: 1px solid transparent;
 
-}
+)
 
 
 
@@ -517,7 +534,7 @@ $settings = $stmt->fetch();
 
     transform: translateY(-1px);
 
-}
+)
 
 
 
@@ -535,7 +552,7 @@ $settings = $stmt->fetch();
 
     transition: all 0.2s;
 
-}
+)
 
 
 
@@ -543,7 +560,7 @@ $settings = $stmt->fetch();
 
     background: rgba(255,255,255,0.2);
 
-}
+)
 
 
 
@@ -551,7 +568,7 @@ $settings = $stmt->fetch();
 
     background: rgba(255,255,255,0.3);
 
-}
+)
 
 
 
@@ -563,7 +580,7 @@ $settings = $stmt->fetch();
 
     font-size: 0.9rem;
 
-}
+)
 
 
 
@@ -573,7 +590,7 @@ $settings = $stmt->fetch();
 
     opacity: 0.8;
 
-}
+)
 
 
 
@@ -585,7 +602,7 @@ $settings = $stmt->fetch();
 
     gap: 1rem;
 
-}
+)
 
 
 
@@ -593,7 +610,7 @@ $settings = $stmt->fetch();
 
     flex-direction: row-reverse;
 
-}
+)
 
 
 
@@ -617,7 +634,7 @@ $settings = $stmt->fetch();
 
     flex-shrink: 0;
 
-}
+)
 
 
 
@@ -625,7 +642,7 @@ $settings = $stmt->fetch();
 
     background: #007bff;
 
-}
+)
 
 
 
@@ -633,7 +650,7 @@ $settings = $stmt->fetch();
 
     background: #6f42c1;
 
-}
+)
 
 
 
@@ -643,7 +660,7 @@ $settings = $stmt->fetch();
 
     max-width: 70%;
 
-}
+)
 
 
 
@@ -657,7 +674,7 @@ $settings = $stmt->fetch();
 
     border: 1px solid #e9ecef;
 
-}
+)
 
 
 
@@ -669,7 +686,7 @@ $settings = $stmt->fetch();
 
     border: none;
 
-}
+)
 
 
 
@@ -681,7 +698,7 @@ $settings = $stmt->fetch();
 
     color: #6c757d;
 
-}
+)
 
 
 
@@ -695,7 +712,7 @@ $settings = $stmt->fetch();
 
     text-decoration: none;
 
-}
+)
 
 
 
@@ -703,7 +720,7 @@ $settings = $stmt->fetch();
 
     text-decoration: underline;
 
-}
+)
 
 
 
@@ -717,7 +734,7 @@ $settings = $stmt->fetch();
 
     text-align: right;
 
-}
+)
 
 
 
@@ -725,7 +742,7 @@ $settings = $stmt->fetch();
 
     text-align: left;
 
-}
+)
 
 
 
@@ -733,7 +750,7 @@ $settings = $stmt->fetch();
 
     display: flex !important;
 
-}
+)
 
 
 
@@ -765,6 +782,98 @@ $settings = $stmt->fetch();
 
     }
 
+}
+
+.message-time {
+
+    font-size: 0.8rem;
+
+    color: #6c757d;
+
+    margin-top: 0.5rem;
+
+}
+
+/* Loading Overlay Styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loading-overlay.show {
+    opacity: 1;
+}
+
+.loading-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.progress-steps {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    animation: slideInLeft 0.3s ease;
+}
+
+.progress-step:last-child {
+    border-bottom: none;
+}
+
+.progress-step-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #28a745;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.progress-step-icon i {
+    color: white;
+    font-size: 0.7rem;
+}
+
+.progress-step-text {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 </style>
@@ -1037,47 +1146,26 @@ class ResearcherAI {
 
         const message = input.value.trim();
 
-
-
         if (!message || this.isProcessing) return;
 
-
-
         this.isProcessing = true;
-
         input.value = '';
-
         this.hideWelcomeMessage();
 
-
-
+        // Add user message and show loading
         this.addMessage('user', message);
-
         this.showLoading();
 
-
-
         try {
-
             const response = await this.processQuery(message);
-
             this.addMessage('assistant', response.response, response.sources);
-
         } catch (error) {
-
             console.error('Ошибка обработки запроса:', error);
-
             this.addMessage('assistant', 'Извините, произошла ошибка. Проверьте настройки API.', []);
-
         } finally {
-
             this.hideLoading();
-
             this.isProcessing = false;
-
         }
-
-
 
         this.scrollToBottom();
 
@@ -1111,19 +1199,53 @@ class ResearcherAI {
 
         const data = await response.json();
 
-        if (!response.ok) {
+        // Display progress if available
+        if (data.progress && Array.isArray(data.progress)) {
+            this.displayProgress(data.progress);
+        }
 
-            throw new Error(data.error || 'API Error');
+        if (!data.success) {
+
+            throw new Error(data.error || 'Неизвестная ошибка');
 
         }
 
 
 
-        return data;
+        return {
+
+            response: data.response || 'Нет ответа от AI',
+
+            sources: data.sources || []
+
+        };
 
     }
+    
+    
+    displayProgress(progressSteps) {
+        const progressContainer = document.getElementById('progress-steps');
+        progressContainer.innerHTML = '';
+        
+        progressSteps.forEach((step, index) => {
+            setTimeout(() => {
+                const stepElement = document.createElement('div');
+                stepElement.className = 'progress-step';
+                stepElement.innerHTML = `
+                    <div class="progress-step-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="progress-step-text">${step}</div>
+                `;
+                progressContainer.appendChild(stepElement);
+                
+                // Auto-scroll to bottom of progress
+                progressContainer.scrollTop = progressContainer.scrollHeight;
+            }, index * 100); // Stagger the appearance
+        });
+    }
 
-
+    
 
     addMessage(type, text, sources = []) {
 
@@ -1765,7 +1887,7 @@ class ResearcherAI {
 
     }
 
-}
+)
 
 
 
@@ -1850,4 +1972,3 @@ echo "</div>";
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
 
 ?>
-
