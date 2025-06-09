@@ -9,7 +9,7 @@ use ResearcherAI\VectorCacheManager;
 use ResearcherAI\Logger;
 
 try {
-    $vectorCache = new VectorCacheManager();
+    $vectorCache = new VectorCacheManager(__DIR__);
     
     // 1. Проверим общее количество чанков
     $pdo = $vectorCache->getPDO();
