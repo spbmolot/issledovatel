@@ -1,4 +1,3 @@
-
 class ResearcherAI {
 
     constructor() {
@@ -25,9 +24,9 @@ class ResearcherAI {
 
         
 
-        // Периодически обновляем статус
+        setInterval(() => this.checkApiStatus(), 60000);
 
-        setInterval(() => this.checkApiStatus(), 30000); // Каждые 30 секунд
+        console.log('✅ ResearcherAI инициализирован');
 
     }
 
@@ -35,25 +34,47 @@ class ResearcherAI {
 
     bindEvents() {
 
-        // Send message events
+        const sendBtn = document.getElementById('send-btn');
 
-        document.getElementById('send-btn').addEventListener('click', () => this.sendMessage());
+        const messageInput = document.getElementById('message-input');
 
-        document.getElementById('message-input').addEventListener('keypress', (e) => {
+        
 
-            if (e.key === 'Enter' && !e.shiftKey) {
+        if (sendBtn) {
 
-                e.preventDefault();
+            sendBtn.addEventListener('click', () => this.sendMessage());
 
-                this.sendMessage();
+        }
 
-            }
+        
 
-        });
+        if (messageInput) {
+
+            messageInput.addEventListener('keypress', (e) => {
+
+                if (e.key === 'Enter' && !e.shiftKey) {
+
+                    e.preventDefault();
+
+                    this.sendMessage();
+
+                }
+
+            });
 
 
 
-        // Example queries
+            messageInput.addEventListener('input', () => {
+
+                messageInput.style.height = 'auto';
+
+                messageInput.style.height = messageInput.scrollHeight + 'px';
+
+            });
+
+        }
+
+
 
         document.querySelectorAll('.example-item').forEach(item => {
 
@@ -61,9 +82,13 @@ class ResearcherAI {
 
                 const query = item.getAttribute('data-query');
 
-                document.getElementById('message-input').value = query;
+                if (messageInput) {
 
-                this.sendMessage();
+                    messageInput.value = query;
+
+                    this.sendMessage();
+
+                }
 
             });
 
@@ -71,173 +96,61 @@ class ResearcherAI {
 
 
 
-        // New chat button
+        const newChatBtn = document.getElementById('new-chat-btn');
 
-        document.getElementById('new-chat-btn').addEventListener('click', () => this.createNewChat());
+        if (newChatBtn) {
 
-
-
-        // Settings
-
-        document.getElementById('settings-btn').addEventListener('click', () => this.openSettings());
-
-        document.getElementById('save-settings').addEventListener('click', () => this.saveSettings());
-
-
-
-        // Auto-resize input
-
-        const messageInput = document.getElementById('message-input');
-
-        messageInput.addEventListener('input', () => {
-
-            messageInput.style.height = 'auto';
-
-            messageInput.style.height = messageInput.scrollHeight + 'px';
-
-        });
-
-
-
-        // Добавляем обработчик для автонастройки прокси
-
-        this.setupProxyAutoConfig();
-
-    }
-
-
-
-    setupProxyAutoConfig() {
-
-        // Ждем загрузки DOM и находим кнопку автонастройки
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            this.addAutoConfigButton();
-
-        });
-
-        
-
-        // Если DOM уже загружен
-
-        if (document.readyState === 'loading') {
-
-            this.addAutoConfigButton();
+            newChatBtn.addEventListener('click', () => this.createNewChat());
 
         }
 
-    }
 
 
+        const settingsBtn = document.getElementById('settings-btn');
 
-    addAutoConfigButton() {
+        if (settingsBtn) {
 
-        const proxyField = document.getElementById('proxy-url');
-
-        if (proxyField && !document.getElementById('auto-config-btn')) {
-
-            const autoButton = document.createElement('button');
-
-            autoButton.id = 'auto-config-btn';
-
-            autoButton.type = 'button';
-
-            autoButton.className = 'btn btn-secondary btn-sm mt-2';
-
-            autoButton.textContent = 'Авто-настройка';
-
-            autoButton.onclick = () => this.setupFineProxy();
-
-            
-
-            proxyField.parentNode.appendChild(autoButton);
+            settingsBtn.addEventListener('click', () => this.openSettings());
 
         }
 
-    }
-
-
-
-    async setupFineProxy() {
-
-        const button = document.getElementById('auto-config-btn');
-
-        const originalText = button.textContent;
-
         
 
-        try {
+        const saveSettingsBtn = document.getElementById('save-settings');
 
-            button.textContent = 'Настройка...';
+        if (saveSettingsBtn) {
 
-            button.disabled = true;
+            saveSettingsBtn.addEventListener('click', () => this.saveSettings());
 
-            
+        }
 
-            // Настраиваем IP для прокси
 
-            const setupResponse = await fetch('api/proxy_setup.php', {
 
-                method: 'POST',
+        const providerSelect = document.getElementById('ai-provider');
 
-                headers: { 'Content-Type': 'application/json' },
+        if (providerSelect) {
 
-                body: JSON.stringify({ ip: '176.57.216.68' })
+            providerSelect.addEventListener('change', () => {
+
+                this.handleProviderChange();
 
             });
 
-            
+        }
 
-            const setupResult = await setupResponse.json();
 
-            
 
-            if (!setupResult.success) {
+        const proxyEnabled = document.getElementById('proxy-enabled');
 
-                throw new Error('Ошибка настройки IP: ' + setupResult.message);
+        if (proxyEnabled) {
 
-            }
-
-            
-
-            // Получаем рекомендуемый прокси
-
-            const proxyResponse = await fetch('api/proxy_setup.php');
-
-            const proxyResult = await proxyResponse.json();
-
-            
-
-            if (proxyResult.recommended) {
-
-                // Вставляем прокси в поле
-
-                document.getElementById('proxy-url').value = proxyResult.recommended;
-
-                this.showNotification('Прокси настроен: ' + proxyResult.recommended, 'success');
-
-            } else {
-
-                throw new Error('Не удалось получить прокси');
-
-            }
-
-            
-
-        } catch (error) {
-
-            console.error('Ошибка автонастройки:', error);
-
-            this.showNotification('Ошибка автонастройки: ' + error.message, 'error');
-
-        } finally {
-
-            button.textContent = originalText;
-
-            button.disabled = false;
+            proxyEnabled.addEventListener('change', () => this.handleProxyToggle());
 
         }
+
+
+
+        console.log('✅ События привязаны');
 
     }
 
@@ -249,29 +162,51 @@ class ResearcherAI {
 
             const response = await fetch('api/check_status.php');
 
-            const status = await response.json();
+            const data = await response.json();
 
             
 
-            this.updateStatusIndicator('openai-status', status.openai, status.error_messages?.openai);
+            // Маппинг цветовых статусов на CSS классы
 
-            this.updateStatusIndicator('yandex-status', status.yandex, status.error_messages?.yandex);
+            const mapStatus = (color, message) => {
+
+                switch(color) {
+
+                    case 'green': return { status: 'success', message: message || 'Работает' };
+
+                    case 'yellow': return { status: 'warning', message: message || 'Предупреждение' };
+
+                    case 'red': return { status: 'error', message: message || 'Ошибка' };
+
+                    default: return { status: 'error', message: message || 'Неизвестно' };
+
+                }
+
+            };
+
+
+
+            // Обновляем статусы с правильным маппингом
+
+            this.updateStatusIndicator('openai-status', mapStatus(data.openai, data.error_messages?.openai));
+
+            this.updateStatusIndicator('deepseek-status', mapStatus(data.deepseek, data.error_messages?.deepseek));
+
+            this.updateStatusIndicator('yandex-status', mapStatus(data.yandex, data.error_messages?.yandex));
 
             
-
-            if (status.error_messages?.general) {
-
-                this.showNotification(status.error_messages.general, 'error');
-
-            }
 
         } catch (error) {
 
-            console.error('Error checking API status:', error);
+            console.error('Ошибка проверки статуса:', error);
 
-            this.updateStatusIndicator('openai-status', false, 'Ошибка проверки');
+            // Устанавливаем статусы ошибки
 
-            this.updateStatusIndicator('yandex-status', false, 'Ошибка проверки');
+            this.updateStatusIndicator('openai-status', { status: 'error', message: 'Ошибка соединения' });
+
+            this.updateStatusIndicator('deepseek-status', { status: 'error', message: 'Ошибка соединения' });
+
+            this.updateStatusIndicator('yandex-status', { status: 'error', message: 'Ошибка соединения' });
 
         }
 
@@ -279,7 +214,39 @@ class ResearcherAI {
 
 
 
-    updateStatusIndicator(elementId, isConnected, errorMessage = null) {
+    updateProviderDisplay(aiProvider) {
+
+        const openaiStatus = document.getElementById('openai-status');
+
+        const deepseekStatus = document.getElementById('deepseek-status');
+
+        
+
+        console.log('🔄 Показываем статус для провайдера:', aiProvider);
+
+        
+
+        if (aiProvider === 'deepseek') {
+
+            if (openaiStatus) openaiStatus.style.display = 'none';
+
+            if (deepseekStatus) deepseekStatus.style.display = 'flex';
+
+        } else {
+
+            if (openaiStatus) openaiStatus.style.display = 'flex';
+
+            if (deepseekStatus) deepseekStatus.style.display = 'none';
+
+        }
+
+    }
+
+
+
+    // НОВАЯ ФУНКЦИЯ: Трехцветная индикация статуса
+
+    updateStatusIndicator(elementId, { status, message }) {
 
         const element = document.getElementById(elementId);
 
@@ -287,37 +254,63 @@ class ResearcherAI {
 
         
 
-        const circle = element.querySelector('i, svg');
+        const circle = element.querySelector('i');
+
+        if (!circle) return;
 
         
 
-        if (isConnected) {
+        // Убираем все предыдущие классы цветов
 
-            element.classList.add('connected');
+        circle.classList.remove('text-success', 'text-warning', 'text-danger');
 
-            element.title = 'Подключено';
+        
 
-            if (circle) {
+        // Устанавливаем цвет и сообщение в зависимости от статуса
 
-                circle.style.color = '#27ae60'; // Green
+        switch (status) {
 
-            }
+            case 'success':
 
-        } else {
+                circle.classList.add('text-success');
 
-            element.classList.remove('connected');
+                element.title = message;
 
-            const title = errorMessage || 'Не подключено';
+                element.classList.add('connected');
 
-            element.title = title;
+                break;
 
-            if (circle) {
+                
 
-                circle.style.color = '#e74c3c'; // Red
+            case 'warning':
 
-            }
+                circle.classList.add('text-warning');
+
+                element.title = message;
+
+                element.classList.remove('connected');
+
+                break;
+
+                
+
+            case 'error':
+
+            default:
+
+                circle.classList.add('text-danger');
+
+                element.title = message;
+
+                element.classList.remove('connected');
+
+                break;
 
         }
+
+        
+
+        console.log(`📍 ${elementId}: ${status} - ${message}`);
 
     }
 
@@ -345,7 +338,7 @@ class ResearcherAI {
 
         this.addMessage('user', message);
 
-        this.showLoading('Анализирую ваш запрос...');
+        this.showLoading();
 
 
 
@@ -353,13 +346,15 @@ class ResearcherAI {
 
             const response = await this.processQuery(message);
 
+            console.log('✅ Получен ответ:', response);
+
             this.addMessage('assistant', response.text, response.sources);
 
         } catch (error) {
 
-            console.error('Error processing query:', error);
+            console.error('❌ Ошибка обработки запроса:', error);
 
-            this.addMessage('assistant', 'Извините, произошла ошибка при обработке запроса. Проверьте настройки API.', []);
+            this.addMessage('assistant', `Произошла ошибка: ${error.message}`, []);
 
         } finally {
 
@@ -379,9 +374,157 @@ class ResearcherAI {
 
     async processQuery(query) {
 
+        const response = await fetch('api/process_query.php', {
+
+            method: 'POST',
+
+            headers: {
+
+                'Content-Type': 'application/json; charset=utf-8',
+
+            },
+
+            body: JSON.stringify({
+
+                query: query,
+
+                chat_id: this.currentChatId
+
+            })
+
+        });
+
+
+
+        const data = await response.json();
+
+        
+
+        if (!response.ok) {
+
+            throw new Error(data.error || `HTTP Error ${response.status}`);
+
+        }
+
+
+
+        return data;
+
+    }
+
+
+
+    async loadChatHistory() {
+
         try {
 
-            const response = await fetch('api/process_query.php', {
+            const response = await fetch('api/get_chats.php');
+
+            const chats = await response.json();
+
+            this.renderChatHistory(chats);
+
+        } catch (error) {
+
+            console.error('❌ Ошибка загрузки истории:', error);
+
+        }
+
+    }
+
+
+
+    renderChatHistory(chats) {
+
+        const container = document.getElementById('chat-history');
+
+        if (!container) return;
+
+        
+
+        container.innerHTML = '';
+
+
+
+        if (chats.length === 0) {
+
+            container.innerHTML = '<div class="text-center text-muted py-3"><small>Нет сохраненных чатов</small></div>';
+
+            return;
+
+        }
+
+
+
+        chats.forEach(chat => {
+
+            const chatItem = document.createElement('div');
+
+            chatItem.className = 'chat-item d-flex align-items-center mb-2';
+
+            chatItem.dataset.chatId = chat.id;
+
+
+
+            const shortTitle = chat.title.length > 25 ? chat.title.substring(0, 25) + '...' : chat.title;
+
+
+
+            chatItem.innerHTML = `
+
+                <div class="flex-grow-1 chat-item-content" style="cursor: pointer;">
+
+                    <div class="chat-item-title" title="${this.escapeHtml(chat.title)}">${this.escapeHtml(shortTitle)}</div>
+
+                    <div class="chat-item-date">${new Date(chat.created_at).toLocaleDateString('ru-RU')}</div>
+
+                </div>
+
+                <button class="btn btn-sm btn-outline-light delete-chat-btn ms-2" title="Удалить чат">
+
+                    <i class="fas fa-trash-alt"></i>
+
+                </button>
+
+            `;
+
+
+
+            chatItem.querySelector('.chat-item-content').addEventListener('click', () => this.loadChat(chat.id));
+
+            
+
+            chatItem.querySelector('.delete-chat-btn').addEventListener('click', (e) => {
+
+                e.stopPropagation();
+
+                this.deleteChat(chat.id);
+
+            });
+
+
+
+            container.appendChild(chatItem);
+
+        });
+
+        
+
+        console.log('✅ История чатов отрендерена: ' + chats.length + ' чатов');
+
+    }
+
+
+
+    async deleteChat(chatId) {
+
+        if (!confirm('Удалить этот чат?')) return;
+
+        
+
+        try {
+
+            const response = await fetch('api/delete_chat.php', {
 
                 method: 'POST',
 
@@ -393,9 +536,7 @@ class ResearcherAI {
 
                 body: JSON.stringify({
 
-                    query: query,
-
-                    chat_id: this.currentChatId
+                    chat_id: chatId
 
                 })
 
@@ -403,21 +544,125 @@ class ResearcherAI {
 
 
 
-            const data = await response.json();
+            if (response.ok) {
 
-            if (!response.ok) {
+                if (this.currentChatId === chatId) {
 
-                throw new Error(data.error || 'API Error');
+                    this.currentChatId = null;
+
+                    document.getElementById('chat-messages').innerHTML = `
+
+                        <div class="welcome-message text-center py-5">
+
+                            <div class="welcome-icon text-primary mb-3">
+
+                                <i class="fas fa-brain" style="font-size: 4rem;"></i>
+
+                            </div>
+
+                            <h3 class="mb-3">Чат удален</h3>
+
+                            <p class="text-muted">Создайте новый чат или выберите из существующих</p>
+
+                        </div>
+
+                    `;
+
+                }
+
+                this.loadChatHistory();
+
+                this.showNotification('Чат удален', 'success');
+
+            } else {
+
+                throw new Error('Ошибка удаления');
 
             }
 
+        } catch (error) {
+
+            console.error('❌ Ошибка удаления чата:', error);
+
+            this.showNotification('Ошибка удаления чата', 'error');
+
+        }
+
+    }
 
 
-            return data;
+
+    escapeHtml(text) {
+
+        const div = document.createElement('div');
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+
+    async createNewChat() {
+
+        try {
+
+            const response = await fetch('api/create_chat.php', {
+
+                method: 'POST',
+
+                headers: {
+
+                    'Content-Type': 'application/json; charset=utf-8',
+
+                },
+
+                body: JSON.stringify({
+
+                    title: 'Новый чат'
+
+                })
+
+            });
+
+
+
+            const chatData = await response.json();
+
+            this.currentChatId = chatData.id;
+
+            
+
+            const container = document.getElementById('chat-messages');
+
+            container.innerHTML = `
+
+                <div class="welcome-message text-center py-5">
+
+                    <div class="welcome-icon text-primary mb-3">
+
+                        <i class="fas fa-brain" style="font-size: 4rem;"></i>
+
+                    </div>
+
+                    <h3 class="mb-3">Новый чат создан</h3>
+
+                    <p class="text-muted">Задайте вопрос о товарах или ценах</p>
+
+                </div>
+
+            `;
+
+            
+
+            this.loadChatHistory();
+
+            
 
         } catch (error) {
 
-            throw error;
+            console.error('❌ Ошибка создания чата:', error);
 
         }
 
@@ -473,17 +718,13 @@ class ResearcherAI {
 
             sources.forEach(source => {
 
-                const sourceLink = document.createElement('a');
+                const sourceSpan = document.createElement('span');
 
-                sourceLink.className = 'source-link';
+                sourceSpan.className = 'source-link me-2';
 
-                sourceLink.href = '#';
+                sourceSpan.textContent = source.name;
 
-                sourceLink.textContent = source.name;
-
-                sourceLink.title = source.path;
-
-                sourcesDiv.appendChild(sourceLink);
+                sourcesDiv.appendChild(sourceSpan);
 
             });
 
@@ -521,13 +762,37 @@ class ResearcherAI {
 
     formatMessage(text) {
 
-        text = text.replace(/\n/g, '<br>');
+        try {
 
-        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            if (typeof text !== 'string') {
 
-        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                text = String(text);
 
-        return text;
+            }
+
+            
+
+            text = text.replace(/[^\u0000-\u007F\u0400-\u04FF\u0020-\u007E]/g, '');
+
+            text = this.escapeHtml(text);
+
+            text = text.replace(/\n/g, '<br>');
+
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            
+
+            return text;
+
+        } catch (e) {
+
+            console.error('Ошибка форматирования сообщения:', e);
+
+            return 'Ошибка отображения сообщения';
+
+        }
 
     }
 
@@ -557,13 +822,11 @@ class ResearcherAI {
 
 
 
-    showLoading(message = 'Обрабатываю запрос...') {
+    showLoading() {
 
         const overlay = document.getElementById('loading-overlay');
 
-        const text = overlay.querySelector('p');
-
-        text.textContent = message;
+        overlay.classList.remove('d-none');
 
         overlay.classList.add('show');
 
@@ -575,229 +838,9 @@ class ResearcherAI {
 
         const overlay = document.getElementById('loading-overlay');
 
+        overlay.classList.add('d-none');
+
         overlay.classList.remove('show');
-
-    }
-
-
-
-    async loadChatHistory() {
-
-        try {
-
-            const response = await fetch('api/get_chats.php');
-
-            const chats = await response.json();
-
-            this.renderChatHistory(chats);
-
-        } catch (error) {
-
-            console.error('Error loading chat history:', error);
-
-        }
-
-    }
-
-
-
-    renderChatHistory(chats) {
-
-        const container = document.getElementById('chat-history');
-
-        container.innerHTML = '';
-
-
-
-        chats.forEach(chat => {
-
-            const chatItem = document.createElement('div');
-
-            chatItem.className = 'chat-item';
-
-            chatItem.dataset.chatId = chat.id;
-
-
-
-            chatItem.innerHTML = `
-
-                <div class="chat-item-title">${chat.title}</div>
-
-                <div class="chat-item-date">${new Date(chat.created_at).toLocaleDateString()}</div>
-
-            `;
-
-
-
-            chatItem.addEventListener('click', () => this.loadChat(chat.id));
-
-            container.appendChild(chatItem);
-
-        });
-
-    }
-
-
-
-    async loadChat(chatId) {
-
-        try {
-
-            const response = await fetch(`api/get_chat.php?id=${chatId}`);
-
-            const chatData = await response.json();
-
-            
-
-            this.currentChatId = chatId;
-
-            this.renderChatMessages(chatData.messages);
-
-            
-
-            document.querySelectorAll('.chat-item').forEach(item => {
-
-                item.classList.remove('active');
-
-                if (item.dataset.chatId === chatId.toString()) {
-
-                    item.classList.add('active');
-
-                }
-
-            });
-
-        } catch (error) {
-
-            console.error('Error loading chat:', error);
-
-        }
-
-    }
-
-
-
-    renderChatMessages(messages) {
-
-        const container = document.getElementById('chat-messages');
-
-        container.innerHTML = '';
-
-
-
-        messages.forEach(message => {
-
-            this.addMessage(message.type, message.text, message.sources || []);
-
-        });
-
-
-
-        this.scrollToBottom();
-
-    }
-
-
-
-    async createNewChat() {
-
-        try {
-
-            const response = await fetch('api/create_chat.php', {
-
-                method: 'POST',
-
-                headers: {
-
-                    'Content-Type': 'application/json',
-
-                },
-
-                body: JSON.stringify({
-
-                    title: 'Новый чат'
-
-                })
-
-            });
-
-
-
-            const chatData = await response.json();
-
-            this.currentChatId = chatData.id;
-
-            
-
-            const container = document.getElementById('chat-messages');
-
-            container.innerHTML = `
-
-                <div class="welcome-message">
-
-                    <div class="welcome-icon">
-
-                        <i class="fas fa-brain"></i>
-
-                    </div>
-
-                    <h3>Новый чат создан</h3>
-
-                    <p>Задайте вопрос о товарах или ценах, и я найду релевантную информацию в ваших прайс-листах</p>
-
-                    <div class="example-queries">
-
-                        <h5>Примеры запросов:</h5>
-
-                        <div class="example-item" data-query="Найди все предложения на iPhone 15">
-
-                            "Найди все предложения на iPhone 15"
-
-                        </div>
-
-                        <div class="example-item" data-query="Сравни цены на ноутбук Lenovo ThinkPad">
-
-                            "Сравни цены на ноутбук Lenovo ThinkPad"
-
-                        </div>
-
-                        <div class="example-item" data-query="Какие поставщики предлагают мониторы Samsung?">
-
-                            "Какие поставщики предлагают мониторы Samsung?"
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            `;
-
-            
-
-            document.querySelectorAll('.example-item').forEach(item => {
-
-                item.addEventListener('click', () => {
-
-                    const query = item.getAttribute('data-query');
-
-                    document.getElementById('message-input').value = query;
-
-                    this.sendMessage();
-
-                });
-
-            });
-
-            
-
-            this.loadChatHistory();
-
-        } catch (error) {
-
-            console.error('Error creating new chat:', error);
-
-        }
 
     }
 
@@ -817,7 +860,7 @@ class ResearcherAI {
 
                 headers: {
 
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json; charset=utf-8',
 
                 },
 
@@ -837,7 +880,7 @@ class ResearcherAI {
 
         } catch (error) {
 
-            console.error('Error saving message:', error);
+            console.error('❌ Ошибка сохранения сообщения:', error);
 
         }
 
@@ -851,12 +894,6 @@ class ResearcherAI {
 
         modal.show();
 
-        
-
-        // Добавляем кнопку автонастройки если её нет
-
-        setTimeout(() => this.addAutoConfigButton(), 100);
-
     }
 
 
@@ -867,29 +904,51 @@ class ResearcherAI {
 
         
 
-        if (settings.openai_key) {
+        const elements = {
 
-            document.getElementById('openai-key').value = settings.openai_key;
+            'ai-provider': settings.ai_provider || 'openai',
 
-        }
+            'openai-key': settings.openai_key || '',
 
-        if (settings.yandex_token) {
+            'deepseek-key': settings.deepseek_key || '',
 
-            document.getElementById('yandex-token').value = settings.yandex_token;
+            'yandex-token': settings.yandex_token || '',
 
-        }
+            'proxy-enabled': settings.proxy_enabled || false,
 
-        if (settings.proxy_url) {
+            'proxy-url': settings.proxy_url || '',
 
-            document.getElementById('proxy-url').value = settings.proxy_url;
+            'yandex-folder': settings.yandex_folder || '/2 АКТУАЛЬНЫЕ ПРАЙСЫ'
 
-        }
+        };
 
-        if (settings.yandex_folder) {
 
-            document.getElementById('yandex-folder').value = settings.yandex_folder;
 
-        }
+        Object.entries(elements).forEach(([id, value]) => {
+
+            const element = document.getElementById(id);
+
+            if (element) {
+
+                if (element.type === 'checkbox') {
+
+                    element.checked = value;
+
+                } else {
+
+                    element.value = value;
+
+                }
+
+            }
+
+        });
+
+
+
+        this.handleProviderChange();
+
+        this.handleProxyToggle();
 
     }
 
@@ -899,13 +958,19 @@ class ResearcherAI {
 
         const settings = {
 
-            openai_key: document.getElementById('openai-key').value,
+            ai_provider: document.getElementById('ai-provider')?.value || 'openai',
 
-            yandex_token: document.getElementById('yandex-token').value,
+            openai_key: document.getElementById('openai-key')?.value || '',
 
-            proxy_url: document.getElementById('proxy-url').value,
+            deepseek_key: document.getElementById('deepseek-key')?.value || '',
 
-            yandex_folder: document.getElementById('yandex-folder').value
+            yandex_token: document.getElementById('yandex-token')?.value || '',
+
+            proxy_enabled: document.getElementById('proxy-enabled')?.checked || false,
+
+            proxy_url: document.getElementById('proxy-url')?.value || '',
+
+            yandex_folder: document.getElementById('yandex-folder')?.value || '/2 АКТУАЛЬНЫЕ ПРАЙСЫ'
 
         };
 
@@ -919,13 +984,17 @@ class ResearcherAI {
 
                 headers: {
 
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json; charset=utf-8',
 
                 },
 
                 body: JSON.stringify(settings)
 
             });
+
+
+
+            const result = await response.json();
 
 
 
@@ -939,21 +1008,79 @@ class ResearcherAI {
 
                 
 
-                this.checkApiStatus();
+                // Проверяем статус после сохранения
+
+                setTimeout(() => this.checkApiStatus(), 1000);
 
                 this.showNotification('Настройки сохранены успешно', 'success');
 
             } else {
 
-                throw new Error('Failed to save settings');
+                throw new Error(result.error || 'Ошибка сохранения');
 
             }
 
         } catch (error) {
 
-            console.error('Error saving settings:', error);
+            console.error('❌ Ошибка сохранения настроек:', error);
 
-            this.showNotification('Ошибка при сохранении настроек', 'error');
+            this.showNotification('Ошибка при сохранении: ' + error.message, 'error');
+
+        }
+
+    }
+
+
+
+    handleProviderChange() {
+
+        const provider = document.getElementById('ai-provider')?.value;
+
+        const openaiGroup = document.getElementById('openai-key-group');
+
+        const deepseekGroup = document.getElementById('deepseek-key-group');
+
+        const proxyGroup = document.getElementById('proxy-toggle-group');
+
+
+
+        if (provider === 'openai') {
+
+            if (openaiGroup) openaiGroup.style.display = 'block';
+
+            if (deepseekGroup) deepseekGroup.style.display = 'none';
+
+            if (proxyGroup) proxyGroup.style.display = 'block';
+
+        } else if (provider === 'deepseek') {
+
+            if (openaiGroup) openaiGroup.style.display = 'none';
+
+            if (deepseekGroup) deepseekGroup.style.display = 'block';
+
+            if (proxyGroup) proxyGroup.style.display = 'none';
+
+        }
+
+        
+
+        this.updateProviderDisplay(provider);
+
+    }
+
+
+
+    handleProxyToggle() {
+
+        const enabled = document.getElementById('proxy-enabled')?.checked;
+
+        const proxyUrlGroup = document.getElementById('proxy-url-group');
+
+        
+
+        if (proxyUrlGroup) {
+
+            proxyUrlGroup.style.display = enabled ? 'block' : 'none';
 
         }
 
@@ -1015,276 +1142,148 @@ class ResearcherAI {
 
 
 
-// Initialize the application when DOM is loaded
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    window.researcherAI = new ResearcherAI();
-
-});
-
-
-
-const notificationStyles = document.createElement('style');
-
-notificationStyles.textContent = `
-
-    @keyframes slideInRight {
-
-        from {
-
-            opacity: 0;
-
-            transform: translateX(100%);
-
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform: translateX(0);
-
-        }
-
-    }
-
-    
-
-    .notification {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 0.5rem;
-
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-
-        border-radius: 10px;
-
-    }
-
-    
-
-    .notification .btn-close {
-
-        margin-left: auto;
-
-    }
-
-`;
-
-document.head.appendChild(notificationStyles);
-
-
-
-
-// Добавляем управление провайдерами
+// Инициализация приложения
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const providerSelect = document.getElementById('ai-provider');
-
-    const openaiGroup = document.getElementById('openai-key').parentNode;
-
-    const deepseekGroup = document.getElementById('deepseek-key-group');
-
-    const proxyGroup = document.getElementById('proxy-url').parentNode;
+    console.log('🎯 Исследователь AI загружен в Bitrix');
 
     
 
-    if (providerSelect) {
+    // Создаем экземпляр приложения
 
-        providerSelect.addEventListener('change', function() {
+    window.researcherAI = new ResearcherAI();
 
-            const provider = this.value;
+    
 
-            
+    // Дополнительные стили для уведомлений и трехцветных статусов
 
-            if (provider === 'openai') {
+    const statusStyles = document.createElement('style');
 
-                openaiGroup.style.display = 'block';
+    statusStyles.textContent = `
 
-                if (deepseekGroup) deepseekGroup.style.display = 'none';
+        @keyframes slideInRight {
 
-                proxyGroup.style.display = 'block';
+            from { opacity: 0; transform: translateX(100%); }
 
-                
+            to { opacity: 1; transform: translateX(0); }
 
-                // Показываем индикатор OpenAI
-
-                const openaiStatus = document.getElementById('openai-status');
-
-                const deepseekStatus = document.getElementById('deepseek-status');
-
-                if (openaiStatus) openaiStatus.style.display = 'flex';
-
-                if (deepseekStatus) deepseekStatus.style.display = 'none';
-
-                
-
-            } else if (provider === 'deepseek') {
-
-                openaiGroup.style.display = 'none';
-
-                if (deepseekGroup) deepseekGroup.style.display = 'block';
-
-                proxyGroup.style.display = 'none';
-
-                
-
-                // Показываем индикатор DeepSeek
-
-                const openaiStatus = document.getElementById('openai-status');
-
-                const deepseekStatus = document.getElementById('deepseek-status');
-
-                if (openaiStatus) openaiStatus.style.display = 'none';
-
-                if (deepseekStatus) deepseekStatus.style.display = 'flex';
-
-            }
-
-        });
+        }
 
         
 
-        // Инициализируем отображение
+        .notification {
 
-        providerSelect.dispatchEvent(new Event('change'));
+            display: flex;
 
-    }
+            align-items: center;
+
+            gap: 0.5rem;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+            border-radius: 10px;
+
+        }
+
+        
+
+        .notification .btn-close { margin-left: auto; }
+
+        
+
+        /* Трехцветные статусы */
+
+        .status-item i.text-success { color: #28a745 !important; }
+
+        .status-item i.text-warning { color: #ffc107 !important; }
+
+        .status-item i.text-danger { color: #dc3545 !important; }
+
+        
+
+        /* Анимация для предупреждений */
+
+        .status-item i.text-warning {
+
+            animation: pulse-warning 2s infinite;
+
+        }
+
+        
+
+        @keyframes pulse-warning {
+
+            0% { opacity: 1; }
+
+            50% { opacity: 0.6; }
+
+            100% { opacity: 1; }
+
+        }
+
+        
+
+        /* Скроллинг в чатах */
+
+        .chat-history {
+
+            max-height: 320px !important;
+
+            overflow-y: auto !important;
+
+            overflow-x: hidden;
+
+            padding-right: 5px;
+
+        }
+
+        
+
+        .chat-history::-webkit-scrollbar { width: 4px; }
+
+        .chat-history::-webkit-scrollbar-track { 
+
+            background: rgba(255,255,255,0.1); 
+
+            border-radius: 2px; 
+
+        }
+
+        .chat-history::-webkit-scrollbar-thumb { 
+
+            background: rgba(255,255,255,0.3); 
+
+            border-radius: 2px; 
+
+        }
+
+        .chat-history::-webkit-scrollbar-thumb:hover { 
+
+            background: rgba(255,255,255,0.5); 
+
+        }
+
+        
+
+        .delete-chat-btn {
+
+            opacity: 0;
+
+            transition: opacity 0.2s;
+
+            padding: 0.25rem 0.5rem !important;
+
+            font-size: 0.75rem !important;
+
+        }
+
+        
+
+        .chat-item:hover .delete-chat-btn { opacity: 1; }
+
+    `;
+
+    document.head.appendChild(statusStyles);
 
 });
-
-
-
-// Обновляем функции загрузки и сохранения настроек
-
-ResearcherAI.prototype.loadSettings = function() {
-
-    const settings = JSON.parse(localStorage.getItem('researcher_settings') || '{}');
-
-    
-
-    if (settings.ai_provider) {
-
-        const providerSelect = document.getElementById('ai-provider');
-
-        if (providerSelect) {
-
-            providerSelect.value = settings.ai_provider;
-
-            providerSelect.dispatchEvent(new Event('change'));
-
-        }
-
-    }
-
-    
-
-    if (settings.openai_key) {
-
-        document.getElementById('openai-key').value = settings.openai_key;
-
-    }
-
-    
-
-    if (settings.deepseek_key) {
-
-        const deepseekField = document.getElementById('deepseek-key');
-
-        if (deepseekField) deepseekField.value = settings.deepseek_key;
-
-    }
-
-    
-
-    if (settings.yandex_token) {
-
-        document.getElementById('yandex-token').value = settings.yandex_token;
-
-    }
-
-    if (settings.proxy_url) {
-
-        document.getElementById('proxy-url').value = settings.proxy_url;
-
-    }
-
-    if (settings.yandex_folder) {
-
-        document.getElementById('yandex-folder').value = settings.yandex_folder;
-
-    }
-
-};
-
-
-
-ResearcherAI.prototype.saveSettings = function() {
-
-    const settings = {
-
-        ai_provider: document.getElementById('ai-provider')?.value || 'openai',
-
-        openai_key: document.getElementById('openai-key').value,
-
-        deepseek_key: document.getElementById('deepseek-key')?.value || '',
-
-        yandex_token: document.getElementById('yandex-token').value,
-
-        proxy_url: document.getElementById('proxy-url').value,
-
-        yandex_folder: document.getElementById('yandex-folder').value
-
-    };
-
-
-
-    return fetch('api/save_settings.php', {
-
-        method: 'POST',
-
-        headers: {
-
-            'Content-Type': 'application/json',
-
-        },
-
-        body: JSON.stringify(settings)
-
-    }).then(response => {
-
-        if (response.ok) {
-
-            localStorage.setItem('researcher_settings', JSON.stringify(settings));
-
-            const modal = bootstrap.Modal.getInstance(document.getElementById('settingsModal'));
-
-            modal.hide();
-
-            
-
-            this.checkApiStatus();
-
-            this.showNotification('Настройки сохранены успешно', 'success');
-
-        } else {
-
-            throw new Error('Failed to save settings');
-
-        }
-
-    }).catch(error => {
-
-        console.error('Error saving settings:', error);
-
-        this.showNotification('Ошибка при сохранении настроек', 'error');
-
-    });
-
-};
-
