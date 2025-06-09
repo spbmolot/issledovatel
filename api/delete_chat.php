@@ -28,48 +28,72 @@ try {
     $input = json_decode(file_get_contents('php://input'), true);
 
     $chatId = $input['chat_id'] ?? null;
-
     
-
+    error_log(" [delete_chat] Начинаем удаление чата ID: $chatId");
+    
     if (!$chatId) {
 
         throw new Exception('Chat ID required');
 
     }
-
     
+    // Проверяем существование чата
 
+    $checkStmt = $pdo->prepare("SELECT COUNT(*) as count FROM researcher_chats WHERE id = ?");
+
+    $checkStmt->execute([$chatId]);
+
+    $chatExists = $checkStmt->fetch()['count'];
+
+    error_log(" [delete_chat] Чат существует: $chatExists");
+    
+    if ($chatExists == 0) {
+
+        error_log(" [delete_chat] Чат ID:$chatId не найден в базе");
+
+        throw new Exception('Chat not found');
+
+    }
+    
     // Удаляем сообщения чата
 
     $stmt = $pdo->prepare("DELETE FROM researcher_chat_messages WHERE chat_id = ?");
 
-    $stmt->execute([$chatId]);
+    $messagesResult = $stmt->execute([$chatId]);
 
+    $deletedMessages = $stmt->rowCount();
+
+    error_log(" [delete_chat] Удалено сообщений: $deletedMessages");
     
-
     // Удаляем сам чат
 
     $stmt = $pdo->prepare("DELETE FROM researcher_chats WHERE id = ?");
 
-    $result = $stmt->execute([$chatId]);
+    $chatResult = $stmt->execute([$chatId]);
 
+    $deletedChats = $stmt->rowCount();
+
+    error_log(" [delete_chat] Удалено чатов: $deletedChats");
     
+    // Проверяем результат
 
-    if ($result) {
+    if ($messagesResult && $chatResult && $deletedChats > 0) {
+
+        error_log(" [delete_chat] Удаление успешно завершено");
 
         echo json_encode(['success' => true], JSON_UNESCAPED_UNICODE);
 
     } else {
 
-        throw new Exception('Failed to delete chat');
+        error_log(" [delete_chat] Ошибка: messages_result=$messagesResult, chat_result=$chatResult, deleted_chats=$deletedChats");
+
+        throw new Exception("Failed to delete chat - no rows affected");
 
     }
-
     
-
 } catch (Exception $e) {
 
-    error_log('Delete chat error: ' . $e->getMessage());
+    error_log(" [delete_chat] Ошибка: " . $e->getMessage());
 
     http_response_code(500);
 
@@ -78,4 +102,3 @@ try {
 }
 
 ?>
-
