@@ -89,31 +89,18 @@ $settings = $stmt->fetch();
                             </h5>
 
                             <div class="status-panel">
-
                                 <div class="status-item d-flex align-items-center mb-2" id="openai-status" title="Проверка подключения...">
-
-                                    <i class="fas fa-circle me-2 text-danger"></i>
-
-                                    <span>OpenAI</span>
-
+                                    <i class="fas fa-circle me-2 text-danger status-icon"></i>
+                                    <span class="status-text">OpenAI</span>
                                 </div>
-
                                 <div class="status-item d-flex align-items-center mb-2" id="deepseek-status" title="Проверка подключения..." style="display:none;">
-
-                                    <i class="fas fa-circle me-2 text-danger"></i>
-
-                                    <span>DeepSeek</span>
-
+                                    <i class="fas fa-circle me-2 text-danger status-icon"></i>
+                                    <span class="status-text">DeepSeek</span>
                                 </div>
-
                                 <div class="status-item d-flex align-items-center mb-2" id="yandex-status" title="Проверка подключения...">
-
-                                    <i class="fas fa-circle me-2 text-danger"></i>
-
-                                    <span>Yandex Disk</span>
-
+                                    <i class="fas fa-circle me-2 text-danger status-icon"></i>
+                                    <span class="status-text">Yandex Disk</span>
                                 </div>
-
                             </div>
 
                         </div>
@@ -504,15 +491,11 @@ $settings = $stmt->fetch();
 
 }
 
-
-
 .status-item.connected i {
 
     color: #28a745 !important;
 
 }
-
-
 
 .example-item {
 
@@ -522,9 +505,7 @@ $settings = $stmt->fetch();
 
     border: 1px solid transparent;
 
-)
-
-
+}
 
 .example-item:hover {
 
@@ -534,9 +515,7 @@ $settings = $stmt->fetch();
 
     transform: translateY(-1px);
 
-)
-
-
+}
 
 .chat-item {
 
@@ -552,25 +531,19 @@ $settings = $stmt->fetch();
 
     transition: all 0.2s;
 
-)
-
-
+}
 
 .chat-item:hover {
 
     background: rgba(255,255,255,0.2);
 
-)
-
-
+}
 
 .chat-item.active {
 
     background: rgba(255,255,255,0.3);
 
-)
-
-
+}
 
 .chat-item-title {
 
@@ -580,9 +553,7 @@ $settings = $stmt->fetch();
 
     font-size: 0.9rem;
 
-)
-
-
+}
 
 .chat-item-date {
 
@@ -590,9 +561,7 @@ $settings = $stmt->fetch();
 
     opacity: 0.8;
 
-)
-
-
+}
 
 .message {
 
@@ -602,17 +571,13 @@ $settings = $stmt->fetch();
 
     gap: 1rem;
 
-)
-
-
+}
 
 .message.user {
 
     flex-direction: row-reverse;
 
-)
-
-
+}
 
 .message-avatar {
 
@@ -634,25 +599,19 @@ $settings = $stmt->fetch();
 
     flex-shrink: 0;
 
-)
-
-
+}
 
 .message.user .message-avatar {
 
     background: #007bff;
 
-)
-
-
+}
 
 .message.assistant .message-avatar {
 
     background: #6f42c1;
 
-)
-
-
+}
 
 .message-content {
 
@@ -660,9 +619,7 @@ $settings = $stmt->fetch();
 
     max-width: 70%;
 
-)
-
-
+}
 
 .message-text {
 
@@ -674,9 +631,7 @@ $settings = $stmt->fetch();
 
     border: 1px solid #e9ecef;
 
-)
-
-
+}
 
 .message.user .message-text {
 
@@ -686,9 +641,7 @@ $settings = $stmt->fetch();
 
     border: none;
 
-)
-
-
+}
 
 .message-sources {
 
@@ -698,9 +651,7 @@ $settings = $stmt->fetch();
 
     color: #6c757d;
 
-)
-
-
+}
 
 .source-link {
 
@@ -712,85 +663,48 @@ $settings = $stmt->fetch();
 
     text-decoration: none;
 
-)
+    background: #e7f3ff;
 
+    padding: 0.25rem 0.5rem;
 
-
-.source-link:hover {
-
-    text-decoration: underline;
-
-)
-
-
-
-.message-time {
+    border-radius: 0.25rem;
 
     font-size: 0.8rem;
-
-    color: #6c757d;
-
-    margin-top: 0.5rem;
-
-    text-align: right;
-
-)
-
-
-
-.message.user .message-time {
-
-    text-align: left;
-
-)
-
-
-
-.loading-overlay.show {
-
-    display: flex !important;
-
-)
-
-
-
-#message-input {
-
-    min-height: 45px;
-
-    max-height: 120px;
-
-}
-
-
-
-@media (max-width: 768px) {
-
-    .researcher-sidebar {
-
-        margin-bottom: 1rem;
-
-    }
-
-    
-
-    .chat-messages {
-
-        min-height: 300px !important;
-
-        max-height: 400px !important;
-
-    }
 
 }
 
 .message-time {
 
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 
     color: #6c757d;
 
     margin-top: 0.5rem;
+
+}
+
+/* Status indicators */
+.status-icon.status-success {
+
+    color: #28a745 !important;
+
+}
+
+.status-icon.status-warning {
+
+    color: #ffc107 !important;
+
+}
+
+.status-icon.status-error {
+
+    color: #dc3545 !important;
+
+}
+
+.status-item {
+
+    transition: all 0.3s ease;
 
 }
 
@@ -803,7 +717,7 @@ $settings = $stmt->fetch();
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 9999;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -812,6 +726,7 @@ $settings = $stmt->fetch();
 
 .loading-overlay.show {
     opacity: 1;
+    display: flex !important;
 }
 
 .loading-content {
@@ -863,6 +778,30 @@ $settings = $stmt->fetch();
     flex: 1;
     font-size: 0.9rem;
     color: #333;
+}
+
+#message-input {
+    min-height: 45px;
+    max-height: 120px;
+}
+
+.source-link:hover {
+    text-decoration: underline;
+}
+
+.message.user .message-time {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .researcher-sidebar {
+        margin-bottom: 1rem;
+    }
+    
+    .chat-messages {
+        min-height: 300px !important;
+        max-height: 400px !important;
+    }
 }
 
 @keyframes slideInLeft {
@@ -1058,39 +997,27 @@ class ResearcherAI {
 
             const response = await fetch('api/check_status.php');
 
-            if (!response.ok) {
-
-                throw new Error('API недоступен');
-
-            }
-
-            
-
             const status = await response.json();
 
-            
+            // Обновляем статусы
 
-            this.updateStatusIndicator('openai-status', status.openai);
+            this.updateStatusIndicator('openai-status', status.openai || { status: 'error', message: 'Не проверен' });
 
-            this.updateStatusIndicator('yandex-status', status.yandex);
+            this.updateStatusIndicator('deepseek-status', status.deepseek || { status: 'error', message: 'Не проверен' });
 
-            
-
-            if (status.deepseek !== undefined) {
-
-                this.updateStatusIndicator('deepseek-status', status.deepseek);
-
-            }
-
-            
+            this.updateStatusIndicator('yandex-status', status.yandex || { status: 'error', message: 'Не проверен' });
 
         } catch (error) {
 
             console.error('Ошибка проверки статуса:', error);
 
-            this.updateStatusIndicator('openai-status', false);
+            // Устанавливаем статусы ошибки
 
-            this.updateStatusIndicator('yandex-status', false);
+            this.updateStatusIndicator('openai-status', { status: 'error', message: 'Ошибка соединения' });
+
+            this.updateStatusIndicator('deepseek-status', { status: 'error', message: 'Ошибка соединения' });
+
+            this.updateStatusIndicator('yandex-status', { status: 'error', message: 'Ошибка соединения' });
 
         }
 
@@ -1098,41 +1025,51 @@ class ResearcherAI {
 
 
 
-    updateStatusIndicator(elementId, isConnected) {
+    updateStatusIndicator(id, status) {
 
-        const element = document.getElementById(elementId);
+        const indicator = document.getElementById(id);
 
-        if (!element) return;
+        if (!indicator) return;
 
-        
+        const statusIcon = indicator.querySelector('.status-icon');
 
-        const circle = element.querySelector('i');
+        const statusText = indicator.querySelector('.status-text');
 
-        
+        if (!statusIcon || !statusText) return;
 
-        if (isConnected) {
+        // Удаляем старые классы
 
-            element.classList.add('connected');
+        statusIcon.classList.remove('status-success', 'status-warning', 'status-error');
 
-            element.title = 'Подключено';
+        // Добавляем новые классы и текст
 
-            if (circle) {
+        switch (status.status) {
 
-                circle.className = 'fas fa-circle me-2 text-success';
+            case 'success':
 
-            }
+                statusIcon.classList.add('status-success');
 
-        } else {
+                statusText.textContent = status.message || 'Работает';
 
-            element.classList.remove('connected');
+                break;
 
-            element.title = 'Не подключено';
+            case 'warning':
 
-            if (circle) {
+                statusIcon.classList.add('status-warning');
 
-                circle.className = 'fas fa-circle me-2 text-danger';
+                statusText.textContent = status.message || 'Предупреждение';
 
-            }
+                break;
+
+            case 'error':
+
+            default:
+
+                statusIcon.classList.add('status-error');
+
+                statusText.textContent = status.message || 'Ошибка';
+
+                break;
 
         }
 
@@ -1149,22 +1086,35 @@ class ResearcherAI {
         if (!message || this.isProcessing) return;
 
         this.isProcessing = true;
+
         input.value = '';
+
         this.hideWelcomeMessage();
 
         // Add user message and show loading
+
         this.addMessage('user', message);
+
         this.showLoading();
 
         try {
+
             const response = await this.processQuery(message);
+
             this.addMessage('assistant', response.response, response.sources);
+
         } catch (error) {
+
             console.error('Ошибка обработки запроса:', error);
+
             this.addMessage('assistant', 'Извините, произошла ошибка. Проверьте настройки API.', []);
+
         } finally {
+
             this.hideLoading();
+
             this.isProcessing = false;
+
         }
 
         this.scrollToBottom();
@@ -1195,14 +1145,7 @@ class ResearcherAI {
 
         });
 
-
-
         const data = await response.json();
-
-        // Display progress if available
-        if (data.progress && Array.isArray(data.progress)) {
-            this.displayProgress(data.progress);
-        }
 
         if (!data.success) {
 
@@ -1210,7 +1153,13 @@ class ResearcherAI {
 
         }
 
+        // Display progress if available
 
+        if (data.progress && Array.isArray(data.progress)) {
+
+            this.displayProgress(data.progress);
+
+        }
 
         return {
 
@@ -1221,31 +1170,48 @@ class ResearcherAI {
         };
 
     }
-    
-    
+
+
+
     displayProgress(progressSteps) {
+
         const progressContainer = document.getElementById('progress-steps');
+
         progressContainer.innerHTML = '';
-        
+
         progressSteps.forEach((step, index) => {
+
             setTimeout(() => {
+
                 const stepElement = document.createElement('div');
+
                 stepElement.className = 'progress-step';
+
                 stepElement.innerHTML = `
+
                     <div class="progress-step-icon">
+
                         <i class="fas fa-check"></i>
+
                     </div>
+
                     <div class="progress-step-text">${step}</div>
+
                 `;
+
                 progressContainer.appendChild(stepElement);
-                
+
                 // Auto-scroll to bottom of progress
+
                 progressContainer.scrollTop = progressContainer.scrollHeight;
+
             }, index * 100); // Stagger the appearance
+
         });
+
     }
 
-    
+
 
     addMessage(type, text, sources = []) {
 
@@ -1255,21 +1221,15 @@ class ResearcherAI {
 
         messageDiv.className = `message ${type}`;
 
-
-
         const avatar = document.createElement('div');
 
         avatar.className = 'message-avatar';
 
         avatar.innerHTML = type === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
 
-
-
         const content = document.createElement('div');
 
         content.className = 'message-content';
-
-
 
         const messageText = document.createElement('div');
 
@@ -1277,11 +1237,7 @@ class ResearcherAI {
 
         messageText.innerHTML = this.formatMessage(text);
 
-
-
         content.appendChild(messageText);
-
-
 
         if (sources && sources.length > 0) {
 
@@ -1290,8 +1246,6 @@ class ResearcherAI {
             sourcesDiv.className = 'message-sources';
 
             sourcesDiv.innerHTML = '<strong>Источники:</strong><br>';
-
-            
 
             sources.forEach(source => {
 
@@ -1305,13 +1259,9 @@ class ResearcherAI {
 
             });
 
-
-
             content.appendChild(sourcesDiv);
 
         }
-
-
 
         const time = document.createElement('div');
 
@@ -1321,15 +1271,11 @@ class ResearcherAI {
 
         content.appendChild(time);
 
-
-
         messageDiv.appendChild(avatar);
 
         messageDiv.appendChild(content);
 
         messagesContainer.appendChild(messageDiv);
-
-
 
         this.saveMessageToChat(type, text, sources);
 
@@ -1425,8 +1371,6 @@ class ResearcherAI {
 
         container.innerHTML = '';
 
-
-
         if (chats.length === 0) {
 
             container.innerHTML = '<div class="text-center text-muted py-3"><small>Нет сохраненных чатов</small></div>';
@@ -1434,8 +1378,6 @@ class ResearcherAI {
             return;
 
         }
-
-
 
         chats.forEach(chat => {
 
@@ -1445,8 +1387,6 @@ class ResearcherAI {
 
             chatItem.dataset.chatId = chat.id;
 
-
-
             chatItem.innerHTML = `
 
                 <div class="chat-item-title">${chat.title}</div>
@@ -1454,8 +1394,6 @@ class ResearcherAI {
                 <div class="chat-item-date">${new Date(chat.created_at).toLocaleDateString()}</div>
 
             `;
-
-
 
             chatItem.addEventListener('click', () => this.loadChat(chat.id));
 
@@ -1475,13 +1413,9 @@ class ResearcherAI {
 
             const chatData = await response.json();
 
-            
-
             this.currentChatId = chatId;
 
             this.renderChatMessages(chatData.messages);
-
-            
 
             document.querySelectorAll('.chat-item').forEach(item => {
 
@@ -1511,15 +1445,11 @@ class ResearcherAI {
 
         container.innerHTML = '';
 
-
-
         messages.forEach(message => {
 
             this.addMessage(message.type, message.text, message.sources || []);
 
         });
-
-
 
         this.scrollToBottom();
 
@@ -1549,13 +1479,9 @@ class ResearcherAI {
 
             });
 
-
-
             const chatData = await response.json();
 
             this.currentChatId = chatData.id;
-
-            
 
             const container = document.getElementById('chat-messages');
 
@@ -1577,8 +1503,6 @@ class ResearcherAI {
 
             `;
 
-            
-
             this.loadChatHistory();
 
         } catch (error) {
@@ -1594,8 +1518,6 @@ class ResearcherAI {
     async saveMessageToChat(type, text, sources) {
 
         if (!this.currentChatId) return;
-
-
 
         try {
 
@@ -1649,8 +1571,6 @@ class ResearcherAI {
 
         const settings = JSON.parse(localStorage.getItem('researcher_settings') || '{}');
 
-        
-
         const elements = {
 
             'ai-provider': settings.ai_provider || 'openai',
@@ -1668,8 +1588,6 @@ class ResearcherAI {
             'yandex-folder': settings.yandex_folder || '/2 АКТУАЛЬНЫЕ ПРАЙСЫ'
 
         };
-
-
 
         Object.entries(elements).forEach(([id, value]) => {
 
@@ -1690,8 +1608,6 @@ class ResearcherAI {
             }
 
         });
-
-
 
         this.handleProviderChange();
 
@@ -1721,8 +1637,6 @@ class ResearcherAI {
 
         };
 
-
-
         try {
 
             const response = await fetch('api/save_settings.php', {
@@ -1739,8 +1653,6 @@ class ResearcherAI {
 
             });
 
-
-
             if (response.ok) {
 
                 localStorage.setItem('researcher_settings', JSON.stringify(settings));
@@ -1748,8 +1660,6 @@ class ResearcherAI {
                 const modal = bootstrap.Modal.getInstance(document.getElementById('settingsModal'));
 
                 modal.hide();
-
-                
 
                 this.checkApiStatus();
 
@@ -1787,8 +1697,6 @@ class ResearcherAI {
 
         const deepseekStatus = document.getElementById('deepseek-status');
 
-
-
         if (provider === 'openai') {
 
             if (openaiGroup) openaiGroup.style.display = 'block';
@@ -1824,8 +1732,6 @@ class ResearcherAI {
         const enabled = document.getElementById('proxy-enabled')?.checked;
 
         const proxyUrlGroup = document.getElementById('proxy-url-group');
-
-        
 
         if (proxyUrlGroup) {
 
@@ -1869,11 +1775,7 @@ class ResearcherAI {
 
         `;
 
-
-
         document.body.appendChild(notification);
-
-
 
         setTimeout(() => {
 
@@ -1897,13 +1799,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('🎯 Исследователь AI загружен в Bitrix');
 
-    
-
     // Создаем экземпляр приложения
 
     window.researcherAI = new ResearcherAI();
-
-    
 
     // Дополнительные стили для уведомлений
 
@@ -1941,9 +1839,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             gap: 0.5rem;
 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-            border-radius: 10px;
+            border-radius: 15px;
 
         }
 

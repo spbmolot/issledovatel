@@ -37,47 +37,78 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
     }
     
     private function processQueryWithVectorSearch($query, $folderPath, $startTime) {
+        $progress = array(); // Массив для отслеживания прогресса
+        
+        $progress[] = "🔍 Начинаю векторный поиск по запросу: '{$query}'";
+        $progress[] = "📊 Поиск похожих фрагментов в базе из 97 векторизированных файлов...";
+        
         $similarChunks = $this->vectorCacheManager->findSimilarContent($query, 10);
         
         if (empty($similarChunks)) {
+            $progress[] = "⚠️ Векторный поиск не дал результатов, переключаюсь на традиционный поиск";
             Logger::info("[VectorPriceAnalyzer] No similar vectors found, using traditional search");
             $result = parent::processQuery($query, $folderPath);
             $result['search_method'] = 'traditional_fallback';
+            $result['progress'] = $progress;
             return $result;
         }
         
+        $progress[] = "✅ Найдено " . count($similarChunks) . " релевантных фрагментов";
         Logger::info("[VectorPriceAnalyzer] Found " . count($similarChunks) . " similar chunks");
         
         $relevantFiles = $this->groupChunksByFiles($similarChunks);
+        $progress[] = "📁 Группировка по файлам: " . count($relevantFiles) . " уникальных прайс-листов";
+        
         $priceData = array();
         $sources = array();
+        $fileProcessed = 0;
         
         foreach ($relevantFiles as $filePath => $chunks) {
             $fileName = basename($filePath);
+            $fileProcessed++;
+            $progress[] = "📄 [{$fileProcessed}/" . count($relevantFiles) . "] Обрабатываю: {$fileName}";
+            
             $combinedText = $this->combineRelevantChunks($chunks);
+            $progress[] = "   └─ Извлечено ключевой информации: " . strlen($combinedText) . " символов";
             
             if (!empty($combinedText)) {
                 $priceData[$fileName] = $combinedText;
+                $avgSimilarity = $this->calculateAverageSimilarity($chunks);
+                $progress[] = "   └─ Релевантность: " . round($avgSimilarity * 100, 1) . "%";
+                
                 $sources[] = array(
                     'name' => $fileName,
                     'path' => $filePath,
                     'size' => 0,
                     'modified' => '',
-                    'similarity' => $this->calculateAverageSimilarity($chunks)
+                    'similarity' => $avgSimilarity
                 );
             }
         }
         
         if (empty($priceData)) {
+            $progress[] = "❌ Не удалось извлечь полезную информацию из найденных фрагментов";
             return array(
                 'response' => 'Найдены похожие фрагменты, но не удалось извлечь релевантную информацию о ценах.',
                 'sources' => array(),
                 'processing_time' => microtime(true) - $startTime,
-                'search_method' => 'vector_no_data'
+                'search_method' => 'vector_no_data',
+                'progress' => $progress
             );
         }
         
+        $totalChars = array_sum(array_map('strlen', $priceData));
+        $progress[] = "🧠 Подготовка данных для AI анализа: {$totalChars} символов из " . count($priceData) . " файлов";
+        $progress[] = "⚡ Отправляю запрос к DeepSeek AI для анализа и формирования ответа...";
+        
         $analysis = $this->aiProvider->analyzeQuery($query, $priceData);
+        
+        if (isset($analysis['error'])) {
+            $progress[] = "❌ Ошибка AI анализа: " . $analysis['error'];
+        } else {
+            $progress[] = "✅ AI анализ завершен успешно";
+            $progress[] = "📝 Сформирован структурированный ответ с рекомендациями";
+        }
         
         Logger::info("[VectorPriceAnalyzer] Vector search completed successfully");
         
@@ -85,7 +116,8 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
             'response' => $analysis['text'],
             'sources' => $sources,
             'processing_time' => microtime(true) - $startTime,
-            'search_method' => 'vector'
+            'search_method' => 'vector',
+            'progress' => $progress
         );
     }
     
