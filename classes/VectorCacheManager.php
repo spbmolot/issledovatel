@@ -49,6 +49,10 @@ class VectorCacheManager extends CacheManager {
         return $this->embeddingManager !== null;
     }
     
+    public function getPDO() {
+        return $this->pdo;
+    }
+    
     public function getQueryEmbedding($text) {
         if ($this->embeddingManager === null) {
             Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован для получения embedding");
