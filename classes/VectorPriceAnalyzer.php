@@ -239,7 +239,7 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
                     LIMIT 20
                 ");
                 $stmt->execute(['%' . $keyword . '%']);
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                 
                 foreach ($results as $result) {
                     $chunkKey = $result['file_path'] . '_' . $result['chunk_index'];
