@@ -2,13 +2,13 @@
 // Тест точности поиска CronaFloor NANO
 header('Content-Type: application/json; charset=utf-8');
 
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/config/database.php';
+
+use ResearcherAI\VectorCacheManager;
+use ResearcherAI\Logger;
+
 try {
-    require_once __DIR__ . '/vendor/autoload.php';
-    require_once __DIR__ . '/config/database.php';
-    
-    use ResearcherAI\VectorCacheManager;
-    use ResearcherAI\Logger;
-    
     $vectorCache = new VectorCacheManager();
     
     // 1. Проверим общее количество чанков

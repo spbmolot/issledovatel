@@ -26,7 +26,7 @@ try {
     ], JSON_UNESCAPED_UNICODE);
     
     // Попробуем выполнить поиск
-    $result = $analyzer->processQueryWithVectorSearch('CronaFloor NANO');
+    $result = $analyzer->processQuery('CronaFloor NANO');
     
     echo json_encode([
         'status' => 'search_success',
