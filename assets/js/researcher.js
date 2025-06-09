@@ -518,7 +518,7 @@ class ResearcherAI {
 
     async deleteChat(chatId) {
 
-        if (!confirm('Удалить этот чат?')) return;
+        if (!confirm('Точно ли хотите удалить этот чат? Все сообщения будут потеряны.')) return;
 
         
 
@@ -877,6 +877,12 @@ class ResearcherAI {
                 })
 
             });
+            
+            // Обновляем список чатов после первого пользовательского сообщения
+            // (чат может быть переименован на сервере)
+            if (type === 'user') {
+                this.loadChatHistory();
+            }
 
         } catch (error) {
 

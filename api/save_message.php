@@ -74,6 +74,23 @@ try {
     $pdo->prepare("UPDATE researcher_chats SET updated_at = CURRENT_TIMESTAMP WHERE id = ?")->execute([$chatId]);
 
     
+    // Автоматическое переименование чата при первом сообщении пользователя
+    if ($type === 'user') {
+        // Проверяем, это ли первое пользовательское сообщение в чате
+        $checkStmt = $pdo->prepare("SELECT COUNT(*) FROM researcher_chat_messages WHERE chat_id = ? AND type = 'user'");
+        $checkStmt->execute([$chatId]);
+        $userMessageCount = $checkStmt->fetchColumn();
+        
+        // Если это первое пользовательское сообщение, обновляем название чата
+        if ($userMessageCount == 1) {
+            // Обрезаем название до 100 символов для удобства отображения
+            $chatTitle = mb_strlen($text) > 100 ? mb_substr($text, 0, 100) . '...' : $text;
+            $updateTitleStmt = $pdo->prepare("UPDATE researcher_chats SET title = ? WHERE id = ?");
+            $updateTitleStmt->execute([$chatTitle, $chatId]);
+        }
+    }
+
+    
 
     echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
 
@@ -86,4 +103,3 @@ try {
 }
 
 ?>
-
