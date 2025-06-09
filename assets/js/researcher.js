@@ -934,24 +934,42 @@ class ResearcherAI {
             
             // Отображаем сообщения
             if (data.messages && data.messages.length > 0) {
+                
+                console.log('🔄 Обрабатываем', data.messages.length, 'сообщений');
 
-                data.messages.forEach(message => {
+                data.messages.forEach((message, index) => {
+
+                    console.log(`📝 Сообщение ${index + 1}:`, {
+                        id: message.id,
+                        type: message.type,
+                        sourcesRaw: message.sources,
+                        sourcesType: typeof message.sources
+                    });
 
                     // Безопасный парсинг sources
                     let sources = [];
-                    if (message.sources && message.sources.trim() !== '') {
+                    if (message.sources && typeof message.sources === 'string' && message.sources.trim() !== '') {
                         try {
+                            console.log(`🔍 Парсим sources для сообщения ${message.id}:`, message.sources);
                             sources = JSON.parse(message.sources);
+                            console.log(`✅ Sources распарсены для ${message.id}:`, sources);
                         } catch (e) {
                             console.warn('⚠️ Ошибка парсинга sources для сообщения:', message.id, e);
+                            console.warn('❌ Проблемный sources:', message.sources);
                             sources = [];
                         }
+                    } else if (Array.isArray(message.sources)) {
+                        // Если sources уже массив
+                        sources = message.sources;
+                        console.log(`✅ Sources уже массив для ${message.id}:`, sources);
+                    } else {
+                        console.log(`ℹ️ Sources пустые для сообщения ${message.id}`);
                     }
 
                     this.addMessageToUI(message.type, message.message, sources);
 
                 });
-
+            
             }
             
             // Скроллим вниз
