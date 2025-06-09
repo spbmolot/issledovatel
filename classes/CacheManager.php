@@ -166,7 +166,8 @@ class CacheManager {
     public function getCachedText($cacheKey) {
         // Ищем кэшированный текст по ключу (MD5 пути файла)
         try {
-            $stmt = $this->pdo->prepare("SELECT parsed_text_filename FROM cache_metadata WHERE MD5(yandex_disk_path) = ?");
+            // ИСПРАВЛЕНО: используем prepared statement вместо SQL функции MD5()
+            $stmt = $this->pdo->prepare("SELECT parsed_text_filename FROM cache_metadata WHERE cache_key = ?");
             $stmt->execute([$cacheKey]);
             $row = $stmt->fetch();
             
