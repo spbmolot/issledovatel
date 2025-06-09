@@ -695,17 +695,7 @@ class ResearcherAI {
 
         content.className = 'message-content';
 
-
-
-        const messageText = document.createElement('div');
-
-        messageText.className = 'message-text';
-
-        messageText.innerHTML = this.formatMessage(text);
-
-
-
-        content.appendChild(messageText);
+        content.innerHTML = this.formatMessage(text);
 
 
 
@@ -966,7 +956,7 @@ class ResearcherAI {
                         console.log(`ℹ️ Sources пустые для сообщения ${message.id}`);
                     }
 
-                    this.addMessageToUI(message.type, message.message, sources);
+                    this.addMessageToUI(message.type, message.text, sources);
 
                 });
             
@@ -1011,17 +1001,23 @@ class ResearcherAI {
 
 
         // Добавляем источники если есть
-
         if (sources && sources.length > 0) {
-
             const sourcesDiv = document.createElement('div');
-
             sourcesDiv.className = 'message-sources mt-2';
-
-            sourcesDiv.innerHTML = `<small class="text-muted">Источники: ${sources.join(', ')}</small>`;
-
+            
+            // Правильно отображаем объекты источников
+            const sourceNames = sources.map(source => {
+                if (typeof source === 'object' && source.name) {
+                    return source.name;
+                } else if (typeof source === 'string') {
+                    return source;
+                } else {
+                    return 'Неизвестный источник';
+                }
+            });
+            
+            sourcesDiv.innerHTML = `<small class="text-muted">Источники: ${sourceNames.join(', ')}</small>`;
             content.appendChild(sourcesDiv);
-
         }
 
 
@@ -1190,21 +1186,21 @@ class ResearcherAI {
 
 
 
-        if (provider === 'openai') {
-
-            if (openaiGroup) openaiGroup.style.display = 'block';
-
-            if (deepseekGroup) deepseekGroup.style.display = 'none';
-
-            if (proxyGroup) proxyGroup.style.display = 'block';
-
-        } else if (provider === 'deepseek') {
+        if (provider === 'deepseek') {
 
             if (openaiGroup) openaiGroup.style.display = 'none';
 
             if (deepseekGroup) deepseekGroup.style.display = 'block';
 
             if (proxyGroup) proxyGroup.style.display = 'none';
+
+        } else {
+
+            if (openaiGroup) openaiGroup.style.display = 'block';
+
+            if (deepseekGroup) deepseekGroup.style.display = 'none';
+
+            if (proxyGroup) proxyGroup.style.display = 'block';
 
         }
 
