@@ -10,8 +10,6 @@
 
 html, body {
 
-    height: 100vh !important;
-
     margin: 0 !important;
 
     padding: 0 !important;
@@ -19,8 +17,6 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
     background: #f8f9fa;
-
-    overflow: hidden;
 
 }
 
@@ -662,22 +658,58 @@ html, body {
 
 
 
-.input-group .btn {
+.modal-content {
 
     border-radius: 1rem;
 
-    padding: 0.75rem 1.5rem;
+    border: none;
 
-    margin-left: 0.5rem;
-
-    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 
 }
 
 
 
-/* Loading overlay */
+.modal-header {
 
+    border-bottom: 1px solid #e9ecef;
+
+    padding: 1.5rem;
+
+
+
+
+
+.modal-body {
+
+    padding: 2rem;
+
+
+
+
+
+.modal-footer {
+
+    border-top: 1px solid #e9ecef;
+
+    padding: 1.5rem;
+
+}
+
+/* API Status Colors */
+.status-icon.text-success {
+    color: #28a745 !important;
+}
+
+.status-icon.text-warning {
+    color: #ffc107 !important;
+}
+
+.status-icon.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Loading Overlay */
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -686,29 +718,22 @@ html, body {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 9999;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.loading-overlay.show {
-    opacity: 1;
-    display: flex !important;
 }
 
 .loading-content {
     background: white;
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 1rem;
     max-width: 500px;
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Progress Steps */
 .progress-steps {
     max-height: 300px;
     overflow-y: auto;
@@ -718,35 +743,33 @@ html, body {
     display: flex;
     align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    animation: slideInLeft 0.3s ease-out;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease forwards;
 }
 
-.progress-step:last-child {
-    border-bottom: none;
-}
-
-.progress-step .step-icon {
+.progress-step i {
     color: #28a745;
-    margin-right: 0.75rem;
-    font-size: 1.1rem;
-}
-
-.progress-step .step-text {
-    flex: 1;
-    font-size: 0.95rem;
-    color: #333;
+    margin-right: 0.5rem;
+    width: 16px;
 }
 
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
     to {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+/* Status Animation */
+.status-icon.text-warning {
+    animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
 }
 
 /* Responsive */
@@ -877,7 +900,7 @@ html, body {
 
     box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
 
-}
+
 
 
 
@@ -889,7 +912,7 @@ html, body {
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 
-}
+
 
 
 
@@ -899,7 +922,7 @@ html, body {
 
     padding: 1.5rem;
 
-}
+
 
 
 
@@ -907,7 +930,7 @@ html, body {
 
     padding: 2rem;
 
-}
+
 
 
 
@@ -917,80 +940,4 @@ html, body {
 
     padding: 1.5rem;
 
-}
-
-/* API Status Colors */
-.status-icon.text-success {
-    color: #28a745 !important;
-}
-
-.status-icon.text-warning {
-    color: #ffc107 !important;
-}
-
-.status-icon.text-danger {
-    color: #dc3545 !important;
-}
-
-/* Loading Overlay */
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loading-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 500px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-/* Progress Steps */
-.progress-steps {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.progress-step {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideInLeft 0.3s ease forwards;
-}
-
-.progress-step i {
-    color: #28a745;
-    margin-right: 0.5rem;
-    width: 16px;
-}
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Status Animation */
-.status-icon.text-warning {
-    animation: pulse-warning 2s infinite;
-}
-
-@keyframes pulse-warning {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; }
-    100% { opacity: 1; }
 }
