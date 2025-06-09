@@ -21,9 +21,26 @@ class DeepSeekProvider extends AIProvider {
         $systemPrompt = "Ты - эксперт по анализу прайс-листов в России. Анализируй данные о товарах и отвечай на вопросы пользователей на русском языке.\n\nПравила ответов:\n- Всегда указывай источники данных (названия файлов)\n- Показывай цены в рублях\n- Сравнивай предложения разных поставщиков\n- Выделяй лучшие предложения\n- Отвечай структурированно и понятно\n\nФормат ответа:\n1. Краткий ответ на вопрос\n2. Детальная информация с ценами\n3. Рекомендации по выбору\n4. Источники данных";
         
         $userPrompt = "Запрос пользователя: " . $query . "\n\nДанные из прайс-листов:\n";
+        $totalLength = 0;
+        $maxLength = 50000; // Ограничиваем общий размер данных
+        
         foreach ($priceData as $fileName => $data) {
-            $userPrompt .= "\n=== Файл: " . $fileName . " ===\n" . $data . "\n";
+            // Очищаем данные от некорректных символов
+            $cleanData = mb_convert_encoding($data, 'UTF-8', 'UTF-8');
+            $cleanData = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/', '', $cleanData);
+            
+            $fileSection = "\n=== Файл: " . $fileName . " ===\n" . $cleanData . "\n";
+            
+            if ($totalLength + strlen($fileSection) > $maxLength) {
+                Logger::warning("[DeepSeekProvider] Data truncated due to size limit");
+                break;
+            }
+            
+            $userPrompt .= $fileSection;
+            $totalLength += strlen($fileSection);
         }
+        
+        Logger::debug("[DeepSeekProvider] Total prompt length: " . strlen($userPrompt) . " chars");
         
         $messages = array(
             array('role' => 'system', 'content' => $systemPrompt),
@@ -117,7 +134,17 @@ class DeepSeekProvider extends AIProvider {
 
         if ($method === "POST") {
             curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $jsonData = json_encode($data, JSON_UNESCAPED_UNICODE);
+            
+            // Отладка JSON
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                Logger::error("[DeepSeekProvider] JSON encode error: " . json_last_error_msg());
+                Logger::error("[DeepSeekProvider] Data causing error: " . print_r($data, true));
+                throw new \Exception("JSON encode error: " . json_last_error_msg());
+            }
+            
+            Logger::debug("[DeepSeekProvider] Sending JSON length: " . strlen($jsonData) . " bytes");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
         } elseif ($method === "GET") {
             curl_setopt($ch, CURLOPT_HTTPGET, true);
         }
