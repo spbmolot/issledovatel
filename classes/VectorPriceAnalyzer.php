@@ -111,13 +111,68 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
     
     private function combineRelevantChunks($chunks) {
         $texts = array();
-        $maxChunks = 3;
+        $maxChunks = 5;           // Увеличиваем до 5 чанков для лучшего покрытия
+        $maxCharsPerChunk = 1500; // Уменьшаем размер чанка для большего разнообразия
+        $maxTotalChars = 6000;    // Немного увеличиваем общий лимит
         
+        $totalChars = 0;
         for ($i = 0; $i < min($maxChunks, count($chunks)); $i++) {
-            $texts[] = $chunks[$i]['content'];
+            $chunkText = $chunks[$i]['content'];
+            
+            // Извлекаем ключевую информацию из чанка
+            $processedChunk = $this->extractKeyInfo($chunkText, $maxCharsPerChunk);
+            
+            // Проверяем общий лимит
+            if ($totalChars + strlen($processedChunk) > $maxTotalChars) {
+                $remainingChars = $maxTotalChars - $totalChars;
+                if ($remainingChars > 200) { // Минимум 200 символов для полезной информации
+                    $processedChunk = substr($processedChunk, 0, $remainingChars) . '...';
+                    $texts[] = $processedChunk;
+                }
+                break;
+            }
+            
+            $texts[] = $processedChunk;
+            $totalChars += strlen($processedChunk);
         }
         
-        return implode("\n\n", $texts);
+        Logger::info("[VectorPriceAnalyzer] Combined text length: {$totalChars} chars from " . count($texts) . " chunks");
+        return implode("\n\n=== ФАЙЛ " . ($texts ? count($texts) : 0) . " ===\n", $texts);
+    }
+    
+    private function extractKeyInfo($text, $maxLength) {
+        // Приоритизируем строки с ценами, артикулами, названиями товаров
+        $lines = explode("\n", $text);
+        $keyLines = array();
+        $otherLines = array();
+        
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if (empty($line)) continue;
+            
+            // Ключевые индикаторы: цены, артикулы, бренды
+            if (preg_match('/\d+[.,]\d+|\d+\s*(руб|₽)|артикул|код|brand|модель/ui', $line) ||
+                strlen($line) < 100) { // Короткие строки обычно содержат ключевую инфу
+                $keyLines[] = $line;
+            } else {
+                $otherLines[] = $line;
+            }
+        }
+        
+        // Сначала добавляем ключевые строки, потом остальные
+        $result = implode("\n", array_slice($keyLines, 0, 15));
+        
+        // Добавляем остальные строки если есть место
+        if (strlen($result) < $maxLength * 0.7) {
+            $remaining = $maxLength - strlen($result) - 10;
+            $additional = implode("\n", array_slice($otherLines, 0, 5));
+            if (strlen($additional) > $remaining) {
+                $additional = substr($additional, 0, $remaining) . '...';
+            }
+            $result .= "\n" . $additional;
+        }
+        
+        return strlen($result) > $maxLength ? substr($result, 0, $maxLength) . '...' : $result;
     }
     
     private function calculateAverageSimilarity($chunks) {
