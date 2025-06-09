@@ -2,15 +2,15 @@
 // Тестирование VectorPriceAnalyzer для диагностики ошибки
 header('Content-Type: application/json; charset=utf-8');
 
+// Подключение автозагрузчика
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Подключение к базе данных
+require_once __DIR__ . '/config/database.php';
+
+use ResearcherAI\VectorPriceAnalyzer;
+
 try {
-    // Подключение автозагрузчика
-    require_once __DIR__ . '/vendor/autoload.php';
-    
-    // Подключение к базе данных
-    require_once __DIR__ . '/config/database.php';
-    
-    use ResearcherAI\VectorPriceAnalyzer;
-    
     // Создание экземпляра анализатора
     $analyzer = new VectorPriceAnalyzer($pdo);
     

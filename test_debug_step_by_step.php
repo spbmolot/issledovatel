@@ -2,25 +2,31 @@
 // Пошаговая диагностика для выявления точной причины ошибки
 header('Content-Type: application/json; charset=utf-8');
 
+// Подключение автозагрузчика
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Подключение к базе данных
+require_once __DIR__ . '/config/database.php';
+
+use ResearcherAI\VectorCacheManager;
+use ResearcherAI\VectorPriceAnalyzer;
+
 $step = 1;
 $results = [];
 
 try {
     // Шаг 1: Автозагрузчик
     $results["step_$step"] = "Подключение автозагрузчика";
-    require_once __DIR__ . '/vendor/autoload.php';
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
     // Шаг 2: База данных
     $results["step_$step"] = "Подключение к базе данных";
-    require_once __DIR__ . '/config/database.php';
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
     // Шаг 3: Импорт VectorCacheManager
     $results["step_$step"] = "Импорт VectorCacheManager";
-    use ResearcherAI\VectorCacheManager;
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
@@ -38,7 +44,6 @@ try {
     
     // Шаг 6: Импорт VectorPriceAnalyzer
     $results["step_$step"] = "Импорт VectorPriceAnalyzer";
-    use ResearcherAI\VectorPriceAnalyzer;
     $results["step_$step"] .= " - ✅ УСПЕХ";
     $step++;
     
