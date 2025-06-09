@@ -39,24 +39,31 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
     private function processQueryWithVectorSearch($query, $folderPath, $startTime) {
         $progress = array(); // Массив для отслеживания прогресса
         
-        $progress[] = "🔍 Начинаю векторный поиск по запросу: '{$query}'";
-        $progress[] = "📊 Поиск похожих фрагментов в базе из 97 векторизированных файлов...";
+        $progress[] = "🔍 Начинаю гибридный поиск по запросу: '{$query}'";
+        $progress[] = "📊 Этап 1: Векторный поиск в базе из 97 файлов...";
         
         $similarChunks = $this->vectorCacheManager->findSimilarContent($query, 10);
         
-        if (empty($similarChunks)) {
-            $progress[] = "⚠️ Векторный поиск не дал результатов, переключаюсь на традиционный поиск";
-            Logger::info("[VectorPriceAnalyzer] No similar vectors found, using traditional search");
+        // Добавляем текстовый поиск для повышения точности
+        $progress[] = "🔤 Этап 2: Дополнительный текстовый поиск по ключевым словам...";
+        $textSearchChunks = $this->performTextSearch($query);
+        
+        // Объединяем результаты векторного и текстового поиска
+        $allChunks = $this->mergeSearchResults($similarChunks, $textSearchChunks);
+        
+        if (empty($allChunks)) {
+            $progress[] = "⚠️ Гибридный поиск не дал результатов, переключаюсь на традиционный поиск";
+            Logger::info("[VectorPriceAnalyzer] No results from hybrid search, using traditional search");
             $result = parent::processQuery($query, $folderPath);
             $result['search_method'] = 'traditional_fallback';
             $result['progress'] = $progress;
             return $result;
         }
         
-        $progress[] = "✅ Найдено " . count($similarChunks) . " релевантных фрагментов";
-        Logger::info("[VectorPriceAnalyzer] Found " . count($similarChunks) . " similar chunks");
+        $progress[] = "✅ Найдено " . count($allChunks) . " релевантных фрагментов (векторный: " . count($similarChunks) . ", текстовый: " . count($textSearchChunks) . ")";
+        Logger::info("[VectorPriceAnalyzer] Found " . count($allChunks) . " chunks total");
         
-        $relevantFiles = $this->groupChunksByFiles($similarChunks);
+        $relevantFiles = $this->groupChunksByFiles($allChunks);
         $progress[] = "📁 Группировка по файлам: " . count($relevantFiles) . " уникальных прайс-листов";
         
         $priceData = array();
@@ -212,6 +219,110 @@ class VectorPriceAnalyzer extends PriceAnalyzer {
         
         $totalSimilarity = array_sum(array_column($chunks, 'similarity'));
         return round($totalSimilarity / count($chunks), 3);
+    }
+    
+    private function performTextSearch($query) {
+        try {
+            $pdo = $this->vectorCacheManager->getPDO();
+            
+            // Разбиваем запрос на ключевые слова
+            $keywords = $this->extractKeywords($query);
+            $chunks = array();
+            
+            foreach ($keywords as $keyword) {
+                if (strlen($keyword) < 3) continue; // Игнорируем короткие слова
+                
+                $stmt = $pdo->prepare("
+                    SELECT file_name, chunk_text, chunk_index 
+                    FROM vector_embeddings 
+                    WHERE chunk_text LIKE ? 
+                    LIMIT 20
+                ");
+                $stmt->execute(['%' . $keyword . '%']);
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                foreach ($results as $result) {
+                    $chunkKey = $result['file_name'] . '_' . $result['chunk_index'];
+                    if (!isset($chunks[$chunkKey])) {
+                        $chunks[$chunkKey] = array(
+                            'file_name' => $result['file_name'],
+                            'chunk_text' => $result['chunk_text'],
+                            'chunk_index' => $result['chunk_index'],
+                            'similarity' => 0.9, // Высокий приоритет для точных совпадений
+                            'search_type' => 'text'
+                        );
+                    }
+                }
+            }
+            
+            Logger::info("[VectorPriceAnalyzer] Text search found " . count($chunks) . " chunks for keywords: " . implode(', ', $keywords));
+            return array_values($chunks);
+            
+        } catch (\Exception $e) {
+            Logger::error("[VectorPriceAnalyzer] Text search error: " . $e->getMessage());
+            return array();
+        }
+    }
+    
+    private function extractKeywords($query) {
+        // Извлекаем ключевые слова из запроса
+        $query = mb_strtolower($query, 'UTF-8');
+        
+        // Удаляем стоп-слова
+        $stopWords = array('и', 'в', 'на', 'с', 'по', 'для', 'от', 'до', 'из', 'к', 'о', 'об', 'что', 'как', 'где', 'когда');
+        
+        // Разбиваем на слова
+        $words = preg_split('/[\s\-_\.]+/', $query);
+        $keywords = array();
+        
+        foreach ($words as $word) {
+            $word = trim($word);
+            if (strlen($word) >= 3 && !in_array($word, $stopWords)) {
+                $keywords[] = $word;
+            }
+        }
+        
+        return $keywords;
+    }
+    
+    private function mergeSearchResults($vectorChunks, $textChunks) {
+        $merged = array();
+        $seen = array();
+        
+        // Добавляем результаты текстового поиска с высоким приоритетом
+        foreach ($textChunks as $chunk) {
+            $key = $chunk['file_name'] . '_' . $chunk['chunk_index'];
+            if (!isset($seen[$key])) {
+                $merged[] = $chunk;
+                $seen[$key] = true;
+            }
+        }
+        
+        // Добавляем результаты векторного поиска
+        foreach ($vectorChunks as $chunk) {
+            $key = $chunk['file_name'] . '_' . $chunk['chunk_index'];
+            if (!isset($seen[$key])) {
+                $chunk['search_type'] = 'vector';
+                $merged[] = $chunk;
+                $seen[$key] = true;
+            }
+        }
+        
+        // Сортируем по релевантности (текстовые совпадения первыми)
+        usort($merged, function($a, $b) {
+            if (isset($a['search_type']) && $a['search_type'] === 'text' && 
+                isset($b['search_type']) && $b['search_type'] === 'vector') {
+                return -1;
+            }
+            if (isset($a['search_type']) && $a['search_type'] === 'vector' && 
+                isset($b['search_type']) && $b['search_type'] === 'text') {
+                return 1;
+            }
+            return $b['similarity'] <=> $a['similarity'];
+        });
+        
+        Logger::info("[VectorPriceAnalyzer] Merged search results: " . count($merged) . " unique chunks");
+        return $merged;
     }
     
     public function getVectorSearchStats() {
