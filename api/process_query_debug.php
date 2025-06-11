@@ -135,7 +135,7 @@ try {
 
         $testData = [
 
-            'model' => 'deepseek-chat',
+            'model' => 'deepseek-reasoner',
 
             'messages' => [
 
@@ -230,4 +230,3 @@ try {
 echo json_encode($debug, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 ?>
-

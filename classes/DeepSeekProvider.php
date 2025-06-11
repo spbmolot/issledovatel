@@ -58,14 +58,17 @@ class DeepSeekProvider extends AIProvider {
         
         try {
             $response = $this->sendRequest('/v1/chat/completions', array(
-                'model' => 'deepseek-chat',
+                'model' => 'deepseek-reasoner',
                 'messages' => $messages,
-                'max_tokens' => 2000,
-                'temperature' => 0.3,
-                'top_p' => 0.9
+                'max_tokens' => 32000
             ));
             
             $text = isset($response['choices'][0]['message']['content']) ? $response['choices'][0]['message']['content'] : 'Ошибка получения ответа';
+            $reasoning = isset($response['choices'][0]['message']['reasoning_content']) ? $response['choices'][0]['message']['reasoning_content'] : '';
+            
+            if (!empty($reasoning) && class_exists('Logger')) {
+                Logger::debug("[DeepSeekProvider] Reasoning length: " . strlen($reasoning) . " chars");
+            }
             
             $sources = array();
             foreach ($priceData as $fileName => $data) {

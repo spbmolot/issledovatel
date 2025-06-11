@@ -421,9 +421,11 @@ class YandexDiskClient {
 
     public function downloadFile($downloadUrl, $localFilePath) {
         try {
-            echo "   [DEBUG] Начинаем загрузку файла...\n";
-            echo "   [DEBUG] URL: " . substr($downloadUrl, 0, 60) . "...\n";
-            echo "   [DEBUG] Путь: {$localFilePath}\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Начинаем загрузку файла");
+                Logger::debug("[YandexDiskClient] URL: " . substr($downloadUrl, 0, 60) . "...");
+                Logger::debug("[YandexDiskClient] Путь: {$localFilePath}");
+            }
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $downloadUrl);
@@ -432,35 +434,45 @@ class YandexDiskClient {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_TIMEOUT, 300); // 5 минут таймаут
             
-            echo "   [DEBUG] Пытаемся открыть файл для записи...\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Пытаемся открыть файл для записи");
+            }
             $fileHandle = fopen($localFilePath, 'w');
             if (!$fileHandle) {
-                echo "   [DEBUG] ❌ Не удалось открыть файл для записи\n";
-                Logger::error("[YandexDiskClient] Cannot create local file: {$localFilePath}");
+                if (class_exists('Logger')) {
+                    Logger::error("[YandexDiskClient] Cannot create local file: {$localFilePath}");
+                }
                 curl_close($ch);
                 return false;
             }
-            echo "   [DEBUG] ✅ Файл открыт для записи\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Файл открыт для записи");
+            }
             
             curl_setopt($ch, CURLOPT_FILE, $fileHandle);
             
-            echo "   [DEBUG] Выполняем CURL запрос...\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Выполняем CURL запрос");
+            }
             $result = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             $error = curl_error($ch);
             
-            echo "   [DEBUG] CURL результат: " . ($result ? "SUCCESS" : "FAILED") . "\n";
-            echo "   [DEBUG] HTTP код: {$httpCode}\n";
-            if ($error) {
-                echo "   [DEBUG] CURL ошибка: {$error}\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] CURL результат: " . ($result ? "SUCCESS" : "FAILED"));
+                Logger::debug("[YandexDiskClient] HTTP код: {$httpCode}");
+                if ($error) {
+                    Logger::debug("[YandexDiskClient] CURL ошибка: {$error}");
+                }
             }
             
             curl_close($ch);
             fclose($fileHandle);
             
             if ($error) {
-                echo "   [DEBUG] ❌ Обнаружена CURL ошибка\n";
-                Logger::error("[YandexDiskClient] Download cURL Error: " . $error);
+                if (class_exists('Logger')) {
+                    Logger::error("[YandexDiskClient] Download cURL Error: " . $error);
+                }
                 if (file_exists($localFilePath)) {
                     unlink($localFilePath);
                 }
@@ -468,38 +480,47 @@ class YandexDiskClient {
             }
             
             if ($httpCode < 200 || $httpCode >= 300) {
-                echo "   [DEBUG] ❌ Неверный HTTP код: {$httpCode}\n";
-                Logger::error("[YandexDiskClient] Download HTTP Error: " . $httpCode);
+                if (class_exists('Logger')) {
+                    Logger::error("[YandexDiskClient] Download HTTP Error: " . $httpCode);
+                }
                 if (file_exists($localFilePath)) {
                     unlink($localFilePath);
                 }
                 return false;
             }
             
-            echo "   [DEBUG] Проверяем загруженный файл...\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Проверяем загруженный файл");
+            }
             if (!file_exists($localFilePath)) {
-                echo "   [DEBUG] ❌ Файл не создан\n";
-                Logger::error("[YandexDiskClient] Downloaded file not created");
+                if (class_exists('Logger')) {
+                    Logger::error("[YandexDiskClient] Downloaded file not created");
+                }
                 return false;
             }
             
             $fileSize = filesize($localFilePath);
-            echo "   [DEBUG] Размер загруженного файла: {$fileSize} байт\n";
+            if (class_exists('Logger')) {
+                Logger::debug("[YandexDiskClient] Размер загруженного файла: {$fileSize} байт");
+            }
             
             if ($fileSize == 0) {
-                echo "   [DEBUG] ❌ Файл пустой\n";
-                Logger::error("[YandexDiskClient] Downloaded file is empty");
+                if (class_exists('Logger')) {
+                    Logger::error("[YandexDiskClient] Downloaded file is empty");
+                }
                 unlink($localFilePath);
                 return false;
             }
             
-            echo "   [DEBUG] ✅ Файл успешно загружен\n";
-            Logger::info("[YandexDiskClient] File downloaded successfully: " . basename($localFilePath) . " ({$fileSize} bytes)");
+            if (class_exists('Logger')) {
+                Logger::info("[YandexDiskClient] File downloaded successfully: " . basename($localFilePath) . " ({$fileSize} bytes)");
+            }
             return true;
             
         } catch (Exception $e) {
-            echo "   [DEBUG] ❌ Исключение: " . $e->getMessage() . "\n";
-            Logger::error("[YandexDiskClient] Download exception: " . $e->getMessage());
+            if (class_exists('Logger')) {
+                Logger::error("[YandexDiskClient] Download exception: " . $e->getMessage());
+            }
             if (file_exists($localFilePath)) {
                 unlink($localFilePath);
             }

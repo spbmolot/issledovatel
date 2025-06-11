@@ -73,7 +73,7 @@ class PriceAnalyzer {
                 }
 
                 if ($parsedData === null) { // Cache miss or failed to decode
-                    $content = $this->yandexDisk->downloadFile($yandexDiskPath);
+                    $content = $this->yandexDisk->downloadFileContent($yandexDiskPath);
                     if ($content === null) {
                         continue;
                     }

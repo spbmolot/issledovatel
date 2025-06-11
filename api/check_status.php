@@ -235,7 +235,7 @@ try {
 
             $testData = [
 
-                'model' => 'deepseek-chat',
+                'model' => 'deepseek-reasoner',
 
                 'messages' => [
 
@@ -243,7 +243,7 @@ try {
 
                 ],
 
-                'max_tokens' => 5
+                'max_tokens' => 1000
 
             ];
 
@@ -490,4 +490,3 @@ try {
 }
 
 ?>
-
