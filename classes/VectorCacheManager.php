@@ -105,6 +105,201 @@ class VectorCacheManager extends CacheManager {
         return $stored > 0;
     }
     
+    /**
+     * Улучшенная векторизация с поддержкой структурирования данных через AI
+     * Выбирает между DeepSeek R1 анализом и прямой векторизацией в зависимости от провайдера
+     */
+    public function storeVectorDataEnhanced($filePath, $rawText, $aiProvider) {
+        if (!$this->isEmbeddingManagerInitialized()) {
+            Logger::error("[VectorCacheManager] EmbeddingManager не инициализирован");
+            return false;
+        }
+
+        Logger::info("[VectorCacheManager] Начинаем улучшенную векторизацию для: " . basename($filePath));
+        
+        try {
+            // Определяем тип AI провайдера
+            $providerClass = get_class($aiProvider);
+            $isDeepSeek = (strpos($providerClass, 'DeepSeek') !== false);
+            
+            if ($isDeepSeek) {
+                Logger::info("[VectorCacheManager] Используем DeepSeek R1 путь: структурирование + векторизация");
+                return $this->processWithDeepSeekR1($filePath, $rawText, $aiProvider);
+            } else {
+                Logger::info("[VectorCacheManager] Используем OpenAI путь: прямая векторизация");
+                return $this->processWithDirectVectorization($filePath, $rawText);
+            }
+            
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] Ошибка улучшенной векторизации: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * DeepSeek R1 путь: Сырой текст -> R1 анализ -> Структурированные данные -> Векторизация
+     */
+    private function processWithDeepSeekR1($filePath, $rawText, $deepSeekProvider) {
+        Logger::info("[VectorCacheManager] Шаг 1: Анализ и структурирование через DeepSeek R1");
+        
+        // Промпт для структурирования прайс-листа
+        $structuringPrompt = "Проанализируй этот прайс-лист и извлеки структурированную информацию. 
+
+ЗАДАЧА: Преобразовать сырые данные в структурированный формат для качественной векторизации.
+
+ИСХОДНЫЕ ДАННЫЕ:
+{$rawText}
+
+ТРЕБУЕМЫЙ ФОРМАТ ОТВЕТА:
+Для каждого товара создай отдельный блок в формате:
+ТОВАР: [Название товара]
+БРЕНД: [Производитель]  
+АРТИКУЛ: [Код товара]
+ЦЕНА: [Цена с валютой]
+ХАРАКТЕРИСТИКИ: [Размер, толщина, класс и т.д.]
+КАТЕГОРИЯ: [Тип товара]
+---
+
+ТРЕБОВАНИЯ:
+- Извлекай только реальные товары с ценами
+- Стандартизируй форматы цен (руб/м², руб/шт)
+- Исправляй очевидные опечатки
+- Группируй похожие товары
+- Удаляй служебную информацию (заголовки, примечания)
+- Максимум 20 товаров для оптимизации
+
+Анализируй внимательно и структурируй качественно для лучшего поиска.";
+
+        try {
+            $analysisResult = $deepSeekProvider->analyzeQuery($structuringPrompt);
+            
+            if (empty($analysisResult['text'])) {
+                Logger::error("[VectorCacheManager] DeepSeek R1 вернул пустой результат");
+                return $this->processWithDirectVectorization($filePath, $rawText);
+            }
+            
+            $structuredText = $analysisResult['text'];
+            Logger::info("[VectorCacheManager] R1 анализ успешен. Размер структурированного текста: " . strlen($structuredText) . " символов");
+            
+            // Разбиваем структурированный текст на блоки товаров
+            $chunks = $this->createStructuredChunks($structuredText);
+            Logger::info("[VectorCacheManager] Создано структурированных чанков: " . count($chunks));
+            
+            // Векторизуем структурированные данные
+            return $this->vectorizeChunks($filePath, $chunks);
+            
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] Ошибка R1 анализа: " . $e->getMessage());
+            Logger::info("[VectorCacheManager] Переключаемся на прямую векторизацию");
+            return $this->processWithDirectVectorization($filePath, $rawText);
+        }
+    }
+    
+    /**
+     * OpenAI путь: Сырой текст -> Прямая векторизация
+     */
+    private function processWithDirectVectorization($filePath, $rawText) {
+        Logger::info("[VectorCacheManager] Шаг 1: Прямая векторизация без предварительного структурирования");
+        
+        // Разбиваем сырой текст на чанки
+        $chunks = $this->createBasicChunks($rawText);
+        Logger::info("[VectorCacheManager] Создано базовых чанков: " . count($chunks));
+        
+        // Векторизуем
+        return $this->vectorizeChunks($filePath, $chunks);
+    }
+    
+    /**
+     * Создание структурированных чанков из результата R1 анализа
+     */
+    private function createStructuredChunks($structuredText) {
+        $chunks = [];
+        
+        // Разбиваем по разделителям товаров
+        $products = explode('---', $structuredText);
+        
+        foreach ($products as $index => $product) {
+            $product = trim($product);
+            
+            if (strlen($product) < 50) {
+                continue; // Пропускаем слишком короткие блоки
+            }
+            
+            // Убираем лишние переносы строк, но сохраняем структуру
+            $product = preg_replace('/\n{3,}/', "\n\n", $product);
+            $chunks[] = $product;
+        }
+        
+        return $chunks;
+    }
+    
+    /**
+     * Создание базовых чанков из сырого текста
+     */
+    private function createBasicChunks($rawText) {
+        $chunks = [];
+        
+        // Первый способ: разбивка по двойным переносам
+        $primaryChunks = explode("\n\n", $rawText);
+        $primaryChunks = array_filter($primaryChunks, function($chunk) {
+            return strlen(trim($chunk)) > 50;
+        });
+        
+        if (count($primaryChunks) > 0) {
+            return array_values($primaryChunks);
+        }
+        
+        // Резервный способ: разбивка по одинарным переносам
+        $fallbackChunks = explode("\n", $rawText);
+        $fallbackChunks = array_filter($fallbackChunks, function($chunk) {
+            return strlen(trim($chunk)) > 50;
+        });
+        
+        return array_values($fallbackChunks);
+    }
+    
+    /**
+     * Общий метод векторизации чанков
+     */
+    private function vectorizeChunks($filePath, $chunks) {
+        try {
+            $stmt = $this->pdo->prepare("INSERT INTO vector_embeddings (file_path, chunk_text, embedding, chunk_index) VALUES (?, ?, ?, ?)");
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] Ошибка подготовки SQL: " . $e->getMessage());
+            return false;
+        }
+
+        $stored = 0;
+        foreach ($chunks as $index => $chunk) {
+            try {
+                Logger::debug("[VectorCacheManager] Векторизация чанка #" . ($index + 1) . " (размер: " . strlen($chunk) . " символов)");
+                
+                $embedding = $this->embeddingManager->getEmbedding($chunk);
+                if ($embedding === null || !is_array($embedding)) {
+                    Logger::error("[VectorCacheManager] Не удалось получить embedding для чанка #" . ($index + 1));
+                    continue;
+                }
+
+                $embeddingJson = json_encode($embedding);
+                if ($embeddingJson === false) {
+                    Logger::error("[VectorCacheManager] Ошибка JSON кодирования embedding для чанка #" . ($index + 1));
+                    continue;
+                }
+
+                $stmt->execute([$filePath, $chunk, $embeddingJson, $index]);
+                $stored++;
+                Logger::debug("[VectorCacheManager] ✅ Чанк #" . ($index + 1) . " векторизирован и сохранен");
+                
+            } catch (\Exception $e) {
+                Logger::error("[VectorCacheManager] Исключение в чанке #" . ($index + 1) . ": " . $e->getMessage());
+                continue;
+            }
+        }
+
+        Logger::info("[VectorCacheManager] ✅ Векторизация завершена: {$stored}/{" . count($chunks) . "} чанков сохранено");
+        return $stored > 0;
+    }
+    
     public function findSimilarContent($query, $limit = 5) {
         try {
             if ($this->embeddingManager === null) {
