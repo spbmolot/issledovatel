@@ -171,7 +171,9 @@ class VectorCacheManager extends CacheManager {
 Анализируй внимательно и структурируй качественно для лучшего поиска.";
 
         try {
-            $analysisResult = $deepSeekProvider->analyzeQuery($structuringPrompt);
+            // DeepSeekProvider::analyzeQuery ожидает два аргумента: $query и $priceData
+            // Передаём массив с одним элементом, содержащим исходный файл и сырой текст
+            $analysisResult = $deepSeekProvider->analyzeQuery($structuringPrompt, [basename($filePath) => $rawText]);
             
             if (empty($analysisResult['text'])) {
                 Logger::error("[VectorCacheManager] DeepSeek R1 вернул пустой результат");
