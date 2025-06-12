@@ -15,20 +15,17 @@ echo "🧪 ТЕСТ УЛУЧШЕННОЙ ВЕКТОРИЗАЦИИ\n";
 echo "==============================\n\n";
 
 try {
-    // Получаем настройки
-    $settingsStmt = $mysql_pdo->prepare("SELECT setting_key, setting_value FROM researcher_settings");
-    $settingsStmt->execute();
-    $settingsRows = $settingsStmt->fetchAll();
-    
-    $settings = array();
-    foreach ($settingsRows as $row) {
-        $settings[$row['setting_key']] = $row['setting_value'];
+    // Получаем настройки (MySQL)
+    $settingsRow = $pdo->query("SELECT * FROM researcher_settings LIMIT 1")->fetch();
+    if (!$settingsRow) {
+        throw new \Exception("Настройки не найдены в таблице researcher_settings");
     }
+    $settings = $settingsRow;
 
     // Создаем AI провайдер
     $aiProvider = AIProviderFactory::create(
         $settings['ai_provider'] ?? 'deepseek',
-        $settings['ai_provider'] === 'openai' ? $settings['openai_key'] : $settings['deepseek_key']
+        (isset($settings['ai_provider']) && $settings['ai_provider'] === 'openai') ? $settings['openai_key'] : ($settings['deepseek_key'] ?? $settings['openai_key'])
     );
 
     echo "✅ AI Provider: " . get_class($aiProvider) . "\n";

@@ -40,14 +40,8 @@ try {
     echo "🔧 Получаем настройки из MySQL базы данных...\n";
     
     try {
-        $settingsStmt = $mysql_pdo->prepare("SELECT setting_key, setting_value FROM researcher_settings");
-        $settingsStmt->execute();
-        $settingsRows = $settingsStmt->fetchAll();
-        
-        $settings = array();
-        foreach ($settingsRows as $row) {
-            $settings[$row['setting_key']] = $row['setting_value'];
-        }
+        // Получаем все колонки одной строки настроек
+        $settings = $pdo->query("SELECT * FROM researcher_settings LIMIT 1")->fetch();
         
         if (empty($settings)) {
             echo "❌ Настройки не найдены в таблице researcher_settings\n";
@@ -66,8 +60,8 @@ try {
     // Создаем AI провайдер
     $aiProvider = AIProviderFactory::create(
         $settings['ai_provider'] ?? 'deepseek',
-        $settings['ai_provider'] === 'openai' ? $settings['openai_key'] : $settings['deepseek_key'],
-        !empty($settings['proxy_enabled']) && !empty($settings['proxy_url']) ? $settings['proxy_url'] : null
+        (isset($settings['ai_provider']) && $settings['ai_provider'] === 'openai') ? $settings['openai_key'] : ($settings['deepseek_key'] ?? $settings['openai_key']),
+        (!empty($settings['proxy_enabled']) && !empty($settings['proxy_url'])) ? $settings['proxy_url'] : null
     );
 
     $yandexClient = new YandexDiskClient($settings['yandex_token']);
