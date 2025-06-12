@@ -63,6 +63,11 @@ class Logger {
         self::write('WARNING', $message);
     }
 
+    // Добавляем debug, если нужно подробное логирование
+    public static function debug($message) {
+        self::write('DEBUG', $message);
+    }
+
     private static function write($level, $message) {
         self::initialize();
 
