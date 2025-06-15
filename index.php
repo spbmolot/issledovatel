@@ -511,6 +511,7 @@ $settings = $stmt->fetch();
 
 
 <!-- CSS Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-1c5Vx2XQ7Z3sE+nobVhtSGcVwqDAVBBusZT6F4LmSpaV0t1Ik5+pUvNbK/CtYQgQki71R+xVQUNBM8DT6GjK0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="assets/css/researcher.css">
 
 
@@ -524,7 +525,7 @@ $settings = $stmt->fetch();
 <script>
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎯 Исследователь AI загружен в Bitrix');
+    console.log(' Исследователь AI загружен в Bitrix');
     // Создаем экземпляр приложения
     window.researcherAI = new ResearcherAI();
 });
