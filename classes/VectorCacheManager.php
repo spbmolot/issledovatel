@@ -358,12 +358,23 @@ class VectorCacheManager extends CacheManager {
                    "  yandex_disk_modified = excluded.yandex_disk_modified,\n" .
                    "  yandex_disk_md5 = excluded.yandex_disk_md5,\n" .
                    "  vectorized_at = excluded.vectorized_at";
-            $this->pdo->prepare($sql)->execute([
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
                 ':p'=>$filePath,
                 ':m'=>$modified,
                 ':d'=>$md5,
                 ':v'=>date('Y-m-d H:i:s')
             ]);
+            // Логируем количество затронутых строк и проверяем, действительно ли запись существует
+            $affected = $stmt->rowCount();
+            Logger::info("[VectorCacheManager] markVectorized: затронуто строк = {$affected} для {$filePath}");
+
+            // Дополнительная верификация — сразу пробуем прочитать строку
+            $check = $this->pdo->prepare("SELECT 1 FROM vector_status WHERE yandex_disk_path = :p");
+            $check->execute([':p'=>$filePath]);
+            if (!$check->fetchColumn()) {
+                Logger::error("[VectorCacheManager] markVectorized: после вставки запись не найдена для {$filePath}");
+            }
         } catch (\Exception $e) {
             Logger::error("[VectorCacheManager] markVectorized error: " . $e->getMessage());
         }

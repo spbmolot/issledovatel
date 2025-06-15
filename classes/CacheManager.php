@@ -82,7 +82,8 @@ class CacheManager {
             $columns = $columnsStmt->fetchAll(PDO::FETCH_COLUMN, 1); // fetch second column which is the column name
 
             if (!in_array('cache_key', $columns, true)) {
-                $this->pdo->exec("ALTER TABLE cache_metadata ADD COLUMN cache_key TEXT UNIQUE");
+                // На старых версиях SQLite нельзя добавлять колонку с ограничением UNIQUE в одном запросе
+                $this->pdo->exec("ALTER TABLE cache_metadata ADD COLUMN cache_key TEXT");
                 // Create explicit unique index for faster lookups (if not auto-created)
                 $this->pdo->exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_cache_key ON cache_metadata(cache_key)");
                 Logger::info('[CacheManager] Added missing column `cache_key` to cache_metadata table.');
