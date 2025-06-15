@@ -532,4 +532,29 @@ class YandexDiskClient {
         }
     }
 
+    /**
+     * Упрощённая обёртка для получения основных метаданных файла (modified, md5, name, size)
+     * Совместима с вызовами VectorCacheManager::checkVectorStatus()
+     */
+    public function stat($path) {
+        try {
+            $info = $this->getFileInfo($path);
+            if (!$info) {
+                return null;
+            }
+            return [
+                'name'     => $info['name']     ?? basename($path),
+                'path'     => $info['path']     ?? $path,
+                'modified' => $info['modified'] ?? null,
+                'md5'      => $info['md5']      ?? null,
+                'size'     => $info['size']     ?? null,
+            ];
+        } catch (\Exception $e) {
+            if (class_exists('Logger')) {
+                Logger::error("[YandexDiskClient] stat error for " . $path, $e);
+            }
+            return null;
+        }
+    }
+
 }
