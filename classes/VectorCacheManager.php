@@ -12,6 +12,7 @@ class VectorCacheManager extends CacheManager {
         }
         Logger::info("[VectorCacheManager] PDO подключение успешно инициализировано");
         $this->createVectorTables();
+        $this->createVectorStatusTable();
         Logger::info("[VectorCacheManager] Инициализация завершена");
     }
     
@@ -37,6 +38,25 @@ class VectorCacheManager extends CacheManager {
         } catch (\Exception $e) {
             Logger::error("[VectorCacheManager] Ошибка создания таблицы: " . $e->getMessage());
             throw $e;
+        }
+    }
+    
+    /**
+     * Таблица для отслеживания статуса векторизации каждого файла на Яндекс.Диске
+     * PRIMARY KEY = yandex_disk_path, чтобы легко обновлять
+     */
+    private function createVectorStatusTable() {
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS vector_status (\n" .
+                   "    yandex_disk_path TEXT PRIMARY KEY,\n" .
+                   "    yandex_disk_modified TEXT NOT NULL,\n" .
+                   "    yandex_disk_md5 TEXT,\n" .
+                   "    vectorized_at TEXT NOT NULL\n" .
+                   ")";
+            $this->pdo->exec($sql);
+            Logger::info("[VectorCacheManager] Таблица vector_status создана");
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] Ошибка создания vector_status: " . $e->getMessage());
         }
     }
     
@@ -300,6 +320,62 @@ class VectorCacheManager extends CacheManager {
 
         Logger::info("[VectorCacheManager] ✅ Векторизация завершена: {$stored}/{" . count($chunks) . "} чанков сохранено");
         return $stored > 0;
+    }
+    
+    /**
+     * Проверяет, актуальны ли векторы файла
+     * Возвращает: 'NEW', 'CHANGED', 'UP_TO_DATE'
+     */
+    public function checkVectorStatus($filePath, $modified, $md5 = '') {
+        try {
+            $stmt = $this->pdo->prepare("SELECT yandex_disk_modified, yandex_disk_md5 FROM vector_status WHERE yandex_disk_path = :p");
+            $stmt->execute([':p'=>$filePath]);
+            $row = $stmt->fetch();
+            if (!$row) {
+                return 'NEW';
+            }
+            if ($row['yandex_disk_modified'] !== $modified || ($md5 && $row['yandex_disk_md5'] && $row['yandex_disk_md5'] !== $md5)) {
+                return 'CHANGED';
+            }
+            return 'UP_TO_DATE';
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] checkVectorStatus error: " . $e->getMessage());
+            return 'NEW';
+        }
+    }
+    
+    /**
+     * Сохраняет/обновляет запись о векторизации
+     */
+    public function markVectorized($filePath, $modified, $md5 = '') {
+        try {
+            $sql = "INSERT INTO vector_status (yandex_disk_path, yandex_disk_modified, yandex_disk_md5, vectorized_at) VALUES (:p,:m,:d,:v)\n" .
+                   "ON CONFLICT(yandex_disk_path) DO UPDATE SET\n" .
+                   "  yandex_disk_modified = excluded.yandex_disk_modified,\n" .
+                   "  yandex_disk_md5 = excluded.yandex_disk_md5,\n" .
+                   "  vectorized_at = excluded.vectorized_at";
+            $this->pdo->prepare($sql)->execute([
+                ':p'=>$filePath,
+                ':m'=>$modified,
+                ':d'=>$md5,
+                ':v'=>date('Y-m-d H:i:s')
+            ]);
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] markVectorized error: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Удаляет старые эмбеддинги файла
+     */
+    public function deleteEmbeddings($filePath) {
+        try {
+            $stmt = $this->pdo->prepare("DELETE FROM vector_embeddings WHERE file_path = :p");
+            $stmt->execute([':p'=>$filePath]);
+            Logger::info("[VectorCacheManager] Удалены старые векторы для {$filePath}");
+        } catch (\Exception $e) {
+            Logger::error("[VectorCacheManager] deleteEmbeddings error: " . $e->getMessage());
+        }
     }
     
     public function findSimilarContent($query, $limit = 5) {

@@ -125,6 +125,21 @@ try {
         echo "\n📄 [" . ($index+1) . "/" . count($excelFiles) . "] " . $file['name'] . "\n";
 
         try {
+            // Проверяем статус векторов (NEW | CHANGED | UP_TO_DATE)
+            $status = $vectorCacheManager->checkVectorStatus($file['path'], $file['modified'] ?? '', $file['md5'] ?? '');
+
+            if ($status === 'UP_TO_DATE') {
+                echo "   ✓ Векторы актуальны, пропускаем\n";
+                $processedFiles++;
+                showProgressBar($processedFiles, count($excelFiles), "Векторизация (ETA: --)", 50);
+                continue;
+            }
+
+            if ($status === 'CHANGED') {
+                echo "   ⚠ Обнаружено обновление файла – переиндексируем\n";
+                $vectorCacheManager->deleteEmbeddings($file['path']);
+            }
+
             // Проверяем, есть ли уже кэшированный текст для этого файла
             $cacheKey = md5($file['path']);
             $cachedText = $cacheManager->getCachedText($cacheKey);
@@ -193,6 +208,7 @@ try {
             if ($vectorCacheManager->storeVectorDataEnhanced($file['path'], $rawText, $aiProvider)) {
                 $successfulVectorizations++;
                 echo "   ✅ Файл успешно векторизирован\n";
+                $vectorCacheManager->markVectorized($file['path'], $file['modified'] ?? '', $file['md5'] ?? '');
             } else {
                 $failedVectorizations++;
                 echo "   ❌ Ошибка векторизации\n";

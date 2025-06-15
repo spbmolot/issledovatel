@@ -44,6 +44,8 @@ class YandexDiskClient {
         try {
 
             $url = $this->baseUrl . '/resources?path=' . urlencode($path) . '&limit=1000';
+            // Запрашиваем дополнительные поля md5, modified, size рекурсивно
+            $url .= '&fields=_embedded.items.path,_embedded.items.name,_embedded.items.type,_embedded.items.size,_embedded.items.modified,_embedded.items.md5';
 
             $response = $this->sendRequest($url);
 
@@ -71,7 +73,9 @@ class YandexDiskClient {
 
                             'modified' => isset($item['modified']) ? $item['modified'] : null,
 
-                            'mime_type' => isset($item['mime_type']) ? $item['mime_type'] : null
+                            'mime_type' => isset($item['mime_type']) ? $item['mime_type'] : null,
+
+                            'md5' => isset($item['md5']) ? $item['md5'] : null
 
                         );
 
