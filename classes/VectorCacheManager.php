@@ -334,7 +334,11 @@ class VectorCacheManager extends CacheManager {
             if (!$row) {
                 return 'NEW';
             }
-            if ($row['yandex_disk_modified'] !== $modified || ($md5 && $row['yandex_disk_md5'] && $row['yandex_disk_md5'] !== $md5)) {
+            // Приводим время к Unix timestamp для более надёжного сравнения, учётом часовых поясов/форматов
+            $storedTs   = $row['yandex_disk_modified'] ? strtotime($row['yandex_disk_modified']) : 0;
+            $currentTs  = $modified ? strtotime($modified) : 0;
+
+            if ($storedTs !== $currentTs || ($md5 && $row['yandex_disk_md5'] && $row['yandex_disk_md5'] !== $md5)) {
                 return 'CHANGED';
             }
             return 'UP_TO_DATE';
