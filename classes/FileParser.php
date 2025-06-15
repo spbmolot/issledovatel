@@ -3,6 +3,8 @@ namespace ResearcherAI;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\Exception as ReaderException;
+use Smalot\PdfParser\Parser as PdfParser;
+use PhpOffice\PhpWord\IOFactory as WordIOFactory;
 
 class FileParser {
     private $maxRows = 1000;
@@ -172,67 +174,43 @@ class FileParser {
     }
     
     private function parsePdf($content) {
+        // 1) Пробуем Smalot\PdfParser напрямую из строки
+        try {
+            $parser = new PdfParser();
+            $document = $parser->parseContent($content);
+            $text = $document->getText();
+            if (!empty(trim($text))) {
+                return $this->parseText($text);
+            }
+        } catch (\Throwable $e) {
+            // fallthrough to pdftotext
+            error_log('[FileParser] Smalot PdfParser failed: '.$e->getMessage());
+        }
+
+        // 2) Пытаемся через pdftotext, как было раньше
         $tempFile = null;
         try {
-            // Create temporary file for PDF content
             $tempFile = tempnam(sys_get_temp_dir(), 'pdf_');
-            if ($tempFile === false) {
-                throw new Exception('Failed to create temporary file for PDF.');
+            $tempPdf = $tempFile . '.pdf';
+            rename($tempFile, $tempPdf);
+            $tempFile = $tempPdf;
+            file_put_contents($tempFile, $content);
+            $cmd = 'pdftotext -enc UTF-8 -layout ' . escapeshellarg($tempFile) . ' -';
+            $extractedText = @shell_exec($cmd);
+            if ($extractedText === null || trim($extractedText)==='') {
+                $cmd = 'pdftotext -enc UTF-8 ' . escapeshellarg($tempFile) . ' -';
+                $extractedText = @shell_exec($cmd);
             }
-            // It's important to add the .pdf extension, as some versions of pdftotext require it
-            $tempPdfFile = $tempFile . '.pdf';
-            rename($tempFile, $tempPdfFile); // Rename to have the correct extension
-            $tempFile = $tempPdfFile; // Update the temporary file name
-
-            if (file_put_contents($tempFile, $content) === false) {
-                throw new Exception('Failed to write PDF content to temporary file.');
+            if (!empty(trim($extractedText))) {
+                return $this->parseText($extractedText);
             }
-
-            // Form the command for pdftotext
-            // -enc UTF-8: for UTF-8 output
-            // -layout: tries to preserve the original text layout, which can be useful
-            // - (dash): output to stdout
-            // escapeshellarg: for safe passing of the file name
-            $command = 'pdftotext -enc UTF-8 -layout ' . escapeshellarg($tempFile) . ' -';
-            
-            // Execute the command
-            // Suppress possible errors from shell_exec if pdftotext outputs something to stderr
-            $extractedText = @shell_exec($command);
-
-            if ($extractedText === null) {
-                // shell_exec might be disabled or an error occurred that it couldn't handle
-                // Try without -layout if the previous command failed
-                $command_simple = 'pdftotext -enc UTF-8 ' . escapeshellarg($tempFile) . ' -';
-                $extractedText = @shell_exec($command_simple);
-                if ($extractedText === null) {
-                    throw new Exception('Failed to execute pdftotext. It might not be installed, not in PATH, or shell_exec is disabled.');
-                }
-            }
-
-            if (empty(trim($extractedText))) {
-                // pdftotext might not have extracted anything (e.g., PDF with only images)
-                // or an error occurred but shell_exec didn't return null
-                // Try the old method as a fallback
-                return $this->parsePdfFallback($content);
-            }
-            
-            return $this->parseText($extractedText);
-
-        } catch (Exception $e) {
-            error_log("PDF parsing error (pdftotext): " . $e->getMessage());
-            // Try to use the old method in case of any error with pdftotext
-            return $this->parsePdfFallback($content);
+        } catch (\Throwable $e) {
+            error_log('[FileParser] pdftotext failed: '.$e->getMessage());
         } finally {
-            // Delete the temporary file if it was created
-            if ($tempFile && file_exists($tempFile)) {
-                unlink($tempFile);
-            }
-            // If the original tempnam file without .pdf remains (in case of rename error)
-            $originalTempFile = str_replace('.pdf', '', $tempFile ?? '');
-            if ($originalTempFile && file_exists($originalTempFile)) {
-                 unlink($originalTempFile);
-            }
+            if ($tempFile && file_exists($tempFile)) { unlink($tempFile);}
         }
+        // 3) Фолбэк
+        return $this->parsePdfFallback($content);
     }
 
     // Old PDF parsing method as a fallback
@@ -255,39 +233,51 @@ class FileParser {
     }
     
     private function parseWord($content) {
-        // Basic Word document parsing (simplified version)
-        // For production, use libraries like PhpWord
-        
         try {
-            // Extract text from Word document
-            $text = '';
-            
-            // For .docx files (ZIP-based)
-            if (strpos($content, 'PK') === 0) {
-                // This is a ZIP file (DOCX)
-                $tempFile = tempnam(sys_get_temp_dir(), 'docx_');
-                file_put_contents($tempFile, $content);
-                
-                $zip = new ZipArchive();
-                if ($zip->open($tempFile) === TRUE) {
-                    $xmlContent = $zip->getFromName('word/document.xml');
-                    if ($xmlContent) {
-                        // Extract text from XML
-                        $text = strip_tags($xmlContent);
-                        $text = html_entity_decode($text);
+            $tempFile = tempnam(sys_get_temp_dir(), 'word_');
+            file_put_contents($tempFile, $content);
+
+            // Сначала пробуем как DOCX
+            try {
+                $phpWord = WordIOFactory::load($tempFile, 'Word2007');
+                $text = '';
+                foreach ($phpWord->getSections() as $section) {
+                    foreach ($section->getElements() as $element) {
+                        if (method_exists($element, 'getText')) {
+                            $text .= $element->getText() . "\n";
+                        }
                     }
-                    $zip->close();
+                }
+                if (!empty(trim($text))) {
+                    unlink($tempFile);
+                    return $this->parseText($text);
+                }
+            } catch (\Exception $e) {
+                // not docx or failed
+            }
+            // Попытка как Word2003 (DOC)
+            try {
+                $phpWord = WordIOFactory::load($tempFile, 'MsDoc');
+                $text = '';
+                foreach ($phpWord->getSections() as $section) {
+                    foreach ($section->getElements() as $element) {
+                        if (method_exists($element, 'getText')) {
+                            $text .= $element->getText() . "\n";
+                        }
+                    }
                 }
                 unlink($tempFile);
-            } else {
-                // For .doc files, try to extract readable text
-                $text = $this->extractTextFromBinary($content);
+                return $this->parseText($text);
+            } catch (\Exception $e) {
+                // fallback
             }
-            
+
+            unlink($tempFile);
+            // Фолбэк – старый способ
+            $text = $this->extractTextFromBinary($content);
             return $this->parseText($text);
-            
-        } catch (Exception $e) {
-            error_log("Word parsing error: " . $e->getMessage());
+        } catch (\Throwable $e) {
+            error_log('[FileParser] Word parsing error: '.$e->getMessage());
             return [];
         }
     }
