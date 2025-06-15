@@ -9,8 +9,10 @@ use ResearcherAI\YandexDiskClient;
 use ResearcherAI\VectorCacheManager;
 use ResearcherAI\FileParser;
 use ResearcherAI\CacheManager;
+use ResearcherAI\Logger;
 
 try {
+    Logger::info("[vectorize_file] Запрос на векторизацию файла: {$path}");
     $path = $_GET['path'] ?? '';
     if (empty($path)) {
         throw new Exception('Missing path');
@@ -44,10 +46,12 @@ try {
     // Проверяем статус
     $status = $vectorManager->checkVectorStatus($path, $info['modified'] ?? '', $info['md5'] ?? '');
     if ($status === 'UP_TO_DATE') {
+        Logger::info("[vectorize_file] Файл уже векторизирован и актуален: {$path}");
         echo json_encode(['status' => 'already_up_to_date']);
         exit;
     }
     if ($status === 'CHANGED') {
+        Logger::info("[vectorize_file] Файл изменён, удаляем старые вектора: {$path}");
         $vectorManager->deleteEmbeddings($path);
     }
 
@@ -67,12 +71,15 @@ try {
     }
 
     if (!$vectorManager->storeVectorDataEnhanced($path,$text,$aiProvider)) {
+        Logger::error("[vectorize_file] Ошибка при сохранении векторов для файла: {$path}");
         throw new Exception('Vectorize failed');
     }
     $vectorManager->markVectorized($path, $info['modified']??'',$info['md5']??'');
+    Logger::info("[vectorize_file] Векторизация завершена успешно для файла: {$path}");
 
     echo json_encode(['status'=>'vectorized']);
 } catch (Throwable $e) {
+    Logger::error("[vectorize_file] Исключение: " . $e->getMessage(), $e);
     http_response_code(500);
     echo json_encode(['error'=>$e->getMessage()]);
 }

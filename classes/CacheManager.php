@@ -58,14 +58,38 @@ class CacheManager {
                     yandex_disk_modified TEXT NOT NULL,
                     yandex_disk_md5 TEXT,
                     parsed_text_filename TEXT NOT NULL,
+                    cache_key TEXT UNIQUE,
                     cached_at TEXT NOT NULL
                 );";
         try {
             $this->pdo->exec($sql);
+            // Ensure the new column `cache_key` exists even for legacy installations
+            $this->_ensureCacheKeyColumn();
             Logger::info('[CacheManager] Cache table `cache_metadata` is ready.');
         } catch (PDOException $e) {
             Logger::error('[CacheManager] SQLite Create Table Error: ' . $e->getMessage(), $e);
             throw $e;
+        }
+    }
+
+    /**
+     * Ensure the `cache_key` column exists in the `cache_metadata` table. If the project was
+     * deployed before this column was introduced, we add it via ALTER TABLE to prevent runtime SQL errors.
+     */
+    private function _ensureCacheKeyColumn() {
+        try {
+            $columnsStmt = $this->pdo->query("PRAGMA table_info(cache_metadata)");
+            $columns = $columnsStmt->fetchAll(PDO::FETCH_COLUMN, 1); // fetch second column which is the column name
+
+            if (!in_array('cache_key', $columns, true)) {
+                $this->pdo->exec("ALTER TABLE cache_metadata ADD COLUMN cache_key TEXT UNIQUE");
+                // Create explicit unique index for faster lookups (if not auto-created)
+                $this->pdo->exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_cache_key ON cache_metadata(cache_key)");
+                Logger::info('[CacheManager] Added missing column `cache_key` to cache_metadata table.');
+            }
+        } catch (PDOException $e) {
+            // We log the error but do not throw, to avoid breaking runtime in case of concurrent migrations
+            Logger::error('[CacheManager] Failed to ensure `cache_key` column exists: ' . $e->getMessage(), $e);
         }
     }
 
@@ -105,20 +129,23 @@ class CacheManager {
                 return false;
             }
 
-            $sql = "INSERT INTO cache_metadata (yandex_disk_path, yandex_disk_modified, yandex_disk_md5, parsed_text_filename, cached_at) 
-                    VALUES (:path, :modified, :md5, :filename, :cached_at)
+            $sql = "INSERT INTO cache_metadata (yandex_disk_path, yandex_disk_modified, yandex_disk_md5, parsed_text_filename, cache_key, cached_at) 
+                    VALUES (:path, :modified, :md5, :filename, :cache_key, :cached_at)
                     ON CONFLICT(yandex_disk_path) DO UPDATE SET
                         yandex_disk_modified = excluded.yandex_disk_modified,
                         yandex_disk_md5 = excluded.yandex_disk_md5,
                         parsed_text_filename = excluded.parsed_text_filename,
+                        cache_key = excluded.cache_key,
                         cached_at = excluded.cached_at;";
             
             $stmt = $this->pdo->prepare($sql);
+            $cacheKey = md5($yandexDiskPath);
             $stmt->execute([
                 ':path' => $yandexDiskPath,
                 ':modified' => $yandexDiskModified,
                 ':md5' => $yandexDiskMd5,
                 ':filename' => $parsedTextFilename,
+                ':cache_key' => $cacheKey,
                 ':cached_at' => date('Y-m-d H:i:s')
             ]);
             Logger::info("[CacheManager] Successfully cached content for '{$yandexDiskPath}' to file '{$parsedTextFilename}'.");
