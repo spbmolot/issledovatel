@@ -115,6 +115,12 @@ $settings = $stmt->fetch();
 
                             </button>
 
+                            <button class="btn btn-light w-100 mb-3" id="prices-status-btn">
+
+                                <i class="fas fa-file-alt me-2"></i>Прайсы
+
+                            </button>
+
 
 
                             <div class="chat-history" id="chat-history" style="max-height: 400px; overflow-y: auto;">
@@ -455,7 +461,30 @@ $settings = $stmt->fetch();
 
 </div>
 
-
+<!-- Prices Modal -->
+<div class="modal fade" id="pricesModal" tabindex="-1" aria-labelledby="pricesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pricesModalLabel">Статус прайс-листов</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-sm align-middle">
+          <thead>
+            <tr>
+              <th style="width:90px">Статус</th>
+              <th>Файл</th>
+              <th>Изменён</th>
+              <th style="width:140px">Действие</th>
+            </tr>
+          </thead>
+          <tbody id="prices-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Loading Overlay -->
 

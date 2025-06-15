@@ -22,6 +22,8 @@ class ResearcherAI {
 
         this.loadSettings();
 
+        this.bindPricesUI();
+
         
 
         setInterval(() => this.checkApiStatus(), 30000);
@@ -1459,5 +1461,65 @@ class ResearcherAI {
             const searchUrl = `https://disk.yandex.ru/client/disk${folderPath}?search=${encodeURIComponent(fileName)}`;
             window.open(searchUrl, '_blank');
         }
+    }
+
+    // ===================== Прайсы ======================
+    bindPricesUI() {
+        const btn = document.getElementById('prices-status-btn');
+        if (!btn) return;
+
+        const tableBody = document.getElementById('prices-table-body');
+        const modal = new bootstrap.Modal(document.getElementById('pricesModal'));
+
+        btn.addEventListener('click', async () => {
+            btn.disabled = true;
+            tableBody.innerHTML = '<tr><td colspan="4" class="text-center">Загрузка...</td></tr>';
+            modal.show();
+
+            try {
+                const res = await fetch('api/list_vector_status.php');
+                const data = await res.json();
+                tableBody.innerHTML = '';
+                data.files.forEach(f => {
+                    const tr = document.createElement('tr');
+                    const statusIcon = {
+                        ok: '<span class="text-success"><i class="fas fa-check-circle"></i></span>',
+                        outdated: '<span class="text-danger"><i class="fas fa-times-circle"></i></span>',
+                        missing: '<span class="text-danger"><i class="fas fa-times-circle"></i></span>',
+                        processing: '<span class="text-warning"><i class="fas fa-spinner fa-spin"></i></span>'
+                    }[f.status] || '';
+
+                    tr.innerHTML = `
+                        <td class="text-center">${statusIcon}</td>
+                        <td>${f.name}</td>
+                        <td>${f.modified?.substring(0,10) || ''}</td>
+                        <td>
+                          <button class="btn btn-sm btn-primary" data-path="${encodeURIComponent(f.path)}" ${f.status==='ok'?'disabled':''}>Векторизовать</button>
+                        </td>`;
+                    tableBody.appendChild(tr);
+                });
+
+                tableBody.querySelectorAll('button[data-path]').forEach(b=>{
+                    b.addEventListener('click', async ()=>{
+                        const path = b.getAttribute('data-path');
+                        b.disabled = true; b.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                        try {
+                            await fetch('api/vectorize_file.php?path='+path);
+                            b.innerHTML = '✓';
+                            b.classList.remove('btn-primary');
+                            b.classList.add('btn-success');
+                        } catch(e){
+                            b.innerHTML = '!';
+                            b.classList.remove('btn-primary');
+                            b.classList.add('btn-danger');
+                        }
+                    });
+                });
+            } catch(e) {
+                tableBody.innerHTML = '<tr><td colspan="4" class="text-danger text-center">Ошибка загрузки</td></tr>';
+            } finally {
+                btn.disabled = false;
+            }
+        });
     }
 }
