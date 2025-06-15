@@ -1504,10 +1504,20 @@ class ResearcherAI {
                         const path = b.getAttribute('data-path');
                         b.disabled = true; b.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
                         try {
-                            await fetch('api/vectorize_file.php?path='+path);
+                            const resp = await fetch('api/vectorize_file.php?path='+path);
+                            const json = await resp.json();
+                            if(!resp.ok){ throw new Error(json.error || 'Vectorize error'); }
+
+                            // Обновляем кнопку
                             b.innerHTML = '✓';
                             b.classList.remove('btn-primary');
                             b.classList.add('btn-success');
+
+                            // Обновляем иконку статуса в первой ячейке строки
+                            const statusCell = b.closest('tr').querySelector('td:first-child');
+                            if(statusCell){
+                                statusCell.innerHTML = '<span class="text-success"><i class="fas fa-check-circle"></i></span>';
+                            }
                         } catch(e){
                             b.innerHTML = '!';
                             b.classList.remove('btn-primary');
