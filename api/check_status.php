@@ -297,17 +297,19 @@ try {
 
                 $data = json_decode($response, true);
 
-                if (isset($data['choices'][0]['message']['content'])) {
-
-                    $status['deepseek'] = 'green';
-
-                    $status['error_messages']['deepseek'] = '🟢 API работает, запросы выполняются';
-
-                } else {
+                if (isset($data['error'])) {
 
                     $status['deepseek'] = 'red';
 
-                    $status['error_messages']['deepseek'] = '🔴 Неверный формат ответа API';
+                    $status['error_messages']['deepseek'] = '🔴 Ошибка API: ' . ($data['error']['message'] ?? 'unknown');
+
+                } else {
+
+                    // Для модели deepseek-reasoner достаточно успешного HTTP 200
+
+                    $status['deepseek'] = 'green';
+
+                    $status['error_messages']['deepseek'] = '🟢 API работает';
 
                 }
 
