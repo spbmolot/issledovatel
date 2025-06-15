@@ -12,8 +12,10 @@ use ResearcherAI\CacheManager;
 use ResearcherAI\Logger;
 
 try {
+    // Получаем и декодируем путь к файлу, так как UI передаёт его через encodeURIComponent
+    $rawPath = $_GET['path'] ?? '';
+    $path = urldecode($rawPath);
     Logger::info("[vectorize_file] Запрос на векторизацию файла: {$path}");
-    $path = $_GET['path'] ?? '';
     if (empty($path)) {
         throw new Exception('Missing path');
     }
