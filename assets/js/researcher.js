@@ -1477,7 +1477,7 @@ class ResearcherAI {
             modal.show();
 
             try {
-                const res = await fetch('api/list_vector_status.php');
+                const res = await fetch('api/list_vector_status.php', {cache: 'no-store'});
                 const data = await res.json();
                 tableBody.innerHTML = '';
                 data.files.forEach(f => {
@@ -1518,14 +1518,16 @@ class ResearcherAI {
                             if(statusCell){
                                 statusCell.innerHTML = '<span class="text-success"><i class="fas fa-check-circle"></i></span>';
                             }
-                        } catch(e){
+                        } catch(e) {
                             b.innerHTML = '!';
                             b.classList.remove('btn-primary');
                             b.classList.add('btn-danger');
+                        } finally {
+                            btn.disabled = false;
                         }
                     });
                 });
-            } catch(e) {
+            } catch (err){
                 tableBody.innerHTML = '<tr><td colspan="4" class="text-danger text-center">Ошибка загрузки</td></tr>';
             } finally {
                 btn.disabled = false;
